@@ -1,17 +1,41 @@
 {
-  "generatedAt": "2026-07-01T16:46:41.919Z",
-  "generatedAtLocal": "1 Jul 2026, 18:46 Europe/Copenhagen",
+  "generatedAt": "2026-07-01T18:18:22.466Z",
+  "generatedAtLocal": "1 Jul 2026, 20:18 Europe/Copenhagen",
   "owner": "Alexander Bustrup",
-  "attentionKey": "red:Holdet improve loop (launchd):error|warn:Holdet dashboard improve:ageing",
+  "attentionKey": "red:Holdet LLM brain:stale|red:Holdet dashboard improve:stale|red:Holdet improve loop (launchd):error|warn:Dashboard self-improve:ageing|warn:Stock maintenance:ageing",
   "summary": {
-    "green": 18,
-    "yellow": 1,
-    "red": 1,
+    "green": 15,
+    "yellow": 2,
+    "red": 3,
     "paused": 1,
     "total": 22,
-    "needsAttention": 2
+    "needsAttention": 5
   },
   "attention": [
+    {
+      "severity": "red",
+      "project": "holdet-tdf",
+      "routine": "Holdet dashboard improve",
+      "message": "Stale — last output 4h ago (expected Hourly).",
+      "kind": "stale",
+      "fix": {
+        "guide": "Holdet dashboard improve hasn't produced output when expected (Hourly).",
+        "prompt": "The scheduled routine \"Holdet dashboard improve\" (One safe read-only improvement to the holdet dashboard, then publishes the refreshed page.) was expected to run Hourly but produced no recent output. Working dir: ~/holdet-tdf-bot. Investigate why it stopped (check its scheduler run and its log), fix the cause, verify a fresh run produces output, and commit. Follow the project's own CLAUDE.md and the holdet-tdf-bot skill, which document its guardrails and protected paths.",
+        "cwd": "~/holdet-tdf-bot"
+      }
+    },
+    {
+      "severity": "red",
+      "project": "holdet-tdf",
+      "routine": "Holdet LLM brain",
+      "message": "Stale — last output 3h ago (expected Hourly).",
+      "kind": "stale",
+      "fix": {
+        "guide": "Holdet LLM brain hasn't produced output when expected (Hourly).",
+        "prompt": "The scheduled routine \"Holdet LLM brain\" (Hourly team brain — keeps one stable plan, re-deciding only on material change.) was expected to run Hourly but produced no recent output. Working dir: ~/holdet-tdf-bot. Investigate why it stopped (check its scheduler run and its log), fix the cause, verify a fresh run produces output, and commit. Follow the project's own CLAUDE.md and the holdet-tdf-bot skill, which document its guardrails and protected paths.",
+        "cwd": "~/holdet-tdf-bot"
+      }
+    },
     {
       "severity": "red",
       "project": "holdet-tdf",
@@ -26,14 +50,26 @@
     },
     {
       "severity": "warn",
-      "project": "holdet-tdf",
-      "routine": "Holdet dashboard improve",
-      "message": "Ageing — last output 3h ago (expected Hourly).",
+      "project": "stock",
+      "routine": "Dashboard self-improve",
+      "message": "Ageing — last output 4h ago (expected Every 2h).",
       "kind": "ageing",
       "fix": {
-        "guide": "Holdet dashboard improve hasn't produced output when expected (Hourly).",
-        "prompt": "The scheduled routine \"Holdet dashboard improve\" (One safe read-only improvement to the holdet dashboard, then publishes the refreshed page.) was expected to run Hourly but produced no recent output. Working dir: ~/holdet-tdf-bot. Investigate why it stopped (check its scheduler run and its log), fix the cause, verify a fresh run produces output, and commit. Follow the project's own CLAUDE.md and the holdet-tdf-bot skill, which document its guardrails and protected paths.",
-        "cwd": "~/holdet-tdf-bot"
+        "guide": "Dashboard self-improve hasn't produced output when expected (Every 2h).",
+        "prompt": "The scheduled routine \"Dashboard self-improve\" (Ships at most ONE strictly-better improvement to the stock dashboard per run via reviewed PR (or nothing).) was expected to run Every 2h but produced no recent output. Working dir: ~/Documents/AI eksperimenter/personal-stock-dashboard. Investigate why it stopped (check its scheduler run and its log), fix the cause, verify a fresh run produces output, and commit. Open a small PR to main and keep CI green. Public repo: demo data only, never real positions or secrets.",
+        "cwd": "~/Documents/AI eksperimenter/personal-stock-dashboard"
+      }
+    },
+    {
+      "severity": "warn",
+      "project": "stock",
+      "routine": "Stock maintenance",
+      "message": "Ageing — last output 4h ago (expected Every 2h).",
+      "kind": "ageing",
+      "fix": {
+        "guide": "Stock maintenance hasn't produced output when expected (Every 2h).",
+        "prompt": "The scheduled routine \"Stock maintenance\" (Structural maintenance passes on the stock dashboard.) was expected to run Every 2h but produced no recent output. Working dir: ~/Documents/AI eksperimenter/personal-stock-dashboard. Investigate why it stopped (check its scheduler run and its log), fix the cause, verify a fresh run produces output, and commit. Open a small PR to main and keep CI green. Public repo: demo data only, never real positions or secrets.",
+        "cwd": "~/Documents/AI eksperimenter/personal-stock-dashboard"
       }
     },
     {
@@ -89,7 +125,7 @@
       "emoji": "🚴",
       "goal": "Autonomously field the optimal holdet.dk Tour de France 2026 team every single day and beat the human field — hands-off, with only a human veto.",
       "note": "Pre-Tour: stage 1 startlist still pending, so the daily brains correctly report 'no material change'. Watch for Tour start.",
-      "health": "yellow",
+      "health": "red",
       "links": [
         {
           "label": "Live dashboard",
@@ -101,7 +137,7 @@
         }
       ],
       "lastPublish": "2026-07-01T14:10:50.000Z",
-      "lastPublishHuman": "3h ago",
+      "lastPublishHuman": "4h ago",
       "lastPublishSubject": "Update dashboard — 2026-07-01 16:10 Europe/Copenhagen",
       "routineCount": 10,
       "routines": [
@@ -123,7 +159,7 @@
       "emoji": "📈",
       "goal": "A calm, trust-first decision instrument that tells me — in one glance — the single sized move my broker never would, and honestly says 'do nothing' when that's right.",
       "note": null,
-      "health": "green",
+      "health": "yellow",
       "links": [
         {
           "label": "Live dashboard",
@@ -135,7 +171,7 @@
         }
       ],
       "lastPublish": "2026-07-01T14:19:33.000Z",
-      "lastPublishHuman": "2h ago",
+      "lastPublishHuman": "4h ago",
       "lastPublishSubject": "refactor: unify duplicated helpers into one home and delete dead code",
       "routineCount": 3,
       "routines": [
@@ -162,7 +198,7 @@
         }
       ],
       "lastPublish": "2026-07-01T10:05:18.000Z",
-      "lastPublishHuman": "7h ago",
+      "lastPublishHuman": "8h ago",
       "lastPublishSubject": "brief: 2026-07-01",
       "routineCount": 6,
       "routines": [
@@ -191,9 +227,9 @@
           "url": "https://github.com/abustrup/Routine-overview"
         }
       ],
-      "lastPublish": "2026-07-01T15:34:05.000Z",
-      "lastPublishHuman": "1h ago",
-      "lastPublishSubject": "improve: surface note-level degradations in roster (honesty); drop dead infos var",
+      "lastPublish": "2026-07-01T16:48:17.000Z",
+      "lastPublishHuman": "2h ago",
+      "lastPublishSubject": "docs: journal the hero-count reconciliation run",
       "routineCount": 2,
       "routines": [
         "routine-overview-secretary",
@@ -213,10 +249,10 @@
       "does": "Refreshes this overview from artifact-truth and flags only what needs attention.",
       "health": "green",
       "private": false,
-      "headline": "improve: surface note-level degradations in roster (honesty); drop dead infos var",
+      "headline": "docs: journal the hero-count reconciliation run",
       "logName": null,
-      "lastOutputAt": "2026-07-01T15:34:05.000Z",
-      "lastOutputHuman": "1h ago",
+      "lastOutputAt": "2026-07-01T16:48:17.000Z",
+      "lastOutputHuman": "2h ago",
       "issues": [],
       "review": null
     },
@@ -231,10 +267,10 @@
       "does": "Ships one low-risk, high-reward maintenance/design improvement to this overview per run (or nothing), toward the Anthropic aesthetic.",
       "health": "green",
       "private": false,
-      "headline": "improve: surface note-level degradations in roster (honesty); drop dead infos var",
+      "headline": "improve: reconcile hero count with the cards it sits above (honesty)",
       "logName": null,
-      "lastOutputAt": "2026-07-01T15:34:05.000Z",
-      "lastOutputHuman": "1h ago",
+      "lastOutputAt": "2026-07-01T16:47:44.000Z",
+      "lastOutputHuman": "2h ago",
       "issues": [],
       "review": null
     },
@@ -252,7 +288,7 @@
       "headline": "published 2026-07-01",
       "logName": null,
       "lastOutputAt": "2026-07-01T10:05:18.509Z",
-      "lastOutputHuman": "7h ago",
+      "lastOutputHuman": "8h ago",
       "issues": [],
       "review": null
     },
@@ -306,7 +342,7 @@
       "headline": "rolling yearly: 2026-07-01",
       "logName": null,
       "lastOutputAt": "2026-07-01T08:56:52.000Z",
-      "lastOutputHuman": "8h ago",
+      "lastOutputHuman": "9h ago",
       "issues": [],
       "review": null
     },
@@ -355,12 +391,12 @@
       "role": "maintainer",
       "enabled": true,
       "does": "Ships at most ONE strictly-better improvement to the stock dashboard per run via reviewed PR (or nothing).",
-      "health": "green",
+      "health": "yellow",
       "private": false,
       "headline": "refactor: unify duplicated helpers into one home and delete dead code",
       "logName": null,
       "lastOutputAt": "2026-07-01T14:19:33.000Z",
-      "lastOutputHuman": "2h ago",
+      "lastOutputHuman": "4h ago",
       "issues": [],
       "review": null
     },
@@ -373,12 +409,12 @@
       "role": "maintainer",
       "enabled": true,
       "does": "Structural maintenance passes on the stock dashboard.",
-      "health": "green",
+      "health": "yellow",
       "private": false,
       "headline": "refactor: unify duplicated helpers into one home and delete dead code",
       "logName": null,
       "lastOutputAt": "2026-07-01T14:19:33.000Z",
-      "lastOutputHuman": "2h ago",
+      "lastOutputHuman": "4h ago",
       "issues": [],
       "review": "Overlaps 'Dashboard self-improve' (both every 2h on the same repo) — worth confirming both still earn their slot."
     },
@@ -409,12 +445,12 @@
       "role": "producer",
       "enabled": true,
       "does": "One safe read-only improvement to the holdet dashboard, then publishes the refreshed page.",
-      "health": "yellow",
+      "health": "red",
       "private": false,
       "headline": "Update dashboard — 2026-07-01 16:10 Europe/Copenhagen",
       "logName": null,
       "lastOutputAt": "2026-07-01T14:10:50.000Z",
-      "lastOutputHuman": "3h ago",
+      "lastOutputHuman": "4h ago",
       "issues": [],
       "review": null
     },
@@ -431,8 +467,8 @@
       "private": true,
       "headline": "ran — no errors detected",
       "logName": null,
-      "lastOutputAt": "2026-07-01T15:53:13.000Z",
-      "lastOutputHuman": "53 min ago",
+      "lastOutputAt": "2026-07-01T17:28:12.000Z",
+      "lastOutputHuman": "50 min ago",
       "issues": [],
       "review": null
     },
@@ -445,12 +481,12 @@
       "role": "producer",
       "enabled": true,
       "does": "Hourly team brain — keeps one stable plan, re-deciding only on material change.",
-      "health": "green",
+      "health": "red",
       "private": true,
-      "headline": "ran — no errors detected",
+      "headline": "error detected in local log — details kept private",
       "logName": null,
       "lastOutputAt": "2026-07-01T15:02:02.791Z",
-      "lastOutputHuman": "2h ago",
+      "lastOutputHuman": "3h ago",
       "issues": [],
       "review": null
     },
@@ -467,8 +503,8 @@
       "private": true,
       "headline": "paused",
       "logName": null,
-      "lastOutputAt": "2026-07-01T15:53:13.000Z",
-      "lastOutputHuman": "53 min ago",
+      "lastOutputAt": "2026-07-01T17:28:12.000Z",
+      "lastOutputHuman": "50 min ago",
       "issues": [],
       "review": "Paused — the live-system guardian is off."
     },
@@ -540,7 +576,7 @@
       "headline": "ran — no errors detected",
       "logName": "evening.log",
       "lastOutputAt": "2026-06-30T21:10:42.109Z",
-      "lastOutputHuman": "20h ago",
+      "lastOutputHuman": "21h ago",
       "issues": [
         {
           "severity": "note",
@@ -563,7 +599,7 @@
       "headline": "ran — no errors detected",
       "logName": "guard.log",
       "lastOutputAt": "2026-07-01T06:33:51.919Z",
-      "lastOutputHuman": "10h ago",
+      "lastOutputHuman": "12h ago",
       "issues": [
         {
           "severity": "note",
@@ -585,8 +621,8 @@
       "private": true,
       "headline": "ran — no errors detected",
       "logName": "watch.log",
-      "lastOutputAt": "2026-07-01T15:49:28.610Z",
-      "lastOutputHuman": "57 min ago",
+      "lastOutputAt": "2026-07-01T17:49:30.777Z",
+      "lastOutputHuman": "29 min ago",
       "issues": [
         {
           "severity": "note",
@@ -608,8 +644,8 @@
       "private": true,
       "headline": "error detected in local log — details kept private",
       "logName": "improve.log",
-      "lastOutputAt": "2026-07-01T12:49:38.412Z",
-      "lastOutputHuman": "4h ago",
+      "lastOutputAt": "2026-07-01T17:49:54.453Z",
+      "lastOutputHuman": "28 min ago",
       "issues": [
         {
           "severity": "error",
