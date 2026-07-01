@@ -24,6 +24,8 @@
         { "label": "Bot repo", "url": "local:holdetBot" }
       ],
       "healthFromRepo": "holdetPages",
+      "fixCwd": "{HOME}/holdet-tdf-bot",
+      "constraints": "Invoke the holdet-tdf-bot skill. Never touch auth/, src/login.js or src/execute.js, and never place a trade or change the trading path.",
       "note": "Pre-Tour: stage 1 startlist still pending, so the daily brains correctly report 'no material change'. Watch for Tour start."
     },
     {
@@ -35,7 +37,9 @@
         { "label": "Live dashboard", "url": "https://abustrup.github.io/personal-stock-dashboard/" },
         { "label": "Repo", "url": "https://github.com/abustrup/personal-stock-dashboard" }
       ],
-      "healthFromRepo": "stock"
+      "healthFromRepo": "stock",
+      "fixCwd": "{HOME}/Documents/AI eksperimenter/personal-stock-dashboard",
+      "constraints": "Open a small PR to main and keep CI green. Public repo: demo data only, never real positions or secrets."
     },
     {
       "id": "news-brief",
@@ -46,7 +50,9 @@
         { "label": "Live brief", "url": "https://abustrup.github.io/alexanders-brief/" },
         { "label": "Repo", "url": "https://github.com/abustrup/alexanders-brief" }
       ],
-      "healthFromRepo": "briefPages"
+      "healthFromRepo": "briefPages",
+      "fixCwd": "{HOME}/Documents/AI eksperimenter/News breif 1",
+      "constraints": "Follow prompts/daily-brief.md. Never expose .env or the publish token; publish at most once per date."
     },
     {
       "id": "meta",
@@ -57,7 +63,9 @@
         { "label": "This dashboard", "url": "https://abustrup.github.io/Routine-overview/" },
         { "label": "Repo", "url": "https://github.com/abustrup/Routine-overview" }
       ],
-      "healthFromRepo": "overview"
+      "healthFromRepo": "overview",
+      "fixCwd": "{HOME}/Documents/AI eksperimenter/Routine overview",
+      "constraints": "Keep it public-safe: health/status only, no secrets or strategy internals. Verify with node scripts/collect.mjs && node scripts/render.mjs before pushing."
     }
   ],
   "routines": [
@@ -66,6 +74,12 @@
       "cadence": "Hourly · :18", "periodHours": 1, "kind": "scheduler", "role": "maintainer", "enabled": true,
       "does": "Refreshes this overview from artifact-truth and flags only what needs attention.",
       "freshness": { "type": "gitAny", "repo": "overview" }
+    },
+    {
+      "id": "routine-overview-improve", "project": "meta", "name": "Overview self-improve",
+      "cadence": "Every 3h", "periodHours": 3, "kind": "scheduler", "role": "maintainer", "enabled": true,
+      "does": "Ships one low-risk, high-reward maintenance/design improvement to this overview per run (or nothing), toward the Anthropic aesthetic.",
+      "freshness": { "type": "gitSubject", "repo": "overview", "match": "^improve:" }
     },
     {
       "id": "daily-news-brief", "project": "news-brief", "name": "Daily news brief",

@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-07-01T14:18:29.532Z",
-  "generatedAtLocal": "1 Jul 2026, 16:18 Europe/Copenhagen",
+  "generatedAt": "2026-07-01T14:27:45.187Z",
+  "generatedAtLocal": "1 Jul 2026, 16:27 Europe/Copenhagen",
   "owner": "Alexander Bustrup",
   "attentionKey": "red:Holdet improve loop (launchd):error",
   "summary": {
@@ -8,7 +8,7 @@
     "yellow": 0,
     "red": 1,
     "paused": 1,
-    "total": 21,
+    "total": 22,
     "needsAttention": 1
   },
   "attention": [
@@ -17,21 +17,36 @@
       "project": "holdet-tdf",
       "routine": "Holdet improve loop (launchd)",
       "message": "error detected in improve.log — details are local-only",
-      "kind": "error"
+      "kind": "error",
+      "fix": {
+        "guide": "Holdet improve loop (launchd) logged an error — it may be broken.",
+        "prompt": "The scheduled routine \"Holdet improve loop (launchd)\" (Backtest + optimize weights; proposes at most one verified improvement.) is erroring. Working dir: ~/holdet-tdf-bot. Read improve.log for the exact error, then find the root cause, fix it, add a guard or test so it can't recur, verify by re-running the step, and commit. Invoke the holdet-tdf-bot skill. Never touch auth/, src/login.js or src/execute.js, and never place a trade or change the trading path.",
+        "cwd": "~/holdet-tdf-bot"
+      }
     },
     {
       "severity": "review",
       "project": "stock",
       "routine": "Stock maintenance",
       "message": "Overlaps 'Dashboard self-improve' (both every 2h on the same repo) — worth confirming both still earn their slot.",
-      "kind": "review"
+      "kind": "review",
+      "fix": {
+        "guide": "Overlaps 'Dashboard self-improve' (both every 2h on the same repo) — worth confirming both still earn their slot.",
+        "prompt": "About the scheduled routine \"Stock maintenance\" (Structural maintenance passes on the stock dashboard.). Working dir: ~/Documents/AI eksperimenter/personal-stock-dashboard. Decision to make: Overlaps 'Dashboard self-improve' (both every 2h on the same repo) — worth confirming both still earn their slot. Investigate, decide the best action, and implement it if warranted; otherwise briefly explain why to leave it as-is. Open a small PR to main and keep CI green. Public repo: demo data only, never real positions or secrets.",
+        "cwd": "~/Documents/AI eksperimenter/personal-stock-dashboard"
+      }
     },
     {
       "severity": "review",
       "project": "unassigned",
       "routine": "Maintenance and improvements",
       "message": "Purpose/target is vague and it runs hourly — decide what it targets (it may be producing the 'chore(maintenance):' commits in holdet-tdf-bot, overlapping the auditor/self-improve), or whether it still earns an hourly slot.",
-      "kind": "review"
+      "kind": "review",
+      "fix": {
+        "guide": "Purpose/target is vague and it runs hourly — decide what it targets (it may be producing the 'chore(maintenance):' commits in holdet-tdf-bot, overlapping the auditor/self-improve), or whether it still earns an hourly slot.",
+        "prompt": "About the scheduled routine \"Maintenance and improvements\" (\"Do maintenance: improve structure\" — target project not specified in the routine name.). Working dir: ~/Documents/AI eksperimenter/Routine overview. Decision to make: Purpose/target is vague and it runs hourly — decide what it targets (it may be producing the 'chore(maintenance):' commits in holdet-tdf-bot, overlapping the auditor/self-improve), or whether it still earns an hourly slot. Investigate, decide the best action, and implement it if warranted; otherwise briefly explain why to leave it as-is. Make a low-risk change, verify it does not break anything, then commit.",
+        "cwd": "~/Documents/AI eksperimenter/Routine overview"
+      }
     },
     {
       "severity": "info",
@@ -67,7 +82,7 @@
         }
       ],
       "lastPublish": "2026-07-01T14:10:50.000Z",
-      "lastPublishHuman": "8 min ago",
+      "lastPublishHuman": "17 min ago",
       "lastPublishSubject": "Update dashboard — 2026-07-01 16:10 Europe/Copenhagen",
       "routineCount": 10,
       "routines": [
@@ -100,9 +115,9 @@
           "url": "https://github.com/abustrup/personal-stock-dashboard"
         }
       ],
-      "lastPublish": "2026-07-01T12:41:16.000Z",
-      "lastPublishHuman": "2h ago",
-      "lastPublishSubject": "feat: re-price the Compare card TOTAL live to match the ledger (#46)",
+      "lastPublish": "2026-07-01T14:19:33.000Z",
+      "lastPublishHuman": "8 min ago",
+      "lastPublishSubject": "refactor: unify duplicated helpers into one home and delete dead code",
       "routineCount": 3,
       "routines": [
         "dashboard-self-improve",
@@ -157,12 +172,13 @@
           "url": "https://github.com/abustrup/Routine-overview"
         }
       ],
-      "lastPublish": "2026-07-01T13:19:52.000Z",
-      "lastPublishHuman": "59 min ago",
-      "lastPublishSubject": "overview: 2026-07-01 15:19 — 18🟢 0🟡 1🔴 1⏸ (steady-state; persistent red already notified)",
-      "routineCount": 1,
+      "lastPublish": "2026-07-01T14:20:42.000Z",
+      "lastPublishHuman": "7 min ago",
+      "lastPublishSubject": "overview: 2026-07-01 16:20 — 18🟢 0🟡 1🔴 1⏸ (steady-state; persistent red, no re-push)",
+      "routineCount": 2,
       "routines": [
-        "routine-overview-secretary"
+        "routine-overview-secretary",
+        "routine-overview-improve"
       ]
     }
   ],
@@ -178,9 +194,28 @@
       "does": "Refreshes this overview from artifact-truth and flags only what needs attention.",
       "health": "green",
       "private": false,
-      "headline": "overview: 2026-07-01 15:19 — 18🟢 0🟡 1🔴 1⏸ (steady-state; persistent red already notified)",
-      "lastOutputAt": "2026-07-01T13:19:52.000Z",
-      "lastOutputHuman": "59 min ago",
+      "headline": "overview: 2026-07-01 16:20 — 18🟢 0🟡 1🔴 1⏸ (steady-state; persistent red, no re-push)",
+      "logName": null,
+      "lastOutputAt": "2026-07-01T14:20:42.000Z",
+      "lastOutputHuman": "7 min ago",
+      "issues": [],
+      "review": null
+    },
+    {
+      "id": "routine-overview-improve",
+      "name": "Overview self-improve",
+      "project": "meta",
+      "cadence": "Every 3h",
+      "kind": "scheduler",
+      "role": "maintainer",
+      "enabled": true,
+      "does": "Ships one low-risk, high-reward maintenance/design improvement to this overview per run (or nothing), toward the Anthropic aesthetic.",
+      "health": "unknown",
+      "private": false,
+      "headline": "",
+      "logName": null,
+      "lastOutputAt": null,
+      "lastOutputHuman": "—",
       "issues": [],
       "review": null
     },
@@ -196,6 +231,7 @@
       "health": "green",
       "private": false,
       "headline": "published 2026-07-01",
+      "logName": null,
       "lastOutputAt": "2026-07-01T10:05:18.509Z",
       "lastOutputHuman": "4h ago",
       "issues": [],
@@ -213,6 +249,7 @@
       "health": "green",
       "private": false,
       "headline": "rolling weekly: 2026-06-30",
+      "logName": null,
       "lastOutputAt": "2026-06-30T12:00:34.000Z",
       "lastOutputHuman": "1d ago",
       "issues": [],
@@ -230,6 +267,7 @@
       "health": "green",
       "private": false,
       "headline": "rolling monthly: 2026-06-30",
+      "logName": null,
       "lastOutputAt": "2026-06-30T10:28:12.000Z",
       "lastOutputHuman": "1d ago",
       "issues": [],
@@ -247,8 +285,9 @@
       "health": "green",
       "private": false,
       "headline": "rolling yearly: 2026-07-01",
+      "logName": null,
       "lastOutputAt": "2026-07-01T08:56:52.000Z",
-      "lastOutputHuman": "5h ago",
+      "lastOutputHuman": "6h ago",
       "issues": [],
       "review": null
     },
@@ -264,6 +303,7 @@
       "health": "green",
       "private": false,
       "headline": "advisory — silent unless it fails",
+      "logName": null,
       "lastOutputAt": null,
       "lastOutputHuman": "—",
       "issues": [],
@@ -281,6 +321,7 @@
       "health": "green",
       "private": false,
       "headline": "advisory — silent unless it fails",
+      "logName": null,
       "lastOutputAt": null,
       "lastOutputHuman": "—",
       "issues": [],
@@ -297,9 +338,10 @@
       "does": "Ships at most ONE strictly-better improvement to the stock dashboard per run via reviewed PR (or nothing).",
       "health": "green",
       "private": false,
-      "headline": "feat: re-price the Compare card TOTAL live to match the ledger (#46)",
-      "lastOutputAt": "2026-07-01T12:41:16.000Z",
-      "lastOutputHuman": "2h ago",
+      "headline": "refactor: unify duplicated helpers into one home and delete dead code",
+      "logName": null,
+      "lastOutputAt": "2026-07-01T14:19:33.000Z",
+      "lastOutputHuman": "8 min ago",
       "issues": [],
       "review": null
     },
@@ -314,9 +356,10 @@
       "does": "Structural maintenance passes on the stock dashboard.",
       "health": "green",
       "private": false,
-      "headline": "feat: re-price the Compare card TOTAL live to match the ledger (#46)",
-      "lastOutputAt": "2026-07-01T12:41:16.000Z",
-      "lastOutputHuman": "2h ago",
+      "headline": "refactor: unify duplicated helpers into one home and delete dead code",
+      "logName": null,
+      "lastOutputAt": "2026-07-01T14:19:33.000Z",
+      "lastOutputHuman": "8 min ago",
       "issues": [],
       "review": "Overlaps 'Dashboard self-improve' (both every 2h on the same repo) — worth confirming both still earn their slot."
     },
@@ -332,6 +375,7 @@
       "health": "green",
       "private": false,
       "headline": "Only acts when integrate-issues are queued; idle is normal.",
+      "logName": null,
       "lastOutputAt": null,
       "lastOutputHuman": "—",
       "issues": [],
@@ -349,8 +393,9 @@
       "health": "green",
       "private": false,
       "headline": "Update dashboard — 2026-07-01 16:10 Europe/Copenhagen",
+      "logName": null,
       "lastOutputAt": "2026-07-01T14:10:50.000Z",
-      "lastOutputHuman": "8 min ago",
+      "lastOutputHuman": "17 min ago",
       "issues": [],
       "review": null
     },
@@ -366,8 +411,9 @@
       "health": "green",
       "private": true,
       "headline": "ran — no errors detected",
+      "logName": null,
       "lastOutputAt": "2026-07-01T14:15:27.000Z",
-      "lastOutputHuman": "3 min ago",
+      "lastOutputHuman": "12 min ago",
       "issues": [],
       "review": null
     },
@@ -383,8 +429,9 @@
       "health": "green",
       "private": true,
       "headline": "ran — no errors detected",
+      "logName": null,
       "lastOutputAt": "2026-07-01T14:09:32.827Z",
-      "lastOutputHuman": "9 min ago",
+      "lastOutputHuman": "18 min ago",
       "issues": [],
       "review": null
     },
@@ -400,8 +447,9 @@
       "health": "paused",
       "private": true,
       "headline": "paused",
+      "logName": null,
       "lastOutputAt": "2026-07-01T14:15:27.000Z",
-      "lastOutputHuman": "3 min ago",
+      "lastOutputHuman": "12 min ago",
       "issues": [],
       "review": "Paused — the live-system guardian is off."
     },
@@ -417,6 +465,7 @@
       "health": "green",
       "private": false,
       "headline": "advisory — silent unless it fails",
+      "logName": null,
       "lastOutputAt": null,
       "lastOutputHuman": "—",
       "issues": [],
@@ -434,6 +483,7 @@
       "health": "green",
       "private": false,
       "headline": "advisory — silent unless it fails",
+      "logName": null,
       "lastOutputAt": null,
       "lastOutputHuman": "—",
       "issues": [],
@@ -451,6 +501,7 @@
       "health": "retired",
       "private": false,
       "headline": "one-time — completed",
+      "logName": null,
       "lastOutputAt": null,
       "lastOutputHuman": "—",
       "issues": [],
@@ -468,6 +519,7 @@
       "health": "green",
       "private": true,
       "headline": "ran — no errors detected",
+      "logName": "evening.log",
       "lastOutputAt": "2026-06-30T21:10:42.109Z",
       "lastOutputHuman": "17h ago",
       "issues": [
@@ -490,6 +542,7 @@
       "health": "green",
       "private": true,
       "headline": "ran — no errors detected",
+      "logName": "guard.log",
       "lastOutputAt": "2026-07-01T06:33:51.919Z",
       "lastOutputHuman": "8h ago",
       "issues": [
@@ -512,8 +565,9 @@
       "health": "green",
       "private": true,
       "headline": "ran — no errors detected",
+      "logName": "watch.log",
       "lastOutputAt": "2026-07-01T13:49:13.588Z",
-      "lastOutputHuman": "29 min ago",
+      "lastOutputHuman": "39 min ago",
       "issues": [],
       "review": null
     },
@@ -529,8 +583,9 @@
       "health": "red",
       "private": true,
       "headline": "error detected in local log — details kept private",
+      "logName": "improve.log",
       "lastOutputAt": "2026-07-01T12:49:38.412Z",
-      "lastOutputHuman": "1h ago",
+      "lastOutputHuman": "2h ago",
       "issues": [
         {
           "severity": "error",

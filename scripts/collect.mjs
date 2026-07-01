@@ -225,6 +225,7 @@ function buildRoutine(r) {
     health,
     private: priv,
     headline,
+    logName: r.scan?.path ? basename(expand(r.scan.path)) : null,
     lastOutputAt: r._fr.atMs ? iso(r._fr.atMs) : null,
     lastOutputHuman: r._fr.advisory || r._fr.retired ? '—' : ageHuman(r._fr.atMs),
     issues,
@@ -287,6 +288,38 @@ for (const r of routines) {
 }
 const sevRank = { red: 0, warn: 1, review: 2, info: 3 };
 attention.sort((a, b) => sevRank[a.severity] - sevRank[b.severity]);
+
+// ---------- one-click fix: a copy-paste prompt for a fresh session ----------
+// Never embeds private log text — points the fix-session at the LOCAL log to read the
+// real error itself, so it stays actionable and leak-safe. Home dir shown as "~".
+const rByName = Object.fromEntries(routines.map((r) => [r.name, r]));
+const projCfg = Object.fromEntries(cfg.projects.map((p) => [p.id, p]));
+const tilde = (s) => (s ? s.split(HOME).join('~') : s);
+function fixFor(a) {
+  if (!['red', 'warn', 'review'].includes(a.severity)) return null;
+  const r = rByName[a.routine];
+  const p = projCfg[a.project] || {};
+  const cwd = tilde(expand(p.fixCwd || cfg.repos.overview));
+  const constraints = p.constraints || 'Make a low-risk change, verify it does not break anything, then commit.';
+  const logName = r?.logName || null;
+  const does = r?.does ? ` (${r.does})` : '';
+  let guide, prompt;
+  if (a.kind === 'error') {
+    guide = `${a.routine} logged an error — it may be broken.`;
+    prompt = `The scheduled routine "${a.routine}"${does} is erroring. Working dir: ${cwd}. ${logName ? `Read ${logName} for the exact error, then find` : 'Find'} the root cause, fix it, add a guard or test so it can't recur, verify by re-running the step, and commit. ${constraints}`;
+  } else if (a.kind === 'stale' || a.kind === 'ageing') {
+    guide = `${a.routine} hasn't produced output when expected (${r?.cadence || 'on schedule'}).`;
+    prompt = `The scheduled routine "${a.routine}"${does} was expected to run ${r?.cadence || 'on schedule'} but produced no recent output. Working dir: ${cwd}. Investigate why it stopped (check its scheduler run and its log), fix the cause, verify a fresh run produces output, and commit. ${constraints}`;
+  } else {
+    guide = a.message;
+    prompt = `About the scheduled routine "${a.routine}"${does}. Working dir: ${cwd}. Decision to make: ${a.message} Investigate, decide the best action, and implement it if warranted; otherwise briefly explain why to leave it as-is. ${constraints}`;
+  }
+  return { guide, prompt: prompt.replace(/\s+/g, ' ').trim(), cwd };
+}
+for (const a of attention) {
+  const f = fixFor(a);
+  if (f) a.fix = f;
+}
 
 // ---------- summary counts (enabled, non-retired routines) ----------
 const counted = routines.filter((r) => r.health !== 'retired' && r.enabled !== false);
