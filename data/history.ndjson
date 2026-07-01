@@ -2,3 +2,4 @@
 {"ts":"2026-07-01T13:19:46.736Z","attentionKey":"red:Holdet improve loop (launchd):error","summary":{"green":18,"yellow":0,"red":1,"paused":1},"attention":5,"actions":[],"notified":false}
 {"ts":"2026-07-01T14:20:29.224Z","attentionKey":"red:Holdet improve loop (launchd):error","summary":{"green":18,"yellow":0,"red":1,"paused":1},"attention":5,"actions":[],"notified":false}
 {"ts":"2026-07-01T18:20:51.296Z","attentionKey":"red:Holdet LLM brain:stale|red:Holdet dashboard improve:stale|red:Holdet improve loop (launchd):error|warn:Dashboard self-improve:ageing|warn:Stock maintenance:ageing","summary":{"green":15,"yellow":2,"red":3,"paused":1},"attention":5,"actions":[],"notified":true}
+{"ts":"2026-07-01T22:19:45Z","attentionKey":"red:Dashboard self-improve:stale|red:Holdet LLM brain:stale|red:Holdet improve loop (launchd):error|red:Stock maintenance:stale","summary":{"green":16,"yellow":0,"red":4,"paused":1},"attention":4,"actions":[],"notified":false}
