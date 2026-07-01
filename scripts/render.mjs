@@ -67,7 +67,6 @@ const verdictTone = red > 0 ? 'alert' : yellow > 0 ? 'warn' : 'calm';
 // ---- attention buckets ----------------------------------------------------
 const urgent = s.attention.filter((a) => a.severity === 'red' || a.severity === 'warn');
 const reviews = s.attention.filter((a) => a.severity === 'review');
-const infos = s.attention.filter((a) => a.severity === 'info');
 
 let uid = 0;
 
@@ -151,17 +150,22 @@ const routineRow = (r) => {
   const issues = r.issues || [];
   const issue =
     issues.find((i) => i.severity === 'error') || issues.find((i) => i.severity === 'warn');
+  // A note-level issue (e.g. a degraded data source) doesn't change the health dot, but
+  // hiding it would show a known degradation as a spotless green row. Surface it in the
+  // headline slot, dimmer than a warn — honest, not alarming.
+  const note = issue ? null : issues.find((i) => i.severity === 'note');
   const tags = [];
   if (r.enabled === false) tags.push('<span class="tag tag--off">paused</span>');
   if (r.kind === 'launchd') tags.push('<span class="tag">launchd</span>');
   if (r.kind === 'oneshot') tags.push('<span class="tag">one-time</span>');
-  const line = issue ? issue.line : r.headline;
+  const line = issue ? issue.line : note ? note.line : r.headline;
+  const headMod = issue ? ' row__head--issue' : note ? ' row__head--note' : '';
   return `<li class="row${muted ? ' row--muted' : ''}">
     <span class="row__dot">${dot(r.health)}</span>
     <span class="row__name">${esc(r.name)}${tags.length ? ' ' + tags.join(' ') : ''}</span>
     <span class="row__cadence">${esc(r.cadence)}</span>
     <span class="row__ago">${esc(r.lastOutputHuman || '—')}</span>
-    <span class="row__head${issue ? ' row__head--issue' : ''}">${esc(line || '')}</span>
+    <span class="row__head${headMod}">${esc(line || '')}</span>
   </li>`;
 };
 
@@ -355,6 +359,7 @@ const html = `<!doctype html>
   .row__head{font-size:12.5px;color:var(--muted);line-height:1.45;min-width:0;
     overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
   .row__head--issue{color:var(--red);font-weight:500}
+  .row__head--note{color:var(--amber)}
   .row--muted{opacity:.52}
   .tag{font-size:10px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);
     border:1px solid var(--line);border-radius:5px;padding:1px 5px;vertical-align:middle}

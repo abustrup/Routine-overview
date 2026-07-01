@@ -178,6 +178,7 @@
   .row__head{font-size:12.5px;color:var(--muted);line-height:1.45;min-width:0;
     overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
   .row__head--issue{color:var(--red);font-weight:500}
+  .row__head--note{color:var(--amber)}
   .row--muted{opacity:.52}
   .tag{font-size:10px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);
     border:1px solid var(--line);border-radius:5px;padding:1px 5px;vertical-align:middle}
@@ -214,7 +215,7 @@
         <p class="eyebrow">Personal routine secretary</p>
         <h1>Routine Overview</h1>
       </div>
-      <div class="stamp">Updated <b>1 Jul 2026, 17:04 Europe/Copenhagen</b></div>
+      <div class="stamp">Updated <b>1 Jul 2026, 17:32 Europe/Copenhagen</b></div>
     </div>
     <p class="subtitle">The health of every scheduled routine across Alexander Bustrup's projects — so you never have to open them one by one.</p>
   </header>
@@ -323,7 +324,7 @@
     <div class="proj__now">
       <span class="proj__now-k">Latest</span>
       <span class="proj__now-v">Update dashboard — 2026-07-01 16:10 Europe/Copenhagen</span>
-      <span class="proj__now-ago">53 min ago</span>
+      <span class="proj__now-ago">1h ago</span>
     </div>
     <p class="proj__note">Pre-Tour: stage 1 startlist still pending, so the daily brains correctly report 'no material change'. Watch for Tour start.</p>
     <div class="proj__links"><a class="chip" href="https://abustrup.github.io/Holdet-TDF-2026/" target="_blank" rel="noopener">Live dashboard<span class="chip__ext" aria-hidden="true">↗</span></a><span class="chip chip--local">Bot repo</span></div>
@@ -337,7 +338,7 @@
     <div class="proj__now">
       <span class="proj__now-k">Latest</span>
       <span class="proj__now-v">refactor: unify duplicated helpers into one home and delete dead code</span>
-      <span class="proj__now-ago">44 min ago</span>
+      <span class="proj__now-ago">1h ago</span>
     </div>
     
     <div class="proj__links"><a class="chip" href="https://abustrup.github.io/personal-stock-dashboard/" target="_blank" rel="noopener">Live dashboard<span class="chip__ext" aria-hidden="true">↗</span></a><a class="chip" href="https://github.com/abustrup/personal-stock-dashboard" target="_blank" rel="noopener">Repo<span class="chip__ext" aria-hidden="true">↗</span></a></div>
@@ -364,8 +365,8 @@
     <p class="proj__goal">Hold the whole picture across every routine and interrupt Alexander only when something genuinely needs him.</p>
     <div class="proj__now">
       <span class="proj__now-k">Latest</span>
-      <span class="proj__now-v">improve: Claude/Anthropic redesign + one-click fix prompts + self-improve routine</span>
-      <span class="proj__now-ago">15 min ago</span>
+      <span class="proj__now-v">improve: fix verification findings — a11y + public-safe fix prompts</span>
+      <span class="proj__now-ago">25 min ago</span>
     </div>
     
     <div class="proj__links"><a class="chip" href="https://abustrup.github.io/Routine-overview/" target="_blank" rel="noopener">This dashboard<span class="chip__ext" aria-hidden="true">↗</span></a><a class="chip" href="https://github.com/abustrup/Routine-overview" target="_blank" rel="noopener">Repo<span class="chip__ext" aria-hidden="true">↗</span></a></div>
@@ -380,25 +381,25 @@
     <span class="row__dot"><span class="dot dot--green" title="Healthy" aria-hidden="true"></span></span>
     <span class="row__name">Holdet dashboard improve</span>
     <span class="row__cadence">Hourly</span>
-    <span class="row__ago">53 min ago</span>
+    <span class="row__ago">1h ago</span>
     <span class="row__head">Update dashboard — 2026-07-01 16:10 Europe/Copenhagen</span>
   </li><li class="row">
     <span class="row__dot"><span class="dot dot--green" title="Healthy" aria-hidden="true"></span></span>
     <span class="row__name">Holdet auditor</span>
     <span class="row__cadence">Every 5h</span>
-    <span class="row__ago">49 min ago</span>
+    <span class="row__ago">1h ago</span>
     <span class="row__head">ran — no errors detected</span>
   </li><li class="row">
     <span class="row__dot"><span class="dot dot--green" title="Healthy" aria-hidden="true"></span></span>
     <span class="row__name">Holdet LLM brain</span>
     <span class="row__cadence">Hourly</span>
-    <span class="row__ago">2 min ago</span>
+    <span class="row__ago">30 min ago</span>
     <span class="row__head">ran — no errors detected</span>
   </li><li class="row row--muted">
     <span class="row__dot"><span class="dot dot--paused" title="Paused" aria-hidden="true"></span></span>
     <span class="row__name">Holdet self-improve <span class="tag tag--off">paused</span></span>
     <span class="row__cadence">Hourly</span>
-    <span class="row__ago">49 min ago</span>
+    <span class="row__ago">1h ago</span>
     <span class="row__head">paused</span>
   </li><li class="row">
     <span class="row__dot"><span class="dot dot--green" title="Healthy" aria-hidden="true"></span></span>
@@ -417,24 +418,24 @@
     <span class="row__name">Holdet evening pass (launchd) <span class="tag">launchd</span></span>
     <span class="row__cadence">~21:05 &amp; ~23:10</span>
     <span class="row__ago">18h ago</span>
-    <span class="row__head">ran — no errors detected</span>
+    <span class="row__head row__head--note">a data source is degraded — details are local-only</span>
   </li><li class="row">
     <span class="row__dot"><span class="dot dot--green" title="Healthy" aria-hidden="true"></span></span>
     <span class="row__name">Holdet DNS guard (launchd) <span class="tag">launchd</span></span>
     <span class="row__cadence">~08:30</span>
     <span class="row__ago">9h ago</span>
-    <span class="row__head">ran — no errors detected</span>
+    <span class="row__head row__head--note">a data source is degraded — details are local-only</span>
   </li><li class="row">
     <span class="row__dot"><span class="dot dot--green" title="Healthy" aria-hidden="true"></span></span>
     <span class="row__name">Holdet watch sentinel (launchd) <span class="tag">launchd</span></span>
     <span class="row__cadence">Hourly</span>
-    <span class="row__ago">15 min ago</span>
+    <span class="row__ago">43 min ago</span>
     <span class="row__head">ran — no errors detected</span>
   </li><li class="row">
     <span class="row__dot"><span class="dot dot--red" title="Needs attention" aria-hidden="true"></span></span>
     <span class="row__name">Holdet improve loop (launchd) <span class="tag">launchd</span></span>
     <span class="row__cadence">Every 5h</span>
-    <span class="row__ago">2h ago</span>
+    <span class="row__ago">3h ago</span>
     <span class="row__head row__head--issue">error detected in improve.log — details are local-only</span>
   </li></ul>
     </div><div class="rgroup">
@@ -443,13 +444,13 @@
     <span class="row__dot"><span class="dot dot--green" title="Healthy" aria-hidden="true"></span></span>
     <span class="row__name">Dashboard self-improve</span>
     <span class="row__cadence">Every 2h</span>
-    <span class="row__ago">44 min ago</span>
+    <span class="row__ago">1h ago</span>
     <span class="row__head">refactor: unify duplicated helpers into one home and delete dead code</span>
   </li><li class="row">
     <span class="row__dot"><span class="dot dot--green" title="Healthy" aria-hidden="true"></span></span>
     <span class="row__name">Stock maintenance</span>
     <span class="row__cadence">Every 2h</span>
-    <span class="row__ago">44 min ago</span>
+    <span class="row__ago">1h ago</span>
     <span class="row__head">refactor: unify duplicated helpers into one home and delete dead code</span>
   </li><li class="row">
     <span class="row__dot"><span class="dot dot--green" title="Healthy" aria-hidden="true"></span></span>
@@ -482,7 +483,7 @@
     <span class="row__dot"><span class="dot dot--green" title="Healthy" aria-hidden="true"></span></span>
     <span class="row__name">Rolling yearly (Året)</span>
     <span class="row__cadence">1st of month · 06:57</span>
-    <span class="row__ago">6h ago</span>
+    <span class="row__ago">7h ago</span>
     <span class="row__head">rolling yearly: 2026-07-01</span>
   </li><li class="row">
     <span class="row__dot"><span class="dot dot--green" title="Healthy" aria-hidden="true"></span></span>
@@ -503,14 +504,14 @@
     <span class="row__dot"><span class="dot dot--green" title="Healthy" aria-hidden="true"></span></span>
     <span class="row__name">Routine secretary (this)</span>
     <span class="row__cadence">Hourly · :18</span>
-    <span class="row__ago">15 min ago</span>
-    <span class="row__head">improve: Claude/Anthropic redesign + one-click fix prompts + self-improve routine</span>
+    <span class="row__ago">25 min ago</span>
+    <span class="row__head">improve: fix verification findings — a11y + public-safe fix prompts</span>
   </li><li class="row">
     <span class="row__dot"><span class="dot dot--green" title="Healthy" aria-hidden="true"></span></span>
     <span class="row__name">Overview self-improve</span>
     <span class="row__cadence">Every 3h</span>
-    <span class="row__ago">15 min ago</span>
-    <span class="row__head">improve: Claude/Anthropic redesign + one-click fix prompts + self-improve routine</span>
+    <span class="row__ago">25 min ago</span>
+    <span class="row__head">improve: fix verification findings — a11y + public-safe fix prompts</span>
   </li></ul>
     </div><div class="rgroup">
       <div class="rgroup__head">❓ Unassigned<span class="rgroup__count">1</span></div>
@@ -527,7 +528,7 @@
   <footer>
     Health is reconstructed from each routine's real artifacts — git commits, run-logs and published files — not just whether the scheduler fired. Silent by design: you get a push only when something needs you.
     <br>
-    Generated 1 Jul 2026, 17:04 Europe/Copenhagen
+    Generated 1 Jul 2026, 17:32 Europe/Copenhagen
     <span class="foot-sep">·</span>
     <a href="https://github.com/abustrup/Routine-overview" target="_blank" rel="noopener">github.com/abustrup/Routine-overview</a>
   </footer>

@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-07-01T15:04:01.552Z",
-  "generatedAtLocal": "1 Jul 2026, 17:04 Europe/Copenhagen",
+  "generatedAt": "2026-07-01T15:32:03.074Z",
+  "generatedAtLocal": "1 Jul 2026, 17:32 Europe/Copenhagen",
   "owner": "Alexander Bustrup",
   "attentionKey": "red:Holdet improve loop (launchd):error",
   "summary": {
@@ -82,7 +82,7 @@
         }
       ],
       "lastPublish": "2026-07-01T14:10:50.000Z",
-      "lastPublishHuman": "53 min ago",
+      "lastPublishHuman": "1h ago",
       "lastPublishSubject": "Update dashboard — 2026-07-01 16:10 Europe/Copenhagen",
       "routineCount": 10,
       "routines": [
@@ -116,7 +116,7 @@
         }
       ],
       "lastPublish": "2026-07-01T14:19:33.000Z",
-      "lastPublishHuman": "44 min ago",
+      "lastPublishHuman": "1h ago",
       "lastPublishSubject": "refactor: unify duplicated helpers into one home and delete dead code",
       "routineCount": 3,
       "routines": [
@@ -172,9 +172,9 @@
           "url": "https://github.com/abustrup/Routine-overview"
         }
       ],
-      "lastPublish": "2026-07-01T14:49:23.000Z",
-      "lastPublishHuman": "15 min ago",
-      "lastPublishSubject": "improve: Claude/Anthropic redesign + one-click fix prompts + self-improve routine",
+      "lastPublish": "2026-07-01T15:07:04.000Z",
+      "lastPublishHuman": "25 min ago",
+      "lastPublishSubject": "improve: fix verification findings — a11y + public-safe fix prompts",
       "routineCount": 2,
       "routines": [
         "routine-overview-secretary",
@@ -194,10 +194,10 @@
       "does": "Refreshes this overview from artifact-truth and flags only what needs attention.",
       "health": "green",
       "private": false,
-      "headline": "improve: Claude/Anthropic redesign + one-click fix prompts + self-improve routine",
+      "headline": "improve: fix verification findings — a11y + public-safe fix prompts",
       "logName": null,
-      "lastOutputAt": "2026-07-01T14:49:23.000Z",
-      "lastOutputHuman": "15 min ago",
+      "lastOutputAt": "2026-07-01T15:07:04.000Z",
+      "lastOutputHuman": "25 min ago",
       "issues": [],
       "review": null
     },
@@ -212,10 +212,10 @@
       "does": "Ships one low-risk, high-reward maintenance/design improvement to this overview per run (or nothing), toward the Anthropic aesthetic.",
       "health": "green",
       "private": false,
-      "headline": "improve: Claude/Anthropic redesign + one-click fix prompts + self-improve routine",
+      "headline": "improve: fix verification findings — a11y + public-safe fix prompts",
       "logName": null,
-      "lastOutputAt": "2026-07-01T14:49:23.000Z",
-      "lastOutputHuman": "15 min ago",
+      "lastOutputAt": "2026-07-01T15:07:04.000Z",
+      "lastOutputHuman": "25 min ago",
       "issues": [],
       "review": null
     },
@@ -287,7 +287,7 @@
       "headline": "rolling yearly: 2026-07-01",
       "logName": null,
       "lastOutputAt": "2026-07-01T08:56:52.000Z",
-      "lastOutputHuman": "6h ago",
+      "lastOutputHuman": "7h ago",
       "issues": [],
       "review": null
     },
@@ -341,7 +341,7 @@
       "headline": "refactor: unify duplicated helpers into one home and delete dead code",
       "logName": null,
       "lastOutputAt": "2026-07-01T14:19:33.000Z",
-      "lastOutputHuman": "44 min ago",
+      "lastOutputHuman": "1h ago",
       "issues": [],
       "review": null
     },
@@ -359,7 +359,7 @@
       "headline": "refactor: unify duplicated helpers into one home and delete dead code",
       "logName": null,
       "lastOutputAt": "2026-07-01T14:19:33.000Z",
-      "lastOutputHuman": "44 min ago",
+      "lastOutputHuman": "1h ago",
       "issues": [],
       "review": "Overlaps 'Dashboard self-improve' (both every 2h on the same repo) — worth confirming both still earn their slot."
     },
@@ -395,7 +395,7 @@
       "headline": "Update dashboard — 2026-07-01 16:10 Europe/Copenhagen",
       "logName": null,
       "lastOutputAt": "2026-07-01T14:10:50.000Z",
-      "lastOutputHuman": "53 min ago",
+      "lastOutputHuman": "1h ago",
       "issues": [],
       "review": null
     },
@@ -413,7 +413,7 @@
       "headline": "ran — no errors detected",
       "logName": null,
       "lastOutputAt": "2026-07-01T14:15:27.000Z",
-      "lastOutputHuman": "49 min ago",
+      "lastOutputHuman": "1h ago",
       "issues": [],
       "review": null
     },
@@ -431,7 +431,7 @@
       "headline": "ran — no errors detected",
       "logName": null,
       "lastOutputAt": "2026-07-01T15:02:02.791Z",
-      "lastOutputHuman": "2 min ago",
+      "lastOutputHuman": "30 min ago",
       "issues": [],
       "review": null
     },
@@ -449,7 +449,7 @@
       "headline": "paused",
       "logName": null,
       "lastOutputAt": "2026-07-01T14:15:27.000Z",
-      "lastOutputHuman": "49 min ago",
+      "lastOutputHuman": "1h ago",
       "issues": [],
       "review": "Paused — the live-system guardian is off."
     },
@@ -567,7 +567,7 @@
       "headline": "ran — no errors detected",
       "logName": "watch.log",
       "lastOutputAt": "2026-07-01T14:49:14.485Z",
-      "lastOutputHuman": "15 min ago",
+      "lastOutputHuman": "43 min ago",
       "issues": [],
       "review": null
     },
@@ -585,7 +585,7 @@
       "headline": "error detected in local log — details kept private",
       "logName": "improve.log",
       "lastOutputAt": "2026-07-01T12:49:38.412Z",
-      "lastOutputHuman": "2h ago",
+      "lastOutputHuman": "3h ago",
       "issues": [
         {
           "severity": "error",
