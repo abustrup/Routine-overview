@@ -3,6 +3,31 @@
 Newest first. Each entry: **Assessment** (the biggest gap seen) → **Move** (what shipped, or "none")
 → **Result**. This is the routine's memory: don't rebuild what's shipped or retry what's declined.
 
+### 2026-07-02 00:45 — project "Latest" line no longer ships raw git-log rationale that argues with the hero (clarity/honesty)
+- **Assessment:** Viewed live (desktop + mobile, light). Page is well-polished; the single worst
+  element was the **Routine Overview** project card's *Latest* line, which rendered this dashboard's
+  own last commit subject verbatim: `overview: … 16🟢 0🟡 4🔴 (4 red false: 3 config-cadence drift
+  vs daily scheduler + 1 flagged holdet error, already notified)`. Two problems: (1) it's a wall of
+  internal operational chatter on an otherwise calm editorial surface — the three producer projects
+  show clean subjects (`brief: 2026-07-01`), so only the meta project exposed this; and (2) the
+  parenthetical literally says **"4 red false"** directly under a hero verdict reading **"4 routines
+  need your attention / 4 broken"** — the page argues with itself. A charter value #1 (honesty
+  coherence) + #2/#4 (skimmability/craft) miss. Cause: `lastPublishSubject` is a derived view of a
+  commit subject, so the secretary's verbose status-line commit style leaked onto the public page.
+- **Move:** In `collect.mjs` only — strip a *trailing* parenthetical (`/\s*\([^()]*\)\s*$/`) from the
+  public project subject before it's written to `status.json`. General, not a meta special-case: a
+  trailing `(…)` in a commit subject is git-log rationale, not dashboard copy. The three producer
+  subjects have no trailing paren, so they're untouched; the meta line becomes the clean
+  `overview: 2026-07-02 00:19 — 16🟢 0🟡 4🔴`. Fixing in collect (not render) keeps the public
+  `status.json` honest too. Contract preserved: no change to `private.roots` sanitisation (private
+  repos still render `updated`), `attentionKey`, or the two-truths health model.
+- **Result:** shipped. Verified: collect+render clean; no template leaks
+  (`undefined`/`NaN`/`[object`/`{repo:`/`{today}`/`{HOME}`); no private text on the page (index.html
+  grep clean for `/Users/`, `fatal:`, `captain`, `topByEv`, `feltet=ERR`, rider/EV — the residual
+  grep hits are benign: "secretary" contains "secret", "secrets" is intentional prompt copy, and the
+  lone "captain" is the pre-existing `does`-field in status.json only, never rendered). DOM-confirmed
+  all four project cards now carry clean, consistent Latest lines on desktop; mobile intact.
+
 ### 2026-07-01 22:47 — attention cards show the concrete condition, not a name-repeating guide (honesty/skimmability)
 - **Assessment:** Viewed live (desktop + light/dark). The fleet had gone into a batch-stale
   state (5🔴 1🟡), so the "Needs your attention" section was a stack of near-identical cards —

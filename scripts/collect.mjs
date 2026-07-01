@@ -251,8 +251,12 @@ const projects = cfg.projects.map((p) => {
   const repoCommit = lastCommit(repoDir);
   const repoAtMs = repoCommit ? Date.parse(repoCommit.when) : null;
   // Project "Now" line uses the public pages repo commit subject — safe by construction,
-  // but guard anyway in case healthFromRepo ever points at a private root.
-  const repoSubject = repoCommit ? (underPrivate(repoDir) ? 'updated' : repoCommit.subject) : null;
+  // but guard anyway in case healthFromRepo ever points at a private root. A trailing
+  // parenthetical is git-log rationale (e.g. this dashboard's own status commits end in
+  // "(… already notified)"), not dashboard copy — strip it so the card stays skimmable
+  // and its "Latest" line never contradicts the hero verdict above it.
+  const cleanSubject = (s) => (s || '').replace(/\s*\([^()]*\)\s*$/, '').trim();
+  const repoSubject = repoCommit ? (underPrivate(repoDir) ? 'updated' : cleanSubject(repoCommit.subject)) : null;
   const links = (p.links || []).map((l) => ({
     label: l.label,
     // Local links render as a plain label (no href); keep the absolute path out of the
