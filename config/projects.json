@@ -25,7 +25,7 @@
       ],
       "healthFromRepo": "holdetPages",
       "fixCwd": "{HOME}/holdet-tdf-bot",
-      "constraints": "Invoke the holdet-tdf-bot skill. Never touch auth/, src/login.js or src/execute.js, and never place a trade or change the trading path.",
+      "constraints": "Follow the project's own CLAUDE.md and the holdet-tdf-bot skill, which document its guardrails and protected paths.",
       "note": "Pre-Tour: stage 1 startlist still pending, so the daily brains correctly report 'no material change'. Watch for Tour start."
     },
     {
@@ -52,7 +52,7 @@
       ],
       "healthFromRepo": "briefPages",
       "fixCwd": "{HOME}/Documents/AI eksperimenter/News breif 1",
-      "constraints": "Follow prompts/daily-brief.md. Never expose .env or the publish token; publish at most once per date."
+      "constraints": "Follow prompts/daily-brief.md and the project's guardrails; never expose any secrets or credentials; publish at most once per date."
     },
     {
       "id": "meta",
@@ -172,7 +172,7 @@
       "cadence": "Hourly", "periodHours": 1, "kind": "scheduler", "role": "maintainer", "enabled": true,
       "does": "\"Do maintenance: improve structure\" — target project not specified in the routine name.",
       "freshness": { "type": "selfAlerting" },
-      "review": "Purpose/target is vague and it runs hourly — decide what it targets (it may be producing the 'chore(maintenance):' commits in holdet-tdf-bot, overlapping the auditor/self-improve), or whether it still earns an hourly slot."
+      "review": "Purpose/target is vague and it runs hourly — decide what it targets (it may overlap another project's maintenance routine) or whether it still earns an hourly slot."
     },
     {
       "id": "holdet-routine-selftest", "project": "holdet-tdf", "name": "Holdet routine self-test",

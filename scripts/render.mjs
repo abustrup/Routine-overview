@@ -148,8 +148,9 @@ const groups = order
 
 const routineRow = (r) => {
   const muted = r.enabled === false || r.health === 'retired';
+  const issues = r.issues || [];
   const issue =
-    r.issues.find((i) => i.severity === 'error') || r.issues.find((i) => i.severity === 'warn');
+    issues.find((i) => i.severity === 'error') || issues.find((i) => i.severity === 'warn');
   const tags = [];
   if (r.enabled === false) tags.push('<span class="tag tag--off">paused</span>');
   if (r.kind === 'launchd') tags.push('<span class="tag">launchd</span>');
@@ -184,8 +185,8 @@ const html = `<!doctype html>
 <style>
   :root{
     --bg:#FAF9F5; --surface:#FFFFFF; --surface-2:#FCFBF8;
-    --ink:#1A1915; --muted:#73706B; --line:#EAE6DD;
-    --accent:#CC785C; --accent-ink:#FFFFFF;
+    --ink:#1A1915; --muted:#6A675F; --line:#EAE6DD;
+    --accent:#CC785C; --accent-strong:#B5624A; --accent-ink:#FFFFFF;
     --ok:#6A8A5B; --amber:#C88A3C; --red:#BE5137; --grey:#B4B0A8;
     --red-wash:#FBF1EE; --amber-wash:#FBF5EC;
     --radius:12px; --radius-sm:9px;
@@ -194,7 +195,7 @@ const html = `<!doctype html>
   @media (prefers-color-scheme:dark){:root{
     --bg:#262624; --surface:#201F1D; --surface-2:#1C1B19;
     --ink:#ECEAE3; --muted:#A5A199; --line:#393732;
-    --accent:#D9866A; --accent-ink:#1A1915;
+    --accent:#D9866A; --accent-strong:#D9866A; --accent-ink:#1A1915;
     --ok:#7FA06E; --amber:#D6A055; --red:#D06B50; --grey:#8B8781;
     --red-wash:#2E2320; --amber-wash:#2C271F;
     --shadow:0 1px 2px rgba(0,0,0,.2);
@@ -210,6 +211,7 @@ const html = `<!doctype html>
   .wrap{max-width:960px;margin:0 auto;padding:40px 24px 96px}
   @media(max-width:520px){.wrap{padding:26px 16px 72px}}
   a{color:inherit}
+  :focus-visible{outline:2px solid var(--accent-strong);outline-offset:2px;border-radius:6px}
 
   /* ---- stale banner ---- */
   .stale{display:flex;gap:12px;align-items:flex-start;
@@ -266,7 +268,7 @@ const html = `<!doctype html>
   .attn__sev{font-size:11px;font-weight:650;letter-spacing:.06em;text-transform:uppercase;
     padding:2px 8px;border-radius:6px;color:#fff}
   .attn--red .attn__sev{background:var(--red)}
-  .attn--warn .attn__sev{background:var(--amber);color:#fff}
+  .attn--warn .attn__sev{background:var(--amber);color:#3A2C14}
   .attn__where{font-weight:600;font-size:14.5px}
   .attn__msg{margin:10px 0 0;line-height:1.5}
 
@@ -275,14 +277,14 @@ const html = `<!doctype html>
   .fix__actions{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
   .btn{font:inherit;font-size:13.5px;cursor:pointer;border-radius:8px;
     border:1px solid transparent;padding:8px 15px;transition:background .12s,border-color .12s,color .12s}
-  .btn--copy{background:var(--accent);color:var(--accent-ink);border-color:var(--accent);
+  .btn--copy{background:var(--accent-strong);color:var(--accent-ink);border-color:var(--accent-strong);
     font-weight:600;position:relative}
   .btn--copy:hover{filter:brightness(1.05)}
   .btn--copy .btn__done{display:none;position:absolute;inset:0;align-items:center;justify-content:center}
   .btn--copy.is-copied{background:var(--ok);border-color:var(--ok);color:#fff}
   .btn--copy.is-copied .btn__label{visibility:hidden}
   .btn--copy.is-copied .btn__done{display:flex}
-  .btn--ghost{background:transparent;color:var(--accent);border-color:var(--accent)}
+  .btn--ghost{background:transparent;color:var(--accent-strong);border-color:var(--accent-strong)}
   .btn--ghost:hover{background:var(--surface-2)}
   .btn--ghost.is-copied{background:var(--ok);border-color:var(--ok);color:#fff}
   .btn--link{background:transparent;color:var(--muted);border-color:transparent;padding:8px 6px;font-weight:500}
@@ -401,10 +403,10 @@ const html = `<!doctype html>
     </div>
     <p class="hero__sub">${esc(verdictSub)}</p>
     <div class="counts">
-      <span class="stat"><span class="dot dot--green"></span><b>${green}</b><span>healthy</span></span>
-      <span class="stat"><span class="dot dot--yellow"></span><b>${yellow}</b><span>ageing</span></span>
-      <span class="stat"><span class="dot dot--red"></span><b>${red}</b><span>needs attention</span></span>
-      <span class="stat"><span class="dot dot--paused"></span><b>${paused}</b><span>paused</span></span>
+      <span class="stat"><span class="dot dot--green" aria-hidden="true"></span><b>${green}</b><span>healthy</span></span>
+      <span class="stat"><span class="dot dot--yellow" aria-hidden="true"></span><b>${yellow}</b><span>ageing</span></span>
+      <span class="stat"><span class="dot dot--red" aria-hidden="true"></span><b>${red}</b><span>needs attention</span></span>
+      <span class="stat"><span class="dot dot--paused" aria-hidden="true"></span><b>${paused}</b><span>paused</span></span>
       <span class="stat stat--total">${total} routines total</span>
     </div>
   </div>
@@ -451,10 +453,7 @@ const html = `<!doctype html>
 <script>
 (function(){
   // Copy fix prompt -> clipboard, with a graceful fallback for non-secure contexts.
-  function copyText(text){
-    if (navigator.clipboard && navigator.clipboard.writeText) {
-      return navigator.clipboard.writeText(text);
-    }
+  function legacyCopy(text){
     return new Promise(function(resolve, reject){
       try {
         var ta = document.createElement('textarea');
@@ -464,11 +463,19 @@ const html = `<!doctype html>
         ta.style.left = '-9999px';
         document.body.appendChild(ta);
         ta.select();
-        document.execCommand('copy');
+        var ok = document.execCommand('copy');
         document.body.removeChild(ta);
-        resolve();
+        if (ok) { resolve(); } else { reject(new Error('execCommand copy failed')); }
       } catch (e) { reject(e); }
     });
+  }
+  function copyText(text){
+    // Prefer the async Clipboard API; fall back to execCommand if it rejects
+    // (e.g. the tab isn't focused) or isn't available (non-secure context).
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      return navigator.clipboard.writeText(text).catch(function(){ return legacyCopy(text); });
+    }
+    return legacyCopy(text);
   }
 
   document.querySelectorAll('[data-copy]').forEach(function(btn){

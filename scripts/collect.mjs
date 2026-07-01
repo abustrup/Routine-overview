@@ -255,7 +255,9 @@ const projects = cfg.projects.map((p) => {
   const repoSubject = repoCommit ? (underPrivate(repoDir) ? 'updated' : repoCommit.subject) : null;
   const links = (p.links || []).map((l) => ({
     label: l.label,
-    url: l.url.startsWith('local:') ? repoDir : l.url,
+    // Local links render as a plain label (no href); keep the absolute path out of the
+    // public status.json by showing it home-relative.
+    url: l.url.startsWith('local:') ? repoDir.split(HOME).join('~') : l.url,
   }));
   return {
     id: p.id, name: p.name, emoji: p.emoji, goal: p.goal, note: p.note || null,
@@ -295,26 +297,42 @@ attention.sort((a, b) => sevRank[a.severity] - sevRank[b.severity]);
 const rByName = Object.fromEntries(routines.map((r) => [r.name, r]));
 const projCfg = Object.fromEntries(cfg.projects.map((p) => [p.id, p]));
 const tilde = (s) => (s ? s.split(HOME).join('~') : s);
+
+// Public-page backstop: this text ships to a PUBLIC repo, so neutralise any residual
+// sensitive detail (protected file paths, secrets, absolute home paths) even if a future
+// config edit reintroduces it. Source strings are already public-safe; this is defence-in-depth.
+const HOME_RE = new RegExp(HOME.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'g');
+const SCRUB = [
+  [/\bauth\/\S*/gi, 'its protected files'],
+  [/\bsrc\/(?:login|execute)\.js\b/gi, 'its protected files'],
+  [/\.env\b/gi, 'secrets'],
+  [/publish token/gi, 'credentials'],
+  [HOME_RE, '~'],
+];
+const scrubPublic = (s) => (s ? SCRUB.reduce((acc, [re, rep]) => acc.replace(re, rep), s) : s);
+
 function fixFor(a) {
   if (!['red', 'warn', 'review'].includes(a.severity)) return null;
   const r = rByName[a.routine];
-  const p = projCfg[a.project] || {};
-  const cwd = tilde(expand(p.fixCwd || cfg.repos.overview));
-  const constraints = p.constraints || 'Make a low-risk change, verify it does not break anything, then commit.';
+  const known = knownProjectIds.has(a.project);
+  const p = known ? projCfg[a.project] : {};
+  const cwd = known ? tilde(expand(p.fixCwd || cfg.repos.overview)) : null;
+  const where = cwd ? `Working dir: ${cwd}.` : `First identify which project this routine belongs to, then work there.`;
+  const constraints = p.constraints || 'Make a change only if you can verify it is safe and does not break anything, then commit.';
   const logName = r?.logName || null;
   const does = r?.does ? ` (${r.does})` : '';
   let guide, prompt;
   if (a.kind === 'error') {
     guide = `${a.routine} logged an error — it may be broken.`;
-    prompt = `The scheduled routine "${a.routine}"${does} is erroring. Working dir: ${cwd}. ${logName ? `Read ${logName} for the exact error, then find` : 'Find'} the root cause, fix it, add a guard or test so it can't recur, verify by re-running the step, and commit. ${constraints}`;
+    prompt = `The scheduled routine "${a.routine}"${does} is erroring. ${where} ${logName ? `Read ${logName} for the exact error, then find` : 'Find'} the root cause, fix it, add a guard or test so it can't recur, verify by re-running the step, and commit. ${constraints}`;
   } else if (a.kind === 'stale' || a.kind === 'ageing') {
     guide = `${a.routine} hasn't produced output when expected (${r?.cadence || 'on schedule'}).`;
-    prompt = `The scheduled routine "${a.routine}"${does} was expected to run ${r?.cadence || 'on schedule'} but produced no recent output. Working dir: ${cwd}. Investigate why it stopped (check its scheduler run and its log), fix the cause, verify a fresh run produces output, and commit. ${constraints}`;
+    prompt = `The scheduled routine "${a.routine}"${does} was expected to run ${r?.cadence || 'on schedule'} but produced no recent output. ${where} Investigate why it stopped (check its scheduler run and its log), fix the cause, verify a fresh run produces output, and commit. ${constraints}`;
   } else {
     guide = a.message;
-    prompt = `About the scheduled routine "${a.routine}"${does}. Working dir: ${cwd}. Decision to make: ${a.message} Investigate, decide the best action, and implement it if warranted; otherwise briefly explain why to leave it as-is. ${constraints}`;
+    prompt = `About the scheduled routine "${a.routine}"${does}. ${where} Decision to make: ${a.message} Investigate, decide the best action, and implement it if warranted; otherwise briefly explain why to leave it as-is. ${constraints}`;
   }
-  return { guide, prompt: prompt.replace(/\s+/g, ' ').trim(), cwd };
+  return { guide: scrubPublic(guide), prompt: scrubPublic(prompt.replace(/\s+/g, ' ').trim()), cwd: scrubPublic(cwd) };
 }
 for (const a of attention) {
   const f = fixFor(a);
