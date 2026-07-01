@@ -3,6 +3,30 @@
 Newest first. Each entry: **Assessment** (the biggest gap seen) → **Move** (what shipped, or "none")
 → **Result**. This is the routine's memory: don't rebuild what's shipped or retry what's declined.
 
+### 2026-07-01 22:47 — attention cards show the concrete condition, not a name-repeating guide (honesty/skimmability)
+- **Assessment:** Viewed live (desktop + light/dark). The fleet had gone into a batch-stale
+  state (5🔴 1🟡), so the "Needs your attention" section was a stack of near-identical cards —
+  and each one **stated the routine name twice**: the card header already renders
+  `📈 Dashboard self-improve`, then the body rendered `a.fix.guide`, which *starts with the same
+  name* ("Dashboard self-improve hasn't produced output when expected (Every 2h)."). Worse, the
+  guide **dropped the concrete age**: the more-informative `a.message` ("Stale — last output
+  **6h ago** (expected Every 2h).") was sitting unused. A charter value #1/#2 miss — honesty
+  (show *when*, per "uncertainty shown, not hidden") plus skimmability ("every element earns its
+  place"). The two card renderers were the only consumers of `guide`, and for review cards
+  `guide === message` already, so this was also latent duplication.
+- **Move:** In `render.mjs` only — both `attnCard` and `reviewCard` now render `a.message`
+  instead of `a.fix ? a.fix.guide : a.message`. Result: no card repeats the header's name; every
+  stale/ageing card shows the real age ("last output 6h ago"); the private error card reads
+  "error detected in improve.log — details are local-only", keeping the two-truths honesty visible
+  on the card. The copy-fix-prompt affordance (`fixBlock`, which uses `a.fix.prompt`) is untouched;
+  `guide` stays in `status.json` (harmless). `collect.mjs` untouched — no contract change.
+- **Result:** shipped. Verified: collect+render clean; no template leaks
+  (`undefined`/`NaN`/`[object`/`{repo:`/`{today}`/`{HOME}`); no private text on the page (grep of
+  index.html clean for `/Users/`, `fatal:`, `topByEv`, `feltet=ERR`, rider/captain/EV — the lone
+  "captain" hit is the pre-existing benign `does` field in status.json only, never rendered).
+  DOM-confirmed all six attention-card bodies render the concrete condition on desktop; light+dark
+  intact.
+
 ### 2026-07-01 20:40 — give unassigned attention/review cards their glyph (craft/consistency)
 - **Assessment:** Viewed live (desktop + mobile). The page is well-polished, but the two
   "Worth a decision" cards sit adjacent and one read as a rendering miss: **"Stock maintenance"

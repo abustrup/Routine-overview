@@ -99,6 +99,11 @@ const fixBlock = (a, variant) => {
   </div>`;
 };
 
+// The card header already names the routine, so the body shows `message` (not the
+// fix `guide`, which restates the name): message never repeats the header and, for
+// stale/ageing, carries the concrete age ("last output 6h ago") the guide drops —
+// more honest and more skimmable. For a private source it reads "…details are
+// local-only", keeping the two-truths honesty visible on the card itself.
 const attnCard = (a) => `<article class="attn attn--${esc(a.severity)}">
   <div class="attn__bar" aria-hidden="true"></div>
   <div class="attn__main">
@@ -106,7 +111,7 @@ const attnCard = (a) => `<article class="attn attn--${esc(a.severity)}">
       <span class="attn__sev">${a.severity === 'red' ? 'Broken' : 'Warning'}</span>
       <span class="attn__where">${esc(projEmoji[a.project] || '')} ${esc(a.routine)}</span>
     </div>
-    <p class="attn__msg">${esc(a.fix ? a.fix.guide : a.message)}</p>
+    <p class="attn__msg">${esc(a.message)}</p>
     ${fixBlock(a, 'attn')}
   </div>
 </article>`;
@@ -115,7 +120,7 @@ const reviewCard = (a) => `<article class="review">
   <div class="review__head">
     <span class="review__where">${esc(projEmoji[a.project] || '')} ${esc(a.routine)}</span>
   </div>
-  <p class="review__msg">${esc(a.fix ? a.fix.guide : a.message)}</p>
+  <p class="review__msg">${esc(a.message)}</p>
   ${fixBlock(a, 'review')}
 </article>`;
 
