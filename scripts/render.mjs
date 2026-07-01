@@ -47,6 +47,7 @@ const staleBanner = isStale
 const projName = Object.fromEntries(s.projects.map((p) => [p.id, `${p.emoji} ${p.name}`]));
 projName.unassigned = '❓ Unassigned';
 const projEmoji = Object.fromEntries(s.projects.map((p) => [p.id, p.emoji]));
+projEmoji.unassigned = '❓'; // mirror projName.unassigned so attention/review cards get a glyph too
 
 // ---- verdict --------------------------------------------------------------
 // The "Needs your attention" section below bundles red + warn, so the headline

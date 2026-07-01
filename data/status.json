@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-07-01T18:18:22.466Z",
-  "generatedAtLocal": "1 Jul 2026, 20:18 Europe/Copenhagen",
+  "generatedAt": "2026-07-01T18:44:26.780Z",
+  "generatedAtLocal": "1 Jul 2026, 20:44 Europe/Copenhagen",
   "owner": "Alexander Bustrup",
   "attentionKey": "red:Holdet LLM brain:stale|red:Holdet dashboard improve:stale|red:Holdet improve loop (launchd):error|warn:Dashboard self-improve:ageing|warn:Stock maintenance:ageing",
   "summary": {
@@ -16,7 +16,7 @@
       "severity": "red",
       "project": "holdet-tdf",
       "routine": "Holdet dashboard improve",
-      "message": "Stale — last output 4h ago (expected Hourly).",
+      "message": "Stale — last output 5h ago (expected Hourly).",
       "kind": "stale",
       "fix": {
         "guide": "Holdet dashboard improve hasn't produced output when expected (Hourly).",
@@ -28,7 +28,7 @@
       "severity": "red",
       "project": "holdet-tdf",
       "routine": "Holdet LLM brain",
-      "message": "Stale — last output 3h ago (expected Hourly).",
+      "message": "Stale — last output 4h ago (expected Hourly).",
       "kind": "stale",
       "fix": {
         "guide": "Holdet LLM brain hasn't produced output when expected (Hourly).",
@@ -137,7 +137,7 @@
         }
       ],
       "lastPublish": "2026-07-01T14:10:50.000Z",
-      "lastPublishHuman": "4h ago",
+      "lastPublishHuman": "5h ago",
       "lastPublishSubject": "Update dashboard — 2026-07-01 16:10 Europe/Copenhagen",
       "routineCount": 10,
       "routines": [
@@ -198,7 +198,7 @@
         }
       ],
       "lastPublish": "2026-07-01T10:05:18.000Z",
-      "lastPublishHuman": "8h ago",
+      "lastPublishHuman": "9h ago",
       "lastPublishSubject": "brief: 2026-07-01",
       "routineCount": 6,
       "routines": [
@@ -227,9 +227,9 @@
           "url": "https://github.com/abustrup/Routine-overview"
         }
       ],
-      "lastPublish": "2026-07-01T16:48:17.000Z",
-      "lastPublishHuman": "2h ago",
-      "lastPublishSubject": "docs: journal the hero-count reconciliation run",
+      "lastPublish": "2026-07-01T18:20:57.000Z",
+      "lastPublishHuman": "23 min ago",
+      "lastPublishSubject": "overview: 2026-07-01 20:20 — 15🟢 2🟡 3🔴 (3 red/warn are false: config cadence drift vs scheduler)",
       "routineCount": 2,
       "routines": [
         "routine-overview-secretary",
@@ -249,10 +249,10 @@
       "does": "Refreshes this overview from artifact-truth and flags only what needs attention.",
       "health": "green",
       "private": false,
-      "headline": "docs: journal the hero-count reconciliation run",
+      "headline": "overview: 2026-07-01 20:20 — 15🟢 2🟡 3🔴 (3 red/warn are false: config cadence drift vs scheduler)",
       "logName": null,
-      "lastOutputAt": "2026-07-01T16:48:17.000Z",
-      "lastOutputHuman": "2h ago",
+      "lastOutputAt": "2026-07-01T18:20:57.000Z",
+      "lastOutputHuman": "23 min ago",
       "issues": [],
       "review": null
     },
@@ -288,7 +288,7 @@
       "headline": "published 2026-07-01",
       "logName": null,
       "lastOutputAt": "2026-07-01T10:05:18.509Z",
-      "lastOutputHuman": "8h ago",
+      "lastOutputHuman": "9h ago",
       "issues": [],
       "review": null
     },
@@ -342,7 +342,7 @@
       "headline": "rolling yearly: 2026-07-01",
       "logName": null,
       "lastOutputAt": "2026-07-01T08:56:52.000Z",
-      "lastOutputHuman": "9h ago",
+      "lastOutputHuman": "10h ago",
       "issues": [],
       "review": null
     },
@@ -450,7 +450,7 @@
       "headline": "Update dashboard — 2026-07-01 16:10 Europe/Copenhagen",
       "logName": null,
       "lastOutputAt": "2026-07-01T14:10:50.000Z",
-      "lastOutputHuman": "4h ago",
+      "lastOutputHuman": "5h ago",
       "issues": [],
       "review": null
     },
@@ -468,7 +468,7 @@
       "headline": "ran — no errors detected",
       "logName": null,
       "lastOutputAt": "2026-07-01T17:28:12.000Z",
-      "lastOutputHuman": "50 min ago",
+      "lastOutputHuman": "1h ago",
       "issues": [],
       "review": null
     },
@@ -486,7 +486,7 @@
       "headline": "error detected in local log — details kept private",
       "logName": null,
       "lastOutputAt": "2026-07-01T15:02:02.791Z",
-      "lastOutputHuman": "3h ago",
+      "lastOutputHuman": "4h ago",
       "issues": [],
       "review": null
     },
@@ -504,7 +504,7 @@
       "headline": "paused",
       "logName": null,
       "lastOutputAt": "2026-07-01T17:28:12.000Z",
-      "lastOutputHuman": "50 min ago",
+      "lastOutputHuman": "1h ago",
       "issues": [],
       "review": "Paused — the live-system guardian is off."
     },
@@ -576,7 +576,7 @@
       "headline": "ran — no errors detected",
       "logName": "evening.log",
       "lastOutputAt": "2026-06-30T21:10:42.109Z",
-      "lastOutputHuman": "21h ago",
+      "lastOutputHuman": "22h ago",
       "issues": [
         {
           "severity": "note",
@@ -622,7 +622,7 @@
       "headline": "ran — no errors detected",
       "logName": "watch.log",
       "lastOutputAt": "2026-07-01T17:49:30.777Z",
-      "lastOutputHuman": "29 min ago",
+      "lastOutputHuman": "55 min ago",
       "issues": [
         {
           "severity": "note",
@@ -645,7 +645,7 @@
       "headline": "error detected in local log — details kept private",
       "logName": "improve.log",
       "lastOutputAt": "2026-07-01T17:49:54.453Z",
-      "lastOutputHuman": "28 min ago",
+      "lastOutputHuman": "55 min ago",
       "issues": [
         {
           "severity": "error",

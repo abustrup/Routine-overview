@@ -3,6 +3,27 @@
 Newest first. Each entry: **Assessment** (the biggest gap seen) → **Move** (what shipped, or "none")
 → **Result**. This is the routine's memory: don't rebuild what's shipped or retry what's declined.
 
+### 2026-07-01 20:40 — give unassigned attention/review cards their glyph (craft/consistency)
+- **Assessment:** Viewed live (desktop + mobile). The page is well-polished, but the two
+  "Worth a decision" cards sit adjacent and one read as a rendering miss: **"Stock maintenance"
+  carried its 📈 glyph while "Maintenance and improvements" had none.** Every other routine/
+  project reference on the page leads with an emoji, and the roster group already renders
+  "❓ Unassigned" for that same routine — so the naked card was an internal inconsistency. Cause:
+  `render.mjs` kept two parallel lookups from `s.projects` (`projName` for roster headers,
+  `projEmoji` for card headers); a prior run patched the `unassigned` fallback into `projName`
+  only, so `projEmoji['unassigned']` was `undefined` → `''`. A charter value #2/#4 (clarity +
+  craft) miss. (The 3 red / 2 warn are the known config-cadence-vs-scheduler false positives the
+  secretary flagged — out of this routine's safe scope, so left untouched.)
+- **Move:** One line in `render.mjs` — `projEmoji.unassigned = '❓'`, mirroring the existing
+  `projName.unassigned` beside it, restoring the invariant that every project id resolves in both
+  lookups. Now the review card shows "❓ Maintenance and improvements", which also reinforces the
+  card's own message (this routine isn't assigned to a project). `collect.mjs` untouched — no
+  contract change.
+- **Result:** shipped. Verified: collect+render clean; no template leaks
+  (`undefined`/`NaN`/`[object`/`{repo:`/`{today}`); no private text on page or in status.json
+  (no `/Users/`, `fatal:`, `topByEv`, `feltet=ERR`, rider/captain/EV). DOM-confirmed both review
+  cards now lead with a glyph; mobile layout intact.
+
 ### 2026-07-01 18:45 — reconcile the hero count with its own cards (honesty/clarity)
 - **Assessment:** Live page had a single-source-of-truth drift. The hero verdict counted only
   `red` ("1 routine needs your attention"), but the **"Needs your attention"** section directly
