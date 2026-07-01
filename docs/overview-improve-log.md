@@ -3,6 +3,23 @@
 Newest first. Each entry: **Assessment** (the biggest gap seen) → **Move** (what shipped, or "none")
 → **Result**. This is the routine's memory: don't rebuild what's shipped or retry what's declined.
 
+### 2026-07-01 18:45 — reconcile the hero count with its own cards (honesty/clarity)
+- **Assessment:** Live page had a single-source-of-truth drift. The hero verdict counted only
+  `red` ("1 routine needs your attention"), but the **"Needs your attention"** section directly
+  below bundles `red + warn` and showed **2** cards (1 broken + 1 ageing). Worse, the word "needs
+  attention" pointed at two different numbers on one screen — the red counts-chip (=1) *and* the
+  section header. A verdict that undercounts the cards it sits above is a **charter value #1/#2**
+  miss (honesty, then skimmable-in-3s: the top number must reconcile with what's shown).
+- **Move:** In `render.mjs` only — count `red + yellow` in the red-branch headline so it matches
+  the cards; when both exist, the sub-line now breaks them out ("1 broken, 1 ageing — everything
+  else is running clean") to keep the "nothing catastrophic" nuance the old red-only headline had;
+  and renamed the red counts-chip "needs attention" → "broken" (matching the existing BROKEN card
+  badge) so that phrase no longer means two numbers. `collect.mjs` untouched — no contract change.
+- **Result:** shipped `b59f892`. Verified: collect+render clean; no template leaks; no private
+  text on the page (page grep clean; the lone `does`-field "captain" is pre-existing, status.json
+  only, never rendered). Every number now agrees — hero "2 need attention" = chips (1 broken +
+  1 ageing) = 2 cards. Confirmed on desktop and mobile.
+
 ### 2026-07-01 17:30 — surface note-level degradations (honesty)
 - **Assessment:** Two private holdet routines (evening pass, DNS guard) carry an info/note-level
   "a data source is degraded" issue, but `render.mjs` dropped note-severity entirely — showing
