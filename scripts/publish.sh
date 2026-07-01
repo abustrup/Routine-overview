@@ -6,7 +6,7 @@ cd "$(dirname "$0")/.."
 
 read -r G Y R P < <(node -e '
   const s=require("./data/status.json").summary;
-  process.stdout.write(`${s.green} ${s.yellow} ${s.red} ${s.paused}`);
+  console.log(`${s.green} ${s.yellow} ${s.red} ${s.paused}`);
 ')
 
 git add -A

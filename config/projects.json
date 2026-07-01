@@ -6,7 +6,8 @@
     "holdetPages": "{HOME}/Documents/AI eksperimenter/Holdet-TDF-2026-pages",
     "briefPages": "{HOME}/Documents/AI eksperimenter/alexanders-brief-pages",
     "stock": "{HOME}/Documents/AI eksperimenter/personal-stock-dashboard",
-    "holdetBot": "{HOME}/holdet-tdf-bot"
+    "holdetBot": "{HOME}/holdet-tdf-bot",
+    "overview": "{HOME}/Documents/AI eksperimenter/Routine overview"
   },
   "projects": [
     {
@@ -42,9 +43,26 @@
         { "label": "Repo", "url": "https://github.com/abustrup/alexanders-brief" }
       ],
       "healthFromRepo": "briefPages"
+    },
+    {
+      "id": "meta",
+      "name": "Routine Overview",
+      "emoji": "🗂️",
+      "goal": "Hold the whole picture across every routine and interrupt Alexander only when something genuinely needs him.",
+      "links": [
+        { "label": "This dashboard", "url": "https://abustrup.github.io/Routine-overview/" },
+        { "label": "Repo", "url": "https://github.com/abustrup/Routine-overview" }
+      ],
+      "healthFromRepo": "overview"
     }
   ],
   "routines": [
+    {
+      "id": "routine-overview-secretary", "project": "meta", "name": "Routine secretary (this)",
+      "cadence": "Hourly · :18", "periodHours": 1, "kind": "scheduler", "role": "maintainer", "enabled": true,
+      "does": "Refreshes this overview from artifact-truth and flags only what needs attention.",
+      "freshness": { "type": "gitAny", "repo": "overview" }
+    },
     {
       "id": "daily-news-brief", "project": "news-brief", "name": "Daily news brief",
       "cadence": "Daily · 06:02", "periodHours": 24, "kind": "scheduler", "role": "producer", "enabled": true,

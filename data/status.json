@@ -1,13 +1,13 @@
 {
-  "generatedAt": "2026-07-01T11:19:01.140Z",
-  "generatedAtLocal": "1 Jul 2026, 13:19 Europe/Copenhagen",
+  "generatedAt": "2026-07-01T11:27:43.175Z",
+  "generatedAtLocal": "1 Jul 2026, 13:27 Europe/Copenhagen",
   "owner": "Alexander Bustrup",
   "summary": {
-    "green": 15,
+    "green": 16,
     "yellow": 0,
     "red": 1,
     "paused": 3,
-    "total": 20,
+    "total": 21,
     "needsAttention": 1
   },
   "attention": [
@@ -68,7 +68,7 @@
       "emoji": "🚴",
       "goal": "Autonomously field the optimal holdet.dk Tour de France 2026 team every single day and beat the human field — hands-off, with only a human veto.",
       "note": "Pre-Tour: stage 1 startlist still pending, so the daily brains correctly report 'no material change'. Watch for Tour start.",
-      "health": "red",
+      "health": "yellow",
       "links": [
         {
           "label": "Live dashboard",
@@ -80,7 +80,7 @@
         }
       ],
       "lastPublish": "2026-07-01T11:16:23.000Z",
-      "lastPublishHuman": "3 min ago",
+      "lastPublishHuman": "11 min ago",
       "lastPublishSubject": "Update dashboard — 2026-07-01 13:16 Europe/Copenhagen",
       "routineCount": 10,
       "routines": [
@@ -114,7 +114,7 @@
         }
       ],
       "lastPublish": "2026-07-01T11:15:20.000Z",
-      "lastPublishHuman": "4 min ago",
+      "lastPublishHuman": "12 min ago",
       "lastPublishSubject": "chore: prune dead code, unify duplication, harden refresh script",
       "routineCount": 3,
       "routines": [
@@ -152,9 +152,50 @@
         "daily-deadline-check",
         "health-monitor"
       ]
+    },
+    {
+      "id": "meta",
+      "name": "Routine Overview",
+      "emoji": "🗂️",
+      "goal": "Hold the whole picture across every routine and interrupt Alexander only when something genuinely needs him.",
+      "note": null,
+      "health": "green",
+      "links": [
+        {
+          "label": "This dashboard",
+          "url": "https://abustrup.github.io/Routine-overview/"
+        },
+        {
+          "label": "Repo",
+          "url": "https://github.com/abustrup/Routine-overview"
+        }
+      ],
+      "lastPublish": "2026-07-01T11:25:17.000Z",
+      "lastPublishHuman": "2 min ago",
+      "lastPublishSubject": "Routine Overview: hourly secretary + dashboard",
+      "routineCount": 1,
+      "routines": [
+        "routine-overview-secretary"
+      ]
     }
   ],
   "routines": [
+    {
+      "id": "routine-overview-secretary",
+      "name": "Routine secretary (this)",
+      "project": "meta",
+      "cadence": "Hourly · :18",
+      "kind": "scheduler",
+      "role": "maintainer",
+      "enabled": true,
+      "does": "Refreshes this overview from artifact-truth and flags only what needs attention.",
+      "health": "green",
+      "headline": "Routine Overview: hourly secretary + dashboard",
+      "lastOutputAt": "2026-07-01T11:25:17.000Z",
+      "lastOutputHuman": "2 min ago",
+      "issues": [],
+      "review": null
+    },
     {
       "id": "daily-news-brief",
       "name": "Daily news brief",
@@ -215,7 +256,7 @@
       "health": "green",
       "headline": "rolling yearly: 2026-07-01",
       "lastOutputAt": "2026-07-01T08:56:52.000Z",
-      "lastOutputHuman": "2h ago",
+      "lastOutputHuman": "3h ago",
       "issues": [],
       "review": null
     },
@@ -263,7 +304,7 @@
       "health": "green",
       "headline": "chore: prune dead code, unify duplication, harden refresh script",
       "lastOutputAt": "2026-07-01T11:15:20.000Z",
-      "lastOutputHuman": "4 min ago",
+      "lastOutputHuman": "12 min ago",
       "issues": [],
       "review": null
     },
@@ -279,7 +320,7 @@
       "health": "green",
       "headline": "chore: prune dead code, unify duplication, harden refresh script",
       "lastOutputAt": "2026-07-01T11:15:20.000Z",
-      "lastOutputHuman": "4 min ago",
+      "lastOutputHuman": "12 min ago",
       "issues": [],
       "review": "Overlaps 'Dashboard self-improve' (both every 2h on the same repo) — worth confirming both still earn their slot."
     },
@@ -311,7 +352,7 @@
       "health": "green",
       "headline": "Update dashboard — 2026-07-01 13:16 Europe/Copenhagen",
       "lastOutputAt": "2026-07-01T11:16:23.000Z",
-      "lastOutputHuman": "3 min ago",
+      "lastOutputHuman": "11 min ago",
       "issues": [],
       "review": null
     },
@@ -325,9 +366,9 @@
       "enabled": true,
       "does": "Red-team audit + fixer of the holdet bot (third brain).",
       "health": "green",
-      "headline": "chore(maintenance): correct doc-drift + remove dead telegram config",
-      "lastOutputAt": "2026-07-01T10:45:38.000Z",
-      "lastOutputHuman": "33 min ago",
+      "headline": "fix(brain): guard in-race DNS replacement against illegal roster + fusion stage-type key",
+      "lastOutputAt": "2026-07-01T11:22:40.000Z",
+      "lastOutputHuman": "5 min ago",
       "issues": [],
       "review": null
     },
@@ -357,9 +398,9 @@
       "enabled": false,
       "does": "Hourly guardian: verifies the live system still works; fixes at most one verified issue.",
       "health": "paused",
-      "headline": "chore(maintenance): correct doc-drift + remove dead telegram config",
-      "lastOutputAt": "2026-07-01T10:45:38.000Z",
-      "lastOutputHuman": "33 min ago",
+      "headline": "fix(brain): guard in-race DNS replacement against illegal roster + fusion stage-type key",
+      "lastOutputAt": "2026-07-01T11:22:40.000Z",
+      "lastOutputHuman": "5 min ago",
       "issues": [],
       "review": "Paused — the live-system guardian is off."
     },
@@ -465,7 +506,7 @@
       "health": "green",
       "headline": "[watch] no material change (stage 1, startlist pending). no-op.",
       "lastOutputAt": "2026-07-01T10:49:11.193Z",
-      "lastOutputHuman": "30 min ago",
+      "lastOutputHuman": "39 min ago",
       "issues": [],
       "review": null
     },
