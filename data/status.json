@@ -1,13 +1,13 @@
 {
-  "generatedAt": "2026-07-01T11:57:16.055Z",
-  "generatedAtLocal": "1 Jul 2026, 13:57 Europe/Copenhagen",
+  "generatedAt": "2026-07-01T12:55:19.339Z",
+  "generatedAtLocal": "1 Jul 2026, 14:55 Europe/Copenhagen",
   "owner": "Alexander Bustrup",
   "attentionKey": "red:Holdet improve loop (launchd):error",
   "summary": {
-    "green": 16,
+    "green": 18,
     "yellow": 0,
     "red": 1,
-    "paused": 3,
+    "paused": 1,
     "total": 21,
     "needsAttention": 1
   },
@@ -25,20 +25,6 @@
       "routine": "Stock maintenance",
       "message": "Overlaps 'Dashboard self-improve' (both every 2h on the same repo) — worth confirming both still earn their slot.",
       "kind": "review"
-    },
-    {
-      "severity": "review",
-      "project": "holdet-tdf",
-      "routine": "Holdet LLM brain",
-      "message": "Paused. The bot's daily brain — confirm this is intended to stay off until the Tour starts.",
-      "kind": "paused-producer"
-    },
-    {
-      "severity": "review",
-      "project": "holdet-tdf",
-      "routine": "Holdet Team B cycle",
-      "message": "Paused.",
-      "kind": "paused-producer"
     },
     {
       "severity": "review",
@@ -80,9 +66,9 @@
           "url": "/Users/alexanderbustrup/Documents/AI eksperimenter/Holdet-TDF-2026-pages"
         }
       ],
-      "lastPublish": "2026-07-01T11:40:22.000Z",
-      "lastPublishHuman": "17 min ago",
-      "lastPublishSubject": "Add light/dark theme toggle — 2026-07-01 13:40",
+      "lastPublish": "2026-07-01T12:39:58.000Z",
+      "lastPublishHuman": "15 min ago",
+      "lastPublishSubject": "Polish overview brain tile — 2026-07-01 14:39",
       "routineCount": 10,
       "routines": [
         "holdet-dashboard-improve",
@@ -114,9 +100,9 @@
           "url": "https://github.com/abustrup/personal-stock-dashboard"
         }
       ],
-      "lastPublish": "2026-07-01T11:15:20.000Z",
-      "lastPublishHuman": "42 min ago",
-      "lastPublishSubject": "chore: prune dead code, unify duplication, harden refresh script",
+      "lastPublish": "2026-07-01T12:41:16.000Z",
+      "lastPublishHuman": "14 min ago",
+      "lastPublishSubject": "feat: re-price the Compare card TOTAL live to match the ledger (#46)",
       "routineCount": 3,
       "routines": [
         "dashboard-self-improve",
@@ -142,7 +128,7 @@
         }
       ],
       "lastPublish": "2026-07-01T10:05:18.000Z",
-      "lastPublishHuman": "2h ago",
+      "lastPublishHuman": "3h ago",
       "lastPublishSubject": "brief: 2026-07-01",
       "routineCount": 6,
       "routines": [
@@ -171,9 +157,9 @@
           "url": "https://github.com/abustrup/Routine-overview"
         }
       ],
-      "lastPublish": "2026-07-01T11:28:18.000Z",
-      "lastPublishHuman": "29 min ago",
-      "lastPublishSubject": "overview: 2026-07-01 13:28 — 16🟢 0🟡 1🔴 3⏸",
+      "lastPublish": "2026-07-01T11:57:41.000Z",
+      "lastPublishHuman": "58 min ago",
+      "lastPublishSubject": "overview: 2026-07-01 13:57 — 16🟢 0🟡 1🔴 3⏸",
       "routineCount": 1,
       "routines": [
         "routine-overview-secretary"
@@ -192,9 +178,9 @@
       "does": "Refreshes this overview from artifact-truth and flags only what needs attention.",
       "health": "green",
       "private": false,
-      "headline": "overview: 2026-07-01 13:28 — 16🟢 0🟡 1🔴 3⏸",
-      "lastOutputAt": "2026-07-01T11:28:18.000Z",
-      "lastOutputHuman": "29 min ago",
+      "headline": "overview: 2026-07-01 13:57 — 16🟢 0🟡 1🔴 3⏸",
+      "lastOutputAt": "2026-07-01T11:57:41.000Z",
+      "lastOutputHuman": "58 min ago",
       "issues": [],
       "review": null
     },
@@ -211,7 +197,7 @@
       "private": false,
       "headline": "published 2026-07-01",
       "lastOutputAt": "2026-07-01T10:05:18.509Z",
-      "lastOutputHuman": "2h ago",
+      "lastOutputHuman": "3h ago",
       "issues": [],
       "review": null
     },
@@ -228,7 +214,7 @@
       "private": false,
       "headline": "rolling weekly: 2026-06-30",
       "lastOutputAt": "2026-06-30T12:00:34.000Z",
-      "lastOutputHuman": "24h ago",
+      "lastOutputHuman": "1d ago",
       "issues": [],
       "review": null
     },
@@ -262,7 +248,7 @@
       "private": false,
       "headline": "rolling yearly: 2026-07-01",
       "lastOutputAt": "2026-07-01T08:56:52.000Z",
-      "lastOutputHuman": "3h ago",
+      "lastOutputHuman": "4h ago",
       "issues": [],
       "review": null
     },
@@ -311,9 +297,9 @@
       "does": "Ships at most ONE strictly-better improvement to the stock dashboard per run via reviewed PR (or nothing).",
       "health": "green",
       "private": false,
-      "headline": "chore: prune dead code, unify duplication, harden refresh script",
-      "lastOutputAt": "2026-07-01T11:15:20.000Z",
-      "lastOutputHuman": "42 min ago",
+      "headline": "feat: re-price the Compare card TOTAL live to match the ledger (#46)",
+      "lastOutputAt": "2026-07-01T12:41:16.000Z",
+      "lastOutputHuman": "14 min ago",
       "issues": [],
       "review": null
     },
@@ -328,9 +314,9 @@
       "does": "Structural maintenance passes on the stock dashboard.",
       "health": "green",
       "private": false,
-      "headline": "chore: prune dead code, unify duplication, harden refresh script",
-      "lastOutputAt": "2026-07-01T11:15:20.000Z",
-      "lastOutputHuman": "42 min ago",
+      "headline": "feat: re-price the Compare card TOTAL live to match the ledger (#46)",
+      "lastOutputAt": "2026-07-01T12:41:16.000Z",
+      "lastOutputHuman": "14 min ago",
       "issues": [],
       "review": "Overlaps 'Dashboard self-improve' (both every 2h on the same repo) — worth confirming both still earn their slot."
     },
@@ -362,9 +348,9 @@
       "does": "One safe read-only improvement to the holdet dashboard, then publishes the refreshed page.",
       "health": "green",
       "private": false,
-      "headline": "Add light/dark theme toggle — 2026-07-01 13:40",
-      "lastOutputAt": "2026-07-01T11:40:22.000Z",
-      "lastOutputHuman": "17 min ago",
+      "headline": "Polish overview brain tile — 2026-07-01 14:39",
+      "lastOutputAt": "2026-07-01T12:39:58.000Z",
+      "lastOutputHuman": "15 min ago",
       "issues": [],
       "review": null
     },
@@ -380,8 +366,8 @@
       "health": "green",
       "private": true,
       "headline": "ran — no errors detected",
-      "lastOutputAt": "2026-07-01T11:22:40.000Z",
-      "lastOutputHuman": "35 min ago",
+      "lastOutputAt": "2026-07-01T12:45:44.000Z",
+      "lastOutputHuman": "10 min ago",
       "issues": [],
       "review": null
     },
@@ -392,15 +378,15 @@
       "cadence": "Hourly",
       "kind": "scheduler",
       "role": "producer",
-      "enabled": false,
+      "enabled": true,
       "does": "Hourly team brain — keeps one stable plan, re-deciding only on material change.",
-      "health": "paused",
+      "health": "green",
       "private": true,
-      "headline": "paused",
-      "lastOutputAt": "2026-06-30T14:13:07.450Z",
-      "lastOutputHuman": "22h ago",
+      "headline": "ran — no errors detected",
+      "lastOutputAt": "2026-07-01T12:18:56.719Z",
+      "lastOutputHuman": "36 min ago",
       "issues": [],
-      "review": "Paused. The bot's daily brain — confirm this is intended to stay off until the Tour starts."
+      "review": null
     },
     {
       "id": "holdet-self-improve",
@@ -414,8 +400,8 @@
       "health": "paused",
       "private": true,
       "headline": "paused",
-      "lastOutputAt": "2026-07-01T11:22:40.000Z",
-      "lastOutputHuman": "35 min ago",
+      "lastOutputAt": "2026-07-01T12:45:44.000Z",
+      "lastOutputHuman": "10 min ago",
       "issues": [],
       "review": "Paused — the live-system guardian is off."
     },
@@ -426,15 +412,15 @@
       "cadence": "Every 5h",
       "kind": "scheduler",
       "role": "producer",
-      "enabled": false,
+      "enabled": true,
       "does": "Forced swap + new captain each run on the Team B entry; auto-stops when the Tour starts.",
-      "health": "paused",
+      "health": "green",
       "private": false,
       "headline": "advisory — silent unless it fails",
       "lastOutputAt": null,
       "lastOutputHuman": "—",
       "issues": [],
-      "review": "Paused."
+      "review": null
     },
     {
       "id": "maintenance-and-improvements",
@@ -483,7 +469,7 @@
       "private": true,
       "headline": "ran — no errors detected",
       "lastOutputAt": "2026-06-30T21:10:42.109Z",
-      "lastOutputHuman": "15h ago",
+      "lastOutputHuman": "16h ago",
       "issues": [
         {
           "severity": "note",
@@ -505,7 +491,7 @@
       "private": true,
       "headline": "ran — no errors detected",
       "lastOutputAt": "2026-07-01T06:33:51.919Z",
-      "lastOutputHuman": "5h ago",
+      "lastOutputHuman": "6h ago",
       "issues": [
         {
           "severity": "note",
@@ -526,8 +512,8 @@
       "health": "green",
       "private": true,
       "headline": "ran — no errors detected",
-      "lastOutputAt": "2026-07-01T11:49:11.987Z",
-      "lastOutputHuman": "8 min ago",
+      "lastOutputAt": "2026-07-01T12:49:12.817Z",
+      "lastOutputHuman": "6 min ago",
       "issues": [],
       "review": null
     },
@@ -543,8 +529,8 @@
       "health": "red",
       "private": true,
       "headline": "error detected in local log — details kept private",
-      "lastOutputAt": "2026-06-30T21:28:18.291Z",
-      "lastOutputHuman": "14h ago",
+      "lastOutputAt": "2026-07-01T12:49:38.412Z",
+      "lastOutputHuman": "6 min ago",
       "issues": [
         {
           "severity": "error",

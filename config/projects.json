@@ -136,10 +136,9 @@
     },
     {
       "id": "holdet-llm-brain", "project": "holdet-tdf", "name": "Holdet LLM brain",
-      "cadence": "Hourly", "periodHours": 1, "kind": "scheduler", "role": "producer", "enabled": false,
+      "cadence": "Hourly", "periodHours": 1, "kind": "scheduler", "role": "producer", "enabled": true,
       "does": "Hourly team brain — keeps one stable plan, re-deciding only on material change.",
-      "freshness": { "type": "fileMtime", "path": "{repo:holdetBot}/data/snapshots/plan-latest.json" },
-      "review": "Paused. The bot's daily brain — confirm this is intended to stay off until the Tour starts."
+      "freshness": { "type": "fileMtime", "path": "{repo:holdetBot}/data/snapshots/plan-latest.json" }
     },
     {
       "id": "holdet-self-improve", "project": "holdet-tdf", "name": "Holdet self-improve",
@@ -150,10 +149,9 @@
     },
     {
       "id": "holdet-team-b-cycle", "project": "holdet-tdf", "name": "Holdet Team B cycle",
-      "cadence": "Every 5h", "periodHours": 5, "kind": "scheduler", "role": "producer", "enabled": false,
+      "cadence": "Every 5h", "periodHours": 5, "kind": "scheduler", "role": "producer", "enabled": true,
       "does": "Forced swap + new captain each run on the Team B entry; auto-stops when the Tour starts.",
-      "freshness": { "type": "selfAlerting" },
-      "review": "Paused."
+      "freshness": { "type": "selfAlerting" }
     },
     {
       "id": "maintenance-and-improvements", "project": "unassigned", "name": "Maintenance and improvements",
