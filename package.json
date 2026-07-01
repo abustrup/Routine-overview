@@ -1,0 +1,13 @@
+{
+  "name": "routine-overview",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "One dashboard for every scheduled routine across Alexander's projects.",
+  "scripts": {
+    "collect": "node scripts/collect.mjs",
+    "render": "node scripts/render.mjs",
+    "update": "node scripts/collect.mjs && node scripts/render.mjs && bash scripts/publish.sh"
+  },
+  "engines": { "node": ">=18" }
+}

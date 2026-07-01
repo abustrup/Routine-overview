@@ -1,0 +1,185 @@
+{
+  "_doc": "Registry that drives the collector. Each routine declares a 'freshness' source (where its real output lands) and an optional 'scan' (log error/warn patterns). Health is reconstructed from artifacts so the collector needs no scheduler access. Paths may use {HOME} and {today} (Europe/Copenhagen YYYY-MM-DD) tokens.",
+  "owner": "Alexander Bustrup",
+  "timezone": "Europe/Copenhagen",
+  "repos": {
+    "holdetPages": "{HOME}/Documents/AI eksperimenter/Holdet-TDF-2026-pages",
+    "briefPages": "{HOME}/Documents/AI eksperimenter/alexanders-brief-pages",
+    "stock": "{HOME}/Documents/AI eksperimenter/personal-stock-dashboard",
+    "holdetBot": "{HOME}/holdet-tdf-bot"
+  },
+  "projects": [
+    {
+      "id": "holdet-tdf",
+      "name": "Holdet TDF bot",
+      "emoji": "🚴",
+      "goal": "Autonomously field the optimal holdet.dk Tour de France 2026 team every single day and beat the human field — hands-off, with only a human veto.",
+      "links": [
+        { "label": "Live dashboard", "url": "https://abustrup.github.io/Holdet-TDF-2026/" },
+        { "label": "Bot repo", "url": "local:holdetBot" }
+      ],
+      "healthFromRepo": "holdetPages",
+      "note": "Pre-Tour: stage 1 startlist still pending, so the daily brains correctly report 'no material change'. Watch for Tour start."
+    },
+    {
+      "id": "stock",
+      "name": "Personal stock dashboard",
+      "emoji": "📈",
+      "goal": "A calm, trust-first decision instrument that tells me — in one glance — the single sized move my broker never would, and honestly says 'do nothing' when that's right.",
+      "links": [
+        { "label": "Live dashboard", "url": "https://abustrup.github.io/personal-stock-dashboard/" },
+        { "label": "Repo", "url": "https://github.com/abustrup/personal-stock-dashboard" }
+      ],
+      "healthFromRepo": "stock"
+    },
+    {
+      "id": "news-brief",
+      "name": "Alexanders Brief",
+      "emoji": "📰",
+      "goal": "Publish a trustworthy, beautifully-edited Danish morning brief every day before 06:40 — sharper and broader than any single newspaper.",
+      "links": [
+        { "label": "Live brief", "url": "https://abustrup.github.io/alexanders-brief/" },
+        { "label": "Repo", "url": "https://github.com/abustrup/alexanders-brief" }
+      ],
+      "healthFromRepo": "briefPages"
+    }
+  ],
+  "routines": [
+    {
+      "id": "daily-news-brief", "project": "news-brief", "name": "Daily news brief",
+      "cadence": "Daily · 06:02", "periodHours": 24, "kind": "scheduler", "role": "producer", "enabled": true,
+      "does": "Researches, validates and publishes the Danish morning brief before the 06:40 deadline.",
+      "freshness": { "type": "fileToday", "path": "{repo:briefPages}/data/{today}.json", "fallback": { "type": "gitSubject", "repo": "briefPages", "match": "^brief:" } }
+    },
+    {
+      "id": "rolling-weekly", "project": "news-brief", "name": "Rolling weekly (Ugen)",
+      "cadence": "Daily · 06:48", "periodHours": 24, "kind": "scheduler", "role": "producer", "enabled": true,
+      "does": "Refreshes the 7-day rollup edition from the published dailies.",
+      "freshness": { "type": "gitSubject", "repo": "briefPages", "match": "^rolling weekly" }
+    },
+    {
+      "id": "rolling-monthly", "project": "news-brief", "name": "Rolling monthly (Måneden)",
+      "cadence": "Mondays · 07:02", "periodHours": 168, "kind": "scheduler", "role": "producer", "enabled": true,
+      "does": "Refreshes the 30-day rollup edition.",
+      "freshness": { "type": "gitSubject", "repo": "briefPages", "match": "^rolling monthly" }
+    },
+    {
+      "id": "rolling-yearly", "project": "news-brief", "name": "Rolling yearly (Året)",
+      "cadence": "1st of month · 06:57", "periodHours": 744, "kind": "scheduler", "role": "producer", "enabled": true,
+      "does": "Refreshes the 12-month rollup edition.",
+      "freshness": { "type": "gitSubject", "repo": "briefPages", "match": "^rolling yearly" }
+    },
+    {
+      "id": "daily-deadline-check", "project": "news-brief", "name": "Daily deadline check",
+      "cadence": "Daily · 06:45", "periodHours": 24, "kind": "scheduler", "role": "monitor", "enabled": true,
+      "does": "Verifies today's brief published before 06:40; push-alerts only on a confirmed miss.",
+      "freshness": { "type": "selfAlerting" }
+    },
+    {
+      "id": "health-monitor", "project": "news-brief", "name": "Health monitor",
+      "cadence": "Twice daily · 08:11 / 20:11", "periodHours": 12, "kind": "scheduler", "role": "monitor", "enabled": true,
+      "does": "Checks the live brief pages are reachable; push-alerts only on confirmed failure.",
+      "freshness": { "type": "selfAlerting" }
+    },
+    {
+      "id": "dashboard-self-improve", "project": "stock", "name": "Dashboard self-improve",
+      "cadence": "Every 2h", "periodHours": 2, "kind": "scheduler", "role": "maintainer", "enabled": true,
+      "does": "Ships at most ONE strictly-better improvement to the stock dashboard per run via reviewed PR (or nothing).",
+      "freshness": { "type": "gitAny", "repo": "stock" }
+    },
+    {
+      "id": "stock---do-maintenance-improve-structure", "project": "stock", "name": "Stock maintenance",
+      "cadence": "Every 2h", "periodHours": 2, "kind": "scheduler", "role": "maintainer", "enabled": true,
+      "does": "Structural maintenance passes on the stock dashboard.",
+      "freshness": { "type": "gitAny", "repo": "stock" },
+      "review": "Overlaps 'Dashboard self-improve' (both every 2h on the same repo) — worth confirming both still earn their slot."
+    },
+    {
+      "id": "watchlist-integration", "project": "stock", "name": "Watchlist integration",
+      "cadence": "Daily · 07:00", "periodHours": 24, "kind": "scheduler", "role": "producer", "enabled": true,
+      "does": "Integrates watchlist companies queued as GitHub issues into the dashboard via reviewable PR.",
+      "freshness": { "type": "selfAlerting", "note": "Only acts when integrate-issues are queued; idle is normal." }
+    },
+    {
+      "id": "holdet-dashboard-improve", "project": "holdet-tdf", "name": "Holdet dashboard improve",
+      "cadence": "Hourly", "periodHours": 1, "kind": "scheduler", "role": "producer", "enabled": true,
+      "does": "One safe read-only improvement to the holdet dashboard, then publishes the refreshed page.",
+      "freshness": { "type": "gitAny", "repo": "holdetPages" }
+    },
+    {
+      "id": "holdet-auditor", "project": "holdet-tdf", "name": "Holdet auditor",
+      "cadence": "Every 5h", "periodHours": 5, "kind": "scheduler", "role": "maintainer", "enabled": true,
+      "does": "Red-team audit + fixer of the holdet bot (third brain).",
+      "freshness": { "type": "gitAny", "repo": "holdetBot" }
+    },
+    {
+      "id": "holdet-llm-brain", "project": "holdet-tdf", "name": "Holdet LLM brain",
+      "cadence": "Hourly", "periodHours": 1, "kind": "scheduler", "role": "producer", "enabled": false,
+      "does": "Hourly team brain — keeps one stable plan, re-deciding only on material change.",
+      "freshness": { "type": "fileMtime", "path": "{repo:holdetBot}/data/snapshots/plan-latest.json" },
+      "review": "Paused. The bot's daily brain — confirm this is intended to stay off until the Tour starts."
+    },
+    {
+      "id": "holdet-self-improve", "project": "holdet-tdf", "name": "Holdet self-improve",
+      "cadence": "Hourly", "periodHours": 1, "kind": "scheduler", "role": "maintainer", "enabled": false,
+      "does": "Hourly guardian: verifies the live system still works; fixes at most one verified issue.",
+      "freshness": { "type": "gitAny", "repo": "holdetBot" },
+      "review": "Paused — the live-system guardian is off."
+    },
+    {
+      "id": "holdet-team-b-cycle", "project": "holdet-tdf", "name": "Holdet Team B cycle",
+      "cadence": "Every 5h", "periodHours": 5, "kind": "scheduler", "role": "producer", "enabled": false,
+      "does": "Forced swap + new captain each run on the Team B entry; auto-stops when the Tour starts.",
+      "freshness": { "type": "selfAlerting" },
+      "review": "Paused."
+    },
+    {
+      "id": "maintenance-and-improvements", "project": "unassigned", "name": "Maintenance and improvements",
+      "cadence": "Hourly", "periodHours": 1, "kind": "scheduler", "role": "maintainer", "enabled": true,
+      "does": "\"Do maintenance: improve structure\" — target project not specified in the routine name.",
+      "freshness": { "type": "selfAlerting" },
+      "review": "Purpose/target is vague and it runs hourly — decide what it targets, or whether it still earns an hourly slot."
+    },
+    {
+      "id": "holdet-routine-selftest", "project": "holdet-tdf", "name": "Holdet routine self-test",
+      "cadence": "One-time", "periodHours": 0, "kind": "oneshot", "role": "monitor", "enabled": false,
+      "does": "One-time check that routines run under the Max account and can write bot files.",
+      "freshness": { "type": "retired" }
+    }
+  ],
+  "launchd": [
+    {
+      "id": "holdet-evening", "project": "holdet-tdf", "name": "Holdet evening pass (launchd)",
+      "cadence": "~21:05 & ~23:10", "periodHours": 24, "kind": "launchd", "role": "producer",
+      "does": "Full daily chain: collect → decide → notify+veto → execute+verify on holdet.dk.",
+      "freshness": { "type": "logMtime", "path": "{repo:holdetBot}/logs/evening.log" },
+      "scan": { "path": "{repo:holdetBot}/logs/evening.log", "error": ["fatal:", "Traceback", "is not defined", "Cannot read", "Uncaught"], "warn": [], "note": ["feltet=ERR"], "ignore": ["already handled"] }
+    },
+    {
+      "id": "holdet-guard", "project": "holdet-tdf", "name": "Holdet DNS guard (launchd)",
+      "cadence": "~08:30", "periodHours": 24, "kind": "launchd", "role": "monitor",
+      "does": "Morning start-list re-check for non-starters (DNS) before the stage.",
+      "freshness": { "type": "logMtime", "path": "{repo:holdetBot}/logs/guard.log" },
+      "scan": { "path": "{repo:holdetBot}/logs/guard.log", "error": ["fatal:", "Traceback", "is not defined"], "note": ["feltet=ERR"] }
+    },
+    {
+      "id": "holdet-watch", "project": "holdet-tdf", "name": "Holdet watch sentinel (launchd)",
+      "cadence": "Hourly", "periodHours": 1, "kind": "launchd", "role": "monitor",
+      "does": "Hourly read-only sentinel; reconciles results and flags material change.",
+      "freshness": { "type": "logMtime", "path": "{repo:holdetBot}/logs/watch.log" },
+      "scan": { "path": "{repo:holdetBot}/logs/watch.log", "error": ["fatal:", "Traceback", "is not defined"], "note": ["feltet=ERR"] }
+    },
+    {
+      "id": "holdet-improve", "project": "holdet-tdf", "name": "Holdet improve loop (launchd)",
+      "cadence": "Every 5h", "periodHours": 5, "kind": "launchd", "role": "maintainer",
+      "does": "Backtest + optimize weights; proposes at most one verified improvement.",
+      "freshness": { "type": "logMtime", "path": "{repo:holdetBot}/logs/improve.log" },
+      "scan": { "path": "{repo:holdetBot}/logs/improve.log", "error": ["fatal:", "Traceback", "is not defined", "Cannot read", "Uncaught"], "ignore": ["LLM advisor: unavailable", "no LLM auth", "skipping auto-merge"] }
+    }
+  ],
+  "thresholds": {
+    "_doc": "Staleness multipliers on periodHours. green < warnAt; yellow warnAt..staleAt; red > staleAt.",
+    "warnAt": 1.75,
+    "staleAt": 3.0
+  }
+}

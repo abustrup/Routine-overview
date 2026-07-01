@@ -1,0 +1,494 @@
+{
+  "generatedAt": "2026-07-01T11:19:01.140Z",
+  "generatedAtLocal": "1 Jul 2026, 13:19 Europe/Copenhagen",
+  "owner": "Alexander Bustrup",
+  "summary": {
+    "green": 15,
+    "yellow": 0,
+    "red": 1,
+    "paused": 3,
+    "total": 20,
+    "needsAttention": 1
+  },
+  "attention": [
+    {
+      "severity": "red",
+      "project": "holdet-tdf",
+      "routine": "Holdet improve loop (launchd)",
+      "message": "[improve] fatal: last is not defined",
+      "kind": "error"
+    },
+    {
+      "severity": "review",
+      "project": "stock",
+      "routine": "Stock maintenance",
+      "message": "Overlaps 'Dashboard self-improve' (both every 2h on the same repo) — worth confirming both still earn their slot.",
+      "kind": "review"
+    },
+    {
+      "severity": "review",
+      "project": "holdet-tdf",
+      "routine": "Holdet LLM brain",
+      "message": "Paused. The bot's daily brain — confirm this is intended to stay off until the Tour starts.",
+      "kind": "paused-producer"
+    },
+    {
+      "severity": "review",
+      "project": "holdet-tdf",
+      "routine": "Holdet Team B cycle",
+      "message": "Paused.",
+      "kind": "paused-producer"
+    },
+    {
+      "severity": "review",
+      "project": "unassigned",
+      "routine": "Maintenance and improvements",
+      "message": "Purpose/target is vague and it runs hourly — decide what it targets, or whether it still earns an hourly slot.",
+      "kind": "review"
+    },
+    {
+      "severity": "info",
+      "project": "holdet-tdf",
+      "routine": "Holdet evening pass (launchd)",
+      "message": "[collect] snapshot written for stage 1; sources: pcs=ok betxpert=ok axelgaard=ok feltet=ERR",
+      "kind": "note"
+    },
+    {
+      "severity": "info",
+      "project": "holdet-tdf",
+      "routine": "Holdet DNS guard (launchd)",
+      "message": "[collect] snapshot written for stage 1; sources: pcs=ok betxpert=ok axelgaard=ok feltet=ERR",
+      "kind": "note"
+    }
+  ],
+  "projects": [
+    {
+      "id": "holdet-tdf",
+      "name": "Holdet TDF bot",
+      "emoji": "🚴",
+      "goal": "Autonomously field the optimal holdet.dk Tour de France 2026 team every single day and beat the human field — hands-off, with only a human veto.",
+      "note": "Pre-Tour: stage 1 startlist still pending, so the daily brains correctly report 'no material change'. Watch for Tour start.",
+      "health": "red",
+      "links": [
+        {
+          "label": "Live dashboard",
+          "url": "https://abustrup.github.io/Holdet-TDF-2026/"
+        },
+        {
+          "label": "Bot repo",
+          "url": "/Users/alexanderbustrup/Documents/AI eksperimenter/Holdet-TDF-2026-pages"
+        }
+      ],
+      "lastPublish": "2026-07-01T11:16:23.000Z",
+      "lastPublishHuman": "3 min ago",
+      "lastPublishSubject": "Update dashboard — 2026-07-01 13:16 Europe/Copenhagen",
+      "routineCount": 10,
+      "routines": [
+        "holdet-dashboard-improve",
+        "holdet-auditor",
+        "holdet-llm-brain",
+        "holdet-self-improve",
+        "holdet-team-b-cycle",
+        "holdet-routine-selftest",
+        "holdet-evening",
+        "holdet-guard",
+        "holdet-watch",
+        "holdet-improve"
+      ]
+    },
+    {
+      "id": "stock",
+      "name": "Personal stock dashboard",
+      "emoji": "📈",
+      "goal": "A calm, trust-first decision instrument that tells me — in one glance — the single sized move my broker never would, and honestly says 'do nothing' when that's right.",
+      "note": null,
+      "health": "green",
+      "links": [
+        {
+          "label": "Live dashboard",
+          "url": "https://abustrup.github.io/personal-stock-dashboard/"
+        },
+        {
+          "label": "Repo",
+          "url": "https://github.com/abustrup/personal-stock-dashboard"
+        }
+      ],
+      "lastPublish": "2026-07-01T11:15:20.000Z",
+      "lastPublishHuman": "4 min ago",
+      "lastPublishSubject": "chore: prune dead code, unify duplication, harden refresh script",
+      "routineCount": 3,
+      "routines": [
+        "dashboard-self-improve",
+        "stock---do-maintenance-improve-structure",
+        "watchlist-integration"
+      ]
+    },
+    {
+      "id": "news-brief",
+      "name": "Alexanders Brief",
+      "emoji": "📰",
+      "goal": "Publish a trustworthy, beautifully-edited Danish morning brief every day before 06:40 — sharper and broader than any single newspaper.",
+      "note": null,
+      "health": "green",
+      "links": [
+        {
+          "label": "Live brief",
+          "url": "https://abustrup.github.io/alexanders-brief/"
+        },
+        {
+          "label": "Repo",
+          "url": "https://github.com/abustrup/alexanders-brief"
+        }
+      ],
+      "lastPublish": "2026-07-01T10:05:18.000Z",
+      "lastPublishHuman": "1h ago",
+      "lastPublishSubject": "brief: 2026-07-01",
+      "routineCount": 6,
+      "routines": [
+        "daily-news-brief",
+        "rolling-weekly",
+        "rolling-monthly",
+        "rolling-yearly",
+        "daily-deadline-check",
+        "health-monitor"
+      ]
+    }
+  ],
+  "routines": [
+    {
+      "id": "daily-news-brief",
+      "name": "Daily news brief",
+      "project": "news-brief",
+      "cadence": "Daily · 06:02",
+      "kind": "scheduler",
+      "role": "producer",
+      "enabled": true,
+      "does": "Researches, validates and publishes the Danish morning brief before the 06:40 deadline.",
+      "health": "green",
+      "headline": "published 2026-07-01",
+      "lastOutputAt": "2026-07-01T10:05:18.509Z",
+      "lastOutputHuman": "1h ago",
+      "issues": [],
+      "review": null
+    },
+    {
+      "id": "rolling-weekly",
+      "name": "Rolling weekly (Ugen)",
+      "project": "news-brief",
+      "cadence": "Daily · 06:48",
+      "kind": "scheduler",
+      "role": "producer",
+      "enabled": true,
+      "does": "Refreshes the 7-day rollup edition from the published dailies.",
+      "health": "green",
+      "headline": "rolling weekly: 2026-06-30",
+      "lastOutputAt": "2026-06-30T12:00:34.000Z",
+      "lastOutputHuman": "23h ago",
+      "issues": [],
+      "review": null
+    },
+    {
+      "id": "rolling-monthly",
+      "name": "Rolling monthly (Måneden)",
+      "project": "news-brief",
+      "cadence": "Mondays · 07:02",
+      "kind": "scheduler",
+      "role": "producer",
+      "enabled": true,
+      "does": "Refreshes the 30-day rollup edition.",
+      "health": "green",
+      "headline": "rolling monthly: 2026-06-30",
+      "lastOutputAt": "2026-06-30T10:28:12.000Z",
+      "lastOutputHuman": "1d ago",
+      "issues": [],
+      "review": null
+    },
+    {
+      "id": "rolling-yearly",
+      "name": "Rolling yearly (Året)",
+      "project": "news-brief",
+      "cadence": "1st of month · 06:57",
+      "kind": "scheduler",
+      "role": "producer",
+      "enabled": true,
+      "does": "Refreshes the 12-month rollup edition.",
+      "health": "green",
+      "headline": "rolling yearly: 2026-07-01",
+      "lastOutputAt": "2026-07-01T08:56:52.000Z",
+      "lastOutputHuman": "2h ago",
+      "issues": [],
+      "review": null
+    },
+    {
+      "id": "daily-deadline-check",
+      "name": "Daily deadline check",
+      "project": "news-brief",
+      "cadence": "Daily · 06:45",
+      "kind": "scheduler",
+      "role": "monitor",
+      "enabled": true,
+      "does": "Verifies today's brief published before 06:40; push-alerts only on a confirmed miss.",
+      "health": "green",
+      "headline": "advisory — silent unless it fails",
+      "lastOutputAt": null,
+      "lastOutputHuman": "—",
+      "issues": [],
+      "review": null
+    },
+    {
+      "id": "health-monitor",
+      "name": "Health monitor",
+      "project": "news-brief",
+      "cadence": "Twice daily · 08:11 / 20:11",
+      "kind": "scheduler",
+      "role": "monitor",
+      "enabled": true,
+      "does": "Checks the live brief pages are reachable; push-alerts only on confirmed failure.",
+      "health": "green",
+      "headline": "advisory — silent unless it fails",
+      "lastOutputAt": null,
+      "lastOutputHuman": "—",
+      "issues": [],
+      "review": null
+    },
+    {
+      "id": "dashboard-self-improve",
+      "name": "Dashboard self-improve",
+      "project": "stock",
+      "cadence": "Every 2h",
+      "kind": "scheduler",
+      "role": "maintainer",
+      "enabled": true,
+      "does": "Ships at most ONE strictly-better improvement to the stock dashboard per run via reviewed PR (or nothing).",
+      "health": "green",
+      "headline": "chore: prune dead code, unify duplication, harden refresh script",
+      "lastOutputAt": "2026-07-01T11:15:20.000Z",
+      "lastOutputHuman": "4 min ago",
+      "issues": [],
+      "review": null
+    },
+    {
+      "id": "stock---do-maintenance-improve-structure",
+      "name": "Stock maintenance",
+      "project": "stock",
+      "cadence": "Every 2h",
+      "kind": "scheduler",
+      "role": "maintainer",
+      "enabled": true,
+      "does": "Structural maintenance passes on the stock dashboard.",
+      "health": "green",
+      "headline": "chore: prune dead code, unify duplication, harden refresh script",
+      "lastOutputAt": "2026-07-01T11:15:20.000Z",
+      "lastOutputHuman": "4 min ago",
+      "issues": [],
+      "review": "Overlaps 'Dashboard self-improve' (both every 2h on the same repo) — worth confirming both still earn their slot."
+    },
+    {
+      "id": "watchlist-integration",
+      "name": "Watchlist integration",
+      "project": "stock",
+      "cadence": "Daily · 07:00",
+      "kind": "scheduler",
+      "role": "producer",
+      "enabled": true,
+      "does": "Integrates watchlist companies queued as GitHub issues into the dashboard via reviewable PR.",
+      "health": "green",
+      "headline": "Only acts when integrate-issues are queued; idle is normal.",
+      "lastOutputAt": null,
+      "lastOutputHuman": "—",
+      "issues": [],
+      "review": null
+    },
+    {
+      "id": "holdet-dashboard-improve",
+      "name": "Holdet dashboard improve",
+      "project": "holdet-tdf",
+      "cadence": "Hourly",
+      "kind": "scheduler",
+      "role": "producer",
+      "enabled": true,
+      "does": "One safe read-only improvement to the holdet dashboard, then publishes the refreshed page.",
+      "health": "green",
+      "headline": "Update dashboard — 2026-07-01 13:16 Europe/Copenhagen",
+      "lastOutputAt": "2026-07-01T11:16:23.000Z",
+      "lastOutputHuman": "3 min ago",
+      "issues": [],
+      "review": null
+    },
+    {
+      "id": "holdet-auditor",
+      "name": "Holdet auditor",
+      "project": "holdet-tdf",
+      "cadence": "Every 5h",
+      "kind": "scheduler",
+      "role": "maintainer",
+      "enabled": true,
+      "does": "Red-team audit + fixer of the holdet bot (third brain).",
+      "health": "green",
+      "headline": "chore(maintenance): correct doc-drift + remove dead telegram config",
+      "lastOutputAt": "2026-07-01T10:45:38.000Z",
+      "lastOutputHuman": "33 min ago",
+      "issues": [],
+      "review": null
+    },
+    {
+      "id": "holdet-llm-brain",
+      "name": "Holdet LLM brain",
+      "project": "holdet-tdf",
+      "cadence": "Hourly",
+      "kind": "scheduler",
+      "role": "producer",
+      "enabled": false,
+      "does": "Hourly team brain — keeps one stable plan, re-deciding only on material change.",
+      "health": "paused",
+      "headline": "updated 21h ago",
+      "lastOutputAt": "2026-06-30T14:13:07.450Z",
+      "lastOutputHuman": "21h ago",
+      "issues": [],
+      "review": "Paused. The bot's daily brain — confirm this is intended to stay off until the Tour starts."
+    },
+    {
+      "id": "holdet-self-improve",
+      "name": "Holdet self-improve",
+      "project": "holdet-tdf",
+      "cadence": "Hourly",
+      "kind": "scheduler",
+      "role": "maintainer",
+      "enabled": false,
+      "does": "Hourly guardian: verifies the live system still works; fixes at most one verified issue.",
+      "health": "paused",
+      "headline": "chore(maintenance): correct doc-drift + remove dead telegram config",
+      "lastOutputAt": "2026-07-01T10:45:38.000Z",
+      "lastOutputHuman": "33 min ago",
+      "issues": [],
+      "review": "Paused — the live-system guardian is off."
+    },
+    {
+      "id": "holdet-team-b-cycle",
+      "name": "Holdet Team B cycle",
+      "project": "holdet-tdf",
+      "cadence": "Every 5h",
+      "kind": "scheduler",
+      "role": "producer",
+      "enabled": false,
+      "does": "Forced swap + new captain each run on the Team B entry; auto-stops when the Tour starts.",
+      "health": "paused",
+      "headline": "advisory — silent unless it fails",
+      "lastOutputAt": null,
+      "lastOutputHuman": "—",
+      "issues": [],
+      "review": "Paused."
+    },
+    {
+      "id": "maintenance-and-improvements",
+      "name": "Maintenance and improvements",
+      "project": "unassigned",
+      "cadence": "Hourly",
+      "kind": "scheduler",
+      "role": "maintainer",
+      "enabled": true,
+      "does": "\"Do maintenance: improve structure\" — target project not specified in the routine name.",
+      "health": "green",
+      "headline": "advisory — silent unless it fails",
+      "lastOutputAt": null,
+      "lastOutputHuman": "—",
+      "issues": [],
+      "review": "Purpose/target is vague and it runs hourly — decide what it targets, or whether it still earns an hourly slot."
+    },
+    {
+      "id": "holdet-routine-selftest",
+      "name": "Holdet routine self-test",
+      "project": "holdet-tdf",
+      "cadence": "One-time",
+      "kind": "oneshot",
+      "role": "monitor",
+      "enabled": false,
+      "does": "One-time check that routines run under the Max account and can write bot files.",
+      "health": "retired",
+      "headline": "one-time — completed",
+      "lastOutputAt": null,
+      "lastOutputHuman": "—",
+      "issues": [],
+      "review": null
+    },
+    {
+      "id": "holdet-evening",
+      "name": "Holdet evening pass (launchd)",
+      "project": "holdet-tdf",
+      "cadence": "~21:05 & ~23:10",
+      "kind": "launchd",
+      "role": "producer",
+      "enabled": true,
+      "does": "Full daily chain: collect → decide → notify+veto → execute+verify on holdet.dk.",
+      "health": "green",
+      "headline": "[daily] stage 1 already handled for The Times They Are A Changin' — skipping.",
+      "lastOutputAt": "2026-06-30T21:10:42.109Z",
+      "lastOutputHuman": "14h ago",
+      "issues": [
+        {
+          "severity": "note",
+          "line": "[collect] snapshot written for stage 1; sources: pcs=ok betxpert=ok axelgaard=ok feltet=ERR"
+        }
+      ],
+      "review": null
+    },
+    {
+      "id": "holdet-guard",
+      "name": "Holdet DNS guard (launchd)",
+      "project": "holdet-tdf",
+      "cadence": "~08:30",
+      "kind": "launchd",
+      "role": "monitor",
+      "enabled": true,
+      "does": "Morning start-list re-check for non-starters (DNS) before the stage.",
+      "health": "green",
+      "headline": "[collect] snapshot written for stage 1; sources: pcs=ok betxpert=ok axelgaard=ok feltet=ERR",
+      "lastOutputAt": "2026-07-01T06:33:51.919Z",
+      "lastOutputHuman": "5h ago",
+      "issues": [
+        {
+          "severity": "note",
+          "line": "[collect] snapshot written for stage 1; sources: pcs=ok betxpert=ok axelgaard=ok feltet=ERR"
+        }
+      ],
+      "review": null
+    },
+    {
+      "id": "holdet-watch",
+      "name": "Holdet watch sentinel (launchd)",
+      "project": "holdet-tdf",
+      "cadence": "Hourly",
+      "kind": "launchd",
+      "role": "monitor",
+      "enabled": true,
+      "does": "Hourly read-only sentinel; reconciles results and flags material change.",
+      "health": "green",
+      "headline": "[watch] no material change (stage 1, startlist pending). no-op.",
+      "lastOutputAt": "2026-07-01T10:49:11.193Z",
+      "lastOutputHuman": "30 min ago",
+      "issues": [],
+      "review": null
+    },
+    {
+      "id": "holdet-improve",
+      "name": "Holdet improve loop (launchd)",
+      "project": "holdet-tdf",
+      "cadence": "Every 5h",
+      "kind": "launchd",
+      "role": "maintainer",
+      "enabled": true,
+      "does": "Backtest + optimize weights; proposes at most one verified improvement.",
+      "health": "red",
+      "headline": "[improve] fatal: last is not defined",
+      "lastOutputAt": "2026-06-30T21:28:18.291Z",
+      "lastOutputHuman": "14h ago",
+      "issues": [
+        {
+          "severity": "error",
+          "line": "[improve] fatal: last is not defined"
+        }
+      ],
+      "review": null
+    }
+  ]
+}
