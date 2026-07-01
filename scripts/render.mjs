@@ -14,6 +14,13 @@ const DOT = { green: '#1a9d5a', yellow: '#c67c0a', red: '#cf3b2f', paused: '#9aa
 const LABEL = { green: 'ok', yellow: 'ageing', red: 'needs attention', paused: 'paused', unknown: 'unknown', retired: 'retired' };
 const dot = (h) => `<span class="dot" style="background:${DOT[h] || DOT.unknown}" title="${LABEL[h] || h}"></span>`;
 
+// Liveness: if the page's own generatedAt is old, the secretary itself may be down —
+// say so loudly rather than showing a frozen (and now misleading) green.
+const ageMin = (Date.now() - Date.parse(s.generatedAt)) / 6e4;
+const staleBanner = ageMin > 90
+  ? `<div class="stale-banner">⚠ This overview last updated ${Math.round(ageMin / 60)}h ago — the hourly secretary may not be running. Health below may be out of date.</div>`
+  : '';
+
 const byId = Object.fromEntries(s.routines.map((r) => [r.id, r]));
 const projName = Object.fromEntries(s.projects.map((p) => [p.id, `${p.emoji} ${p.name}`]));
 projName.unassigned = '❓ Unassigned';
@@ -85,6 +92,8 @@ const html = `<!doctype html>
     font:16px/1.55 "Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
     -webkit-font-smoothing:antialiased}
   .wrap{max-width:820px;margin:0 auto;padding:44px 22px 80px}
+  .stale-banner{background:#cf3b2f;color:#fff;padding:11px 16px;border-radius:9px;margin-bottom:24px;
+    font:600 14px/1.4 ui-sans-serif,system-ui,sans-serif}
   .kicker{font:600 12px/1 ui-sans-serif,-apple-system,system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--soft)}
   h1{font-size:31px;margin:.28em 0 .1em;letter-spacing:-.01em}
   .sub{color:var(--soft);margin:0 0 26px}
@@ -127,6 +136,7 @@ const html = `<!doctype html>
   footer a{color:var(--soft)}
 </style></head>
 <body><div class="wrap">
+  ${staleBanner}
   <div class="kicker">Personal routine secretary</div>
   <h1>Routine Overview</h1>
   <p class="sub">Every scheduled routine across ${esc(s.owner)}'s projects, in one glance.</p>

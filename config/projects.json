@@ -2,6 +2,10 @@
   "_doc": "Registry that drives the collector. Each routine declares a 'freshness' source (where its real output lands) and an optional 'scan' (log error/warn patterns). Health is reconstructed from artifacts so the collector needs no scheduler access. Paths may use {HOME} and {today} (Europe/Copenhagen YYYY-MM-DD) tokens.",
   "owner": "Alexander Bustrup",
   "timezone": "Europe/Copenhagen",
+  "private": {
+    "_doc": "This is a PUBLIC repo. Any freshness/scan source resolving under these roots is strategy-bearing and local-only; the collector must NOT copy its raw commit subjects or log lines into status.json/index.html — only a sanitized health phrase. Specifics go to the private push notification, never the public page.",
+    "roots": ["{HOME}/holdet-tdf-bot"]
+  },
   "repos": {
     "holdetPages": "{HOME}/Documents/AI eksperimenter/Holdet-TDF-2026-pages",
     "briefPages": "{HOME}/Documents/AI eksperimenter/alexanders-brief-pages",
@@ -156,7 +160,7 @@
       "cadence": "Hourly", "periodHours": 1, "kind": "scheduler", "role": "maintainer", "enabled": true,
       "does": "\"Do maintenance: improve structure\" — target project not specified in the routine name.",
       "freshness": { "type": "selfAlerting" },
-      "review": "Purpose/target is vague and it runs hourly — decide what it targets, or whether it still earns an hourly slot."
+      "review": "Purpose/target is vague and it runs hourly — decide what it targets (it may be producing the 'chore(maintenance):' commits in holdet-tdf-bot, overlapping the auditor/self-improve), or whether it still earns an hourly slot."
     },
     {
       "id": "holdet-routine-selftest", "project": "holdet-tdf", "name": "Holdet routine self-test",

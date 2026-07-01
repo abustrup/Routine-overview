@@ -5,11 +5,16 @@
 //
 // The core idea: a routine is only healthy if it actually *produced* something on
 // schedule. "It fired" (scheduler truth) is not enough — we check the artifact.
+//
+// PUBLIC-REPO RULE: raw commit subjects / log lines from a `private.roots` source
+// (the local-only holdet-bot) are strategy-bearing. They are NEVER written to
+// status.json — only a sanitized health phrase. Specifics belong in the private
+// push notification, which the hourly routine composes from the local logs.
 
 import { execFileSync } from 'node:child_process';
 import { readFileSync, writeFileSync, existsSync, statSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
-import { dirname, join } from 'node:path';
+import { dirname, join, basename } from 'node:path';
 import { homedir } from 'node:os';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
@@ -29,6 +34,12 @@ function expand(p) {
     .replace(/\{repo:([^}]+)\}/g, (_, k) => expand(cfg.repos[k] || `{repo:${k}}`));
 }
 
+// Sources under these roots are private (local-only, strategy-bearing) -> sanitize output.
+const PRIVATE_ROOTS = (cfg.private?.roots || []).map(expand);
+// Never read/emit lines from files that look like secrets — defence in depth against a
+// mis-edited config redirecting a scan at credentials.
+const SECRET_RE = /(^|\/)(auth|\.env|\.ssh)|holdet\.json|credential|token|secret|\.pem$/i;
+
 // ---------- primitives ----------
 const nowMs = Date.now();
 const iso = (ms) => new Date(ms).toISOString();
@@ -43,14 +54,16 @@ function git(dir, args) {
 function repoOk(dir) { return dir && existsSync(join(dir, '.git')); }
 
 // Last commit (optionally whose subject matches an extended-regex). Returns {when, subject} or null.
+const SEP = String.fromCharCode(31); // 0x1F unit separator
 function lastCommit(dir, grep) {
   if (!repoOk(dir)) return null;
-  const args = ['log', '-1', '--pretty=%cI%x1f%s'];
+  const args = ['log', '-1', `--pretty=%cI${SEP}%s`];
   if (grep) args.push('-E', `--grep=${grep}`);
   const out = git(dir, args);
   if (!out) return null;
-  const [when, subject] = out.split('');
-  return when ? { when, subject: subject || '' } : null;
+  const i = out.indexOf(SEP); // slice, don't destructure — a subject may itself contain SEP
+  if (i < 0) return { when: out, subject: '' };
+  return { when: out.slice(0, i), subject: out.slice(i + 1) };
 }
 
 function mtime(path) {
@@ -59,7 +72,7 @@ function mtime(path) {
 
 function tail(path, n = 60) {
   try {
-    if (!existsSync(path)) return [];
+    if (!existsSync(path) || SECRET_RE.test(path)) return [];
     const lines = readFileSync(path, 'utf8').split('\n');
     return lines.slice(-n).filter((l) => l.length);
   } catch { return []; }
@@ -74,6 +87,16 @@ function ageHuman(ms) {
   if (min < 60) return `${Math.round(min)} min ago`;
   if (hr < 24) return `${Math.round(hr)}h ago`;
   return `${Math.round(day)}d ago`;
+}
+
+// ---------- privacy ----------
+const underPrivate = (p) => !!p && PRIVATE_ROOTS.some((root) => p.startsWith(root));
+function routineIsPrivate(r) {
+  const f = r.freshness || {};
+  const paths = [
+    cfg.repos[f.repo], f.path, cfg.repos[f.fallback?.repo], f.fallback?.path, r.scan?.path,
+  ].filter(Boolean).map(expand);
+  return paths.some(underPrivate);
 }
 
 // ---------- freshness resolution ----------
@@ -136,7 +159,6 @@ function scanLog(scan) {
     }
     return out;
   };
-  // de-dupe identical lines, keep worst severity
   const all = [...hit(scan.error, 'error'), ...hit(scan.warn, 'warn'), ...hit(scan.note, 'note')];
   const seen = new Map();
   for (const i of all) if (!seen.has(i.line)) seen.set(i.line, i);
@@ -145,14 +167,13 @@ function scanLog(scan) {
 
 // ---------- health model ----------
 const RANK = { green: 0, yellow: 1, red: 2 };
-const worse = (a, b) => (RANK[a] >= RANK[b] ? a : b);
+const worse = (a, b) => ((RANK[a] ?? -1) >= (RANK[b] ?? -1) ? a : b);
 
 function healthFor(r, atMs, issues) {
   const fr = r._fr;
   if (fr.retired) return 'retired';
   if (r.enabled === false) return 'paused';
   if (fr.advisory) {
-    // monitors / self-alerting producers: green unless their own log shows an error
     return issues.some((i) => i.severity === 'error') ? 'red' : 'green';
   }
   let h;
@@ -169,16 +190,41 @@ function healthFor(r, atMs, issues) {
   return h;
 }
 
+// ---------- public-safe text (for private sources) ----------
+function safeHeadline(r, health) {
+  const fr = r._fr;
+  if (fr.retired) return 'one-time — completed';
+  if (fr.advisory) return fr.headline; // our own advisory copy, not artifact text
+  if (r.enabled === false) return 'paused';
+  if (health === 'red') return 'error detected in local log — details kept private';
+  if (health === 'yellow') return 'ageing / warning — details kept private';
+  if (fr.atMs == null) return 'no output signal';
+  return 'ran — no errors detected';
+}
+function safeIssue(i, r) {
+  const where = r.scan?.path ? basename(expand(r.scan.path)) : 'local log';
+  if (i.severity === 'error') return { severity: 'error', line: `error detected in ${where} — details are local-only` };
+  if (i.severity === 'warn') return { severity: 'warn', line: `warning in ${where} — details are local-only` };
+  return { severity: 'note', line: 'a data source is degraded — details are local-only' };
+}
+
 // ---------- build routine records ----------
+const knownProjectIds = new Set(cfg.projects.map((p) => p.id));
 function buildRoutine(r) {
   r._fr = resolveFreshness(r.freshness);
-  const issues = scanLog(r.scan);
-  const health = healthFor(r, r._fr.atMs, issues);
+  const rawIssues = scanLog(r.scan);              // real detection (health) uses raw
+  const health = healthFor(r, r._fr.atMs, rawIssues);
+  const priv = routineIsPrivate(r);
+  const headline = priv ? safeHeadline(r, health) : r._fr.headline;      // public output sanitized
+  const issues = priv ? rawIssues.map((i) => safeIssue(i, r)) : rawIssues;
+  if (!knownProjectIds.has(r.project))
+    console.warn(`collect: WARN routine "${r.id}" -> unknown project "${r.project}" (won't roll up)`);
   return {
     id: r.id, name: r.name, project: r.project, cadence: r.cadence, kind: r.kind,
     role: r.role, enabled: r.enabled !== false, does: r.does,
     health,
-    headline: r._fr.headline,
+    private: priv,
+    headline,
     lastOutputAt: r._fr.atMs ? iso(r._fr.atMs) : null,
     lastOutputHuman: r._fr.advisory || r._fr.retired ? '—' : ageHuman(r._fr.atMs),
     issues,
@@ -187,7 +233,6 @@ function buildRoutine(r) {
 }
 
 const routines = [...cfg.routines, ...cfg.launchd].map(buildRoutine);
-const byId = Object.fromEntries(routines.map((r) => [r.id, r]));
 
 // ---------- projects ----------
 const projects = cfg.projects.map((p) => {
@@ -204,6 +249,9 @@ const projects = cfg.projects.map((p) => {
   const repoDir = expand(cfg.repos[p.healthFromRepo] || '');
   const repoCommit = lastCommit(repoDir);
   const repoAtMs = repoCommit ? Date.parse(repoCommit.when) : null;
+  // Project "Now" line uses the public pages repo commit subject — safe by construction,
+  // but guard anyway in case healthFromRepo ever points at a private root.
+  const repoSubject = repoCommit ? (underPrivate(repoDir) ? 'updated' : repoCommit.subject) : null;
   const links = (p.links || []).map((l) => ({
     label: l.label,
     url: l.url.startsWith('local:') ? repoDir : l.url,
@@ -213,7 +261,7 @@ const projects = cfg.projects.map((p) => {
     health, links,
     lastPublish: repoAtMs ? iso(repoAtMs) : null,
     lastPublishHuman: ageHuman(repoAtMs),
-    lastPublishSubject: repoCommit ? repoCommit.subject : null,
+    lastPublishSubject: repoSubject,
     routineCount: mine.length,
     routines: mine.map((r) => r.id),
   };
@@ -224,11 +272,13 @@ const attention = [];
 for (const r of routines) {
   for (const i of r.issues) {
     if (i.severity === 'error') attention.push({ severity: 'red', project: r.project, routine: r.name, message: i.line, kind: 'error' });
+    if (i.severity === 'warn') attention.push({ severity: 'warn', project: r.project, routine: r.name, message: i.line, kind: 'warn' });
     if (i.severity === 'note') attention.push({ severity: 'info', project: r.project, routine: r.name, message: i.line, kind: 'note' });
   }
-  if (r.health === 'red' && !r.issues.some((i) => i.severity === 'error'))
+  const hasError = r.issues.some((i) => i.severity === 'error');
+  if (r.health === 'red' && !hasError)
     attention.push({ severity: 'red', project: r.project, routine: r.name, message: `Stale — last output ${r.lastOutputHuman} (expected ${r.cadence}).`, kind: 'stale' });
-  if (r.health === 'yellow' && !r.issues.length)
+  if (r.health === 'yellow' && !hasError && !r.issues.some((i) => i.severity === 'warn'))
     attention.push({ severity: 'warn', project: r.project, routine: r.name, message: `Ageing — last output ${r.lastOutputHuman} (expected ${r.cadence}).`, kind: 'ageing' });
   if (r.review && r.enabled !== false)
     attention.push({ severity: 'review', project: r.project, routine: r.name, message: r.review, kind: 'review' });
@@ -249,6 +299,14 @@ const summary = {
   needsAttention: attention.filter((a) => a.severity === 'red' || a.severity === 'warn').length,
 };
 
+// Stable content hash of the actionable set — lets the routine de-dupe notifications by
+// *content*, so a persistent red item that was already notified never re-pushes.
+const attentionKey = attention
+  .filter((a) => a.severity === 'red' || a.severity === 'warn')
+  .map((a) => `${a.severity}:${a.routine}:${a.kind}`)
+  .sort()
+  .join('|');
+
 const nowLocal = new Intl.DateTimeFormat('en-GB', {
   timeZone: cfg.timezone, dateStyle: 'medium', timeStyle: 'short',
 }).format(new Date());
@@ -257,6 +315,7 @@ const status = {
   generatedAt: iso(nowMs),
   generatedAtLocal: `${nowLocal} ${cfg.timezone}`,
   owner: cfg.owner,
+  attentionKey,
   summary, attention, projects, routines,
 };
 

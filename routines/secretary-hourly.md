@@ -25,28 +25,41 @@ Repo: `/Users/alexanderbustrup/Documents/AI eksperimenter/Routine overview`
    need Alexander? Also weigh *usefulness* — overlapping routines, vague-purpose routines,
    paused producers. Do **not** manufacture concern; "all green, nothing to do" is a good run.
 
-4. **Act — whitelist only** (see `SECRETARY.md` agency section). Allowed: restart a stalled
-   **launchd** service (`launchctl kickstart -k gui/$(id -u)/<label>`), re-run an idempotent
-   routine, fix something inside *this* repo. **Flag, never fix,** anything in another project's
-   code (e.g. the holdet `improve` `fatal: last is not defined` bug — report it, don't patch).
-   Record every action taken.
+4. **Act — allowlist only** (see `SECRETARY.md` agency section). Allowed: restart a stalled
+   **launchd** service (`launchctl kickstart -k gui/$(id -u)/<label>`); inside *this* repo, fix
+   prose typos and set a routine's `enabled` flag to match the scheduler. Do **not** re-run
+   another routine unless it is on the named safe-list in `SECRETARY.md` (currently empty) — every
+   producer is flag-only. Do **not** edit any `repos{}`/`freshness.path`/`scan.path`/`private.roots`
+   in config. **Flag, never fix,** another project's code (e.g. the holdet `improve`
+   `fatal: last is not defined` bug — report it, don't patch). Record every action taken.
 
-5. **Publish.** Regenerate the dashboard if you changed anything, then:
-   `git add -A && git commit -m "overview: <YYYY-MM-DD HH:mm> — <g>🟢 <y>🟡 <r>🔴" && git push --quiet`
-   The push uses the stored git credential (no token, no prompt), like the other pages repos.
+5. **Publish.** Regenerate the dashboard, then commit only if something changed:
+   `git add -A; if ! git diff --cached --quiet; then git commit -m "overview: <YYYY-MM-DD HH:mm> — <g>🟢 <y>🟡 <r>🔴"; git push --quiet; fi`
+   (An hourly heartbeat commit is fine and desirable — it's how *this* routine's own liveness is
+   tracked — but skip the push if truly nothing, including the timestamp, changed.) The push uses
+   the stored git credential (no token, no prompt), like the other pages repos.
 
-6. **Notify — the exception, not the rule.** Compare against the last line of `data/history.ndjson`.
-   Send **one** push (via the `PushNotification` tool if available) **only if** a NEW red/attention
-   item appeared, or you took an autonomous action. One line, most-severe-first, with the dashboard
-   link `https://abustrup.github.io/Routine-overview/`. Otherwise **stay silent**. If PushNotification
-   is unavailable, ensure the item is prominent on the dashboard and skip the push.
+6. **Notify — the exception, not the rule.** Read `status.json.attentionKey` (a stable hash of the
+   red/warn set) and the last line of `data/history.ndjson`. Send **one** push (via the
+   `PushNotification` tool, status "proactive") **only if** `attentionKey` differs from the last
+   journalled key, **or** you took an autonomous action. A persistent red already notified must
+   **not** re-push. **If `history.ndjson` is absent/empty, this is a bootstrap run — seed the
+   journal and send NO push.** One line, most-severe-first, with the dashboard link
+   `https://abustrup.github.io/Routine-overview/`; the push is private so it may include the exact
+   local error detail. Otherwise **stay silent**. If PushNotification is unavailable, ensure the
+   item is prominent on the dashboard and skip the push.
 
 7. **Journal.** Append one JSON line to `data/history.ndjson`:
-   `{"ts": ISO, "summary": {green,yellow,red,paused}, "attention": N, "actions": [...], "notified": bool}`
+   `{"ts": ISO, "attentionKey": "<hash from status.json>", "summary": {green,yellow,red,paused}, "attention": N, "actions": [...], "notified": bool}`
+   (Write this **before** finalising, so a persistent item can never re-notify on the next run.)
 
 ## Guarantees
 - **Idempotent**: safe to run twice in a row.
-- **Fail-safe**: if step 1 throws, still `git add -A && commit && push` whatever status exists and
-  send a push saying the secretary itself failed — never fail silently.
+- **Fail-safe — never a false green**: if `collect.mjs` throws, do **not** publish the previous
+  run's stale-but-green `status.json`. Instead write a minimal status with `generatedAt` = now and
+  a top-level `collectorFailedAt`, so `render.mjs`'s liveness banner shows the page is stale; commit
+  and push that, and send one push saying the secretary itself failed. Never fail silently, and
+  never let a collector failure advance `attentionKey` in a way that suppresses the next real diff.
 - **Secret-safe / public repo**: never write secrets, positions, tokens or strategy internals to
-  `data/` or `index.html`. Status and health only.
+  `data/` or `index.html`. Sanitisation for private sources is enforced in `collect.mjs`; do not
+  undo it. Status and health only.

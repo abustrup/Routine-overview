@@ -1,7 +1,8 @@
 {
-  "generatedAt": "2026-07-01T11:27:43.175Z",
-  "generatedAtLocal": "1 Jul 2026, 13:27 Europe/Copenhagen",
+  "generatedAt": "2026-07-01T11:57:16.055Z",
+  "generatedAtLocal": "1 Jul 2026, 13:57 Europe/Copenhagen",
   "owner": "Alexander Bustrup",
+  "attentionKey": "red:Holdet improve loop (launchd):error",
   "summary": {
     "green": 16,
     "yellow": 0,
@@ -15,7 +16,7 @@
       "severity": "red",
       "project": "holdet-tdf",
       "routine": "Holdet improve loop (launchd)",
-      "message": "[improve] fatal: last is not defined",
+      "message": "error detected in improve.log — details are local-only",
       "kind": "error"
     },
     {
@@ -43,21 +44,21 @@
       "severity": "review",
       "project": "unassigned",
       "routine": "Maintenance and improvements",
-      "message": "Purpose/target is vague and it runs hourly — decide what it targets, or whether it still earns an hourly slot.",
+      "message": "Purpose/target is vague and it runs hourly — decide what it targets (it may be producing the 'chore(maintenance):' commits in holdet-tdf-bot, overlapping the auditor/self-improve), or whether it still earns an hourly slot.",
       "kind": "review"
     },
     {
       "severity": "info",
       "project": "holdet-tdf",
       "routine": "Holdet evening pass (launchd)",
-      "message": "[collect] snapshot written for stage 1; sources: pcs=ok betxpert=ok axelgaard=ok feltet=ERR",
+      "message": "a data source is degraded — details are local-only",
       "kind": "note"
     },
     {
       "severity": "info",
       "project": "holdet-tdf",
       "routine": "Holdet DNS guard (launchd)",
-      "message": "[collect] snapshot written for stage 1; sources: pcs=ok betxpert=ok axelgaard=ok feltet=ERR",
+      "message": "a data source is degraded — details are local-only",
       "kind": "note"
     }
   ],
@@ -79,9 +80,9 @@
           "url": "/Users/alexanderbustrup/Documents/AI eksperimenter/Holdet-TDF-2026-pages"
         }
       ],
-      "lastPublish": "2026-07-01T11:16:23.000Z",
-      "lastPublishHuman": "11 min ago",
-      "lastPublishSubject": "Update dashboard — 2026-07-01 13:16 Europe/Copenhagen",
+      "lastPublish": "2026-07-01T11:40:22.000Z",
+      "lastPublishHuman": "17 min ago",
+      "lastPublishSubject": "Add light/dark theme toggle — 2026-07-01 13:40",
       "routineCount": 10,
       "routines": [
         "holdet-dashboard-improve",
@@ -114,7 +115,7 @@
         }
       ],
       "lastPublish": "2026-07-01T11:15:20.000Z",
-      "lastPublishHuman": "12 min ago",
+      "lastPublishHuman": "42 min ago",
       "lastPublishSubject": "chore: prune dead code, unify duplication, harden refresh script",
       "routineCount": 3,
       "routines": [
@@ -141,7 +142,7 @@
         }
       ],
       "lastPublish": "2026-07-01T10:05:18.000Z",
-      "lastPublishHuman": "1h ago",
+      "lastPublishHuman": "2h ago",
       "lastPublishSubject": "brief: 2026-07-01",
       "routineCount": 6,
       "routines": [
@@ -170,9 +171,9 @@
           "url": "https://github.com/abustrup/Routine-overview"
         }
       ],
-      "lastPublish": "2026-07-01T11:25:17.000Z",
-      "lastPublishHuman": "2 min ago",
-      "lastPublishSubject": "Routine Overview: hourly secretary + dashboard",
+      "lastPublish": "2026-07-01T11:28:18.000Z",
+      "lastPublishHuman": "29 min ago",
+      "lastPublishSubject": "overview: 2026-07-01 13:28 — 16🟢 0🟡 1🔴 3⏸",
       "routineCount": 1,
       "routines": [
         "routine-overview-secretary"
@@ -190,9 +191,10 @@
       "enabled": true,
       "does": "Refreshes this overview from artifact-truth and flags only what needs attention.",
       "health": "green",
-      "headline": "Routine Overview: hourly secretary + dashboard",
-      "lastOutputAt": "2026-07-01T11:25:17.000Z",
-      "lastOutputHuman": "2 min ago",
+      "private": false,
+      "headline": "overview: 2026-07-01 13:28 — 16🟢 0🟡 1🔴 3⏸",
+      "lastOutputAt": "2026-07-01T11:28:18.000Z",
+      "lastOutputHuman": "29 min ago",
       "issues": [],
       "review": null
     },
@@ -206,9 +208,10 @@
       "enabled": true,
       "does": "Researches, validates and publishes the Danish morning brief before the 06:40 deadline.",
       "health": "green",
+      "private": false,
       "headline": "published 2026-07-01",
       "lastOutputAt": "2026-07-01T10:05:18.509Z",
-      "lastOutputHuman": "1h ago",
+      "lastOutputHuman": "2h ago",
       "issues": [],
       "review": null
     },
@@ -222,9 +225,10 @@
       "enabled": true,
       "does": "Refreshes the 7-day rollup edition from the published dailies.",
       "health": "green",
+      "private": false,
       "headline": "rolling weekly: 2026-06-30",
       "lastOutputAt": "2026-06-30T12:00:34.000Z",
-      "lastOutputHuman": "23h ago",
+      "lastOutputHuman": "24h ago",
       "issues": [],
       "review": null
     },
@@ -238,6 +242,7 @@
       "enabled": true,
       "does": "Refreshes the 30-day rollup edition.",
       "health": "green",
+      "private": false,
       "headline": "rolling monthly: 2026-06-30",
       "lastOutputAt": "2026-06-30T10:28:12.000Z",
       "lastOutputHuman": "1d ago",
@@ -254,6 +259,7 @@
       "enabled": true,
       "does": "Refreshes the 12-month rollup edition.",
       "health": "green",
+      "private": false,
       "headline": "rolling yearly: 2026-07-01",
       "lastOutputAt": "2026-07-01T08:56:52.000Z",
       "lastOutputHuman": "3h ago",
@@ -270,6 +276,7 @@
       "enabled": true,
       "does": "Verifies today's brief published before 06:40; push-alerts only on a confirmed miss.",
       "health": "green",
+      "private": false,
       "headline": "advisory — silent unless it fails",
       "lastOutputAt": null,
       "lastOutputHuman": "—",
@@ -286,6 +293,7 @@
       "enabled": true,
       "does": "Checks the live brief pages are reachable; push-alerts only on confirmed failure.",
       "health": "green",
+      "private": false,
       "headline": "advisory — silent unless it fails",
       "lastOutputAt": null,
       "lastOutputHuman": "—",
@@ -302,9 +310,10 @@
       "enabled": true,
       "does": "Ships at most ONE strictly-better improvement to the stock dashboard per run via reviewed PR (or nothing).",
       "health": "green",
+      "private": false,
       "headline": "chore: prune dead code, unify duplication, harden refresh script",
       "lastOutputAt": "2026-07-01T11:15:20.000Z",
-      "lastOutputHuman": "12 min ago",
+      "lastOutputHuman": "42 min ago",
       "issues": [],
       "review": null
     },
@@ -318,9 +327,10 @@
       "enabled": true,
       "does": "Structural maintenance passes on the stock dashboard.",
       "health": "green",
+      "private": false,
       "headline": "chore: prune dead code, unify duplication, harden refresh script",
       "lastOutputAt": "2026-07-01T11:15:20.000Z",
-      "lastOutputHuman": "12 min ago",
+      "lastOutputHuman": "42 min ago",
       "issues": [],
       "review": "Overlaps 'Dashboard self-improve' (both every 2h on the same repo) — worth confirming both still earn their slot."
     },
@@ -334,6 +344,7 @@
       "enabled": true,
       "does": "Integrates watchlist companies queued as GitHub issues into the dashboard via reviewable PR.",
       "health": "green",
+      "private": false,
       "headline": "Only acts when integrate-issues are queued; idle is normal.",
       "lastOutputAt": null,
       "lastOutputHuman": "—",
@@ -350,9 +361,10 @@
       "enabled": true,
       "does": "One safe read-only improvement to the holdet dashboard, then publishes the refreshed page.",
       "health": "green",
-      "headline": "Update dashboard — 2026-07-01 13:16 Europe/Copenhagen",
-      "lastOutputAt": "2026-07-01T11:16:23.000Z",
-      "lastOutputHuman": "11 min ago",
+      "private": false,
+      "headline": "Add light/dark theme toggle — 2026-07-01 13:40",
+      "lastOutputAt": "2026-07-01T11:40:22.000Z",
+      "lastOutputHuman": "17 min ago",
       "issues": [],
       "review": null
     },
@@ -366,9 +378,10 @@
       "enabled": true,
       "does": "Red-team audit + fixer of the holdet bot (third brain).",
       "health": "green",
-      "headline": "fix(brain): guard in-race DNS replacement against illegal roster + fusion stage-type key",
+      "private": true,
+      "headline": "ran — no errors detected",
       "lastOutputAt": "2026-07-01T11:22:40.000Z",
-      "lastOutputHuman": "5 min ago",
+      "lastOutputHuman": "35 min ago",
       "issues": [],
       "review": null
     },
@@ -382,9 +395,10 @@
       "enabled": false,
       "does": "Hourly team brain — keeps one stable plan, re-deciding only on material change.",
       "health": "paused",
-      "headline": "updated 21h ago",
+      "private": true,
+      "headline": "paused",
       "lastOutputAt": "2026-06-30T14:13:07.450Z",
-      "lastOutputHuman": "21h ago",
+      "lastOutputHuman": "22h ago",
       "issues": [],
       "review": "Paused. The bot's daily brain — confirm this is intended to stay off until the Tour starts."
     },
@@ -398,9 +412,10 @@
       "enabled": false,
       "does": "Hourly guardian: verifies the live system still works; fixes at most one verified issue.",
       "health": "paused",
-      "headline": "fix(brain): guard in-race DNS replacement against illegal roster + fusion stage-type key",
+      "private": true,
+      "headline": "paused",
       "lastOutputAt": "2026-07-01T11:22:40.000Z",
-      "lastOutputHuman": "5 min ago",
+      "lastOutputHuman": "35 min ago",
       "issues": [],
       "review": "Paused — the live-system guardian is off."
     },
@@ -414,6 +429,7 @@
       "enabled": false,
       "does": "Forced swap + new captain each run on the Team B entry; auto-stops when the Tour starts.",
       "health": "paused",
+      "private": false,
       "headline": "advisory — silent unless it fails",
       "lastOutputAt": null,
       "lastOutputHuman": "—",
@@ -430,11 +446,12 @@
       "enabled": true,
       "does": "\"Do maintenance: improve structure\" — target project not specified in the routine name.",
       "health": "green",
+      "private": false,
       "headline": "advisory — silent unless it fails",
       "lastOutputAt": null,
       "lastOutputHuman": "—",
       "issues": [],
-      "review": "Purpose/target is vague and it runs hourly — decide what it targets, or whether it still earns an hourly slot."
+      "review": "Purpose/target is vague and it runs hourly — decide what it targets (it may be producing the 'chore(maintenance):' commits in holdet-tdf-bot, overlapping the auditor/self-improve), or whether it still earns an hourly slot."
     },
     {
       "id": "holdet-routine-selftest",
@@ -446,6 +463,7 @@
       "enabled": false,
       "does": "One-time check that routines run under the Max account and can write bot files.",
       "health": "retired",
+      "private": false,
       "headline": "one-time — completed",
       "lastOutputAt": null,
       "lastOutputHuman": "—",
@@ -462,13 +480,14 @@
       "enabled": true,
       "does": "Full daily chain: collect → decide → notify+veto → execute+verify on holdet.dk.",
       "health": "green",
-      "headline": "[daily] stage 1 already handled for The Times They Are A Changin' — skipping.",
+      "private": true,
+      "headline": "ran — no errors detected",
       "lastOutputAt": "2026-06-30T21:10:42.109Z",
-      "lastOutputHuman": "14h ago",
+      "lastOutputHuman": "15h ago",
       "issues": [
         {
           "severity": "note",
-          "line": "[collect] snapshot written for stage 1; sources: pcs=ok betxpert=ok axelgaard=ok feltet=ERR"
+          "line": "a data source is degraded — details are local-only"
         }
       ],
       "review": null
@@ -483,13 +502,14 @@
       "enabled": true,
       "does": "Morning start-list re-check for non-starters (DNS) before the stage.",
       "health": "green",
-      "headline": "[collect] snapshot written for stage 1; sources: pcs=ok betxpert=ok axelgaard=ok feltet=ERR",
+      "private": true,
+      "headline": "ran — no errors detected",
       "lastOutputAt": "2026-07-01T06:33:51.919Z",
       "lastOutputHuman": "5h ago",
       "issues": [
         {
           "severity": "note",
-          "line": "[collect] snapshot written for stage 1; sources: pcs=ok betxpert=ok axelgaard=ok feltet=ERR"
+          "line": "a data source is degraded — details are local-only"
         }
       ],
       "review": null
@@ -504,9 +524,10 @@
       "enabled": true,
       "does": "Hourly read-only sentinel; reconciles results and flags material change.",
       "health": "green",
-      "headline": "[watch] no material change (stage 1, startlist pending). no-op.",
-      "lastOutputAt": "2026-07-01T10:49:11.193Z",
-      "lastOutputHuman": "39 min ago",
+      "private": true,
+      "headline": "ran — no errors detected",
+      "lastOutputAt": "2026-07-01T11:49:11.987Z",
+      "lastOutputHuman": "8 min ago",
       "issues": [],
       "review": null
     },
@@ -520,13 +541,14 @@
       "enabled": true,
       "does": "Backtest + optimize weights; proposes at most one verified improvement.",
       "health": "red",
-      "headline": "[improve] fatal: last is not defined",
+      "private": true,
+      "headline": "error detected in local log — details kept private",
       "lastOutputAt": "2026-06-30T21:28:18.291Z",
       "lastOutputHuman": "14h ago",
       "issues": [
         {
           "severity": "error",
-          "line": "[improve] fatal: last is not defined"
+          "line": "error detected in improve.log — details are local-only"
         }
       ],
       "review": null
