@@ -1,15 +1,15 @@
 {
-  "generatedAt": "2026-07-01T15:32:03.074Z",
-  "generatedAtLocal": "1 Jul 2026, 17:32 Europe/Copenhagen",
+  "generatedAt": "2026-07-01T16:46:41.919Z",
+  "generatedAtLocal": "1 Jul 2026, 18:46 Europe/Copenhagen",
   "owner": "Alexander Bustrup",
-  "attentionKey": "red:Holdet improve loop (launchd):error",
+  "attentionKey": "red:Holdet improve loop (launchd):error|warn:Holdet dashboard improve:ageing",
   "summary": {
-    "green": 19,
-    "yellow": 0,
+    "green": 18,
+    "yellow": 1,
     "red": 1,
     "paused": 1,
     "total": 22,
-    "needsAttention": 1
+    "needsAttention": 2
   },
   "attention": [
     {
@@ -21,6 +21,18 @@
       "fix": {
         "guide": "Holdet improve loop (launchd) logged an error — it may be broken.",
         "prompt": "The scheduled routine \"Holdet improve loop (launchd)\" (Backtest + optimize weights; proposes at most one verified improvement.) is erroring. Working dir: ~/holdet-tdf-bot. Read improve.log for the exact error, then find the root cause, fix it, add a guard or test so it can't recur, verify by re-running the step, and commit. Follow the project's own CLAUDE.md and the holdet-tdf-bot skill, which document its guardrails and protected paths.",
+        "cwd": "~/holdet-tdf-bot"
+      }
+    },
+    {
+      "severity": "warn",
+      "project": "holdet-tdf",
+      "routine": "Holdet dashboard improve",
+      "message": "Ageing — last output 3h ago (expected Hourly).",
+      "kind": "ageing",
+      "fix": {
+        "guide": "Holdet dashboard improve hasn't produced output when expected (Hourly).",
+        "prompt": "The scheduled routine \"Holdet dashboard improve\" (One safe read-only improvement to the holdet dashboard, then publishes the refreshed page.) was expected to run Hourly but produced no recent output. Working dir: ~/holdet-tdf-bot. Investigate why it stopped (check its scheduler run and its log), fix the cause, verify a fresh run produces output, and commit. Follow the project's own CLAUDE.md and the holdet-tdf-bot skill, which document its guardrails and protected paths.",
         "cwd": "~/holdet-tdf-bot"
       }
     },
@@ -61,6 +73,13 @@
       "routine": "Holdet DNS guard (launchd)",
       "message": "a data source is degraded — details are local-only",
       "kind": "note"
+    },
+    {
+      "severity": "info",
+      "project": "holdet-tdf",
+      "routine": "Holdet watch sentinel (launchd)",
+      "message": "a data source is degraded — details are local-only",
+      "kind": "note"
     }
   ],
   "projects": [
@@ -82,7 +101,7 @@
         }
       ],
       "lastPublish": "2026-07-01T14:10:50.000Z",
-      "lastPublishHuman": "1h ago",
+      "lastPublishHuman": "3h ago",
       "lastPublishSubject": "Update dashboard — 2026-07-01 16:10 Europe/Copenhagen",
       "routineCount": 10,
       "routines": [
@@ -116,7 +135,7 @@
         }
       ],
       "lastPublish": "2026-07-01T14:19:33.000Z",
-      "lastPublishHuman": "1h ago",
+      "lastPublishHuman": "2h ago",
       "lastPublishSubject": "refactor: unify duplicated helpers into one home and delete dead code",
       "routineCount": 3,
       "routines": [
@@ -143,7 +162,7 @@
         }
       ],
       "lastPublish": "2026-07-01T10:05:18.000Z",
-      "lastPublishHuman": "5h ago",
+      "lastPublishHuman": "7h ago",
       "lastPublishSubject": "brief: 2026-07-01",
       "routineCount": 6,
       "routines": [
@@ -172,9 +191,9 @@
           "url": "https://github.com/abustrup/Routine-overview"
         }
       ],
-      "lastPublish": "2026-07-01T15:07:04.000Z",
-      "lastPublishHuman": "25 min ago",
-      "lastPublishSubject": "improve: fix verification findings — a11y + public-safe fix prompts",
+      "lastPublish": "2026-07-01T15:34:05.000Z",
+      "lastPublishHuman": "1h ago",
+      "lastPublishSubject": "improve: surface note-level degradations in roster (honesty); drop dead infos var",
       "routineCount": 2,
       "routines": [
         "routine-overview-secretary",
@@ -194,10 +213,10 @@
       "does": "Refreshes this overview from artifact-truth and flags only what needs attention.",
       "health": "green",
       "private": false,
-      "headline": "improve: fix verification findings — a11y + public-safe fix prompts",
+      "headline": "improve: surface note-level degradations in roster (honesty); drop dead infos var",
       "logName": null,
-      "lastOutputAt": "2026-07-01T15:07:04.000Z",
-      "lastOutputHuman": "25 min ago",
+      "lastOutputAt": "2026-07-01T15:34:05.000Z",
+      "lastOutputHuman": "1h ago",
       "issues": [],
       "review": null
     },
@@ -212,10 +231,10 @@
       "does": "Ships one low-risk, high-reward maintenance/design improvement to this overview per run (or nothing), toward the Anthropic aesthetic.",
       "health": "green",
       "private": false,
-      "headline": "improve: fix verification findings — a11y + public-safe fix prompts",
+      "headline": "improve: surface note-level degradations in roster (honesty); drop dead infos var",
       "logName": null,
-      "lastOutputAt": "2026-07-01T15:07:04.000Z",
-      "lastOutputHuman": "25 min ago",
+      "lastOutputAt": "2026-07-01T15:34:05.000Z",
+      "lastOutputHuman": "1h ago",
       "issues": [],
       "review": null
     },
@@ -233,7 +252,7 @@
       "headline": "published 2026-07-01",
       "logName": null,
       "lastOutputAt": "2026-07-01T10:05:18.509Z",
-      "lastOutputHuman": "5h ago",
+      "lastOutputHuman": "7h ago",
       "issues": [],
       "review": null
     },
@@ -287,7 +306,7 @@
       "headline": "rolling yearly: 2026-07-01",
       "logName": null,
       "lastOutputAt": "2026-07-01T08:56:52.000Z",
-      "lastOutputHuman": "7h ago",
+      "lastOutputHuman": "8h ago",
       "issues": [],
       "review": null
     },
@@ -341,7 +360,7 @@
       "headline": "refactor: unify duplicated helpers into one home and delete dead code",
       "logName": null,
       "lastOutputAt": "2026-07-01T14:19:33.000Z",
-      "lastOutputHuman": "1h ago",
+      "lastOutputHuman": "2h ago",
       "issues": [],
       "review": null
     },
@@ -359,7 +378,7 @@
       "headline": "refactor: unify duplicated helpers into one home and delete dead code",
       "logName": null,
       "lastOutputAt": "2026-07-01T14:19:33.000Z",
-      "lastOutputHuman": "1h ago",
+      "lastOutputHuman": "2h ago",
       "issues": [],
       "review": "Overlaps 'Dashboard self-improve' (both every 2h on the same repo) — worth confirming both still earn their slot."
     },
@@ -390,12 +409,12 @@
       "role": "producer",
       "enabled": true,
       "does": "One safe read-only improvement to the holdet dashboard, then publishes the refreshed page.",
-      "health": "green",
+      "health": "yellow",
       "private": false,
       "headline": "Update dashboard — 2026-07-01 16:10 Europe/Copenhagen",
       "logName": null,
       "lastOutputAt": "2026-07-01T14:10:50.000Z",
-      "lastOutputHuman": "1h ago",
+      "lastOutputHuman": "3h ago",
       "issues": [],
       "review": null
     },
@@ -412,8 +431,8 @@
       "private": true,
       "headline": "ran — no errors detected",
       "logName": null,
-      "lastOutputAt": "2026-07-01T14:15:27.000Z",
-      "lastOutputHuman": "1h ago",
+      "lastOutputAt": "2026-07-01T15:53:13.000Z",
+      "lastOutputHuman": "53 min ago",
       "issues": [],
       "review": null
     },
@@ -431,7 +450,7 @@
       "headline": "ran — no errors detected",
       "logName": null,
       "lastOutputAt": "2026-07-01T15:02:02.791Z",
-      "lastOutputHuman": "30 min ago",
+      "lastOutputHuman": "2h ago",
       "issues": [],
       "review": null
     },
@@ -448,8 +467,8 @@
       "private": true,
       "headline": "paused",
       "logName": null,
-      "lastOutputAt": "2026-07-01T14:15:27.000Z",
-      "lastOutputHuman": "1h ago",
+      "lastOutputAt": "2026-07-01T15:53:13.000Z",
+      "lastOutputHuman": "53 min ago",
       "issues": [],
       "review": "Paused — the live-system guardian is off."
     },
@@ -521,7 +540,7 @@
       "headline": "ran — no errors detected",
       "logName": "evening.log",
       "lastOutputAt": "2026-06-30T21:10:42.109Z",
-      "lastOutputHuman": "18h ago",
+      "lastOutputHuman": "20h ago",
       "issues": [
         {
           "severity": "note",
@@ -544,7 +563,7 @@
       "headline": "ran — no errors detected",
       "logName": "guard.log",
       "lastOutputAt": "2026-07-01T06:33:51.919Z",
-      "lastOutputHuman": "9h ago",
+      "lastOutputHuman": "10h ago",
       "issues": [
         {
           "severity": "note",
@@ -566,9 +585,14 @@
       "private": true,
       "headline": "ran — no errors detected",
       "logName": "watch.log",
-      "lastOutputAt": "2026-07-01T14:49:14.485Z",
-      "lastOutputHuman": "43 min ago",
-      "issues": [],
+      "lastOutputAt": "2026-07-01T15:49:28.610Z",
+      "lastOutputHuman": "57 min ago",
+      "issues": [
+        {
+          "severity": "note",
+          "line": "a data source is degraded — details are local-only"
+        }
+      ],
       "review": null
     },
     {
@@ -585,7 +609,7 @@
       "headline": "error detected in local log — details kept private",
       "logName": "improve.log",
       "lastOutputAt": "2026-07-01T12:49:38.412Z",
-      "lastOutputHuman": "3h ago",
+      "lastOutputHuman": "4h ago",
       "issues": [
         {
           "severity": "error",

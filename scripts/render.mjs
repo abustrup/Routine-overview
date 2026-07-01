@@ -49,16 +49,21 @@ projName.unassigned = '❓ Unassigned';
 const projEmoji = Object.fromEntries(s.projects.map((p) => [p.id, p.emoji]));
 
 // ---- verdict --------------------------------------------------------------
+// The "Needs your attention" section below bundles red + warn, so the headline
+// count must too — otherwise the verdict undercounts the cards it sits above.
 const { green, yellow, red, paused, total } = s.summary;
+const needing = red + yellow;
 const verdict =
   red > 0
-    ? `${red} routine${red > 1 ? 's need' : ' needs'} your attention`
+    ? `${needing} routine${needing > 1 ? 's need' : ' needs'} your attention`
     : yellow > 0
       ? `${yellow} routine${yellow > 1 ? 's' : ''} ageing — nothing broken`
       : 'All routines healthy';
 const verdictSub =
   red > 0
-    ? 'Everything else is running clean.'
+    ? yellow > 0
+      ? `${red} broken, ${yellow} ageing — everything else is running clean.`
+      : 'Everything else is running clean.'
     : yellow > 0
       ? 'No errors detected across the fleet.'
       : 'Nothing needs you right now.';
@@ -410,7 +415,7 @@ const html = `<!doctype html>
     <div class="counts">
       <span class="stat"><span class="dot dot--green" aria-hidden="true"></span><b>${green}</b><span>healthy</span></span>
       <span class="stat"><span class="dot dot--yellow" aria-hidden="true"></span><b>${yellow}</b><span>ageing</span></span>
-      <span class="stat"><span class="dot dot--red" aria-hidden="true"></span><b>${red}</b><span>needs attention</span></span>
+      <span class="stat"><span class="dot dot--red" aria-hidden="true"></span><b>${red}</b><span>broken</span></span>
       <span class="stat"><span class="dot dot--paused" aria-hidden="true"></span><b>${paused}</b><span>paused</span></span>
       <span class="stat stat--total">${total} routines total</span>
     </div>
