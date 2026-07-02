@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-07-02T22:17:58.261Z",
-  "generatedAtLocal": "3 Jul 2026, 00:17 Europe/Copenhagen",
+  "generatedAt": "2026-07-02T22:43:31.161Z",
+  "generatedAtLocal": "3 Jul 2026, 00:43 Europe/Copenhagen",
   "owner": "Alexander Bustrup",
   "attentionKey": "red:Holdet improve loop (launchd):error",
   "staleAfterMin": 360,
@@ -116,7 +116,7 @@
         }
       ],
       "lastPublish": "2026-07-02T15:59:54.000Z",
-      "lastPublishHuman": "6h ago",
+      "lastPublishHuman": "7h ago",
       "lastPublishSubject": "refactor: unify duplicated helpers into one home and delete dead code",
       "routineCount": 3,
       "routines": [
@@ -143,7 +143,7 @@
         }
       ],
       "lastPublish": "2026-07-02T04:51:24.000Z",
-      "lastPublishHuman": "17h ago",
+      "lastPublishHuman": "18h ago",
       "lastPublishSubject": "rolling weekly: 2026-07-02",
       "routineCount": 6,
       "routines": [
@@ -172,9 +172,9 @@
           "url": "https://github.com/abustrup/Routine-overview"
         }
       ],
-      "lastPublish": "2026-07-02T19:48:54.000Z",
-      "lastPublishHuman": "2h ago",
-      "lastPublishSubject": "docs: journal the review-card decision-prompt relabel",
+      "lastPublish": "2026-07-02T22:19:55.000Z",
+      "lastPublishHuman": "24 min ago",
+      "lastPublishSubject": "heartbeat; unchanged red (holdet improve) already notified, no new action",
       "routineCount": 2,
       "routines": [
         "routine-overview-secretary",
@@ -194,10 +194,10 @@
       "does": "Refreshes this overview from artifact-truth and flags only what needs attention.",
       "health": "green",
       "private": false,
-      "headline": "docs: journal the review-card decision-prompt relabel",
+      "headline": "heartbeat; unchanged red (holdet improve) already notified, no new action",
       "logName": null,
-      "lastOutputAt": "2026-07-02T19:48:54.000Z",
-      "lastOutputHuman": "2h ago",
+      "lastOutputAt": "2026-07-02T22:19:55.000Z",
+      "lastOutputHuman": "24 min ago",
       "issues": [],
       "review": null
     },
@@ -215,7 +215,7 @@
       "headline": "improve: label review-card button 'Copy decision prompt' (not 'fix') so the verb matches the 'Worth a decision' section — a judgement call isn't a repair",
       "logName": null,
       "lastOutputAt": "2026-07-02T19:48:23.000Z",
-      "lastOutputHuman": "2h ago",
+      "lastOutputHuman": "3h ago",
       "issues": [],
       "review": null
     },
@@ -233,7 +233,7 @@
       "headline": "brief: 2026-07-02",
       "logName": null,
       "lastOutputAt": "2026-07-02T03:58:16.000Z",
-      "lastOutputHuman": "18h ago",
+      "lastOutputHuman": "19h ago",
       "issues": [],
       "review": null
     },
@@ -251,7 +251,7 @@
       "headline": "rolling weekly: 2026-07-02",
       "logName": null,
       "lastOutputAt": "2026-07-02T04:51:24.000Z",
-      "lastOutputHuman": "17h ago",
+      "lastOutputHuman": "18h ago",
       "issues": [],
       "review": null
     },
@@ -269,7 +269,7 @@
       "headline": "rolling monthly: 2026-06-30",
       "logName": null,
       "lastOutputAt": "2026-06-30T10:28:12.000Z",
-      "lastOutputHuman": "2d ago",
+      "lastOutputHuman": "3d ago",
       "issues": [],
       "review": null
     },
@@ -341,7 +341,7 @@
       "headline": "refactor: unify duplicated helpers into one home and delete dead code",
       "logName": null,
       "lastOutputAt": "2026-07-02T15:59:54.000Z",
-      "lastOutputHuman": "6h ago",
+      "lastOutputHuman": "7h ago",
       "issues": [],
       "review": null
     },
@@ -359,7 +359,7 @@
       "headline": "refactor: unify duplicated helpers into one home and delete dead code",
       "logName": null,
       "lastOutputAt": "2026-07-02T15:59:54.000Z",
-      "lastOutputHuman": "6h ago",
+      "lastOutputHuman": "7h ago",
       "issues": [],
       "review": "Overlaps 'Dashboard self-improve' — both daily maintainer passes on the stock repo (02:00 and 13:00). Worth confirming both still earn their slot."
     },
@@ -567,7 +567,7 @@
       "headline": "ran — no errors detected",
       "logName": "watch.log",
       "lastOutputAt": "2026-07-02T22:04:01.600Z",
-      "lastOutputHuman": "14 min ago",
+      "lastOutputHuman": "39 min ago",
       "issues": [],
       "review": null
     },
@@ -585,7 +585,7 @@
       "headline": "error detected in local log — details kept private",
       "logName": "improve.log",
       "lastOutputAt": "2026-07-02T15:04:33.422Z",
-      "lastOutputHuman": "7h ago",
+      "lastOutputHuman": "8h ago",
       "issues": [
         {
           "severity": "error",

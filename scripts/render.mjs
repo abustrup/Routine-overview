@@ -202,12 +202,17 @@ const routineRow = (r) => {
   if (r.kind === 'oneshot') tags.push('<span class="tag">one-time</span>');
   const line = issue ? issue.line : note ? note.line : r.headline;
   const headMod = issue ? ' row__head--issue' : note ? ' row__head--note' : '';
+  // The head column is single-line + ellipsis (keeps the roster skimmable), so a long
+  // headline gets truncated on desktop. Carry the full text in a title so hovering reveals
+  // the rest — the value is already the sanitized, public-safe `line` shown in the row, so
+  // this surfaces nothing new. Omit the attribute entirely when there's no headline.
+  const headTitle = line ? ` title="${esc(line)}"` : '';
   return `<li class="row${muted ? ' row--muted' : ''}">
     <span class="row__dot">${dot(r.health)}</span>
     <span class="row__name">${esc(r.name)}${tags.length ? ' ' + tags.join(' ') : ''}</span>
     <span class="row__cadence">${esc(r.cadence)}</span>
     <span class="row__ago">${esc(r.lastOutputHuman || '—')}</span>
-    <span class="row__head${headMod}">${esc(line || '')}</span>
+    <span class="row__head${headMod}"${headTitle}>${esc(line || '')}</span>
   </li>`;
 };
 
