@@ -345,12 +345,16 @@ for (const a of attention) {
 
 // ---------- summary counts (enabled, non-retired routines) ----------
 const counted = routines.filter((r) => r.health !== 'retired' && r.enabled !== false);
+// `total` is the sum the hero's counts row breaks down (green+yellow+red+paused),
+// so it must exclude retired one-time routines — otherwise the four chips visibly
+// under-sum the total beside them. Retired routines still appear in the roster.
+const nonRetired = routines.filter((r) => r.health !== 'retired');
 const summary = {
   green: counted.filter((r) => r.health === 'green').length,
   yellow: counted.filter((r) => r.health === 'yellow').length,
   red: counted.filter((r) => r.health === 'red').length,
   paused: routines.filter((r) => r.enabled === false && r.health !== 'retired').length,
-  total: routines.length,
+  total: nonRetired.length,
   needsAttention: attention.filter((a) => a.severity === 'red' || a.severity === 'warn').length,
 };
 
