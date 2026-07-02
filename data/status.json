@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-07-02T03:18:01.992Z",
-  "generatedAtLocal": "2 Jul 2026, 05:18 Europe/Copenhagen",
+  "generatedAt": "2026-07-02T04:41:16.809Z",
+  "generatedAtLocal": "2 Jul 2026, 06:41 Europe/Copenhagen",
   "owner": "Alexander Bustrup",
   "attentionKey": "red:Dashboard self-improve:stale|red:Holdet LLM brain:stale|red:Holdet dashboard improve:stale|red:Holdet improve loop (launchd):error|red:Stock maintenance:stale",
   "summary": {
@@ -8,15 +8,14 @@
     "yellow": 0,
     "red": 5,
     "paused": 1,
-    "total": 21,
-    "needsAttention": 5
+    "total": 21
   },
   "attention": [
     {
       "severity": "red",
       "project": "stock",
       "routine": "Dashboard self-improve",
-      "message": "Stale — last output 13h ago (expected Every 2h).",
+      "message": "Stale — last output 14h ago (expected Every 2h).",
       "kind": "stale",
       "fix": {
         "guide": "Dashboard self-improve hasn't produced output when expected (Every 2h).",
@@ -28,7 +27,7 @@
       "severity": "red",
       "project": "stock",
       "routine": "Stock maintenance",
-      "message": "Stale — last output 13h ago (expected Every 2h).",
+      "message": "Stale — last output 14h ago (expected Every 2h).",
       "kind": "stale",
       "fix": {
         "guide": "Stock maintenance hasn't produced output when expected (Every 2h).",
@@ -40,7 +39,7 @@
       "severity": "red",
       "project": "holdet-tdf",
       "routine": "Holdet dashboard improve",
-      "message": "Stale — last output 5h ago (expected Hourly).",
+      "message": "Stale — last output 6h ago (expected Hourly).",
       "kind": "stale",
       "fix": {
         "guide": "Holdet dashboard improve hasn't produced output when expected (Hourly).",
@@ -52,7 +51,7 @@
       "severity": "red",
       "project": "holdet-tdf",
       "routine": "Holdet LLM brain",
-      "message": "Stale — last output 12h ago (expected Hourly).",
+      "message": "Stale — last output 14h ago (expected Hourly).",
       "kind": "stale",
       "fix": {
         "guide": "Holdet LLM brain hasn't produced output when expected (Hourly).",
@@ -130,7 +129,7 @@
         }
       ],
       "lastPublish": "2026-07-01T22:12:44.000Z",
-      "lastPublishHuman": "5h ago",
+      "lastPublishHuman": "6h ago",
       "lastPublishSubject": "Update dashboard — 2026-07-02 00:12 Europe/Copenhagen",
       "routineCount": 10,
       "routines": [
@@ -164,7 +163,7 @@
         }
       ],
       "lastPublish": "2026-07-01T14:19:33.000Z",
-      "lastPublishHuman": "13h ago",
+      "lastPublishHuman": "14h ago",
       "lastPublishSubject": "refactor: unify duplicated helpers into one home and delete dead code",
       "routineCount": 3,
       "routines": [
@@ -190,9 +189,9 @@
           "url": "https://github.com/abustrup/alexanders-brief"
         }
       ],
-      "lastPublish": "2026-07-01T10:05:18.000Z",
-      "lastPublishHuman": "17h ago",
-      "lastPublishSubject": "brief: 2026-07-01",
+      "lastPublish": "2026-07-02T03:58:16.000Z",
+      "lastPublishHuman": "43 min ago",
+      "lastPublishSubject": "brief: 2026-07-02",
       "routineCount": 6,
       "routines": [
         "daily-news-brief",
@@ -220,9 +219,9 @@
           "url": "https://github.com/abustrup/Routine-overview"
         }
       ],
-      "lastPublish": "2026-07-02T02:47:33.000Z",
-      "lastPublishHuman": "30 min ago",
-      "lastPublishSubject": "docs: journal the roster commit-subject cleaning run",
+      "lastPublish": "2026-07-02T03:20:55.000Z",
+      "lastPublishHuman": "1h ago",
+      "lastPublishSubject": "overview: 2026-07-02 03:20 — 15🟢 0🟡 5🔴",
       "routineCount": 2,
       "routines": [
         "routine-overview-secretary",
@@ -242,10 +241,10 @@
       "does": "Refreshes this overview from artifact-truth and flags only what needs attention.",
       "health": "green",
       "private": false,
-      "headline": "docs: journal the roster commit-subject cleaning run",
+      "headline": "overview: 2026-07-02 03:20 — 15🟢 0🟡 5🔴",
       "logName": null,
-      "lastOutputAt": "2026-07-02T02:47:33.000Z",
-      "lastOutputHuman": "30 min ago",
+      "lastOutputAt": "2026-07-02T03:20:55.000Z",
+      "lastOutputHuman": "1h ago",
       "issues": [],
       "review": null
     },
@@ -263,7 +262,7 @@
       "headline": "improve: roster rows get the same trailing-parenthetical strip as project cards, so a routine's own git-log rationale (e.g. '(honesty/clarity)') stops leaking onto the public page",
       "logName": null,
       "lastOutputAt": "2026-07-02T02:47:18.000Z",
-      "lastOutputHuman": "31 min ago",
+      "lastOutputHuman": "2h ago",
       "issues": [],
       "review": null
     },
@@ -278,10 +277,10 @@
       "does": "Researches, validates and publishes the Danish morning brief before the 06:40 deadline.",
       "health": "green",
       "private": false,
-      "headline": "brief: 2026-07-01",
+      "headline": "published 2026-07-02",
       "logName": null,
-      "lastOutputAt": "2026-07-01T10:05:18.000Z",
-      "lastOutputHuman": "17h ago",
+      "lastOutputAt": "2026-07-02T03:58:16.296Z",
+      "lastOutputHuman": "43 min ago",
       "issues": [],
       "review": null
     },
@@ -335,7 +334,7 @@
       "headline": "rolling yearly: 2026-07-01",
       "logName": null,
       "lastOutputAt": "2026-07-01T08:56:52.000Z",
-      "lastOutputHuman": "18h ago",
+      "lastOutputHuman": "20h ago",
       "issues": [],
       "review": null
     },
@@ -389,7 +388,7 @@
       "headline": "refactor: unify duplicated helpers into one home and delete dead code",
       "logName": null,
       "lastOutputAt": "2026-07-01T14:19:33.000Z",
-      "lastOutputHuman": "13h ago",
+      "lastOutputHuman": "14h ago",
       "issues": [],
       "review": null
     },
@@ -407,7 +406,7 @@
       "headline": "refactor: unify duplicated helpers into one home and delete dead code",
       "logName": null,
       "lastOutputAt": "2026-07-01T14:19:33.000Z",
-      "lastOutputHuman": "13h ago",
+      "lastOutputHuman": "14h ago",
       "issues": [],
       "review": "Overlaps 'Dashboard self-improve' (both every 2h on the same repo) — worth confirming both still earn their slot."
     },
@@ -443,7 +442,7 @@
       "headline": "Update dashboard — 2026-07-02 00:12 Europe/Copenhagen",
       "logName": null,
       "lastOutputAt": "2026-07-01T22:12:44.000Z",
-      "lastOutputHuman": "5h ago",
+      "lastOutputHuman": "6h ago",
       "issues": [],
       "review": null
     },
@@ -461,7 +460,7 @@
       "headline": "ran — no errors detected",
       "logName": null,
       "lastOutputAt": "2026-07-01T23:02:26.000Z",
-      "lastOutputHuman": "4h ago",
+      "lastOutputHuman": "6h ago",
       "issues": [],
       "review": null
     },
@@ -479,7 +478,7 @@
       "headline": "error detected in local log — details kept private",
       "logName": null,
       "lastOutputAt": "2026-07-01T15:02:02.791Z",
-      "lastOutputHuman": "12h ago",
+      "lastOutputHuman": "14h ago",
       "issues": [],
       "review": null
     },
@@ -497,7 +496,7 @@
       "headline": "paused",
       "logName": null,
       "lastOutputAt": "2026-07-01T23:02:26.000Z",
-      "lastOutputHuman": "4h ago",
+      "lastOutputHuman": "6h ago",
       "issues": [],
       "review": "Paused — the live-system guardian is off."
     },
@@ -569,7 +568,7 @@
       "headline": "ran — no errors detected",
       "logName": "evening.log",
       "lastOutputAt": "2026-07-01T21:14:59.930Z",
-      "lastOutputHuman": "6h ago",
+      "lastOutputHuman": "7h ago",
       "issues": [],
       "review": null
     },
@@ -587,7 +586,7 @@
       "headline": "ran — no errors detected",
       "logName": "guard.log",
       "lastOutputAt": "2026-07-01T06:33:51.919Z",
-      "lastOutputHuman": "21h ago",
+      "lastOutputHuman": "22h ago",
       "issues": [
         {
           "severity": "note",
@@ -609,8 +608,8 @@
       "private": true,
       "headline": "ran — no errors detected",
       "logName": "watch.log",
-      "lastOutputAt": "2026-07-02T02:52:21.025Z",
-      "lastOutputHuman": "26 min ago",
+      "lastOutputAt": "2026-07-02T03:52:21.713Z",
+      "lastOutputHuman": "49 min ago",
       "issues": [
         {
           "severity": "note",
@@ -632,8 +631,8 @@
       "private": true,
       "headline": "error detected in local log — details kept private",
       "logName": "improve.log",
-      "lastOutputAt": "2026-07-01T22:52:52.334Z",
-      "lastOutputHuman": "4h ago",
+      "lastOutputAt": "2026-07-02T03:53:08.365Z",
+      "lastOutputHuman": "48 min ago",
       "issues": [
         {
           "severity": "error",

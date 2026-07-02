@@ -358,7 +358,6 @@ const summary = {
   red: counted.filter((r) => r.health === 'red').length,
   paused: routines.filter((r) => r.enabled === false && r.health !== 'retired').length,
   total: nonRetired.length,
-  needsAttention: attention.filter((a) => a.severity === 'red' || a.severity === 'warn').length,
 };
 
 // Stable content hash of the actionable set — lets the routine de-dupe notifications by
