@@ -1,8 +1,9 @@
 {
-  "generatedAt": "2026-07-02T18:23:26.533Z",
-  "generatedAtLocal": "2 Jul 2026, 20:23 Europe/Copenhagen",
+  "generatedAt": "2026-07-02T18:41:54.604Z",
+  "generatedAtLocal": "2 Jul 2026, 20:41 Europe/Copenhagen",
   "owner": "Alexander Bustrup",
   "attentionKey": "red:Holdet improve loop (launchd):error",
+  "staleAfterMin": 360,
   "summary": {
     "green": 19,
     "yellow": 0,
@@ -108,7 +109,7 @@
         }
       ],
       "lastPublish": "2026-07-02T15:59:54.000Z",
-      "lastPublishHuman": "2h ago",
+      "lastPublishHuman": "3h ago",
       "lastPublishSubject": "refactor: unify duplicated helpers into one home and delete dead code",
       "routineCount": 3,
       "routines": [
@@ -164,9 +165,9 @@
           "url": "https://github.com/abustrup/Routine-overview"
         }
       ],
-      "lastPublish": "2026-07-02T16:50:26.000Z",
-      "lastPublishHuman": "2h ago",
-      "lastPublishSubject": "docs: journal the secretary status-line prefix strip",
+      "lastPublish": "2026-07-02T18:24:12.000Z",
+      "lastPublishHuman": "18 min ago",
+      "lastPublishSubject": "align 5 routines' cadence metadata to scheduler-truth (cron), clearing 2 false-stale warns",
       "routineCount": 2,
       "routines": [
         "routine-overview-secretary",
@@ -186,10 +187,10 @@
       "does": "Refreshes this overview from artifact-truth and flags only what needs attention.",
       "health": "green",
       "private": false,
-      "headline": "docs: journal the secretary status-line prefix strip",
+      "headline": "align 5 routines' cadence metadata to scheduler-truth (cron), clearing 2 false-stale warns",
       "logName": null,
-      "lastOutputAt": "2026-07-02T16:50:26.000Z",
-      "lastOutputHuman": "2h ago",
+      "lastOutputAt": "2026-07-02T18:24:12.000Z",
+      "lastOutputHuman": "18 min ago",
       "issues": [],
       "review": null
     },
@@ -225,7 +226,7 @@
       "headline": "published 2026-07-02",
       "logName": null,
       "lastOutputAt": "2026-07-02T03:58:16.296Z",
-      "lastOutputHuman": "14h ago",
+      "lastOutputHuman": "15h ago",
       "issues": [],
       "review": null
     },
@@ -333,7 +334,7 @@
       "headline": "refactor: unify duplicated helpers into one home and delete dead code",
       "logName": null,
       "lastOutputAt": "2026-07-02T15:59:54.000Z",
-      "lastOutputHuman": "2h ago",
+      "lastOutputHuman": "3h ago",
       "issues": [],
       "review": null
     },
@@ -351,7 +352,7 @@
       "headline": "refactor: unify duplicated helpers into one home and delete dead code",
       "logName": null,
       "lastOutputAt": "2026-07-02T15:59:54.000Z",
-      "lastOutputHuman": "2h ago",
+      "lastOutputHuman": "3h ago",
       "issues": [],
       "review": "Overlaps 'Dashboard self-improve' — both daily maintainer passes on the stock repo (02:00 and 13:00). Worth confirming both still earn their slot."
     },
@@ -404,8 +405,8 @@
       "private": true,
       "headline": "ran — no errors detected",
       "logName": null,
-      "lastOutputAt": "2026-07-02T16:44:46.000Z",
-      "lastOutputHuman": "2h ago",
+      "lastOutputAt": "2026-07-02T18:33:22.000Z",
+      "lastOutputHuman": "9 min ago",
       "issues": [],
       "review": null
     },
@@ -440,8 +441,8 @@
       "private": true,
       "headline": "paused",
       "logName": null,
-      "lastOutputAt": "2026-07-02T16:44:46.000Z",
-      "lastOutputHuman": "2h ago",
+      "lastOutputAt": "2026-07-02T18:33:22.000Z",
+      "lastOutputHuman": "9 min ago",
       "issues": [],
       "review": "Paused — the live-system guardian is off."
     },
@@ -554,7 +555,7 @@
       "headline": "ran — no errors detected",
       "logName": "watch.log",
       "lastOutputAt": "2026-07-02T18:03:26.336Z",
-      "lastOutputHuman": "20 min ago",
+      "lastOutputHuman": "38 min ago",
       "issues": [],
       "review": null
     },
@@ -572,7 +573,7 @@
       "headline": "error detected in local log — details kept private",
       "logName": "improve.log",
       "lastOutputAt": "2026-07-02T15:04:33.422Z",
-      "lastOutputHuman": "3h ago",
+      "lastOutputHuman": "4h ago",
       "issues": [
         {
           "severity": "error",

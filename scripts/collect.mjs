@@ -388,11 +388,20 @@ const nowLocal = new Intl.DateTimeFormat('en-GB', {
   timeZone: cfg.timezone, dateStyle: 'medium', timeStyle: 'short',
 }).format(new Date());
 
+// The published page is re-committed on every secretary run (its timestamp always changes), so a
+// "may be out of date" banner should mean the secretary actually missed a cycle — not just that the
+// page is older than some fixed number of minutes. Derive the threshold from the secretary's own
+// configured period (+1h grace) instead of hard-coding it: a hard-coded 90 min silently became wrong
+// the day the secretary moved from hourly to every-5h. Falls back to 6h if the routine id changes.
+const refresherCfg = [...cfg.routines, ...(cfg.launchd || [])].find((r) => r.id === 'routine-overview-secretary');
+const staleAfterMin = Math.round(((refresherCfg?.periodHours || 5) + 1) * 60);
+
 const status = {
   generatedAt: iso(nowMs),
   generatedAtLocal: `${nowLocal} ${cfg.timezone}`,
   owner: cfg.owner,
   attentionKey,
+  staleAfterMin,
   summary, attention, projects, routines,
 };
 

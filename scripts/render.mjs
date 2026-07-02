@@ -32,13 +32,17 @@ const dot = (h) => `<span class="dot dot--${esc(h || 'unknown')}" title="${esc(H
 
 // ---- liveness -------------------------------------------------------------
 const ageMin = (Date.now() - Date.parse(s.generatedAt)) / 6e4;
-const isStale = ageMin > 90;
+// Threshold is derived by collect from the secretary's configured refresh period (so it tracks the
+// real cadence instead of a hard-coded minute count that drifts when the schedule changes); fall
+// back to 6h if an older status.json predates the field.
+const staleAfterMin = s.staleAfterMin || 360;
+const isStale = ageMin > staleAfterMin;
 const staleBanner = isStale
   ? `<div class="stale" role="alert">
       <span class="stale__dot" aria-hidden="true"></span>
       <div>
         <strong>This overview may be out of date.</strong>
-        Last refreshed ${esc(ageMin >= 120 ? Math.round(ageMin / 60) + 'h' : Math.round(ageMin) + ' min')} ago — the hourly secretary may not be running, so the health below could be frozen.
+        Last refreshed ${esc(ageMin >= 120 ? Math.round(ageMin / 60) + 'h' : Math.round(ageMin) + ' min')} ago — the secretary may not be running, so the health below could be frozen.
       </div>
     </div>`
   : '';
