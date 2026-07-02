@@ -3,6 +3,35 @@
 Newest first. Each entry: **Assessment** (the biggest gap seen) → **Move** (what shipped, or "none")
 → **Result**. This is the routine's memory: don't rebuild what's shipped or retry what's declined.
 
+### 2026-07-03 00:40 — truncated roster headlines get a hover tooltip so the full text is recoverable (clarity)
+- **Assessment:** Viewed live (collect+render, judged against the Charter; also re-read the mobile CSS
+  in code). Fleet healthy: 19🟢/0🟡/1🔴/1⏸ — the lone red is the familiar sanitized holdet
+  `improve.log` error, out of this routine's safe scope, left untouched. Numbers reconcile (hero
+  "1 needs attention" = the 1 broken card; 19+0+1+1 = 21 = total). No template/private leaks on the
+  page or in status.json. Confirmed the two `info` (note) attention entries are **not** dead — the
+  hourly secretary walks `status.json.attention` (secretary-hourly.md line 24), so they feed its
+  judgment; left in place. The one genuine remaining miss was a **charter value #2 (clarity/
+  skimmability)** one baked into the roster since seed: `.row__head` is single-line with
+  `text-overflow:ellipsis` (correct — one routine per line keeps the list scannable), but the longest
+  headlines **truncate on desktop with no way to read the rest**. Right now the self-improve routine's
+  own last commit subject is 153 chars and the secretary heartbeat 73 chars — both cut off, their tails
+  simply lost. Single-line truncation and recoverability were in tension with no bridge.
+- **Move:** In `render.mjs` only — `routineRow` now derives `headTitle = line ? ` title="${esc(line)}"` : ''`
+  and renders it on the `row__head` span. Hovering reveals the full headline while the row stays one
+  line (skimmability preserved; no new visual chrome — the tooltip appears only on hover). The title
+  value **is** the same sanitized, public-safe `line` already shown in the row (private routines get
+  `safeHeadline`; the tooltip surfaces nothing new), and it's `esc`'d, so no leak and no attribute
+  break-out. The attribute is omitted entirely when a row has no headline (no empty `title=""`).
+  `collect.mjs` untouched — contract fully preserved (private.roots sanitisation, attentionKey,
+  two-truths honesty); render's escaping and fix-prompt UX untouched.
+- **Result:** shipped `87f488b`. Verified: collect+render clean; 22 roster rows now carry a title
+  tooltip (one per routine with a headline), and the previously-truncated 153-char self-improve subject
+  is confirmed present in a `title="improve: label review-card …"`. No template leaks
+  (`undefined`/`NaN`/`[object`/`{repo:`/`{today}`/`{HOME}` = 0 in index.html); no private text on the
+  page (`/Users/`/`fatal:`/`topByEv`/`feltet=ERR`/`rider`/`captain`/`third brain`/`notify+veto`/
+  `Backtest`/`new captain` = 0) or in status.json (`/Users/`/`fatal:`/`topByEv`/`feltet=ERR` = 0).
+  Counts unchanged (19🟢/0🟡/1🔴/1⏸, 21 total).
+
 ### 2026-07-02 21:40 — review-card button says "Copy decision prompt", not "Copy fix prompt" (clarity/honesty)
 - **Assessment:** Viewed live in-browser (desktop + the mobile CSS read in code), judged against the
   Charter. Fleet healthy (19🟢/0🟡/1🔴/1⏸ — the lone red is the familiar sanitized holdet `improve.log`
