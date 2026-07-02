@@ -3,6 +3,30 @@
 Newest first. Each entry: **Assessment** (the biggest gap seen) → **Move** (what shipped, or "none")
 → **Result**. This is the routine's memory: don't rebuild what's shipped or retry what's declined.
 
+### 2026-07-02 — dismissible "Needs your attention" flags (owner request — NOT an autonomous self-improve run)
+- **Provenance (read this first):** Requested directly by Alexander — *"make it possible to hide or delete
+  the red flags if I feel they are fixed or don't need my attention any more."* Implemented via Claude Code,
+  not a self-improve judgement call. Logged here only so a future self-improve run doesn't mistake the dismiss
+  UI for cruft and simplify it away, or rebuild it from scratch. Do not treat it as precedent for the routine
+  editing render's interaction model on its own.
+- **Assessment:** The overview could surface attention flags but gave the owner no way to clear one he'd
+  judged handled (e.g. the standing cadence-vs-scheduler false positives). Because the page is static and
+  rebuilt hourly from artifact-truth, a "delete" can't touch the source — the next `collect` reconstructs it.
+  So the honest shape is a client-side, per-device suppression layer that only decides what to *show*.
+- **Move:** `render.mjs` only (output regenerated). Each attention + review card gets `data-akey` +
+  a dismiss `×`. A self-cleaning `localStorage` controller (`routine-overview:dismissed:v1`) hides dismissed
+  cards, keyed by **`severity:routine:kind`** — the same identity `collect` already uses for `attentionKey`
+  notification de-dupe — so a stale flag whose "16h ago" text drifts hour-to-hour stays dismissed, while a
+  genuinely different problem gets a new key and resurfaces. On load it **prunes** any dismissal whose flag is
+  absent from the current page (issue resolved upstream) or older than 30 days, so a real recurrence is never
+  silently re-hidden. Per-section "Show hidden" restore + an Undo toast; a distinct honest empty state when a
+  whole section is hidden. The hero verdict and factual count chips are deliberately **untouched** — hiding
+  declutters the cards only, never the numbers. No change to `collect`, `status.json`, the two-truths model,
+  `attentionKey`, or the fix-prompt UX; stores only the key locally, ships no new data to the public JSON.
+- **Result:** shipped `c627757`. Verified in-browser: dismiss persists across reload; self-clean prunes
+  absent + aged keys while keeping valid ones; per-section restore, cleared-state restore, and Undo all work;
+  no console errors; the pristine (no-dismissal) view is unchanged.
+
 ### 2026-07-02 08:40 — sanitize private routines' `does` so holdet strategy stops shipping publicly (trust/honesty)
 - **Assessment:** Viewed live (collect+render, judged against the Charter; fleet in its known batch-stale
   15🟢/1🟡/4🔴/1⏸, the reds the familiar config-cadence-vs-scheduler false positives + one sanitized holdet
