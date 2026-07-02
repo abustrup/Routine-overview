@@ -241,13 +241,7 @@
   footer .foot-sep{margin:0 8px;opacity:.5}
 </style></head>
 <body><div class="wrap">
-  <div class="stale" role="alert">
-      <span class="stale__dot" aria-hidden="true"></span>
-      <div>
-        <strong>This overview may be out of date.</strong>
-        Last refreshed 7h ago — the hourly secretary may not be running, so the health below could be frozen.
-      </div>
-    </div>
+  
 
   <header>
     <div class="topline">
@@ -255,7 +249,7 @@
         <p class="eyebrow">Personal routine secretary</p>
         <h1>Routine Overview</h1>
       </div>
-      <div class="stamp">Updated <b>2 Jul 2026, 08:44 Europe/Copenhagen</b></div>
+      <div class="stamp">Updated <b>2 Jul 2026, 18:42 Europe/Copenhagen</b></div>
     </div>
     <p class="subtitle">The health of every scheduled routine across Alexander Bustrup's projects — so you never have to open them one by one.</p>
   </header>
@@ -263,13 +257,13 @@
   <div class="hero hero--alert">
     <div class="hero__row">
       <span class="hero__mark" aria-hidden="true"></span>
-      <p class="hero__verdict">5 routines need your attention</p>
+      <p class="hero__verdict">1 routine needs your attention</p>
     </div>
-    <p class="hero__sub">4 broken, 1 ageing — everything else is running clean.</p>
+    <p class="hero__sub">Everything else is running clean.</p>
     <div class="counts">
-      <span class="stat"><span class="dot dot--green" aria-hidden="true"></span><b>15</b><span>healthy</span></span>
-      <span class="stat"><span class="dot dot--yellow" aria-hidden="true"></span><b>1</b><span>ageing</span></span>
-      <span class="stat"><span class="dot dot--red" aria-hidden="true"></span><b>4</b><span>broken</span></span>
+      <span class="stat"><span class="dot dot--green" aria-hidden="true"></span><b>19</b><span>healthy</span></span>
+      <span class="stat"><span class="dot dot--yellow" aria-hidden="true"></span><b>0</b><span>ageing</span></span>
+      <span class="stat"><span class="dot dot--red" aria-hidden="true"></span><b>1</b><span>broken</span></span>
       <span class="stat"><span class="dot dot--paused" aria-hidden="true"></span><b>1</b><span>paused</span></span>
       <span class="stat stat--total">21 routines total</span>
     </div>
@@ -278,85 +272,7 @@
   <section aria-labelledby="sec-attn" data-attn-section>
     <div class="sec-head"><h2 id="sec-attn">Needs your attention</h2><span class="rule"></span><button type="button" class="sec-restore" data-restore hidden><span data-restore-count>0</span> hidden · Show</button></div>
     <div class="attn-list" data-attn-list>
-    <article class="attn attn--red" data-attn data-akey="red:Dashboard self-improve:stale">
-  <div class="attn__bar" aria-hidden="true"></div>
-  <div class="attn__main">
-    <div class="attn__head">
-      <span class="attn__sev">Broken</span>
-      <span class="attn__where">📈 Dashboard self-improve</span>
-      <button type="button" class="dismiss-x" data-dismiss aria-label="Hide this alert" title="Hide — it comes back if the issue is still there next refresh">×</button>
-    </div>
-    <p class="attn__msg">Stale — last output 16h ago (expected Every 2h).</p>
-    <div class="fix">
-    <div class="fix__actions">
-      <button type="button" class="btn btn--copy"
-              data-copy="The scheduled routine &quot;Dashboard self-improve&quot; (Ships at most ONE strictly-better improvement to the stock dashboard per run via reviewed PR (or nothing).) was expected to run Every 2h but produced no recent output. Working dir: ~/Documents/AI eksperimenter/personal-stock-dashboard. Investigate why it stopped (check its scheduler run and its log), fix the cause, verify a fresh run produces output, and commit. Open a small PR to main and keep CI green. Public repo: demo data only, never real positions or secrets.">
-        <span class="btn__label">Copy fix prompt</span>
-        <span class="btn__done" aria-hidden="true">Copied&nbsp;✓</span>
-      </button>
-      <button type="button" class="btn btn--link" data-toggle="fix-1" aria-expanded="false" aria-controls="fix-1">
-        View prompt
-      </button>
-    </div>
-    <div class="fix__body" id="fix-1" hidden>
-      <pre class="fix__prompt">The scheduled routine &quot;Dashboard self-improve&quot; (Ships at most ONE strictly-better improvement to the stock dashboard per run via reviewed PR (or nothing).) was expected to run Every 2h but produced no recent output. Working dir: ~/Documents/AI eksperimenter/personal-stock-dashboard. Investigate why it stopped (check its scheduler run and its log), fix the cause, verify a fresh run produces output, and commit. Open a small PR to main and keep CI green. Public repo: demo data only, never real positions or secrets.</pre>
-      <div class="fix__cwd"><span class="fix__cwd-k">cwd</span> <code>~/Documents/AI eksperimenter/personal-stock-dashboard</code></div>
-    </div>
-  </div>
-  </div>
-</article><article class="attn attn--red" data-attn data-akey="red:Stock maintenance:stale">
-  <div class="attn__bar" aria-hidden="true"></div>
-  <div class="attn__main">
-    <div class="attn__head">
-      <span class="attn__sev">Broken</span>
-      <span class="attn__where">📈 Stock maintenance</span>
-      <button type="button" class="dismiss-x" data-dismiss aria-label="Hide this alert" title="Hide — it comes back if the issue is still there next refresh">×</button>
-    </div>
-    <p class="attn__msg">Stale — last output 16h ago (expected Every 2h).</p>
-    <div class="fix">
-    <div class="fix__actions">
-      <button type="button" class="btn btn--copy"
-              data-copy="The scheduled routine &quot;Stock maintenance&quot; (Structural maintenance passes on the stock dashboard.) was expected to run Every 2h but produced no recent output. Working dir: ~/Documents/AI eksperimenter/personal-stock-dashboard. Investigate why it stopped (check its scheduler run and its log), fix the cause, verify a fresh run produces output, and commit. Open a small PR to main and keep CI green. Public repo: demo data only, never real positions or secrets.">
-        <span class="btn__label">Copy fix prompt</span>
-        <span class="btn__done" aria-hidden="true">Copied&nbsp;✓</span>
-      </button>
-      <button type="button" class="btn btn--link" data-toggle="fix-2" aria-expanded="false" aria-controls="fix-2">
-        View prompt
-      </button>
-    </div>
-    <div class="fix__body" id="fix-2" hidden>
-      <pre class="fix__prompt">The scheduled routine &quot;Stock maintenance&quot; (Structural maintenance passes on the stock dashboard.) was expected to run Every 2h but produced no recent output. Working dir: ~/Documents/AI eksperimenter/personal-stock-dashboard. Investigate why it stopped (check its scheduler run and its log), fix the cause, verify a fresh run produces output, and commit. Open a small PR to main and keep CI green. Public repo: demo data only, never real positions or secrets.</pre>
-      <div class="fix__cwd"><span class="fix__cwd-k">cwd</span> <code>~/Documents/AI eksperimenter/personal-stock-dashboard</code></div>
-    </div>
-  </div>
-  </div>
-</article><article class="attn attn--red" data-attn data-akey="red:Holdet LLM brain:stale">
-  <div class="attn__bar" aria-hidden="true"></div>
-  <div class="attn__main">
-    <div class="attn__head">
-      <span class="attn__sev">Broken</span>
-      <span class="attn__where">🚴 Holdet LLM brain</span>
-      <button type="button" class="dismiss-x" data-dismiss aria-label="Hide this alert" title="Hide — it comes back if the issue is still there next refresh">×</button>
-    </div>
-    <p class="attn__msg">Stale — last output 16h ago (expected Hourly).</p>
-    <div class="fix">
-    <div class="fix__actions">
-      <button type="button" class="btn btn--copy"
-              data-copy="The scheduled routine &quot;Holdet LLM brain&quot; was expected to run Hourly but produced no recent output. Working dir: ~/holdet-tdf-bot. Investigate why it stopped (check its scheduler run and its log), fix the cause, verify a fresh run produces output, and commit. Follow the project's own CLAUDE.md and the holdet-tdf-bot skill, which document its guardrails and protected paths.">
-        <span class="btn__label">Copy fix prompt</span>
-        <span class="btn__done" aria-hidden="true">Copied&nbsp;✓</span>
-      </button>
-      <button type="button" class="btn btn--link" data-toggle="fix-3" aria-expanded="false" aria-controls="fix-3">
-        View prompt
-      </button>
-    </div>
-    <div class="fix__body" id="fix-3" hidden>
-      <pre class="fix__prompt">The scheduled routine &quot;Holdet LLM brain&quot; was expected to run Hourly but produced no recent output. Working dir: ~/holdet-tdf-bot. Investigate why it stopped (check its scheduler run and its log), fix the cause, verify a fresh run produces output, and commit. Follow the project's own CLAUDE.md and the holdet-tdf-bot skill, which document its guardrails and protected paths.</pre>
-      <div class="fix__cwd"><span class="fix__cwd-k">cwd</span> <code>~/holdet-tdf-bot</code></div>
-    </div>
-  </div>
-  </div>
-</article><article class="attn attn--red" data-attn data-akey="red:Holdet improve loop (launchd):error">
+    <article class="attn attn--red" data-attn data-akey="red:Holdet improve loop (launchd):error">
   <div class="attn__bar" aria-hidden="true"></div>
   <div class="attn__main">
     <div class="attn__head">
@@ -372,39 +288,13 @@
         <span class="btn__label">Copy fix prompt</span>
         <span class="btn__done" aria-hidden="true">Copied&nbsp;✓</span>
       </button>
-      <button type="button" class="btn btn--link" data-toggle="fix-4" aria-expanded="false" aria-controls="fix-4">
+      <button type="button" class="btn btn--link" data-toggle="fix-1" aria-expanded="false" aria-controls="fix-1">
         View prompt
       </button>
     </div>
-    <div class="fix__body" id="fix-4" hidden>
+    <div class="fix__body" id="fix-1" hidden>
       <pre class="fix__prompt">The scheduled routine &quot;Holdet improve loop (launchd)&quot; is erroring. Working dir: ~/holdet-tdf-bot. Read improve.log for the exact error, then find the root cause, fix it, add a guard or test so it can't recur, verify by re-running the step, and commit. Follow the project's own CLAUDE.md and the holdet-tdf-bot skill, which document its guardrails and protected paths.</pre>
       <div class="fix__cwd"><span class="fix__cwd-k">cwd</span> <code>~/holdet-tdf-bot</code></div>
-    </div>
-  </div>
-  </div>
-</article><article class="attn attn--warn" data-attn data-akey="warn:Routine secretary (this):ageing">
-  <div class="attn__bar" aria-hidden="true"></div>
-  <div class="attn__main">
-    <div class="attn__head">
-      <span class="attn__sev">Warning</span>
-      <span class="attn__where">🗂️ Routine secretary (this)</span>
-      <button type="button" class="dismiss-x" data-dismiss aria-label="Hide this alert" title="Hide — it comes back if the issue is still there next refresh">×</button>
-    </div>
-    <p class="attn__msg">Ageing — last output 2h ago (expected Hourly · :18).</p>
-    <div class="fix">
-    <div class="fix__actions">
-      <button type="button" class="btn btn--copy"
-              data-copy="The scheduled routine &quot;Routine secretary (this)&quot; (Refreshes this overview from artifact-truth and flags only what needs attention.) was expected to run Hourly · :18 but produced no recent output. Working dir: ~/Documents/AI eksperimenter/Routine overview. Investigate why it stopped (check its scheduler run and its log), fix the cause, verify a fresh run produces output, and commit. Keep it public-safe: health/status only, no secrets or strategy internals. Verify with node scripts/collect.mjs &amp;&amp; node scripts/render.mjs before pushing.">
-        <span class="btn__label">Copy fix prompt</span>
-        <span class="btn__done" aria-hidden="true">Copied&nbsp;✓</span>
-      </button>
-      <button type="button" class="btn btn--link" data-toggle="fix-5" aria-expanded="false" aria-controls="fix-5">
-        View prompt
-      </button>
-    </div>
-    <div class="fix__body" id="fix-5" hidden>
-      <pre class="fix__prompt">The scheduled routine &quot;Routine secretary (this)&quot; (Refreshes this overview from artifact-truth and flags only what needs attention.) was expected to run Hourly · :18 but produced no recent output. Working dir: ~/Documents/AI eksperimenter/Routine overview. Investigate why it stopped (check its scheduler run and its log), fix the cause, verify a fresh run produces output, and commit. Keep it public-safe: health/status only, no secrets or strategy internals. Verify with node scripts/collect.mjs &amp;&amp; node scripts/render.mjs before pushing.</pre>
-      <div class="fix__cwd"><span class="fix__cwd-k">cwd</span> <code>~/Documents/AI eksperimenter/Routine overview</code></div>
     </div>
   </div>
   </div>
@@ -431,11 +321,11 @@
         <span class="btn__label">Copy fix prompt</span>
         <span class="btn__done" aria-hidden="true">Copied&nbsp;✓</span>
       </button>
-      <button type="button" class="btn btn--link" data-toggle="fix-6" aria-expanded="false" aria-controls="fix-6">
+      <button type="button" class="btn btn--link" data-toggle="fix-2" aria-expanded="false" aria-controls="fix-2">
         View prompt
       </button>
     </div>
-    <div class="fix__body" id="fix-6" hidden>
+    <div class="fix__body" id="fix-2" hidden>
       <pre class="fix__prompt">About the scheduled routine &quot;Stock maintenance&quot; (Structural maintenance passes on the stock dashboard.). Working dir: ~/Documents/AI eksperimenter/personal-stock-dashboard. Decision to make: Overlaps 'Dashboard self-improve' (both every 2h on the same repo) — worth confirming both still earn their slot. Investigate, decide the best action, and implement it if warranted; otherwise briefly explain why to leave it as-is. Open a small PR to main and keep CI green. Public repo: demo data only, never real positions or secrets.</pre>
       <div class="fix__cwd"><span class="fix__cwd-k">cwd</span> <code>~/Documents/AI eksperimenter/personal-stock-dashboard</code></div>
     </div>
@@ -453,11 +343,11 @@
         <span class="btn__label">Copy fix prompt</span>
         <span class="btn__done" aria-hidden="true">Copied&nbsp;✓</span>
       </button>
-      <button type="button" class="btn btn--link" data-toggle="fix-7" aria-expanded="false" aria-controls="fix-7">
+      <button type="button" class="btn btn--link" data-toggle="fix-3" aria-expanded="false" aria-controls="fix-3">
         View prompt
       </button>
     </div>
-    <div class="fix__body" id="fix-7" hidden>
+    <div class="fix__body" id="fix-3" hidden>
       <pre class="fix__prompt">About the scheduled routine &quot;Maintenance and improvements&quot; (&quot;Do maintenance: improve structure&quot; — target project not specified in the routine name.). First identify which project this routine belongs to, then work there. Decision to make: Purpose/target is vague and it runs hourly — decide what it targets (it may overlap another project's maintenance routine) or whether it still earns an hourly slot. Investigate, decide the best action, and implement it if warranted; otherwise briefly explain why to leave it as-is. Make a change only if you can verify it is safe and does not break anything, then commit.</pre>
       
     </div>
@@ -475,13 +365,13 @@
     <header class="proj__head">
       <span class="proj__emoji" aria-hidden="true">🚴</span>
       <h3 class="proj__name">Holdet TDF bot</h3>
-      <span class="dot dot--red" title="Needs attention" aria-hidden="true"></span>
+      <span class="dot dot--yellow" title="Ageing" aria-hidden="true"></span>
     </header>
     <p class="proj__goal">Autonomously field the optimal holdet.dk Tour de France 2026 team every single day and beat the human field — hands-off, with only a human veto.</p>
     <div class="proj__now">
       <span class="proj__now-k">Latest</span>
-      <span class="proj__now-v">Update dashboard — 2026-07-02 08:14 Europe/Copenhagen</span>
-      <span class="proj__now-ago">30 min ago</span>
+      <span class="proj__now-v">Update dashboard — 2026-07-02 17:42 Europe/Copenhagen</span>
+      <span class="proj__now-ago">60 min ago</span>
     </div>
     <p class="proj__note">Pre-Tour: stage 1 startlist still pending, so the daily brains correctly report 'no material change'. Watch for Tour start.</p>
     <div class="proj__links"><a class="chip" href="https://abustrup.github.io/Holdet-TDF-2026/" target="_blank" rel="noopener">Live dashboard<span class="chip__ext" aria-hidden="true">↗</span></a><span class="chip chip--local">Bot repo</span></div>
@@ -489,13 +379,13 @@
     <header class="proj__head">
       <span class="proj__emoji" aria-hidden="true">📈</span>
       <h3 class="proj__name">Personal stock dashboard</h3>
-      <span class="dot dot--yellow" title="Ageing" aria-hidden="true"></span>
+      <span class="dot dot--green" title="Healthy" aria-hidden="true"></span>
     </header>
     <p class="proj__goal">A calm, trust-first decision instrument that tells me — in one glance — the single sized move my broker never would, and honestly says 'do nothing' when that's right.</p>
     <div class="proj__now">
       <span class="proj__now-k">Latest</span>
       <span class="proj__now-v">refactor: unify duplicated helpers into one home and delete dead code</span>
-      <span class="proj__now-ago">16h ago</span>
+      <span class="proj__now-ago">42 min ago</span>
     </div>
     
     <div class="proj__links"><a class="chip" href="https://abustrup.github.io/personal-stock-dashboard/" target="_blank" rel="noopener">Live dashboard<span class="chip__ext" aria-hidden="true">↗</span></a><a class="chip" href="https://github.com/abustrup/personal-stock-dashboard" target="_blank" rel="noopener">Repo<span class="chip__ext" aria-hidden="true">↗</span></a></div>
@@ -509,7 +399,7 @@
     <div class="proj__now">
       <span class="proj__now-k">Latest</span>
       <span class="proj__now-v">rolling weekly: 2026-07-02</span>
-      <span class="proj__now-ago">2h ago</span>
+      <span class="proj__now-ago">12h ago</span>
     </div>
     
     <div class="proj__links"><a class="chip" href="https://abustrup.github.io/alexanders-brief/" target="_blank" rel="noopener">Live brief<span class="chip__ext" aria-hidden="true">↗</span></a><a class="chip" href="https://github.com/abustrup/alexanders-brief" target="_blank" rel="noopener">Repo<span class="chip__ext" aria-hidden="true">↗</span></a></div>
@@ -517,13 +407,13 @@
     <header class="proj__head">
       <span class="proj__emoji" aria-hidden="true">🗂️</span>
       <h3 class="proj__name">Routine Overview</h3>
-      <span class="dot dot--yellow" title="Ageing" aria-hidden="true"></span>
+      <span class="dot dot--green" title="Healthy" aria-hidden="true"></span>
     </header>
     <p class="proj__goal">Hold the whole picture across every routine and interrupt Alexander only when something genuinely needs him.</p>
     <div class="proj__now">
       <span class="proj__now-k">Latest</span>
-      <span class="proj__now-v">docs: journal the summary.needsAttention deletion</span>
-      <span class="proj__now-ago">2h ago</span>
+      <span class="proj__now-v">docs: journal the dismissible-attention-flags feature</span>
+      <span class="proj__now-ago">3h ago</span>
     </div>
     
     <div class="proj__links"><a class="chip" href="https://abustrup.github.io/Routine-overview/" target="_blank" rel="noopener">This dashboard<span class="chip__ext" aria-hidden="true">↗</span></a><a class="chip" href="https://github.com/abustrup/Routine-overview" target="_blank" rel="noopener">Repo<span class="chip__ext" aria-hidden="true">↗</span></a></div>
@@ -538,25 +428,25 @@
     <span class="row__dot"><span class="dot dot--green" title="Healthy" aria-hidden="true"></span></span>
     <span class="row__name">Holdet dashboard improve</span>
     <span class="row__cadence">Hourly</span>
-    <span class="row__ago">30 min ago</span>
-    <span class="row__head">Update dashboard — 2026-07-02 08:14 Europe/Copenhagen</span>
+    <span class="row__ago">60 min ago</span>
+    <span class="row__head">Update dashboard — 2026-07-02 17:42 Europe/Copenhagen</span>
   </li><li class="row">
     <span class="row__dot"><span class="dot dot--green" title="Healthy" aria-hidden="true"></span></span>
     <span class="row__name">Holdet auditor</span>
     <span class="row__cadence">Every 5h</span>
-    <span class="row__ago">8h ago</span>
+    <span class="row__ago">7 min ago</span>
     <span class="row__head">ran — no errors detected</span>
   </li><li class="row">
-    <span class="row__dot"><span class="dot dot--red" title="Needs attention" aria-hidden="true"></span></span>
+    <span class="row__dot"><span class="dot dot--green" title="Healthy" aria-hidden="true"></span></span>
     <span class="row__name">Holdet LLM brain</span>
     <span class="row__cadence">Hourly</span>
-    <span class="row__ago">16h ago</span>
-    <span class="row__head">error detected in local log — details kept private</span>
+    <span class="row__ago">6 min ago</span>
+    <span class="row__head">ran — no errors detected</span>
   </li><li class="row row--muted">
     <span class="row__dot"><span class="dot dot--paused" title="Paused" aria-hidden="true"></span></span>
     <span class="row__name">Holdet self-improve <span class="tag tag--off">paused</span></span>
     <span class="row__cadence">Hourly</span>
-    <span class="row__ago">8h ago</span>
+    <span class="row__ago">7 min ago</span>
     <span class="row__head">paused</span>
   </li><li class="row">
     <span class="row__dot"><span class="dot dot--green" title="Healthy" aria-hidden="true"></span></span>
@@ -574,40 +464,40 @@
     <span class="row__dot"><span class="dot dot--green" title="Healthy" aria-hidden="true"></span></span>
     <span class="row__name">Holdet evening pass (launchd) <span class="tag">launchd</span></span>
     <span class="row__cadence">~21:05 &amp; ~23:10</span>
-    <span class="row__ago">9h ago</span>
+    <span class="row__ago">19h ago</span>
     <span class="row__head">ran — no errors detected</span>
   </li><li class="row">
     <span class="row__dot"><span class="dot dot--green" title="Healthy" aria-hidden="true"></span></span>
     <span class="row__name">Holdet DNS guard (launchd) <span class="tag">launchd</span></span>
     <span class="row__cadence">~08:30</span>
-    <span class="row__ago">14 min ago</span>
+    <span class="row__ago">10h ago</span>
     <span class="row__head row__head--note">a data source is degraded — details are local-only</span>
   </li><li class="row">
     <span class="row__dot"><span class="dot dot--green" title="Healthy" aria-hidden="true"></span></span>
     <span class="row__name">Holdet watch sentinel (launchd) <span class="tag">launchd</span></span>
     <span class="row__cadence">Hourly</span>
-    <span class="row__ago">52 min ago</span>
-    <span class="row__head row__head--note">a data source is degraded — details are local-only</span>
+    <span class="row__ago">39 min ago</span>
+    <span class="row__head">ran — no errors detected</span>
   </li><li class="row">
     <span class="row__dot"><span class="dot dot--red" title="Needs attention" aria-hidden="true"></span></span>
     <span class="row__name">Holdet improve loop (launchd) <span class="tag">launchd</span></span>
     <span class="row__cadence">Every 5h</span>
-    <span class="row__ago">3h ago</span>
+    <span class="row__ago">2h ago</span>
     <span class="row__head row__head--issue">error detected in improve.log — details are local-only</span>
   </li></ul>
     </div><div class="rgroup">
       <div class="rgroup__head">📈 Personal stock dashboard<span class="rgroup__count">3</span></div>
       <ul class="rlist"><li class="row">
-    <span class="row__dot"><span class="dot dot--red" title="Needs attention" aria-hidden="true"></span></span>
+    <span class="row__dot"><span class="dot dot--green" title="Healthy" aria-hidden="true"></span></span>
     <span class="row__name">Dashboard self-improve</span>
     <span class="row__cadence">Every 2h</span>
-    <span class="row__ago">16h ago</span>
+    <span class="row__ago">42 min ago</span>
     <span class="row__head">refactor: unify duplicated helpers into one home and delete dead code</span>
   </li><li class="row">
-    <span class="row__dot"><span class="dot dot--red" title="Needs attention" aria-hidden="true"></span></span>
+    <span class="row__dot"><span class="dot dot--green" title="Healthy" aria-hidden="true"></span></span>
     <span class="row__name">Stock maintenance</span>
     <span class="row__cadence">Every 2h</span>
-    <span class="row__ago">16h ago</span>
+    <span class="row__ago">42 min ago</span>
     <span class="row__head">refactor: unify duplicated helpers into one home and delete dead code</span>
   </li><li class="row">
     <span class="row__dot"><span class="dot dot--green" title="Healthy" aria-hidden="true"></span></span>
@@ -622,13 +512,13 @@
     <span class="row__dot"><span class="dot dot--green" title="Healthy" aria-hidden="true"></span></span>
     <span class="row__name">Daily news brief</span>
     <span class="row__cadence">Daily · 06:02</span>
-    <span class="row__ago">3h ago</span>
+    <span class="row__ago">13h ago</span>
     <span class="row__head">published 2026-07-02</span>
   </li><li class="row">
     <span class="row__dot"><span class="dot dot--green" title="Healthy" aria-hidden="true"></span></span>
     <span class="row__name">Rolling weekly (Ugen)</span>
     <span class="row__cadence">Daily · 06:48</span>
-    <span class="row__ago">2h ago</span>
+    <span class="row__ago">12h ago</span>
     <span class="row__head">rolling weekly: 2026-07-02</span>
   </li><li class="row">
     <span class="row__dot"><span class="dot dot--green" title="Healthy" aria-hidden="true"></span></span>
@@ -640,7 +530,7 @@
     <span class="row__dot"><span class="dot dot--green" title="Healthy" aria-hidden="true"></span></span>
     <span class="row__name">Rolling yearly (Året)</span>
     <span class="row__cadence">1st of month · 06:57</span>
-    <span class="row__ago">22h ago</span>
+    <span class="row__ago">1d ago</span>
     <span class="row__head">rolling yearly: 2026-07-01</span>
   </li><li class="row">
     <span class="row__dot"><span class="dot dot--green" title="Healthy" aria-hidden="true"></span></span>
@@ -658,17 +548,17 @@
     </div><div class="rgroup">
       <div class="rgroup__head">🗂️ Routine Overview<span class="rgroup__count">2</span></div>
       <ul class="rlist"><li class="row">
-    <span class="row__dot"><span class="dot dot--yellow" title="Ageing" aria-hidden="true"></span></span>
+    <span class="row__dot"><span class="dot dot--green" title="Healthy" aria-hidden="true"></span></span>
     <span class="row__name">Routine secretary (this)</span>
-    <span class="row__cadence">Hourly · :18</span>
-    <span class="row__ago">2h ago</span>
-    <span class="row__head">docs: journal the summary.needsAttention deletion</span>
+    <span class="row__cadence">Every 5h · :17</span>
+    <span class="row__ago">3h ago</span>
+    <span class="row__head">docs: journal the dismissible-attention-flags feature</span>
   </li><li class="row">
     <span class="row__dot"><span class="dot dot--green" title="Healthy" aria-hidden="true"></span></span>
     <span class="row__name">Overview self-improve</span>
     <span class="row__cadence">Every 3h</span>
-    <span class="row__ago">2h ago</span>
-    <span class="row__head">improve: drop dead summary.needsAttention field — collect wrote it to status.json but no consumer (render/publish) reads it, so remove it for a cleaner public JSON</span>
+    <span class="row__ago">3h ago</span>
+    <span class="row__head">improve: let the owner hide &quot;Needs your attention&quot; flags they've judged handled — client-side, self-cleaning dismissal</span>
   </li></ul>
     </div><div class="rgroup">
       <div class="rgroup__head">❓ Unassigned<span class="rgroup__count">1</span></div>
@@ -685,7 +575,7 @@
   <footer>
     Health is reconstructed from each routine's real artifacts — git commits, run-logs and published files — not just whether the scheduler fired. Silent by design: you get a push only when something needs you.
     <br>
-    Generated 2 Jul 2026, 08:44 Europe/Copenhagen
+    Generated 2 Jul 2026, 18:42 Europe/Copenhagen
     <span class="foot-sep">·</span>
     <a href="https://github.com/abustrup/Routine-overview" target="_blank" rel="noopener">github.com/abustrup/Routine-overview</a>
   </footer>

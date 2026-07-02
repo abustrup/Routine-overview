@@ -71,7 +71,7 @@
   "routines": [
     {
       "id": "routine-overview-secretary", "project": "meta", "name": "Routine secretary (this)",
-      "cadence": "Hourly · :18", "periodHours": 1, "kind": "scheduler", "role": "maintainer", "enabled": true,
+      "cadence": "Every 5h · :17", "periodHours": 5, "kind": "scheduler", "role": "maintainer", "enabled": true,
       "does": "Refreshes this overview from artifact-truth and flags only what needs attention.",
       "freshness": { "type": "gitAny", "repo": "overview" }
     },
