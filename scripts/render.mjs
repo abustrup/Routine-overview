@@ -104,25 +104,48 @@ const fixBlock = (a, variant) => {
 // stale/ageing, carries the concrete age ("last output 6h ago") the guide drops —
 // more honest and more skimmable. For a private source it reads "…details are
 // local-only", keeping the two-truths honesty visible on the card itself.
-const attnCard = (a) => `<article class="attn attn--${esc(a.severity)}">
+// A stable per-item identity — `severity:routine:kind`, the same shape collect uses for
+// its notification de-dup key. Deliberately excludes the message text (which carries the
+// ever-changing "last output 16h ago"), so a persistent flag stays dismissed hour to hour,
+// while a genuinely different problem (severity/kind change) gets a new key and resurfaces.
+const attnKey = (a) => `${a.severity}:${a.routine}:${a.kind}`;
+
+// The dismiss affordance: a small "×" the user clicks when they've judged an item fixed or
+// not worth their attention. It only hides client-side (localStorage) — the next collect
+// still reconstructs real health — so this never edits the artifact truth underneath.
+const dismissBtn = `<button type="button" class="dismiss-x" data-dismiss aria-label="Hide this alert" title="Hide — it comes back if the issue is still there next refresh">×</button>`;
+
+const attnCard = (a) => `<article class="attn attn--${esc(a.severity)}" data-attn data-akey="${esc(attnKey(a))}">
   <div class="attn__bar" aria-hidden="true"></div>
   <div class="attn__main">
     <div class="attn__head">
       <span class="attn__sev">${a.severity === 'red' ? 'Broken' : 'Warning'}</span>
       <span class="attn__where">${esc(projEmoji[a.project] || '')} ${esc(a.routine)}</span>
+      ${dismissBtn}
     </div>
     <p class="attn__msg">${esc(a.message)}</p>
     ${fixBlock(a, 'attn')}
   </div>
 </article>`;
 
-const reviewCard = (a) => `<article class="review">
+const reviewCard = (a) => `<article class="review" data-attn data-akey="${esc(attnKey(a))}">
   <div class="review__head">
     <span class="review__where">${esc(projEmoji[a.project] || '')} ${esc(a.routine)}</span>
+    ${dismissBtn}
   </div>
   <p class="review__msg">${esc(a.message)}</p>
   ${fixBlock(a, 'review')}
 </article>`;
+
+// A "Show N hidden" pill for the section head, and the honest empty state shown when every
+// card in a section has been hidden — distinct from the server-rendered "nothing broke"
+// empty, and explicit that hiding is per-device and reversible. Both start hidden and are
+// revealed by the dismissal controller below.
+const restorePill = `<button type="button" class="sec-restore" data-restore hidden><span data-restore-count>0</span> hidden · Show</button>`;
+const clearedEmpty = (noun) => `<div class="empty empty--cleared" data-cleared hidden>
+  <span class="empty__dot" aria-hidden="true"></span>
+  <div><strong>You've hidden ${esc(noun)}.</strong> <span>They'll come back after the next refresh if the issue is still there. <button type="button" class="linkbtn" data-restore>Show hidden</button></span></div>
+</div>`;
 
 // ---- project cards --------------------------------------------------------
 const projCard = (p) => {
@@ -227,6 +250,10 @@ const html = `<!doctype html>
   @media(max-width:520px){.wrap{padding:26px 16px 72px}}
   a{color:inherit}
   :focus-visible{outline:2px solid var(--accent-strong);outline-offset:2px;border-radius:6px}
+  /* Components below set their own display (flex/inline), which would beat the UA [hidden]
+     rule — so hide explicitly. is-hidden persists a dismissal; is-collapsing animates it out. */
+  [hidden]{display:none!important}
+  .is-hidden{display:none!important}
 
   /* ---- stale banner ---- */
   .stale{display:flex;gap:12px;align-items:flex-start;
@@ -390,6 +417,36 @@ const html = `<!doctype html>
   .dot--red{background:var(--red)} .dot--paused{background:var(--grey)}
   .dot--retired{background:var(--grey);opacity:.6} .dot--unknown{background:var(--grey)}
 
+  /* ---- dismiss / restore ---- */
+  .review__head{display:flex;align-items:center;gap:10px}
+  .dismiss-x{margin-left:auto;flex:0 0 auto;width:26px;height:26px;display:inline-flex;
+    align-items:center;justify-content:center;border:1px solid transparent;border-radius:7px;
+    background:transparent;color:var(--muted);font-size:19px;line-height:1;cursor:pointer;
+    transition:background .12s,color .12s,border-color .12s}
+  .dismiss-x:hover{background:var(--surface-2);color:var(--ink);border-color:var(--line)}
+  .attn--red .dismiss-x:hover{color:var(--red);border-color:var(--red)}
+  .attn.is-collapsing,.review.is-collapsing{opacity:0;transform:translateX(10px);
+    transition:opacity .18s ease,transform .18s ease}
+  @media(prefers-reduced-motion:reduce){.attn.is-collapsing,.review.is-collapsing{transition:none}}
+  .sec-restore{align-self:center;font:inherit;font-size:12px;font-weight:600;letter-spacing:.02em;
+    cursor:pointer;color:var(--muted);background:transparent;border:1px solid var(--line);
+    border-radius:999px;padding:3px 12px;transition:color .12s,border-color .12s}
+  .sec-restore:hover{color:var(--accent);border-color:var(--accent)}
+  .sec-restore [data-restore-count]{font-variant-numeric:tabular-nums;font-weight:700;color:var(--ink)}
+  .empty--cleared .empty__dot{background:var(--grey)}
+  .linkbtn{font:inherit;font-size:inherit;color:var(--accent-strong);background:transparent;
+    border:0;padding:0;cursor:pointer;text-decoration:underline;text-underline-offset:2px}
+  .linkbtn:hover{color:var(--accent)}
+
+  /* ---- undo toast ---- */
+  .toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:50;
+    display:flex;align-items:center;gap:16px;background:var(--ink);color:var(--bg);
+    padding:11px 18px;border-radius:10px;box-shadow:0 6px 22px rgba(0,0,0,.22);font-size:13.5px;
+    max-width:calc(100vw - 32px)}
+  .toast__undo{font:inherit;font-size:13px;font-weight:700;color:var(--accent);background:transparent;
+    border:0;cursor:pointer;padding:0}
+  .toast__undo:hover{text-decoration:underline}
+
   /* ---- footer ---- */
   footer{margin-top:52px;padding-top:20px;border-top:1px solid var(--line);
     font-size:12.5px;color:var(--muted);line-height:1.6}
@@ -427,8 +484,9 @@ const html = `<!doctype html>
     </div>
   </div>
 
-  <section aria-labelledby="sec-attn">
-    <div class="sec-head"><h2 id="sec-attn">Needs your attention</h2><span class="rule"></span></div>
+  <section aria-labelledby="sec-attn" data-attn-section>
+    <div class="sec-head"><h2 id="sec-attn">Needs your attention</h2><span class="rule"></span>${restorePill}</div>
+    <div class="attn-list" data-attn-list>
     ${
       urgent.length
         ? urgent.map(attnCard).join('')
@@ -436,13 +494,16 @@ const html = `<!doctype html>
              <div><strong>Nothing broken or overdue.</strong> <span>Every routine is producing real output — enjoy your day.</span></div>
            </div>`
     }
+    </div>
+    ${clearedEmpty('these alerts')}
   </section>
 
   ${
     reviews.length
-      ? `<section aria-labelledby="sec-review">
-          <div class="sec-head"><h2 id="sec-review">Worth a decision</h2><span class="rule"></span></div>
-          ${reviews.map(reviewCard).join('')}
+      ? `<section aria-labelledby="sec-review" data-attn-section>
+          <div class="sec-head"><h2 id="sec-review">Worth a decision</h2><span class="rule"></span>${restorePill}</div>
+          <div class="attn-list" data-attn-list>${reviews.map(reviewCard).join('')}</div>
+          ${clearedEmpty('these items')}
         </section>`
       : ''
   }
@@ -464,6 +525,11 @@ const html = `<!doctype html>
     <span class="foot-sep">·</span>
     <a href="https://github.com/abustrup/Routine-overview" target="_blank" rel="noopener">github.com/abustrup/Routine-overview</a>
   </footer>
+</div>
+
+<div class="toast" data-toast hidden role="status" aria-live="polite">
+  <span data-toast-msg>Alert hidden</span>
+  <button type="button" class="toast__undo" data-toast-undo>Undo</button>
 </div>
 
 <script>
@@ -517,6 +583,122 @@ const html = `<!doctype html>
       var open = body.hasAttribute('hidden');
       if (open) { body.removeAttribute('hidden'); btn.setAttribute('aria-expanded','true'); btn.textContent = 'Hide prompt'; }
       else { body.setAttribute('hidden',''); btn.setAttribute('aria-expanded','false'); btn.textContent = 'View prompt'; }
+    });
+  });
+})();
+
+// ---- dismissible attention flags -----------------------------------------
+// Hiding an alert is a per-device, reversible convenience — never a change to the truth
+// underneath. The page is rebuilt hourly from real artifacts, so this layer only decides
+// what to *show*. Persistence + self-cleaning live in localStorage, keyed by data-akey.
+(function(){
+  var KEY = 'routine-overview:dismissed:v1';
+  var MAXAGE = 30 * 24 * 3600 * 1000; // backstop: forget a dismissal after 30 days
+  function load(){
+    try { var o = JSON.parse(localStorage.getItem(KEY) || '{}'); return (o && typeof o === 'object') ? o : {}; }
+    catch (e) { return {}; }
+  }
+  function save(m){ try { localStorage.setItem(KEY, JSON.stringify(m)); } catch (e) {} }
+
+  var sections = [].slice.call(document.querySelectorAll('[data-attn-section]'));
+  if (!sections.length) return;
+  var dismissed = load();
+
+  function keyOf(card){ return card.getAttribute('data-akey'); }
+  function cardsOf(sec){ return [].slice.call(sec.querySelectorAll('[data-attn]')); }
+
+  // Self-clean: forget any dismissal whose alert is no longer on the page (the issue
+  // resolved upstream, so collect stopped emitting it) or that has aged past the backstop.
+  // This is what makes a genuine *recurrence* resurface instead of being silently re-hidden.
+  var present = {};
+  sections.forEach(function(sec){ cardsOf(sec).forEach(function(c){ present[keyOf(c)] = true; }); });
+  var changed = false, t = Date.now();
+  Object.keys(dismissed).forEach(function(k){
+    var ts = Date.parse(dismissed[k]);
+    if (!present[k] || (isFinite(ts) && (t - ts) > MAXAGE)) { delete dismissed[k]; changed = true; }
+  });
+  if (changed) save(dismissed);
+
+  function setHidden(card, on){ card.classList.toggle('is-hidden', !!on); }
+
+  function updateSection(sec){
+    var cards = cardsOf(sec);
+    var hiddenN = cards.filter(function(c){ return dismissed[keyOf(c)]; }).length;
+    var allHidden = cards.length > 0 && hiddenN === cards.length;
+    var cleared = sec.querySelector('[data-cleared]');
+    var restore = sec.querySelector('.sec-head [data-restore]');
+    if (cleared) cleared.hidden = !allHidden;
+    if (restore) {
+      restore.hidden = !(hiddenN > 0 && !allHidden); // cleared state carries its own Show link
+      var cnt = restore.querySelector('[data-restore-count]');
+      if (cnt) cnt.textContent = String(hiddenN);
+    }
+  }
+
+  // Apply persisted dismissals on first paint.
+  sections.forEach(function(sec){
+    cardsOf(sec).forEach(function(c){ if (dismissed[keyOf(c)]) setHidden(c, true); });
+    updateSection(sec);
+  });
+
+  // ---- undo toast (single, shared) ----
+  var toast = document.querySelector('[data-toast]');
+  var toastMsg = toast && toast.querySelector('[data-toast-msg]');
+  var toastUndo = toast && toast.querySelector('[data-toast-undo]');
+  var toastTimer = null, pendingUndo = null;
+  function showToast(msg, onUndo){
+    if (!toast) return;
+    if (toastMsg) toastMsg.textContent = msg;
+    pendingUndo = onUndo;
+    toast.hidden = false;
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(hideToast, 6000);
+  }
+  function hideToast(){ if (toast) toast.hidden = true; pendingUndo = null; }
+  if (toastUndo) toastUndo.addEventListener('click', function(){ var f = pendingUndo; hideToast(); if (f) f(); });
+
+  function dismissCard(card, sec){
+    var k = keyOf(card); if (!k) return;
+    dismissed[k] = new Date().toISOString(); save(dismissed);
+    card.classList.add('is-collapsing');
+    card._undone = false;
+    function finalize(){
+      if (card._undone) return;
+      card.removeEventListener('transitionend', finalize);
+      clearTimeout(card._collapseTimer);
+      card.classList.remove('is-collapsing');
+      setHidden(card, true);
+      updateSection(sec);
+    }
+    card.addEventListener('transitionend', finalize);
+    card._collapseTimer = setTimeout(finalize, 240); // fallback when transitions don't fire
+    showToast('Alert hidden', function(){
+      card._undone = true;
+      card.removeEventListener('transitionend', finalize);
+      clearTimeout(card._collapseTimer);
+      delete dismissed[k]; save(dismissed);
+      card.classList.remove('is-collapsing');
+      setHidden(card, false);
+      updateSection(sec);
+    });
+  }
+
+  function restoreSection(sec){
+    cardsOf(sec).forEach(function(c){
+      var k = keyOf(c);
+      if (dismissed[k]) { delete dismissed[k]; setHidden(c, false); }
+    });
+    save(dismissed);
+    updateSection(sec);
+  }
+
+  // One delegated listener per section handles both the per-card × and the Show-hidden links.
+  sections.forEach(function(sec){
+    sec.addEventListener('click', function(e){
+      if (!e.target.closest) return;
+      var d = e.target.closest('[data-dismiss]');
+      if (d) { var card = d.closest('[data-attn]'); if (card) dismissCard(card, sec); return; }
+      if (e.target.closest('[data-restore]')) restoreSection(sec);
     });
   });
 })();
