@@ -22,7 +22,7 @@ Newest first. Each entry: **Assessment** (the biggest gap seen) → **Move** (wh
   commit subjects is affected — all other public headlines have none, so producer/file/advisory rows are
   untouched. Contract preserved: no change to `private.roots` sanitisation, `attentionKey`, the two-truths
   health model, or render's escaping/fix-prompt UX (render untouched).
-- **Result:** shipped. Verified: collect+render clean; the `Overview self-improve` row is now
+- **Result:** shipped `c55851e`. Verified: collect+render clean; the `Overview self-improve` row is now
   DOM-confirmed `improve: … reconciles with the counts chips` (no tag); zero public git headlines still
   end in `(…)`; project "Latest" lines unchanged. No template leaks
   (`undefined`/`NaN`/`[object`/`{repo:`/`{today}`/`{HOME}`); no private text in index.html (the lone
