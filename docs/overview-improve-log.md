@@ -3,6 +3,41 @@
 Newest first. Each entry: **Assessment** (the biggest gap seen) → **Move** (what shipped, or "none")
 → **Result**. This is the routine's memory: don't rebuild what's shipped or retry what's declined.
 
+### 2026-07-02 20:41 — stale-banner threshold tracks the secretary's real cadence, not a hard-coded 90 min (honesty)
+- **Provenance (read first):** Found **uncommitted WIP** in the tree at run start (not journaled, not
+  committed) — a `staleAfterMin` feature (`collect.mjs` + `render.mjs`) plus a stray one-line
+  `config/projects.json` edit. I did **not** commit blindly: I read all 16 lines, re-derived the
+  computation against live config, exercised both banner branches + the fallback, and judged the feature
+  on its merits as if writing it fresh. The stray projects.json edit I **reverted** (see below). Adopting
+  a verified, self-contained, interrupted-WIP improvement is legitimate; a future run should not treat this
+  as licence to commit unread working-tree changes — the gate (understand every line + verify) is the bar.
+- **Assessment:** Viewed live (collect+render, judged against the Charter). Fleet healthy (19🟢/0🟡/1🔴/1⏸
+  — the lone red is the familiar sanitized holdet `improve.log` error, out of this routine's safe scope).
+  The genuine miss was a **charter value #1 (honesty — no false alarm)** one baked into render: the "This
+  overview may be out of date" banner used a hard-coded `ageMin > 90`. That constant was correct when the
+  secretary ran hourly, but it moved **hourly → every-5h** (commit `18aef07`), so the page is *expected* to
+  be up to 5h old on a perfectly healthy schedule — yet the banner fired after 90 min, crying wolf on every
+  normal refresh gap and eroding the one signal that's supposed to mean "the secretary actually stopped."
+  The banner copy also still said "hourly secretary," now factually wrong.
+- **Move:** Kept + completed the WIP (verified sound). In `collect.mjs`: derive the threshold from the
+  secretary's *own* configured period — `staleAfterMin = round((secretary.periodHours + 1h grace) * 60)`,
+  looking the routine up in `[...routines, ...launchd]` by id, falling back to 5h if the id ever changes;
+  write it into `status.json`. In `render.mjs`: `isStale = ageMin > (s.staleAfterMin || 360)` (6h fallback
+  for any older status.json predating the field), and fixed the copy "hourly secretary" → "secretary."
+  Now the banner's threshold and the schedule co-vary — they can't silently drift apart again. **Reverted**
+  the stray `projects.json` edit (self-improve routine `cadence "Every 3h"→"Every 2h"` while `periodHours`
+  stayed `3`): internally inconsistent, unrelated to the feature, and it would reintroduce the exact
+  cadence-drift the secretary just cleared in `e7c8bb8`; cadence↔scheduler-truth alignment is the
+  secretary's lane, not verifiable from here. Contract preserved: no change to `private.roots`
+  sanitisation, `attentionKey`, the two-truths health model, or render's escaping/fix-prompt UX.
+- **Result:** shipped `480bd1c`. Verified: collect+render clean; `staleAfterMin=360` in status.json
+  (secretary periodHours 5 → (5+1)·60 ✓); simulated a 5h-old page → **not** stale and a 7h-old page →
+  stale (old 90-min threshold false-alarmed both); field-absent fallback → 360. No template leaks
+  (`undefined`/`NaN`/`[object`/`{repo:`/`{today}`/`{HOME}` = 0 in index.html); `hourly secretary` = 0 on
+  page; no private text on page (`/Users/`/`fatal:`/`topByEv`/`feltet=ERR`/rider/captain/EV = 0). The one
+  `captain` in status.json is the pre-existing benign `Holdet Team B cycle` `does` field (status.json only,
+  never rendered, owner-only reclassification decision) — unchanged by this run. Counts unchanged.
+
 ### 2026-07-02 17:30 — strip the secretary's status-line prefix from public commit subjects (clarity)
 - **Assessment:** Viewed live (collect+render, judged against the Charter). The fleet is healthy
   (19🟢/0🟡/1🔴/1⏸ — the lone red is the familiar sanitized holdet `improve.log` error, out of this
