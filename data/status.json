@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-07-02T16:48:40.470Z",
-  "generatedAtLocal": "2 Jul 2026, 18:48 Europe/Copenhagen",
+  "generatedAt": "2026-07-02T18:23:26.533Z",
+  "generatedAtLocal": "2 Jul 2026, 20:23 Europe/Copenhagen",
   "owner": "Alexander Bustrup",
   "attentionKey": "red:Holdet improve loop (launchd):error",
   "summary": {
@@ -27,11 +27,11 @@
       "severity": "review",
       "project": "stock",
       "routine": "Stock maintenance",
-      "message": "Overlaps 'Dashboard self-improve' (both every 2h on the same repo) — worth confirming both still earn their slot.",
+      "message": "Overlaps 'Dashboard self-improve' — both daily maintainer passes on the stock repo (02:00 and 13:00). Worth confirming both still earn their slot.",
       "kind": "review",
       "fix": {
-        "guide": "Overlaps 'Dashboard self-improve' (both every 2h on the same repo) — worth confirming both still earn their slot.",
-        "prompt": "About the scheduled routine \"Stock maintenance\" (Structural maintenance passes on the stock dashboard.). Working dir: ~/Documents/AI eksperimenter/personal-stock-dashboard. Decision to make: Overlaps 'Dashboard self-improve' (both every 2h on the same repo) — worth confirming both still earn their slot. Investigate, decide the best action, and implement it if warranted; otherwise briefly explain why to leave it as-is. Open a small PR to main and keep CI green. Public repo: demo data only, never real positions or secrets.",
+        "guide": "Overlaps 'Dashboard self-improve' — both daily maintainer passes on the stock repo (02:00 and 13:00). Worth confirming both still earn their slot.",
+        "prompt": "About the scheduled routine \"Stock maintenance\" (Structural maintenance passes on the stock dashboard.). Working dir: ~/Documents/AI eksperimenter/personal-stock-dashboard. Decision to make: Overlaps 'Dashboard self-improve' — both daily maintainer passes on the stock repo (02:00 and 13:00). Worth confirming both still earn their slot. Investigate, decide the best action, and implement it if warranted; otherwise briefly explain why to leave it as-is. Open a small PR to main and keep CI green. Public repo: demo data only, never real positions or secrets.",
         "cwd": "~/Documents/AI eksperimenter/personal-stock-dashboard"
       }
     },
@@ -39,11 +39,11 @@
       "severity": "review",
       "project": "unassigned",
       "routine": "Maintenance and improvements",
-      "message": "Purpose/target is vague and it runs hourly — decide what it targets (it may overlap another project's maintenance routine) or whether it still earns an hourly slot.",
+      "message": "Purpose/target is vague and it's unassigned to any project — decide what it targets (it may overlap another project's maintenance routine) or whether it still earns its daily slot.",
       "kind": "review",
       "fix": {
-        "guide": "Purpose/target is vague and it runs hourly — decide what it targets (it may overlap another project's maintenance routine) or whether it still earns an hourly slot.",
-        "prompt": "About the scheduled routine \"Maintenance and improvements\" (\"Do maintenance: improve structure\" — target project not specified in the routine name.). First identify which project this routine belongs to, then work there. Decision to make: Purpose/target is vague and it runs hourly — decide what it targets (it may overlap another project's maintenance routine) or whether it still earns an hourly slot. Investigate, decide the best action, and implement it if warranted; otherwise briefly explain why to leave it as-is. Make a change only if you can verify it is safe and does not break anything, then commit.",
+        "guide": "Purpose/target is vague and it's unassigned to any project — decide what it targets (it may overlap another project's maintenance routine) or whether it still earns its daily slot.",
+        "prompt": "About the scheduled routine \"Maintenance and improvements\" (\"Do maintenance: improve structure\" — target project not specified in the routine name.). First identify which project this routine belongs to, then work there. Decision to make: Purpose/target is vague and it's unassigned to any project — decide what it targets (it may overlap another project's maintenance routine) or whether it still earns its daily slot. Investigate, decide the best action, and implement it if warranted; otherwise briefly explain why to leave it as-is. Make a change only if you can verify it is safe and does not break anything, then commit.",
         "cwd": null
       }
     },
@@ -74,7 +74,7 @@
         }
       ],
       "lastPublish": "2026-07-02T15:42:33.000Z",
-      "lastPublishHuman": "1h ago",
+      "lastPublishHuman": "3h ago",
       "lastPublishSubject": "Update dashboard — 2026-07-02 17:42 Europe/Copenhagen",
       "routineCount": 10,
       "routines": [
@@ -108,7 +108,7 @@
         }
       ],
       "lastPublish": "2026-07-02T15:59:54.000Z",
-      "lastPublishHuman": "49 min ago",
+      "lastPublishHuman": "2h ago",
       "lastPublishSubject": "refactor: unify duplicated helpers into one home and delete dead code",
       "routineCount": 3,
       "routines": [
@@ -135,7 +135,7 @@
         }
       ],
       "lastPublish": "2026-07-02T04:51:24.000Z",
-      "lastPublishHuman": "12h ago",
+      "lastPublishHuman": "14h ago",
       "lastPublishSubject": "rolling weekly: 2026-07-02",
       "routineCount": 6,
       "routines": [
@@ -164,9 +164,9 @@
           "url": "https://github.com/abustrup/Routine-overview"
         }
       ],
-      "lastPublish": "2026-07-02T16:42:48.000Z",
-      "lastPublishHuman": "6 min ago",
-      "lastPublishSubject": "fix secretary cadence drift (hourly→every-5h) to clear false-stale red",
+      "lastPublish": "2026-07-02T16:50:26.000Z",
+      "lastPublishHuman": "2h ago",
+      "lastPublishSubject": "docs: journal the secretary status-line prefix strip",
       "routineCount": 2,
       "routines": [
         "routine-overview-secretary",
@@ -186,10 +186,10 @@
       "does": "Refreshes this overview from artifact-truth and flags only what needs attention.",
       "health": "green",
       "private": false,
-      "headline": "fix secretary cadence drift (hourly→every-5h) to clear false-stale red",
+      "headline": "docs: journal the secretary status-line prefix strip",
       "logName": null,
-      "lastOutputAt": "2026-07-02T16:42:48.000Z",
-      "lastOutputHuman": "6 min ago",
+      "lastOutputAt": "2026-07-02T16:50:26.000Z",
+      "lastOutputHuman": "2h ago",
       "issues": [],
       "review": null
     },
@@ -204,10 +204,10 @@
       "does": "Ships one low-risk, high-reward maintenance/design improvement to this overview per run (or nothing), toward the Anthropic aesthetic.",
       "health": "green",
       "private": false,
-      "headline": "improve: let the owner hide \"Needs your attention\" flags they've judged handled — client-side, self-cleaning dismissal",
+      "headline": "improve: strip the secretary's status-line prefix (date + emoji counts) from public commit subjects so the roster row and project Latest line show only the real change, not data already in the hero",
       "logName": null,
-      "lastOutputAt": "2026-07-02T13:32:09.000Z",
-      "lastOutputHuman": "3h ago",
+      "lastOutputAt": "2026-07-02T16:49:40.000Z",
+      "lastOutputHuman": "2h ago",
       "issues": [],
       "review": null
     },
@@ -225,7 +225,7 @@
       "headline": "published 2026-07-02",
       "logName": null,
       "lastOutputAt": "2026-07-02T03:58:16.296Z",
-      "lastOutputHuman": "13h ago",
+      "lastOutputHuman": "14h ago",
       "issues": [],
       "review": null
     },
@@ -243,7 +243,7 @@
       "headline": "rolling weekly: 2026-07-02",
       "logName": null,
       "lastOutputAt": "2026-07-02T04:51:24.000Z",
-      "lastOutputHuman": "12h ago",
+      "lastOutputHuman": "14h ago",
       "issues": [],
       "review": null
     },
@@ -323,7 +323,7 @@
       "id": "dashboard-self-improve",
       "name": "Dashboard self-improve",
       "project": "stock",
-      "cadence": "Every 2h",
+      "cadence": "Daily · 02:00",
       "kind": "scheduler",
       "role": "maintainer",
       "enabled": true,
@@ -333,7 +333,7 @@
       "headline": "refactor: unify duplicated helpers into one home and delete dead code",
       "logName": null,
       "lastOutputAt": "2026-07-02T15:59:54.000Z",
-      "lastOutputHuman": "49 min ago",
+      "lastOutputHuman": "2h ago",
       "issues": [],
       "review": null
     },
@@ -341,7 +341,7 @@
       "id": "stock---do-maintenance-improve-structure",
       "name": "Stock maintenance",
       "project": "stock",
-      "cadence": "Every 2h",
+      "cadence": "Daily · 13:00",
       "kind": "scheduler",
       "role": "maintainer",
       "enabled": true,
@@ -351,9 +351,9 @@
       "headline": "refactor: unify duplicated helpers into one home and delete dead code",
       "logName": null,
       "lastOutputAt": "2026-07-02T15:59:54.000Z",
-      "lastOutputHuman": "49 min ago",
+      "lastOutputHuman": "2h ago",
       "issues": [],
-      "review": "Overlaps 'Dashboard self-improve' (both every 2h on the same repo) — worth confirming both still earn their slot."
+      "review": "Overlaps 'Dashboard self-improve' — both daily maintainer passes on the stock repo (02:00 and 13:00). Worth confirming both still earn their slot."
     },
     {
       "id": "watchlist-integration",
@@ -377,7 +377,7 @@
       "id": "holdet-dashboard-improve",
       "name": "Holdet dashboard improve",
       "project": "holdet-tdf",
-      "cadence": "Hourly",
+      "cadence": "Every 8h",
       "kind": "scheduler",
       "role": "producer",
       "enabled": true,
@@ -387,7 +387,7 @@
       "headline": "Update dashboard — 2026-07-02 17:42 Europe/Copenhagen",
       "logName": null,
       "lastOutputAt": "2026-07-02T15:42:33.000Z",
-      "lastOutputHuman": "1h ago",
+      "lastOutputHuman": "3h ago",
       "issues": [],
       "review": null
     },
@@ -405,7 +405,7 @@
       "headline": "ran — no errors detected",
       "logName": null,
       "lastOutputAt": "2026-07-02T16:44:46.000Z",
-      "lastOutputHuman": "4 min ago",
+      "lastOutputHuman": "2h ago",
       "issues": [],
       "review": null
     },
@@ -413,7 +413,7 @@
       "id": "holdet-llm-brain",
       "name": "Holdet LLM brain",
       "project": "holdet-tdf",
-      "cadence": "Hourly",
+      "cadence": "Daily · 16:55",
       "kind": "scheduler",
       "role": "producer",
       "enabled": true,
@@ -423,7 +423,7 @@
       "headline": "ran — no errors detected",
       "logName": null,
       "lastOutputAt": "2026-07-02T16:36:18.377Z",
-      "lastOutputHuman": "12 min ago",
+      "lastOutputHuman": "2h ago",
       "issues": [],
       "review": null
     },
@@ -441,7 +441,7 @@
       "headline": "paused",
       "logName": null,
       "lastOutputAt": "2026-07-02T16:44:46.000Z",
-      "lastOutputHuman": "4 min ago",
+      "lastOutputHuman": "2h ago",
       "issues": [],
       "review": "Paused — the live-system guardian is off."
     },
@@ -467,7 +467,7 @@
       "id": "maintenance-and-improvements",
       "name": "Maintenance and improvements",
       "project": "unassigned",
-      "cadence": "Hourly",
+      "cadence": "Daily · 12:00",
       "kind": "scheduler",
       "role": "maintainer",
       "enabled": true,
@@ -479,7 +479,7 @@
       "lastOutputAt": null,
       "lastOutputHuman": "—",
       "issues": [],
-      "review": "Purpose/target is vague and it runs hourly — decide what it targets (it may overlap another project's maintenance routine) or whether it still earns an hourly slot."
+      "review": "Purpose/target is vague and it's unassigned to any project — decide what it targets (it may overlap another project's maintenance routine) or whether it still earns its daily slot."
     },
     {
       "id": "holdet-routine-selftest",
@@ -513,7 +513,7 @@
       "headline": "ran — no errors detected",
       "logName": "evening.log",
       "lastOutputAt": "2026-07-01T21:14:59.930Z",
-      "lastOutputHuman": "20h ago",
+      "lastOutputHuman": "21h ago",
       "issues": [],
       "review": null
     },
@@ -531,7 +531,7 @@
       "headline": "ran — no errors detected",
       "logName": "guard.log",
       "lastOutputAt": "2026-07-02T06:30:17.475Z",
-      "lastOutputHuman": "10h ago",
+      "lastOutputHuman": "12h ago",
       "issues": [
         {
           "severity": "note",
@@ -553,8 +553,8 @@
       "private": true,
       "headline": "ran — no errors detected",
       "logName": "watch.log",
-      "lastOutputAt": "2026-07-02T16:03:23.947Z",
-      "lastOutputHuman": "45 min ago",
+      "lastOutputAt": "2026-07-02T18:03:26.336Z",
+      "lastOutputHuman": "20 min ago",
       "issues": [],
       "review": null
     },
@@ -572,7 +572,7 @@
       "headline": "error detected in local log — details kept private",
       "logName": "improve.log",
       "lastOutputAt": "2026-07-02T15:04:33.422Z",
-      "lastOutputHuman": "2h ago",
+      "lastOutputHuman": "3h ago",
       "issues": [
         {
           "severity": "error",
