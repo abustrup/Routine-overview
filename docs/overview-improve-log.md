@@ -3,6 +3,29 @@
 Newest first. Each entry: **Assessment** (the biggest gap seen) → **Move** (what shipped, or "none")
 → **Result**. This is the routine's memory: don't rebuild what's shipped or retry what's declined.
 
+### 2026-07-02 02:50 — hero "routines total" reconciles with its own counts chips (honesty/clarity)
+- **Assessment:** Viewed live (desktop + mobile, light). The page is deeply polished; the only genuine
+  remaining inconsistency was in the **hero counts row**. The four chips read
+  `14 healthy · 2 ageing · 4 broken · 1 paused` (sum **21**) but the trailing label said
+  **"22 routines total"** — a visible 1-off. Cause: `summary.total` was `routines.length`, the *only*
+  field in the summary block that counts the one **retired** routine (`Holdet routine self-test`),
+  which has no chip. It contradicted both the reader's own arithmetic and that block's own section
+  comment (`// summary counts (enabled, non-retired routines)`) — green/yellow/red/paused all exclude
+  retired; only `total` didn't. A charter value #1/#2 miss (numbers must reconcile), and exactly the
+  hero-reconciliation principle a prior run established ("every number now agrees", 2026-07-01 18:45).
+  The false overnight reds (4🔴 stale — config-cadence-vs-scheduler drift) are the known out-of-scope
+  false positives the secretary flags; risky to touch here (false-green danger), so left untouched.
+- **Move:** In `collect.mjs` only — `total: routines.length` → `total: nonRetired.length` (a new
+  `const nonRetired = routines.filter(r => r.health !== 'retired')`), so the total equals the sum the
+  chips break down. Verified sole consumer is render's "N routines total" (publish.sh and the
+  secretary's history.ndjson read only `{green,yellow,red,paused}`), so this is low-blast-radius and
+  fixes status.json + page together. Contract preserved: no change to `private.roots` sanitisation,
+  `attentionKey`, or the two-truths health model; the retired routine still lists in the roster.
+- **Result:** shipped `a985b58`. Verified: collect+render clean; chips (21) == total (21) agree
+  (DOM-confirmed "21 routines total"); no template leaks
+  (`undefined`/`NaN`/`[object`/`{repo:`/`{today}`/`{HOME}`); no private text on the page
+  (grep clean for `/Users/`, `fatal:`, `topByEv`, `feltet=ERR`, rider/captain/EV). Desktop + mobile intact.
+
 ### 2026-07-02 00:45 — project "Latest" line no longer ships raw git-log rationale that argues with the hero (clarity/honesty)
 - **Assessment:** Viewed live (desktop + mobile, light). Page is well-polished; the single worst
   element was the **Routine Overview** project card's *Latest* line, which rendered this dashboard's
