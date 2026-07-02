@@ -3,6 +3,39 @@
 Newest first. Each entry: **Assessment** (the biggest gap seen) → **Move** (what shipped, or "none")
 → **Result**. This is the routine's memory: don't rebuild what's shipped or retry what's declined.
 
+### 2026-07-02 17:30 — strip the secretary's status-line prefix from public commit subjects (clarity)
+- **Assessment:** Viewed live (collect+render, judged against the Charter). The fleet is healthy
+  (19🟢/0🟡/1🔴/1⏸ — the lone red is the familiar sanitized holdet `improve.log` error, out of this
+  routine's safe scope). With no broken/flaky element, the one genuine remaining **clarity** miss was
+  this routine-family's *own* commits looking noisy on the calm surface. The secretary now commits in
+  the format `overview: <date> — <counts> · <what changed>` (e.g. `overview: 2026-07-02 16:42 — 19🟢
+  0🟡 1🔴 · fix secretary cadence drift …`). That subject renders verbatim in **two** public places —
+  the roster row "Routine secretary (this)" and the Routine Overview project's "Latest" line — and both
+  the `19🟢 0🟡 1🔴` counts (exact duplicate of the hero chips) and the date (duplicate of the "Updated"
+  stamp) are pure restatement; only the text after ` · ` is signal. Two prior runs (`00:45`, `05:00`)
+  already judged raw secretary status-line commits a clarity miss and stripped them, but they targeted
+  the *old* format where the noise sat in a **trailing paren** (`… 5🔴 (4 reds are false …)`);
+  `cleanSubject`'s trailing-`(…)` regex no longer catches the new leading-prefix format. A charter
+  value #2 (skimmability) miss — the same principle, evading the existing fix.
+- **Move:** In `collect.mjs` only — extended the single `cleanSubject` helper (the one home already
+  applied at every public commit-subject boundary: `resolveFreshness`'s gitAny/gitSubject and the
+  project "Latest" line, so both surfaces inherit the fix from one edit). Added a first pass: when a
+  subject contains **both** a health-dot emoji (`🟢🟡🔴⏸`) **and** a ` · `, keep only the part after the
+  final ` · `. The dual guard makes it fire *only* on status-line commits — producer subjects
+  (`brief: 2026-07-02`, `refactor: unify …`, `improve: …`) carry no health emoji, so they pass through
+  structurally untouched (no allowlist to maintain). Verified against the real HEAD (extracts `fix
+  secretary cadence drift (hourly→every-5h) to clear false-stale red`) and all four project subjects
+  (only `meta` changed). The trailing-paren strip is preserved as pass 2. Used alternation
+  `/🟢|🟡|🔴|⏸/` not a char class (those emoji are surrogate pairs — a `[…]` class matches individual
+  surrogate halves). Contract preserved: no change to `private.roots` sanitisation, `attentionKey`, the
+  two-truths health model, or render's escaping/fix-prompt UX (render untouched).
+- **Result:** shipped `284756d`. Verified: collect+render clean; DOM-confirmed both the roster row and
+  the Routine Overview "Latest" line now read `fix secretary cadence drift …` (no date, no emoji counts);
+  the other three project "Latest" lines unchanged (holdet dashboard / stock refactor / news rolling
+  weekly). No template leaks (`undefined`/`NaN`/`[object`/`{repo:`/`{today}`/`{HOME}` = 0); no private
+  text on page or in status.json (`/Users/`/`fatal:`/`topByEv`/`feltet=ERR`/rider/captain = 0); no
+  status-line count strings (`19🟢 … 1🔴 ·`) left in index.html; no console errors. Counts unchanged.
+
 ### 2026-07-02 — dismissible "Needs your attention" flags (owner request — NOT an autonomous self-improve run)
 - **Provenance (read this first):** Requested directly by Alexander — *"make it possible to hide or delete
   the red flags if I feel they are fixed or don't need my attention any more."* Implemented via Claude Code,
