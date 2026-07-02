@@ -24,7 +24,7 @@ Newest first. Each entry: **Assessment** (the biggest gap seen) → **Move** (wh
   stays fully actionable (routine name + cadence/cwd + "read the local log"). All 15 public routines keep their
   descriptions untouched. Contract preserved: no change to `private.roots` sanitisation, `attentionKey`, the
   two-truths health model, or render's escaping/fix-prompt UX (render untouched).
-- **Result:** shipped `<pending>`. Verified: collect+render clean; the 7 private `does` are now `null` in
+- **Result:** shipped `2325d9d`. Verified: collect+render clean; the 7 private `does` are now `null` in
   status.json and all 15 public ones retained; the two private broken routines' rendered prompts no longer carry
   their descriptions; `third brain`/`notify+veto`/`Backtest`/`execute+verify`/`re-deciding`/`new captain` = 0 in
   index.html. No template leaks (`undefined`/`NaN`/`[object`/`{repo:`/`{today}`/`{HOME}` = 0); no private text on
