@@ -3,6 +3,32 @@
 Newest first. Each entry: **Assessment** (the biggest gap seen) → **Move** (what shipped, or "none")
 → **Result**. This is the routine's memory: don't rebuild what's shipped or retry what's declined.
 
+### 2026-07-02 21:40 — review-card button says "Copy decision prompt", not "Copy fix prompt" (clarity/honesty)
+- **Assessment:** Viewed live in-browser (desktop + the mobile CSS read in code), judged against the
+  Charter. Fleet healthy (19🟢/0🟡/1🔴/1⏸ — the lone red is the familiar sanitized holdet `improve.log`
+  error, out of this routine's safe scope; left untouched). Numbers reconcile (hero "1 needs attention" =
+  1 broken chip; 19+0+1+1 = 21 = total). No broken/flaky element and no template/private leaks. The one
+  genuine remaining miss was a **charter value #1/#2** (honesty, then clarity) one baked into `fixBlock`
+  since seed: the two **"Worth a decision"** review cards carried a button labelled **"Copy fix prompt"** —
+  but a review item is a *judgement call*, not a repair (the cards read "Worth confirming both still earn
+  their slot", "decide what it targets"), and the underlying prompt from `fixFor`'s review branch is
+  explicitly decision-shaped ("*Decision to make: … decide the best action…*"). So the button verb ("fix")
+  contradicted its own section header ("Worth a **decision**") and the prompt it copies — mislabelling a
+  decision as a breakage on an always-visible part of the page.
+- **Move:** In `render.mjs` only — `fixBlock` gains `copyLabel = variant === 'review' ? 'Copy decision
+  prompt' : 'Copy fix prompt'`, and the button renders `${copyLabel}`. Red/warn attention cards keep the
+  clay "Copy fix prompt" (they *are* repairs); the ghost review buttons now read "Copy decision prompt".
+  Pure label text — the `data-copy` prompt payload, the generic `[data-copy]` copy handler, the
+  `View prompt` toggle, and `collect.mjs` are all untouched, so behaviour is byte-identical; only the verb
+  changed. Contract preserved: no change to `private.roots` sanitisation, `attentionKey`, the two-truths
+  health model, or render's escaping/fix-prompt UX.
+- **Result:** shipped `b7dc5d4`. Verified: collect+render clean; in-browser DOM-confirmed the red card
+  still shows "Copy fix prompt" while both review cards now show "Copy decision prompt". Label counts in
+  index.html: 1 real "Copy fix prompt" button (the sole `<span class="btn__label">`; the 2nd grep hit is
+  the JS comment `// Copy fix prompt -> clipboard`, harmless) + 2 "Copy decision prompt". No template leaks
+  (`undefined`/`NaN`/`[object`/`{repo:`/`{today}`/`{HOME}` = 0 in index.html); no private text on page
+  (`/Users/`/`fatal:`/`topByEv`/`feltet=ERR`/rider/captain/EV = 0) or in status.json. Counts unchanged.
+
 ### 2026-07-02 20:41 — stale-banner threshold tracks the secretary's real cadence, not a hard-coded 90 min (honesty)
 - **Provenance (read first):** Found **uncommitted WIP** in the tree at run start (not journaled, not
   committed) — a `staleAfterMin` feature (`collect.mjs` + `render.mjs`) plus a stray one-line
