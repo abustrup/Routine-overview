@@ -81,15 +81,19 @@ const reviews = s.attention.filter((a) => a.severity === 'review');
 let uid = 0;
 
 // A "fix" affordance: copy button + expandable prompt block. Only when a.fix exists.
+// Review cards live under "Worth a decision" and their prompt is decision-shaped
+// ("Decision to make: … decide the best action"), not a repair — so the button says
+// "Copy decision prompt" there, never mislabelling a judgement call as a "fix".
 const fixBlock = (a, variant) => {
   if (!a.fix) return '';
   const id = `fix-${++uid}`;
+  const copyLabel = variant === 'review' ? 'Copy decision prompt' : 'Copy fix prompt';
   const cwd = a.fix.cwd ? `<div class="fix__cwd"><span class="fix__cwd-k">cwd</span> <code>${esc(a.fix.cwd)}</code></div>` : '';
   return `<div class="fix">
     <div class="fix__actions">
       <button type="button" class="btn btn--copy${variant === 'review' ? ' btn--ghost' : ''}"
               data-copy="${esc(a.fix.prompt)}">
-        <span class="btn__label">Copy fix prompt</span>
+        <span class="btn__label">${copyLabel}</span>
         <span class="btn__done" aria-hidden="true">Copied&nbsp;✓</span>
       </button>
       <button type="button" class="btn btn--link" data-toggle="${id}" aria-expanded="false" aria-controls="${id}">

@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-07-02T18:41:54.604Z",
-  "generatedAtLocal": "2 Jul 2026, 20:41 Europe/Copenhagen",
+  "generatedAt": "2026-07-02T19:47:30.131Z",
+  "generatedAtLocal": "2 Jul 2026, 21:47 Europe/Copenhagen",
   "owner": "Alexander Bustrup",
   "attentionKey": "red:Holdet improve loop (launchd):error",
   "staleAfterMin": 360,
@@ -51,6 +51,13 @@
     {
       "severity": "info",
       "project": "holdet-tdf",
+      "routine": "Holdet evening pass (launchd)",
+      "message": "a data source is degraded — details are local-only",
+      "kind": "note"
+    },
+    {
+      "severity": "info",
+      "project": "holdet-tdf",
       "routine": "Holdet DNS guard (launchd)",
       "message": "a data source is degraded — details are local-only",
       "kind": "note"
@@ -75,7 +82,7 @@
         }
       ],
       "lastPublish": "2026-07-02T15:42:33.000Z",
-      "lastPublishHuman": "3h ago",
+      "lastPublishHuman": "4h ago",
       "lastPublishSubject": "Update dashboard — 2026-07-02 17:42 Europe/Copenhagen",
       "routineCount": 10,
       "routines": [
@@ -109,7 +116,7 @@
         }
       ],
       "lastPublish": "2026-07-02T15:59:54.000Z",
-      "lastPublishHuman": "3h ago",
+      "lastPublishHuman": "4h ago",
       "lastPublishSubject": "refactor: unify duplicated helpers into one home and delete dead code",
       "routineCount": 3,
       "routines": [
@@ -136,7 +143,7 @@
         }
       ],
       "lastPublish": "2026-07-02T04:51:24.000Z",
-      "lastPublishHuman": "14h ago",
+      "lastPublishHuman": "15h ago",
       "lastPublishSubject": "rolling weekly: 2026-07-02",
       "routineCount": 6,
       "routines": [
@@ -165,9 +172,9 @@
           "url": "https://github.com/abustrup/Routine-overview"
         }
       ],
-      "lastPublish": "2026-07-02T18:24:12.000Z",
-      "lastPublishHuman": "18 min ago",
-      "lastPublishSubject": "align 5 routines' cadence metadata to scheduler-truth (cron), clearing 2 false-stale warns",
+      "lastPublish": "2026-07-02T18:44:00.000Z",
+      "lastPublishHuman": "1h ago",
+      "lastPublishSubject": "docs: journal the stale-banner cadence-derived threshold",
       "routineCount": 2,
       "routines": [
         "routine-overview-secretary",
@@ -187,10 +194,10 @@
       "does": "Refreshes this overview from artifact-truth and flags only what needs attention.",
       "health": "green",
       "private": false,
-      "headline": "align 5 routines' cadence metadata to scheduler-truth (cron), clearing 2 false-stale warns",
+      "headline": "docs: journal the stale-banner cadence-derived threshold",
       "logName": null,
-      "lastOutputAt": "2026-07-02T18:24:12.000Z",
-      "lastOutputHuman": "18 min ago",
+      "lastOutputAt": "2026-07-02T18:44:00.000Z",
+      "lastOutputHuman": "1h ago",
       "issues": [],
       "review": null
     },
@@ -205,10 +212,10 @@
       "does": "Ships one low-risk, high-reward maintenance/design improvement to this overview per run (or nothing), toward the Anthropic aesthetic.",
       "health": "green",
       "private": false,
-      "headline": "improve: strip the secretary's status-line prefix (date + emoji counts) from public commit subjects so the roster row and project Latest line show only the real change, not data already in the hero",
+      "headline": "improve: stale-banner threshold tracks the secretary's real cadence (secretary.periodHours + 1h grace) instead of a hard-coded 90 min that false-alarmed every refresh gap since hourly→every-5h",
       "logName": null,
-      "lastOutputAt": "2026-07-02T16:49:40.000Z",
-      "lastOutputHuman": "2h ago",
+      "lastOutputAt": "2026-07-02T18:43:51.000Z",
+      "lastOutputHuman": "1h ago",
       "issues": [],
       "review": null
     },
@@ -226,7 +233,7 @@
       "headline": "published 2026-07-02",
       "logName": null,
       "lastOutputAt": "2026-07-02T03:58:16.296Z",
-      "lastOutputHuman": "15h ago",
+      "lastOutputHuman": "16h ago",
       "issues": [],
       "review": null
     },
@@ -244,7 +251,7 @@
       "headline": "rolling weekly: 2026-07-02",
       "logName": null,
       "lastOutputAt": "2026-07-02T04:51:24.000Z",
-      "lastOutputHuman": "14h ago",
+      "lastOutputHuman": "15h ago",
       "issues": [],
       "review": null
     },
@@ -334,7 +341,7 @@
       "headline": "refactor: unify duplicated helpers into one home and delete dead code",
       "logName": null,
       "lastOutputAt": "2026-07-02T15:59:54.000Z",
-      "lastOutputHuman": "3h ago",
+      "lastOutputHuman": "4h ago",
       "issues": [],
       "review": null
     },
@@ -352,7 +359,7 @@
       "headline": "refactor: unify duplicated helpers into one home and delete dead code",
       "logName": null,
       "lastOutputAt": "2026-07-02T15:59:54.000Z",
-      "lastOutputHuman": "3h ago",
+      "lastOutputHuman": "4h ago",
       "issues": [],
       "review": "Overlaps 'Dashboard self-improve' — both daily maintainer passes on the stock repo (02:00 and 13:00). Worth confirming both still earn their slot."
     },
@@ -388,7 +395,7 @@
       "headline": "Update dashboard — 2026-07-02 17:42 Europe/Copenhagen",
       "logName": null,
       "lastOutputAt": "2026-07-02T15:42:33.000Z",
-      "lastOutputHuman": "3h ago",
+      "lastOutputHuman": "4h ago",
       "issues": [],
       "review": null
     },
@@ -405,8 +412,8 @@
       "private": true,
       "headline": "ran — no errors detected",
       "logName": null,
-      "lastOutputAt": "2026-07-02T18:33:22.000Z",
-      "lastOutputHuman": "9 min ago",
+      "lastOutputAt": "2026-07-02T18:45:30.000Z",
+      "lastOutputHuman": "1h ago",
       "issues": [],
       "review": null
     },
@@ -423,8 +430,8 @@
       "private": true,
       "headline": "ran — no errors detected",
       "logName": null,
-      "lastOutputAt": "2026-07-02T16:36:18.377Z",
-      "lastOutputHuman": "2h ago",
+      "lastOutputAt": "2026-07-02T18:50:02.666Z",
+      "lastOutputHuman": "57 min ago",
       "issues": [],
       "review": null
     },
@@ -441,8 +448,8 @@
       "private": true,
       "headline": "paused",
       "logName": null,
-      "lastOutputAt": "2026-07-02T18:33:22.000Z",
-      "lastOutputHuman": "9 min ago",
+      "lastOutputAt": "2026-07-02T18:45:30.000Z",
+      "lastOutputHuman": "1h ago",
       "issues": [],
       "review": "Paused — the live-system guardian is off."
     },
@@ -513,9 +520,14 @@
       "private": true,
       "headline": "ran — no errors detected",
       "logName": "evening.log",
-      "lastOutputAt": "2026-07-01T21:14:59.930Z",
-      "lastOutputHuman": "21h ago",
-      "issues": [],
+      "lastOutputAt": "2026-07-02T19:02:28.365Z",
+      "lastOutputHuman": "45 min ago",
+      "issues": [
+        {
+          "severity": "note",
+          "line": "a data source is degraded — details are local-only"
+        }
+      ],
       "review": null
     },
     {
@@ -532,7 +544,7 @@
       "headline": "ran — no errors detected",
       "logName": "guard.log",
       "lastOutputAt": "2026-07-02T06:30:17.475Z",
-      "lastOutputHuman": "12h ago",
+      "lastOutputHuman": "13h ago",
       "issues": [
         {
           "severity": "note",
@@ -554,8 +566,8 @@
       "private": true,
       "headline": "ran — no errors detected",
       "logName": "watch.log",
-      "lastOutputAt": "2026-07-02T18:03:26.336Z",
-      "lastOutputHuman": "38 min ago",
+      "lastOutputAt": "2026-07-02T19:03:57.941Z",
+      "lastOutputHuman": "44 min ago",
       "issues": [],
       "review": null
     },
@@ -573,7 +585,7 @@
       "headline": "error detected in local log — details kept private",
       "logName": "improve.log",
       "lastOutputAt": "2026-07-02T15:04:33.422Z",
-      "lastOutputHuman": "4h ago",
+      "lastOutputHuman": "5h ago",
       "issues": [
         {
           "severity": "error",
