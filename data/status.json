@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-07-02T04:41:16.809Z",
-  "generatedAtLocal": "2 Jul 2026, 06:41 Europe/Copenhagen",
+  "generatedAt": "2026-07-02T06:44:09.659Z",
+  "generatedAtLocal": "2 Jul 2026, 08:44 Europe/Copenhagen",
   "owner": "Alexander Bustrup",
-  "attentionKey": "red:Dashboard self-improve:stale|red:Holdet LLM brain:stale|red:Holdet dashboard improve:stale|red:Holdet improve loop (launchd):error|red:Stock maintenance:stale",
+  "attentionKey": "red:Dashboard self-improve:stale|red:Holdet LLM brain:stale|red:Holdet improve loop (launchd):error|red:Stock maintenance:stale|warn:Routine secretary (this):ageing",
   "summary": {
     "green": 15,
-    "yellow": 0,
-    "red": 5,
+    "yellow": 1,
+    "red": 4,
     "paused": 1,
     "total": 21
   },
@@ -15,7 +15,7 @@
       "severity": "red",
       "project": "stock",
       "routine": "Dashboard self-improve",
-      "message": "Stale — last output 14h ago (expected Every 2h).",
+      "message": "Stale — last output 16h ago (expected Every 2h).",
       "kind": "stale",
       "fix": {
         "guide": "Dashboard self-improve hasn't produced output when expected (Every 2h).",
@@ -27,7 +27,7 @@
       "severity": "red",
       "project": "stock",
       "routine": "Stock maintenance",
-      "message": "Stale — last output 14h ago (expected Every 2h).",
+      "message": "Stale — last output 16h ago (expected Every 2h).",
       "kind": "stale",
       "fix": {
         "guide": "Stock maintenance hasn't produced output when expected (Every 2h).",
@@ -38,24 +38,12 @@
     {
       "severity": "red",
       "project": "holdet-tdf",
-      "routine": "Holdet dashboard improve",
-      "message": "Stale — last output 6h ago (expected Hourly).",
-      "kind": "stale",
-      "fix": {
-        "guide": "Holdet dashboard improve hasn't produced output when expected (Hourly).",
-        "prompt": "The scheduled routine \"Holdet dashboard improve\" (One safe read-only improvement to the holdet dashboard, then publishes the refreshed page.) was expected to run Hourly but produced no recent output. Working dir: ~/holdet-tdf-bot. Investigate why it stopped (check its scheduler run and its log), fix the cause, verify a fresh run produces output, and commit. Follow the project's own CLAUDE.md and the holdet-tdf-bot skill, which document its guardrails and protected paths.",
-        "cwd": "~/holdet-tdf-bot"
-      }
-    },
-    {
-      "severity": "red",
-      "project": "holdet-tdf",
       "routine": "Holdet LLM brain",
-      "message": "Stale — last output 14h ago (expected Hourly).",
+      "message": "Stale — last output 16h ago (expected Hourly).",
       "kind": "stale",
       "fix": {
         "guide": "Holdet LLM brain hasn't produced output when expected (Hourly).",
-        "prompt": "The scheduled routine \"Holdet LLM brain\" (Hourly team brain — keeps one stable plan, re-deciding only on material change.) was expected to run Hourly but produced no recent output. Working dir: ~/holdet-tdf-bot. Investigate why it stopped (check its scheduler run and its log), fix the cause, verify a fresh run produces output, and commit. Follow the project's own CLAUDE.md and the holdet-tdf-bot skill, which document its guardrails and protected paths.",
+        "prompt": "The scheduled routine \"Holdet LLM brain\" was expected to run Hourly but produced no recent output. Working dir: ~/holdet-tdf-bot. Investigate why it stopped (check its scheduler run and its log), fix the cause, verify a fresh run produces output, and commit. Follow the project's own CLAUDE.md and the holdet-tdf-bot skill, which document its guardrails and protected paths.",
         "cwd": "~/holdet-tdf-bot"
       }
     },
@@ -67,8 +55,20 @@
       "kind": "error",
       "fix": {
         "guide": "Holdet improve loop (launchd) logged an error — it may be broken.",
-        "prompt": "The scheduled routine \"Holdet improve loop (launchd)\" (Backtest + optimize weights; proposes at most one verified improvement.) is erroring. Working dir: ~/holdet-tdf-bot. Read improve.log for the exact error, then find the root cause, fix it, add a guard or test so it can't recur, verify by re-running the step, and commit. Follow the project's own CLAUDE.md and the holdet-tdf-bot skill, which document its guardrails and protected paths.",
+        "prompt": "The scheduled routine \"Holdet improve loop (launchd)\" is erroring. Working dir: ~/holdet-tdf-bot. Read improve.log for the exact error, then find the root cause, fix it, add a guard or test so it can't recur, verify by re-running the step, and commit. Follow the project's own CLAUDE.md and the holdet-tdf-bot skill, which document its guardrails and protected paths.",
         "cwd": "~/holdet-tdf-bot"
+      }
+    },
+    {
+      "severity": "warn",
+      "project": "meta",
+      "routine": "Routine secretary (this)",
+      "message": "Ageing — last output 2h ago (expected Hourly · :18).",
+      "kind": "ageing",
+      "fix": {
+        "guide": "Routine secretary (this) hasn't produced output when expected (Hourly · :18).",
+        "prompt": "The scheduled routine \"Routine secretary (this)\" (Refreshes this overview from artifact-truth and flags only what needs attention.) was expected to run Hourly · :18 but produced no recent output. Working dir: ~/Documents/AI eksperimenter/Routine overview. Investigate why it stopped (check its scheduler run and its log), fix the cause, verify a fresh run produces output, and commit. Keep it public-safe: health/status only, no secrets or strategy internals. Verify with node scripts/collect.mjs && node scripts/render.mjs before pushing.",
+        "cwd": "~/Documents/AI eksperimenter/Routine overview"
       }
     },
     {
@@ -128,9 +128,9 @@
           "url": "~/Documents/AI eksperimenter/Holdet-TDF-2026-pages"
         }
       ],
-      "lastPublish": "2026-07-01T22:12:44.000Z",
-      "lastPublishHuman": "6h ago",
-      "lastPublishSubject": "Update dashboard — 2026-07-02 00:12 Europe/Copenhagen",
+      "lastPublish": "2026-07-02T06:14:31.000Z",
+      "lastPublishHuman": "30 min ago",
+      "lastPublishSubject": "Update dashboard — 2026-07-02 08:14 Europe/Copenhagen",
       "routineCount": 10,
       "routines": [
         "holdet-dashboard-improve",
@@ -163,7 +163,7 @@
         }
       ],
       "lastPublish": "2026-07-01T14:19:33.000Z",
-      "lastPublishHuman": "14h ago",
+      "lastPublishHuman": "16h ago",
       "lastPublishSubject": "refactor: unify duplicated helpers into one home and delete dead code",
       "routineCount": 3,
       "routines": [
@@ -189,9 +189,9 @@
           "url": "https://github.com/abustrup/alexanders-brief"
         }
       ],
-      "lastPublish": "2026-07-02T03:58:16.000Z",
-      "lastPublishHuman": "43 min ago",
-      "lastPublishSubject": "brief: 2026-07-02",
+      "lastPublish": "2026-07-02T04:51:24.000Z",
+      "lastPublishHuman": "2h ago",
+      "lastPublishSubject": "rolling weekly: 2026-07-02",
       "routineCount": 6,
       "routines": [
         "daily-news-brief",
@@ -208,7 +208,7 @@
       "emoji": "🗂️",
       "goal": "Hold the whole picture across every routine and interrupt Alexander only when something genuinely needs him.",
       "note": null,
-      "health": "green",
+      "health": "yellow",
       "links": [
         {
           "label": "This dashboard",
@@ -219,9 +219,9 @@
           "url": "https://github.com/abustrup/Routine-overview"
         }
       ],
-      "lastPublish": "2026-07-02T03:20:55.000Z",
-      "lastPublishHuman": "1h ago",
-      "lastPublishSubject": "overview: 2026-07-02 03:20 — 15🟢 0🟡 5🔴",
+      "lastPublish": "2026-07-02T04:42:06.000Z",
+      "lastPublishHuman": "2h ago",
+      "lastPublishSubject": "docs: journal the summary.needsAttention deletion",
       "routineCount": 2,
       "routines": [
         "routine-overview-secretary",
@@ -239,12 +239,12 @@
       "role": "maintainer",
       "enabled": true,
       "does": "Refreshes this overview from artifact-truth and flags only what needs attention.",
-      "health": "green",
+      "health": "yellow",
       "private": false,
-      "headline": "overview: 2026-07-02 03:20 — 15🟢 0🟡 5🔴",
+      "headline": "docs: journal the summary.needsAttention deletion",
       "logName": null,
-      "lastOutputAt": "2026-07-02T03:20:55.000Z",
-      "lastOutputHuman": "1h ago",
+      "lastOutputAt": "2026-07-02T04:42:06.000Z",
+      "lastOutputHuman": "2h ago",
       "issues": [],
       "review": null
     },
@@ -259,9 +259,9 @@
       "does": "Ships one low-risk, high-reward maintenance/design improvement to this overview per run (or nothing), toward the Anthropic aesthetic.",
       "health": "green",
       "private": false,
-      "headline": "improve: roster rows get the same trailing-parenthetical strip as project cards, so a routine's own git-log rationale (e.g. '(honesty/clarity)') stops leaking onto the public page",
+      "headline": "improve: drop dead summary.needsAttention field — collect wrote it to status.json but no consumer (render/publish) reads it, so remove it for a cleaner public JSON",
       "logName": null,
-      "lastOutputAt": "2026-07-02T02:47:18.000Z",
+      "lastOutputAt": "2026-07-02T04:41:44.000Z",
       "lastOutputHuman": "2h ago",
       "issues": [],
       "review": null
@@ -280,7 +280,7 @@
       "headline": "published 2026-07-02",
       "logName": null,
       "lastOutputAt": "2026-07-02T03:58:16.296Z",
-      "lastOutputHuman": "43 min ago",
+      "lastOutputHuman": "3h ago",
       "issues": [],
       "review": null
     },
@@ -295,10 +295,10 @@
       "does": "Refreshes the 7-day rollup edition from the published dailies.",
       "health": "green",
       "private": false,
-      "headline": "rolling weekly: 2026-06-30",
+      "headline": "rolling weekly: 2026-07-02",
       "logName": null,
-      "lastOutputAt": "2026-06-30T12:00:34.000Z",
-      "lastOutputHuman": "2d ago",
+      "lastOutputAt": "2026-07-02T04:51:24.000Z",
+      "lastOutputHuman": "2h ago",
       "issues": [],
       "review": null
     },
@@ -334,7 +334,7 @@
       "headline": "rolling yearly: 2026-07-01",
       "logName": null,
       "lastOutputAt": "2026-07-01T08:56:52.000Z",
-      "lastOutputHuman": "20h ago",
+      "lastOutputHuman": "22h ago",
       "issues": [],
       "review": null
     },
@@ -388,7 +388,7 @@
       "headline": "refactor: unify duplicated helpers into one home and delete dead code",
       "logName": null,
       "lastOutputAt": "2026-07-01T14:19:33.000Z",
-      "lastOutputHuman": "14h ago",
+      "lastOutputHuman": "16h ago",
       "issues": [],
       "review": null
     },
@@ -406,7 +406,7 @@
       "headline": "refactor: unify duplicated helpers into one home and delete dead code",
       "logName": null,
       "lastOutputAt": "2026-07-01T14:19:33.000Z",
-      "lastOutputHuman": "14h ago",
+      "lastOutputHuman": "16h ago",
       "issues": [],
       "review": "Overlaps 'Dashboard self-improve' (both every 2h on the same repo) — worth confirming both still earn their slot."
     },
@@ -437,12 +437,12 @@
       "role": "producer",
       "enabled": true,
       "does": "One safe read-only improvement to the holdet dashboard, then publishes the refreshed page.",
-      "health": "red",
+      "health": "green",
       "private": false,
-      "headline": "Update dashboard — 2026-07-02 00:12 Europe/Copenhagen",
+      "headline": "Update dashboard — 2026-07-02 08:14 Europe/Copenhagen",
       "logName": null,
-      "lastOutputAt": "2026-07-01T22:12:44.000Z",
-      "lastOutputHuman": "6h ago",
+      "lastOutputAt": "2026-07-02T06:14:31.000Z",
+      "lastOutputHuman": "30 min ago",
       "issues": [],
       "review": null
     },
@@ -454,13 +454,13 @@
       "kind": "scheduler",
       "role": "maintainer",
       "enabled": true,
-      "does": "Red-team audit + fixer of the holdet bot (third brain).",
+      "does": null,
       "health": "green",
       "private": true,
       "headline": "ran — no errors detected",
       "logName": null,
       "lastOutputAt": "2026-07-01T23:02:26.000Z",
-      "lastOutputHuman": "6h ago",
+      "lastOutputHuman": "8h ago",
       "issues": [],
       "review": null
     },
@@ -472,13 +472,13 @@
       "kind": "scheduler",
       "role": "producer",
       "enabled": true,
-      "does": "Hourly team brain — keeps one stable plan, re-deciding only on material change.",
+      "does": null,
       "health": "red",
       "private": true,
       "headline": "error detected in local log — details kept private",
       "logName": null,
       "lastOutputAt": "2026-07-01T15:02:02.791Z",
-      "lastOutputHuman": "14h ago",
+      "lastOutputHuman": "16h ago",
       "issues": [],
       "review": null
     },
@@ -490,13 +490,13 @@
       "kind": "scheduler",
       "role": "maintainer",
       "enabled": false,
-      "does": "Hourly guardian: verifies the live system still works; fixes at most one verified issue.",
+      "does": null,
       "health": "paused",
       "private": true,
       "headline": "paused",
       "logName": null,
       "lastOutputAt": "2026-07-01T23:02:26.000Z",
-      "lastOutputHuman": "6h ago",
+      "lastOutputHuman": "8h ago",
       "issues": [],
       "review": "Paused — the live-system guardian is off."
     },
@@ -562,13 +562,13 @@
       "kind": "launchd",
       "role": "producer",
       "enabled": true,
-      "does": "Full daily chain: collect → decide → notify+veto → execute+verify on holdet.dk.",
+      "does": null,
       "health": "green",
       "private": true,
       "headline": "ran — no errors detected",
       "logName": "evening.log",
       "lastOutputAt": "2026-07-01T21:14:59.930Z",
-      "lastOutputHuman": "7h ago",
+      "lastOutputHuman": "9h ago",
       "issues": [],
       "review": null
     },
@@ -580,13 +580,13 @@
       "kind": "launchd",
       "role": "monitor",
       "enabled": true,
-      "does": "Morning start-list re-check for non-starters (DNS) before the stage.",
+      "does": null,
       "health": "green",
       "private": true,
       "headline": "ran — no errors detected",
       "logName": "guard.log",
-      "lastOutputAt": "2026-07-01T06:33:51.919Z",
-      "lastOutputHuman": "22h ago",
+      "lastOutputAt": "2026-07-02T06:30:17.475Z",
+      "lastOutputHuman": "14 min ago",
       "issues": [
         {
           "severity": "note",
@@ -603,13 +603,13 @@
       "kind": "launchd",
       "role": "monitor",
       "enabled": true,
-      "does": "Hourly read-only sentinel; reconciles results and flags material change.",
+      "does": null,
       "health": "green",
       "private": true,
       "headline": "ran — no errors detected",
       "logName": "watch.log",
-      "lastOutputAt": "2026-07-02T03:52:21.713Z",
-      "lastOutputHuman": "49 min ago",
+      "lastOutputAt": "2026-07-02T05:52:23.075Z",
+      "lastOutputHuman": "52 min ago",
       "issues": [
         {
           "severity": "note",
@@ -626,13 +626,13 @@
       "kind": "launchd",
       "role": "maintainer",
       "enabled": true,
-      "does": "Backtest + optimize weights; proposes at most one verified improvement.",
+      "does": null,
       "health": "red",
       "private": true,
       "headline": "error detected in local log — details kept private",
       "logName": "improve.log",
       "lastOutputAt": "2026-07-02T03:53:08.365Z",
-      "lastOutputHuman": "48 min ago",
+      "lastOutputHuman": "3h ago",
       "issues": [
         {
           "severity": "error",

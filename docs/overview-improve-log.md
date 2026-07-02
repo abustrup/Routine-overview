@@ -3,6 +3,38 @@
 Newest first. Each entry: **Assessment** (the biggest gap seen) → **Move** (what shipped, or "none")
 → **Result**. This is the routine's memory: don't rebuild what's shipped or retry what's declined.
 
+### 2026-07-02 08:40 — sanitize private routines' `does` so holdet strategy stops shipping publicly (trust/honesty)
+- **Assessment:** Viewed live (collect+render, judged against the Charter; fleet in its known batch-stale
+  15🟢/1🟡/4🔴/1⏸, the reds the familiar config-cadence-vs-scheduler false positives + one sanitized holdet
+  error, all out of this routine's safe scope). The genuine miss was a **charter value #1** one that six prior
+  runs had waved through as "benign — status.json only, never rendered": the routine `does` description. It's
+  never page copy, but it reaches the **public surface two ways** — (a) `data/status.json` is a *tracked file
+  in a public repo*, so its raw contents are published regardless of the HTML; and (b) `fixFor` splices `does`
+  into the rendered copy-fix **prompt** whenever a routine is broken. The result: seven private (holdet) routines
+  were shipping strategy-bearing descriptions publicly — `"Red-team audit + fixer of the holdet bot (third
+  brain)"`, `"…collect → decide → notify+veto → execute+verify on holdet.dk"`, `"Backtest + optimize weights…"`
+  — and two of them (Holdet LLM brain, Holdet improve loop), being red right now, had that text **live in their
+  rendered fix prompts**. `scrubPublic` misses these because they're strategy phrasing, not auth-paths/secrets/
+  home. The existing privacy model already sanitizes `headline` and `issues` for private routines; `does` was
+  simply the field it forgot.
+- **Move:** In `collect.mjs` only — one line in `buildRoutine`: `does: r.does` → `does: priv ? null : r.does`
+  (`priv` = the existing `routineIsPrivate(r)`), sanitizing `does` alongside `headline`/`issues`. `does`'s only
+  consumer is `fixFor` (in-memory), so nulling it for private routines cleanly drops the leak from **both** the
+  public JSON and the rendered prompt (fixFor's `r?.does ? …` guard already yields no parenthetical) — the prompt
+  stays fully actionable (routine name + cadence/cwd + "read the local log"). All 15 public routines keep their
+  descriptions untouched. Contract preserved: no change to `private.roots` sanitisation, `attentionKey`, the
+  two-truths health model, or render's escaping/fix-prompt UX (render untouched).
+- **Result:** shipped `<pending>`. Verified: collect+render clean; the 7 private `does` are now `null` in
+  status.json and all 15 public ones retained; the two private broken routines' rendered prompts no longer carry
+  their descriptions; `third brain`/`notify+veto`/`Backtest`/`execute+verify`/`re-deciding`/`new captain` = 0 in
+  index.html. No template leaks (`undefined`/`NaN`/`[object`/`{repo:`/`{today}`/`{HOME}` = 0); no private text on
+  the page (`/Users/`/`fatal:`/`topByEv`/`feltet=ERR` = 0). Counts unchanged (15🟢/1🟡/4🔴/1⏸, 21 total).
+- **Noted for a future run (flag, not this run — needs an owner call):** `Holdet Team B cycle` is `private:false`
+  (its artifact isn't under `private.roots`), so its `does` — `"Forced swap + new captain each run on the Team B
+  entry; auto-stops when the Tour starts."` — still ships in status.json. Closing it means either reclassifying
+  the routine (touching `private.roots`, an owner-only rail) or rewriting the config `does` prose — a judgment
+  call, not a collector-logic fix. Left for Alexander to decide.
+
 ### 2026-07-02 06:15 — delete the dead `summary.needsAttention` field (simplify/restraint)
 - **Assessment:** Viewed live (collect+render, judged against the Charter). The page itself is deeply
   polished — the fleet is in its known batch-stale state (15🟢/0🟡/5🔴/1⏸), and those 5 reds are the

@@ -227,7 +227,13 @@ function buildRoutine(r) {
     console.warn(`collect: WARN routine "${r.id}" -> unknown project "${r.project}" (won't roll up)`);
   return {
     id: r.id, name: r.name, project: r.project, cadence: r.cadence, kind: r.kind,
-    role: r.role, enabled: r.enabled !== false, does: r.does,
+    role: r.role, enabled: r.enabled !== false,
+    // A private (holdet) routine's description is strategy-bearing ("…new captain each run on
+    // the Team B entry", "…collect → decide → notify+veto → execute on holdet.dk"). It is never
+    // rendered as page copy, but it (a) ships raw in the tracked, PUBLIC status.json and (b) gets
+    // spliced into the rendered copy-fix prompt via fixFor when the routine is broken. Sanitize it
+    // here alongside headline/issues so no holdet internals reach the public surface either way.
+    does: priv ? null : r.does,
     health,
     private: priv,
     headline,
