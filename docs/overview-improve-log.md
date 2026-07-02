@@ -3,6 +3,34 @@
 Newest first. Each entry: **Assessment** (the biggest gap seen) → **Move** (what shipped, or "none")
 → **Result**. This is the routine's memory: don't rebuild what's shipped or retry what's declined.
 
+### 2026-07-02 05:00 — roster rows get the same commit-subject cleaning as project cards (clarity/unify)
+- **Assessment:** Viewed live (desktop, then DOM-verified). The page is deeply polished; the one genuine
+  live miss was in the **roster**. The `Overview self-improve` row rendered its own last commit subject
+  verbatim — `improve: hero 'routines total' excludes retired so it reconciles with the counts chips
+  **(honesty/clarity)**` — trailing git-log rationale on the public page, on the *self-improvement
+  routine's own row* no less. This is exactly the parenthetical a prior run (`b68948e`, 2026-07-02 00:45)
+  identified as "git-log rationale, not dashboard copy" and stripped — but only from **project cards**.
+  The fix never reached the roster because `cleanSubject` was a *local* const inside the projects loop,
+  so the roster's git-derived headlines (`gitAny`/`gitSubject` in `resolveFreshness`) still shipped raw.
+  A charter value #2/#3 miss (skimmability + the same principle applied inconsistently in two places).
+  The 5🔴/1🟡 are the known config-cadence-vs-scheduler false positives the secretary flags — out of
+  this routine's safe scope, left untouched.
+- **Move:** In `collect.mjs` only — hoisted `cleanSubject` to module scope (one home) and applied it at
+  the *source*: `resolveFreshness` now cleans `gitAny`/`gitSubject` subjects, so `status.json` itself is
+  honest and every consumer (roster today, any future view) inherits the clean value. Removed the now-
+  duplicate local def in the projects block (it uses the hoisted helper). Only trailing `(…)` on real
+  commit subjects is affected — all other public headlines have none, so producer/file/advisory rows are
+  untouched. Contract preserved: no change to `private.roots` sanitisation, `attentionKey`, the two-truths
+  health model, or render's escaping/fix-prompt UX (render untouched).
+- **Result:** shipped. Verified: collect+render clean; the `Overview self-improve` row is now
+  DOM-confirmed `improve: … reconciles with the counts chips` (no tag); zero public git headlines still
+  end in `(…)`; project "Latest" lines unchanged. No template leaks
+  (`undefined`/`NaN`/`[object`/`{repo:`/`{today}`/`{HOME}`); no private text in index.html (the lone
+  `captain` grep hit is the pre-existing benign `does` field in status.json only, never rendered).
+- **Noted for a future run (not this one — one move per run):** `summary.needsAttention` in `collect.mjs`
+  is dead — written to status.json but read by nothing (render uses its own `red+yellow`; publish.sh and
+  history.ndjson read only `{green,yellow,red,paused}`). Safe to delete as a simplify pass.
+
 ### 2026-07-02 02:50 — hero "routines total" reconciles with its own counts chips (honesty/clarity)
 - **Assessment:** Viewed live (desktop + mobile, light). The page is deeply polished; the only genuine
   remaining inconsistency was in the **hero counts row**. The four chips read

@@ -89,6 +89,12 @@ function ageHuman(ms) {
   return `${Math.round(day)}d ago`;
 }
 
+// A trailing parenthetical on a commit subject is git-log rationale (e.g. this repo's own
+// "(honesty/clarity)" improve-tags or "(… already notified)" status lines), not dashboard
+// copy. Strip it so any commit subject shown on the public page — project "Latest" lines AND
+// roster rows alike — stays skimmable and never argues with the hero verdict above it.
+const cleanSubject = (s) => (s || '').replace(/\s*\([^()]*\)\s*$/, '').trim();
+
 // ---------- privacy ----------
 const underPrivate = (p) => !!p && PRIVATE_ROOTS.some((root) => p.startsWith(root));
 function routineIsPrivate(r) {
@@ -106,11 +112,11 @@ function resolveFreshness(f) {
   switch (f.type) {
     case 'gitAny': {
       const c = lastCommit(expand(cfg.repos[f.repo] || ''));
-      return c ? { atMs: Date.parse(c.when), headline: c.subject } : { atMs: null, headline: '' };
+      return c ? { atMs: Date.parse(c.when), headline: cleanSubject(c.subject) } : { atMs: null, headline: '' };
     }
     case 'gitSubject': {
       const c = lastCommit(expand(cfg.repos[f.repo] || ''), f.match);
-      return c ? { atMs: Date.parse(c.when), headline: c.subject } : { atMs: null, headline: '' };
+      return c ? { atMs: Date.parse(c.when), headline: cleanSubject(c.subject) } : { atMs: null, headline: '' };
     }
     case 'fileToday': {
       const p = expand(f.path);
@@ -250,12 +256,9 @@ const projects = cfg.projects.map((p) => {
   const repoDir = expand(cfg.repos[p.healthFromRepo] || '');
   const repoCommit = lastCommit(repoDir);
   const repoAtMs = repoCommit ? Date.parse(repoCommit.when) : null;
-  // Project "Now" line uses the public pages repo commit subject — safe by construction,
-  // but guard anyway in case healthFromRepo ever points at a private root. A trailing
-  // parenthetical is git-log rationale (e.g. this dashboard's own status commits end in
-  // "(… already notified)"), not dashboard copy — strip it so the card stays skimmable
-  // and its "Latest" line never contradicts the hero verdict above it.
-  const cleanSubject = (s) => (s || '').replace(/\s*\([^()]*\)\s*$/, '').trim();
+  // Project "Now" line uses the public pages repo commit subject — safe by construction, but
+  // guard anyway in case healthFromRepo ever points at a private root. cleanSubject strips the
+  // git-log rationale so the "Latest" line never contradicts the hero verdict above it.
   const repoSubject = repoCommit ? (underPrivate(repoDir) ? 'updated' : cleanSubject(repoCommit.subject)) : null;
   const links = (p.links || []).map((l) => ({
     label: l.label,
