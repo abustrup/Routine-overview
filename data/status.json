@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-07-02T02:46:21.487Z",
-  "generatedAtLocal": "2 Jul 2026, 04:46 Europe/Copenhagen",
+  "generatedAt": "2026-07-02T03:18:01.992Z",
+  "generatedAtLocal": "2 Jul 2026, 05:18 Europe/Copenhagen",
   "owner": "Alexander Bustrup",
-  "attentionKey": "red:Dashboard self-improve:stale|red:Holdet LLM brain:stale|red:Holdet dashboard improve:stale|red:Holdet improve loop (launchd):error|red:Stock maintenance:stale|warn:Routine secretary (this):ageing",
+  "attentionKey": "red:Dashboard self-improve:stale|red:Holdet LLM brain:stale|red:Holdet dashboard improve:stale|red:Holdet improve loop (launchd):error|red:Stock maintenance:stale",
   "summary": {
-    "green": 14,
-    "yellow": 1,
+    "green": 15,
+    "yellow": 0,
     "red": 5,
     "paused": 1,
     "total": 21,
-    "needsAttention": 6
+    "needsAttention": 5
   },
   "attention": [
     {
       "severity": "red",
       "project": "stock",
       "routine": "Dashboard self-improve",
-      "message": "Stale — last output 12h ago (expected Every 2h).",
+      "message": "Stale — last output 13h ago (expected Every 2h).",
       "kind": "stale",
       "fix": {
         "guide": "Dashboard self-improve hasn't produced output when expected (Every 2h).",
@@ -28,7 +28,7 @@
       "severity": "red",
       "project": "stock",
       "routine": "Stock maintenance",
-      "message": "Stale — last output 12h ago (expected Every 2h).",
+      "message": "Stale — last output 13h ago (expected Every 2h).",
       "kind": "stale",
       "fix": {
         "guide": "Stock maintenance hasn't produced output when expected (Every 2h).",
@@ -70,18 +70,6 @@
         "guide": "Holdet improve loop (launchd) logged an error — it may be broken.",
         "prompt": "The scheduled routine \"Holdet improve loop (launchd)\" (Backtest + optimize weights; proposes at most one verified improvement.) is erroring. Working dir: ~/holdet-tdf-bot. Read improve.log for the exact error, then find the root cause, fix it, add a guard or test so it can't recur, verify by re-running the step, and commit. Follow the project's own CLAUDE.md and the holdet-tdf-bot skill, which document its guardrails and protected paths.",
         "cwd": "~/holdet-tdf-bot"
-      }
-    },
-    {
-      "severity": "warn",
-      "project": "meta",
-      "routine": "Routine secretary (this)",
-      "message": "Ageing — last output 2h ago (expected Hourly · :18).",
-      "kind": "ageing",
-      "fix": {
-        "guide": "Routine secretary (this) hasn't produced output when expected (Hourly · :18).",
-        "prompt": "The scheduled routine \"Routine secretary (this)\" (Refreshes this overview from artifact-truth and flags only what needs attention.) was expected to run Hourly · :18 but produced no recent output. Working dir: ~/Documents/AI eksperimenter/Routine overview. Investigate why it stopped (check its scheduler run and its log), fix the cause, verify a fresh run produces output, and commit. Keep it public-safe: health/status only, no secrets or strategy internals. Verify with node scripts/collect.mjs && node scripts/render.mjs before pushing.",
-        "cwd": "~/Documents/AI eksperimenter/Routine overview"
       }
     },
     {
@@ -176,7 +164,7 @@
         }
       ],
       "lastPublish": "2026-07-01T14:19:33.000Z",
-      "lastPublishHuman": "12h ago",
+      "lastPublishHuman": "13h ago",
       "lastPublishSubject": "refactor: unify duplicated helpers into one home and delete dead code",
       "routineCount": 3,
       "routines": [
@@ -221,7 +209,7 @@
       "emoji": "🗂️",
       "goal": "Hold the whole picture across every routine and interrupt Alexander only when something genuinely needs him.",
       "note": null,
-      "health": "yellow",
+      "health": "green",
       "links": [
         {
           "label": "This dashboard",
@@ -232,9 +220,9 @@
           "url": "https://github.com/abustrup/Routine-overview"
         }
       ],
-      "lastPublish": "2026-07-02T00:51:24.000Z",
-      "lastPublishHuman": "2h ago",
-      "lastPublishSubject": "docs: journal the routines-total reconciliation run",
+      "lastPublish": "2026-07-02T02:47:33.000Z",
+      "lastPublishHuman": "30 min ago",
+      "lastPublishSubject": "docs: journal the roster commit-subject cleaning run",
       "routineCount": 2,
       "routines": [
         "routine-overview-secretary",
@@ -252,12 +240,12 @@
       "role": "maintainer",
       "enabled": true,
       "does": "Refreshes this overview from artifact-truth and flags only what needs attention.",
-      "health": "yellow",
+      "health": "green",
       "private": false,
-      "headline": "docs: journal the routines-total reconciliation run",
+      "headline": "docs: journal the roster commit-subject cleaning run",
       "logName": null,
-      "lastOutputAt": "2026-07-02T00:51:24.000Z",
-      "lastOutputHuman": "2h ago",
+      "lastOutputAt": "2026-07-02T02:47:33.000Z",
+      "lastOutputHuman": "30 min ago",
       "issues": [],
       "review": null
     },
@@ -272,10 +260,10 @@
       "does": "Ships one low-risk, high-reward maintenance/design improvement to this overview per run (or nothing), toward the Anthropic aesthetic.",
       "health": "green",
       "private": false,
-      "headline": "improve: hero 'routines total' excludes retired so it reconciles with the counts chips",
+      "headline": "improve: roster rows get the same trailing-parenthetical strip as project cards, so a routine's own git-log rationale (e.g. '(honesty/clarity)') stops leaking onto the public page",
       "logName": null,
-      "lastOutputAt": "2026-07-02T00:50:51.000Z",
-      "lastOutputHuman": "2h ago",
+      "lastOutputAt": "2026-07-02T02:47:18.000Z",
+      "lastOutputHuman": "31 min ago",
       "issues": [],
       "review": null
     },
@@ -401,7 +389,7 @@
       "headline": "refactor: unify duplicated helpers into one home and delete dead code",
       "logName": null,
       "lastOutputAt": "2026-07-01T14:19:33.000Z",
-      "lastOutputHuman": "12h ago",
+      "lastOutputHuman": "13h ago",
       "issues": [],
       "review": null
     },
@@ -419,7 +407,7 @@
       "headline": "refactor: unify duplicated helpers into one home and delete dead code",
       "logName": null,
       "lastOutputAt": "2026-07-01T14:19:33.000Z",
-      "lastOutputHuman": "12h ago",
+      "lastOutputHuman": "13h ago",
       "issues": [],
       "review": "Overlaps 'Dashboard self-improve' (both every 2h on the same repo) — worth confirming both still earn their slot."
     },
@@ -599,7 +587,7 @@
       "headline": "ran — no errors detected",
       "logName": "guard.log",
       "lastOutputAt": "2026-07-01T06:33:51.919Z",
-      "lastOutputHuman": "20h ago",
+      "lastOutputHuman": "21h ago",
       "issues": [
         {
           "severity": "note",
@@ -621,8 +609,8 @@
       "private": true,
       "headline": "ran — no errors detected",
       "logName": "watch.log",
-      "lastOutputAt": "2026-07-02T01:52:20.272Z",
-      "lastOutputHuman": "54 min ago",
+      "lastOutputAt": "2026-07-02T02:52:21.025Z",
+      "lastOutputHuman": "26 min ago",
       "issues": [
         {
           "severity": "note",
