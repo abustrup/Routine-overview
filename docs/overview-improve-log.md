@@ -3,6 +3,30 @@
 Newest first. Each entry: **Assessment** (the biggest gap seen) → **Move** (what shipped, or "none")
 → **Result**. This is the routine's memory: don't rebuild what's shipped or retry what's declined.
 
+### 2026-07-02 06:15 — delete the dead `summary.needsAttention` field (simplify/restraint)
+- **Assessment:** Viewed live (collect+render, judged against the Charter). The page itself is deeply
+  polished — the fleet is in its known batch-stale state (15🟢/0🟡/5🔴/1⏸), and those 5 reds are the
+  familiar config-cadence-vs-scheduler false positives the secretary already flags for a decision, out
+  of this routine's safe scope (false-green danger) so left untouched. With no genuine live *visual*
+  miss to fix, the highest-leverage safe move was the simplify the **prior run explicitly teed up**:
+  `summary.needsAttention` in `collect.mjs` was dead — written to the public `status.json` but read by
+  **nothing**. Proof of deadness is complete here because the producer/consumer contract is closed:
+  `collect.mjs` writes `status.json`; the only two consumers are `render.mjs` (line 55 destructures just
+  `{green,yellow,red,paused,total}`) and `publish.sh` (reads only `green yellow red paused`). A repo-wide
+  grep found the field in exactly two places — the collect definition and its own output. It also put a
+  stray, un-rendered `5` in the public JSON that reconciles with nothing a reader sees. A charter value #3
+  (restraint — simplify/remove before adding) tidy.
+- **Move:** In `collect.mjs` only — removed the single `needsAttention:` line from the `summary` object.
+  The value isn't lost: the identical `red||warn` filter predicate lives on right below in `attentionKey`,
+  which is the field that's actually consumed (notification de-dupe). `summary` now = `{green, yellow,
+  red, paused, total}`, every field with a live consumer. Contract fully preserved: no change to
+  `private.roots` sanitisation, the `attentionKey` de-dupe, the two-truths health model, or render's
+  escaping/fix-prompt UX (render untouched).
+- **Result:** shipped `4cc3768`. Verified: collect+render run clean; `needsAttention` gone from
+  `status.json` (`grep -c` = 0); summary chips still reconcile (15+0+5+1 = 21 = total). No template leaks
+  (`undefined`/`NaN`/`[object`/`{repo:`/`{today}`/`{HOME}` = 0 in index.html); no private text on the page
+  or in status.json (`/Users/`/`fatal:`/`topByEv`/`feltet=ERR` = 0 in both).
+
 ### 2026-07-02 05:00 — roster rows get the same commit-subject cleaning as project cards (clarity/unify)
 - **Assessment:** Viewed live (desktop, then DOM-verified). The page is deeply polished; the one genuine
   live miss was in the **roster**. The `Overview self-improve` row rendered its own last commit subject
