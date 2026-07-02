@@ -89,11 +89,21 @@ function ageHuman(ms) {
   return `${Math.round(day)}d ago`;
 }
 
-// A trailing parenthetical on a commit subject is git-log rationale (e.g. this repo's own
-// "(honesty/clarity)" improve-tags or "(… already notified)" status lines), not dashboard
-// copy. Strip it so any commit subject shown on the public page — project "Latest" lines AND
-// roster rows alike — stays skimmable and never argues with the hero verdict above it.
-const cleanSubject = (s) => (s || '').replace(/\s*\([^()]*\)\s*$/, '').trim();
+// Normalise a commit subject before it's shown on the public page (project "Latest" lines AND
+// roster rows alike), so it stays skimmable and never restates data already on the page.
+//   1. Strip the secretary's status-line prefix. Its own commits use the format
+//      "overview: <date> — <counts> · <what changed>", where <counts> is health-dot emoji
+//      (19🟢 0🟡 1🔴) that merely duplicate the hero chips and the date duplicates the
+//      "Updated" stamp — only the part after the final " · " is signal. Keep just that.
+//      The dual guard (a health emoji AND a " · ") means only status-line commits are touched;
+//      producer subjects like "brief: 2026-07-02" have no health emoji, so they pass through.
+//   2. Strip a trailing parenthetical — git-log rationale ("(honesty/clarity)" improve-tags,
+//      "(… already notified)" status notes), not dashboard copy.
+const cleanSubject = (s) => {
+  let out = s || '';
+  if (/🟢|🟡|🔴|⏸/.test(out) && out.includes(' · ')) out = out.slice(out.lastIndexOf(' · ') + 3);
+  return out.replace(/\s*\([^()]*\)\s*$/, '').trim();
+};
 
 // ---------- privacy ----------
 const underPrivate = (p) => !!p && PRIVATE_ROOTS.some((root) => p.startsWith(root));

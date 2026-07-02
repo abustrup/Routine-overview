@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-07-02T16:42:16.969Z",
-  "generatedAtLocal": "2 Jul 2026, 18:42 Europe/Copenhagen",
+  "generatedAt": "2026-07-02T16:48:40.470Z",
+  "generatedAtLocal": "2 Jul 2026, 18:48 Europe/Copenhagen",
   "owner": "Alexander Bustrup",
   "attentionKey": "red:Holdet improve loop (launchd):error",
   "summary": {
@@ -74,7 +74,7 @@
         }
       ],
       "lastPublish": "2026-07-02T15:42:33.000Z",
-      "lastPublishHuman": "60 min ago",
+      "lastPublishHuman": "1h ago",
       "lastPublishSubject": "Update dashboard — 2026-07-02 17:42 Europe/Copenhagen",
       "routineCount": 10,
       "routines": [
@@ -108,7 +108,7 @@
         }
       ],
       "lastPublish": "2026-07-02T15:59:54.000Z",
-      "lastPublishHuman": "42 min ago",
+      "lastPublishHuman": "49 min ago",
       "lastPublishSubject": "refactor: unify duplicated helpers into one home and delete dead code",
       "routineCount": 3,
       "routines": [
@@ -164,9 +164,9 @@
           "url": "https://github.com/abustrup/Routine-overview"
         }
       ],
-      "lastPublish": "2026-07-02T13:32:56.000Z",
-      "lastPublishHuman": "3h ago",
-      "lastPublishSubject": "docs: journal the dismissible-attention-flags feature",
+      "lastPublish": "2026-07-02T16:42:48.000Z",
+      "lastPublishHuman": "6 min ago",
+      "lastPublishSubject": "fix secretary cadence drift (hourly→every-5h) to clear false-stale red",
       "routineCount": 2,
       "routines": [
         "routine-overview-secretary",
@@ -186,10 +186,10 @@
       "does": "Refreshes this overview from artifact-truth and flags only what needs attention.",
       "health": "green",
       "private": false,
-      "headline": "docs: journal the dismissible-attention-flags feature",
+      "headline": "fix secretary cadence drift (hourly→every-5h) to clear false-stale red",
       "logName": null,
-      "lastOutputAt": "2026-07-02T13:32:56.000Z",
-      "lastOutputHuman": "3h ago",
+      "lastOutputAt": "2026-07-02T16:42:48.000Z",
+      "lastOutputHuman": "6 min ago",
       "issues": [],
       "review": null
     },
@@ -333,7 +333,7 @@
       "headline": "refactor: unify duplicated helpers into one home and delete dead code",
       "logName": null,
       "lastOutputAt": "2026-07-02T15:59:54.000Z",
-      "lastOutputHuman": "42 min ago",
+      "lastOutputHuman": "49 min ago",
       "issues": [],
       "review": null
     },
@@ -351,7 +351,7 @@
       "headline": "refactor: unify duplicated helpers into one home and delete dead code",
       "logName": null,
       "lastOutputAt": "2026-07-02T15:59:54.000Z",
-      "lastOutputHuman": "42 min ago",
+      "lastOutputHuman": "49 min ago",
       "issues": [],
       "review": "Overlaps 'Dashboard self-improve' (both every 2h on the same repo) — worth confirming both still earn their slot."
     },
@@ -387,7 +387,7 @@
       "headline": "Update dashboard — 2026-07-02 17:42 Europe/Copenhagen",
       "logName": null,
       "lastOutputAt": "2026-07-02T15:42:33.000Z",
-      "lastOutputHuman": "60 min ago",
+      "lastOutputHuman": "1h ago",
       "issues": [],
       "review": null
     },
@@ -404,8 +404,8 @@
       "private": true,
       "headline": "ran — no errors detected",
       "logName": null,
-      "lastOutputAt": "2026-07-02T16:34:51.000Z",
-      "lastOutputHuman": "7 min ago",
+      "lastOutputAt": "2026-07-02T16:44:46.000Z",
+      "lastOutputHuman": "4 min ago",
       "issues": [],
       "review": null
     },
@@ -423,7 +423,7 @@
       "headline": "ran — no errors detected",
       "logName": null,
       "lastOutputAt": "2026-07-02T16:36:18.377Z",
-      "lastOutputHuman": "6 min ago",
+      "lastOutputHuman": "12 min ago",
       "issues": [],
       "review": null
     },
@@ -440,8 +440,8 @@
       "private": true,
       "headline": "paused",
       "logName": null,
-      "lastOutputAt": "2026-07-02T16:34:51.000Z",
-      "lastOutputHuman": "7 min ago",
+      "lastOutputAt": "2026-07-02T16:44:46.000Z",
+      "lastOutputHuman": "4 min ago",
       "issues": [],
       "review": "Paused — the live-system guardian is off."
     },
@@ -513,7 +513,7 @@
       "headline": "ran — no errors detected",
       "logName": "evening.log",
       "lastOutputAt": "2026-07-01T21:14:59.930Z",
-      "lastOutputHuman": "19h ago",
+      "lastOutputHuman": "20h ago",
       "issues": [],
       "review": null
     },
@@ -554,7 +554,7 @@
       "headline": "ran — no errors detected",
       "logName": "watch.log",
       "lastOutputAt": "2026-07-02T16:03:23.947Z",
-      "lastOutputHuman": "39 min ago",
+      "lastOutputHuman": "45 min ago",
       "issues": [],
       "review": null
     },
