@@ -1,14 +1,14 @@
 {
-  "generatedAt": "2026-07-03T10:44:09.872Z",
-  "generatedAtLocal": "3 Jul 2026, 12:44 Europe/Copenhagen",
+  "generatedAt": "2026-07-03T13:20:31.117Z",
+  "generatedAtLocal": "3 Jul 2026, 15:20 Europe/Copenhagen",
   "owner": "Alexander Bustrup",
   "attentionKey": "red:Holdet improve loop (launchd):error",
   "staleAfterMin": 360,
   "summary": {
-    "green": 19,
+    "green": 18,
     "yellow": 0,
     "red": 1,
-    "paused": 1,
+    "paused": 2,
     "total": 21
   },
   "attention": [
@@ -22,18 +22,6 @@
         "guide": "Holdet improve loop (launchd) logged an error — it may be broken.",
         "prompt": "The scheduled routine \"Holdet improve loop (launchd)\" is erroring. Working dir: ~/holdet-tdf-bot. Read improve.log for the exact error, then find the root cause, fix it, add a guard or test so it can't recur, verify by re-running the step, and commit. Follow the project's own CLAUDE.md and the holdet-tdf-bot skill, which document its guardrails and protected paths.",
         "cwd": "~/holdet-tdf-bot"
-      }
-    },
-    {
-      "severity": "review",
-      "project": "stock",
-      "routine": "Stock maintenance",
-      "message": "Overlaps 'Dashboard self-improve' — both daily maintainer passes on the stock repo (02:00 and 13:00). Worth confirming both still earn their slot.",
-      "kind": "review",
-      "fix": {
-        "guide": "Overlaps 'Dashboard self-improve' — both daily maintainer passes on the stock repo (02:00 and 13:00). Worth confirming both still earn their slot.",
-        "prompt": "About the scheduled routine \"Stock maintenance\" (Structural maintenance passes on the stock dashboard.). Working dir: ~/Documents/AI eksperimenter/personal-stock-dashboard. Decision to make: Overlaps 'Dashboard self-improve' — both daily maintainer passes on the stock repo (02:00 and 13:00). Worth confirming both still earn their slot. Investigate, decide the best action, and implement it if warranted; otherwise briefly explain why to leave it as-is. Open a small PR to main and keep CI green. Public repo: demo data only, never real positions or secrets.",
-        "cwd": "~/Documents/AI eksperimenter/personal-stock-dashboard"
       }
     },
     {
@@ -89,7 +77,7 @@
         }
       ],
       "lastPublish": "2026-07-03T06:15:55.000Z",
-      "lastPublishHuman": "4h ago",
+      "lastPublishHuman": "7h ago",
       "lastPublishSubject": "Update dashboard — 2026-07-03 08:15 Europe/Copenhagen",
       "routineCount": 10,
       "routines": [
@@ -122,9 +110,9 @@
           "url": "https://github.com/abustrup/personal-stock-dashboard"
         }
       ],
-      "lastPublish": "2026-07-02T15:59:54.000Z",
-      "lastPublishHuman": "19h ago",
-      "lastPublishSubject": "refactor: unify duplicated helpers into one home and delete dead code",
+      "lastPublish": "2026-07-03T11:23:39.000Z",
+      "lastPublishHuman": "2h ago",
+      "lastPublishSubject": "fix: stop a degenerate day-change from Infinity-poisoning the headline day P&L",
       "routineCount": 3,
       "routines": [
         "dashboard-self-improve",
@@ -150,7 +138,7 @@
         }
       ],
       "lastPublish": "2026-07-03T04:51:32.000Z",
-      "lastPublishHuman": "6h ago",
+      "lastPublishHuman": "8h ago",
       "lastPublishSubject": "rolling weekly: 2026-07-03",
       "routineCount": 6,
       "routines": [
@@ -179,9 +167,9 @@
           "url": "https://github.com/abustrup/Routine-overview"
         }
       ],
-      "lastPublish": "2026-07-03T08:21:11.000Z",
-      "lastPublishHuman": "2h ago",
-      "lastPublishSubject": "auditor 'ageing' is false-positive (config 5h vs daily scheduler); flagged, no push",
+      "lastPublish": "2026-07-03T10:45:58.000Z",
+      "lastPublishHuman": "3h ago",
+      "lastPublishSubject": "docs: journal the unassigned-sentinel WARN fix",
       "routineCount": 2,
       "routines": [
         "routine-overview-secretary",
@@ -201,10 +189,10 @@
       "does": "Refreshes this overview from artifact-truth and flags only what needs attention.",
       "health": "green",
       "private": false,
-      "headline": "auditor 'ageing' is false-positive (config 5h vs daily scheduler); flagged, no push",
+      "headline": "docs: journal the unassigned-sentinel WARN fix",
       "logName": null,
-      "lastOutputAt": "2026-07-03T08:21:11.000Z",
-      "lastOutputHuman": "2h ago",
+      "lastOutputAt": "2026-07-03T10:45:58.000Z",
+      "lastOutputHuman": "3h ago",
       "issues": [],
       "review": null
     },
@@ -219,9 +207,9 @@
       "does": "Ships one low-risk, high-reward maintenance/design improvement to this overview per run (or nothing), toward the Anthropic aesthetic.",
       "health": "green",
       "private": false,
-      "headline": "improve: project dots stop hover-labelling a broken-maintainer project as 'Ageing'",
+      "headline": "improve: collect stops crying wolf on the intentional 'unassigned' sentinel",
       "logName": null,
-      "lastOutputAt": "2026-07-03T07:51:00.000Z",
+      "lastOutputAt": "2026-07-03T10:45:26.000Z",
       "lastOutputHuman": "3h ago",
       "issues": [],
       "review": null
@@ -240,7 +228,7 @@
       "headline": "published 2026-07-03",
       "logName": null,
       "lastOutputAt": "2026-07-03T03:54:12.967Z",
-      "lastOutputHuman": "7h ago",
+      "lastOutputHuman": "9h ago",
       "issues": [],
       "review": null
     },
@@ -258,7 +246,7 @@
       "headline": "rolling weekly: 2026-07-03",
       "logName": null,
       "lastOutputAt": "2026-07-03T04:51:32.000Z",
-      "lastOutputHuman": "6h ago",
+      "lastOutputHuman": "8h ago",
       "issues": [],
       "review": null
     },
@@ -345,10 +333,10 @@
       "does": "Ships at most ONE strictly-better improvement to the stock dashboard per run via reviewed PR (or nothing).",
       "health": "green",
       "private": false,
-      "headline": "refactor: unify duplicated helpers into one home and delete dead code",
+      "headline": "fix: stop a degenerate day-change from Infinity-poisoning the headline day P&L",
       "logName": null,
-      "lastOutputAt": "2026-07-02T15:59:54.000Z",
-      "lastOutputHuman": "19h ago",
+      "lastOutputAt": "2026-07-03T11:23:39.000Z",
+      "lastOutputHuman": "2h ago",
       "issues": [],
       "review": null
     },
@@ -359,16 +347,16 @@
       "cadence": "Daily · 13:00",
       "kind": "scheduler",
       "role": "maintainer",
-      "enabled": true,
+      "enabled": false,
       "does": "Structural maintenance passes on the stock dashboard.",
-      "health": "green",
+      "health": "paused",
       "private": false,
-      "headline": "refactor: unify duplicated helpers into one home and delete dead code",
+      "headline": "fix: stop a degenerate day-change from Infinity-poisoning the headline day P&L",
       "logName": null,
-      "lastOutputAt": "2026-07-02T15:59:54.000Z",
-      "lastOutputHuman": "19h ago",
+      "lastOutputAt": "2026-07-03T11:23:39.000Z",
+      "lastOutputHuman": "2h ago",
       "issues": [],
-      "review": "Overlaps 'Dashboard self-improve' — both daily maintainer passes on the stock repo (02:00 and 13:00). Worth confirming both still earn their slot."
+      "review": "Retired 2026-07-03 — was the redundant second stock maintainer (13:00); 'Dashboard self-improve' (02:00) is now the single canonical guardrailed pass. Disabled in scheduler; config synced to match."
     },
     {
       "id": "watchlist-integration",
@@ -402,7 +390,7 @@
       "headline": "Update dashboard — 2026-07-03 08:15 Europe/Copenhagen",
       "logName": null,
       "lastOutputAt": "2026-07-03T06:15:55.000Z",
-      "lastOutputHuman": "4h ago",
+      "lastOutputHuman": "7h ago",
       "issues": [],
       "review": null
     },
@@ -419,8 +407,8 @@
       "private": true,
       "headline": "ran — no errors detected",
       "logName": null,
-      "lastOutputAt": "2026-07-03T10:18:44.000Z",
-      "lastOutputHuman": "25 min ago",
+      "lastOutputAt": "2026-07-03T12:39:09.000Z",
+      "lastOutputHuman": "41 min ago",
       "issues": [],
       "review": null
     },
@@ -438,7 +426,7 @@
       "headline": "ran — no errors detected",
       "logName": null,
       "lastOutputAt": "2026-07-02T20:25:48.268Z",
-      "lastOutputHuman": "14h ago",
+      "lastOutputHuman": "17h ago",
       "issues": [],
       "review": null
     },
@@ -455,8 +443,8 @@
       "private": true,
       "headline": "paused",
       "logName": null,
-      "lastOutputAt": "2026-07-03T10:18:44.000Z",
-      "lastOutputHuman": "25 min ago",
+      "lastOutputAt": "2026-07-03T12:39:09.000Z",
+      "lastOutputHuman": "41 min ago",
       "issues": [],
       "review": null
     },
@@ -528,7 +516,7 @@
       "headline": "ran — no errors detected",
       "logName": "evening.log",
       "lastOutputAt": "2026-07-02T20:31:53.887Z",
-      "lastOutputHuman": "14h ago",
+      "lastOutputHuman": "17h ago",
       "issues": [
         {
           "severity": "note",
@@ -573,8 +561,8 @@
       "private": true,
       "headline": "ran — no errors detected",
       "logName": "watch.log",
-      "lastOutputAt": "2026-07-03T10:10:37.074Z",
-      "lastOutputHuman": "34 min ago",
+      "lastOutputAt": "2026-07-03T12:12:08.165Z",
+      "lastOutputHuman": "1h ago",
       "issues": [
         {
           "severity": "note",
@@ -597,7 +585,7 @@
       "headline": "error detected in local log — details kept private",
       "logName": "improve.log",
       "lastOutputAt": "2026-07-02T15:04:33.422Z",
-      "lastOutputHuman": "20h ago",
+      "lastOutputHuman": "22h ago",
       "issues": [
         {
           "severity": "error",

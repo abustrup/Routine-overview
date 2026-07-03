@@ -125,10 +125,10 @@
     },
     {
       "id": "stock---do-maintenance-improve-structure", "project": "stock", "name": "Stock maintenance",
-      "cadence": "Daily · 13:00", "periodHours": 24, "kind": "scheduler", "role": "maintainer", "enabled": true,
+      "cadence": "Daily · 13:00", "periodHours": 24, "kind": "scheduler", "role": "maintainer", "enabled": false,
       "does": "Structural maintenance passes on the stock dashboard.",
       "freshness": { "type": "gitAny", "repo": "stock" },
-      "review": "Overlaps 'Dashboard self-improve' — both daily maintainer passes on the stock repo (02:00 and 13:00). Worth confirming both still earn their slot."
+      "review": "Retired 2026-07-03 — was the redundant second stock maintainer (13:00); 'Dashboard self-improve' (02:00) is now the single canonical guardrailed pass. Disabled in scheduler; config synced to match."
     },
     {
       "id": "watchlist-integration", "project": "stock", "name": "Watchlist integration",
