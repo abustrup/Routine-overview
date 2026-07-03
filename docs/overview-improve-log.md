@@ -3,6 +3,40 @@
 Newest first. Each entry: **Assessment** (the biggest gap seen) → **Move** (what shipped, or "none")
 → **Result**. This is the routine's memory: don't rebuild what's shipped or retry what's declined.
 
+### 2026-07-03 04:15 — stop rendering the launchd kind twice (name's "(launchd)" + the pill) (clarity/craft)
+- **Assessment:** Viewed live (collect+render, then in-browser desktop **and** mobile — hero, both attention
+  sections, all four project cards, the full 22-row roster). Fleet healthy: 19🟢/0🟡/1🔴/1⏸ — the lone red is
+  the familiar sanitized holdet `improve.log` error, out of this routine's safe scope, left untouched. Numbers
+  reconcile (hero "1 needs attention" = the 1 broken card; 19+0+1+1 = 21 = total). No template/private leaks.
+  The genuine remaining miss was a **charter value #2/#4 (clarity/skimmability + craft — "every element earns
+  its place")** duplication baked into the roster since seed: a routine's `kind:'launchd'` is structured data
+  whose *designed* representation is the small tag pill `routineRow` appends — but all four launchd routines
+  *also* carry the kind spelled out as a trailing `(launchd)` in their config `name`. So each of those rows
+  rendered the fact **twice, adjacent**: `Holdet evening pass (launchd)` immediately followed by a `LAUNCHD`
+  pill (DOM-confirmed on 4/22 rows), and the broken-routine attention card header read `🚴 Holdet improve
+  loop (launchd)` too. Redundant restatement on the calm editorial surface the Charter prizes.
+- **Move:** In `render.mjs` only — added a `cleanName(n)` helper that strips a trailing kind-parenthetical
+  (`/\s*\((?:launchd|one-?time|oneshot)\)\s*$/i`) from the **displayed** name, and applied it at the three
+  places a name renders: `routineRow`'s `row__name`, and the `attn`/`review` card `…__where` headers. The tag
+  pill is now the single source of the kind signal; card headers read clean too (consistent across the page).
+  **Display-only on purpose:** `name` feeds `collect`'s `attentionKey` de-dupe hash (`severity:routine:kind`)
+  and the client dismissal keys, so doing this in *collect* would change the hash → the secretary would see a
+  "new" attention set → a spurious re-push. Kept `collect` untouched so `status.json`/`attentionKey` stay
+  byte-identical. Anchored to the three known kind words only, so every other name is untouched (e.g. the
+  `oneshot` "Holdet routine self-test" has no parenthetical in its name → `cleanName` is a no-op there, and its
+  lone `one-time` pill was never duplicated). Contract fully preserved: no change to `private.roots`
+  sanitisation, `attentionKey`, the two-truths health model, or render's escaping/fix-prompt UX.
+- **Result:** shipped `48e1e56`. Verified: collect+render clean; DOM-confirmed the 4 launchd rows now read the
+  clean name + a single `LAUNCHD` pill (`Holdet evening pass` + pill) and the broken card header now reads
+  `🚴 Holdet improve loop`. `attentionKey` unchanged (`red:Holdet improve loop (launchd):error`); the only
+  `status.json` diffs vs. the pre-run copy are elapsed-age strings (names + key structurally identical, so no
+  push churn). The 11 `(launchd)` in `status.json` (the registered names + de-dupe key) are intentionally
+  retained; the 2 remaining `(launchd)` in `index.html` are both inside the copy-fix **prompt** payload, where
+  naming the routine by its full registered name is correct so a fresh session can locate it — no naked visual
+  duplication remains. No template leaks (`undefined`/`NaN`/`[object`/`{repo:`/`{today}`/`{HOME}` = 0 in
+  index.html); no private text on page (`/Users/`/`fatal:`/`topByEv`/`feltet=ERR`/`rider`/`captain`/`guardian`/
+  `third brain`/`notify+veto` = 0). Counts unchanged (19🟢/0🟡/1🔴/1⏸, 21 total).
+
 ### 2026-07-03 03:40 — sanitize private routines' `review` prose so it stops shipping publicly (trust/honesty)
 - **Assessment:** Viewed live (collect+render, then in-browser desktop **and** mobile — hero, both attention
   sections, all four project cards, the full 22-row roster). Fleet healthy: 19🟢/0🟡/1🔴/1⏸ — the lone red is

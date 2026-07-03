@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-07-03T03:56:26.479Z",
-  "generatedAtLocal": "3 Jul 2026, 05:56 Europe/Copenhagen",
+  "generatedAt": "2026-07-03T04:44:52.574Z",
+  "generatedAtLocal": "3 Jul 2026, 06:44 Europe/Copenhagen",
   "owner": "Alexander Bustrup",
   "attentionKey": "red:Holdet improve loop (launchd):error",
   "staleAfterMin": 360,
@@ -89,7 +89,7 @@
         }
       ],
       "lastPublish": "2026-07-02T15:42:33.000Z",
-      "lastPublishHuman": "12h ago",
+      "lastPublishHuman": "13h ago",
       "lastPublishSubject": "Update dashboard — 2026-07-02 17:42 Europe/Copenhagen",
       "routineCount": 10,
       "routines": [
@@ -123,7 +123,7 @@
         }
       ],
       "lastPublish": "2026-07-02T15:59:54.000Z",
-      "lastPublishHuman": "12h ago",
+      "lastPublishHuman": "13h ago",
       "lastPublishSubject": "refactor: unify duplicated helpers into one home and delete dead code",
       "routineCount": 3,
       "routines": [
@@ -150,7 +150,7 @@
         }
       ],
       "lastPublish": "2026-07-03T03:54:13.000Z",
-      "lastPublishHuman": "2 min ago",
+      "lastPublishHuman": "51 min ago",
       "lastPublishSubject": "brief: 2026-07-03",
       "routineCount": 6,
       "routines": [
@@ -179,9 +179,9 @@
           "url": "https://github.com/abustrup/Routine-overview"
         }
       ],
-      "lastPublish": "2026-07-03T01:48:03.000Z",
-      "lastPublishHuman": "2h ago",
-      "lastPublishSubject": "docs: journal the private-review sanitization fix",
+      "lastPublish": "2026-07-03T03:57:39.000Z",
+      "lastPublishHuman": "47 min ago",
+      "lastPublishSubject": "heartbeat; unchanged red (holdet improve) already notified, no new action",
       "routineCount": 2,
       "routines": [
         "routine-overview-secretary",
@@ -201,10 +201,10 @@
       "does": "Refreshes this overview from artifact-truth and flags only what needs attention.",
       "health": "green",
       "private": false,
-      "headline": "docs: journal the private-review sanitization fix",
+      "headline": "heartbeat; unchanged red (holdet improve) already notified, no new action",
       "logName": null,
-      "lastOutputAt": "2026-07-03T01:48:03.000Z",
-      "lastOutputHuman": "2h ago",
+      "lastOutputAt": "2026-07-03T03:57:39.000Z",
+      "lastOutputHuman": "47 min ago",
       "issues": [],
       "review": null
     },
@@ -222,7 +222,7 @@
       "headline": "improve: sanitize private routines' review prose so it stops shipping in the public status.json",
       "logName": null,
       "lastOutputAt": "2026-07-03T01:47:32.000Z",
-      "lastOutputHuman": "2h ago",
+      "lastOutputHuman": "3h ago",
       "issues": [],
       "review": null
     },
@@ -240,7 +240,7 @@
       "headline": "published 2026-07-03",
       "logName": null,
       "lastOutputAt": "2026-07-03T03:54:12.967Z",
-      "lastOutputHuman": "2 min ago",
+      "lastOutputHuman": "51 min ago",
       "issues": [],
       "review": null
     },
@@ -258,7 +258,7 @@
       "headline": "rolling weekly: 2026-07-02",
       "logName": null,
       "lastOutputAt": "2026-07-02T04:51:24.000Z",
-      "lastOutputHuman": "23h ago",
+      "lastOutputHuman": "24h ago",
       "issues": [],
       "review": null
     },
@@ -348,7 +348,7 @@
       "headline": "refactor: unify duplicated helpers into one home and delete dead code",
       "logName": null,
       "lastOutputAt": "2026-07-02T15:59:54.000Z",
-      "lastOutputHuman": "12h ago",
+      "lastOutputHuman": "13h ago",
       "issues": [],
       "review": null
     },
@@ -366,7 +366,7 @@
       "headline": "refactor: unify duplicated helpers into one home and delete dead code",
       "logName": null,
       "lastOutputAt": "2026-07-02T15:59:54.000Z",
-      "lastOutputHuman": "12h ago",
+      "lastOutputHuman": "13h ago",
       "issues": [],
       "review": "Overlaps 'Dashboard self-improve' — both daily maintainer passes on the stock repo (02:00 and 13:00). Worth confirming both still earn their slot."
     },
@@ -402,7 +402,7 @@
       "headline": "Update dashboard — 2026-07-02 17:42 Europe/Copenhagen",
       "logName": null,
       "lastOutputAt": "2026-07-02T15:42:33.000Z",
-      "lastOutputHuman": "12h ago",
+      "lastOutputHuman": "13h ago",
       "issues": [],
       "review": null
     },
@@ -528,7 +528,7 @@
       "headline": "ran — no errors detected",
       "logName": "evening.log",
       "lastOutputAt": "2026-07-02T20:31:53.887Z",
-      "lastOutputHuman": "7h ago",
+      "lastOutputHuman": "8h ago",
       "issues": [
         {
           "severity": "note",
@@ -551,7 +551,7 @@
       "headline": "ran — no errors detected",
       "logName": "guard.log",
       "lastOutputAt": "2026-07-02T06:30:17.475Z",
-      "lastOutputHuman": "21h ago",
+      "lastOutputHuman": "22h ago",
       "issues": [
         {
           "severity": "note",
@@ -573,8 +573,8 @@
       "private": true,
       "headline": "ran — no errors detected",
       "logName": "watch.log",
-      "lastOutputAt": "2026-07-03T03:07:17.802Z",
-      "lastOutputHuman": "49 min ago",
+      "lastOutputAt": "2026-07-03T04:07:18.806Z",
+      "lastOutputHuman": "38 min ago",
       "issues": [
         {
           "severity": "note",
@@ -597,7 +597,7 @@
       "headline": "error detected in local log — details kept private",
       "logName": "improve.log",
       "lastOutputAt": "2026-07-02T15:04:33.422Z",
-      "lastOutputHuman": "13h ago",
+      "lastOutputHuman": "14h ago",
       "issues": [
         {
           "severity": "error",

@@ -30,6 +30,16 @@ const HEALTH_LABEL = {
 };
 const dot = (h) => `<span class="dot dot--${esc(h || 'unknown')}" title="${esc(HEALTH_LABEL[h] || h || 'unknown')}" aria-hidden="true"></span>`;
 
+// A routine's kind (launchd / one-time) is structured data; its designed representation is the
+// small tag pill in the roster row. Several config names *also* spell the kind out in a trailing
+// parenthetical ("Holdet improve loop (launchd)"), so the roster rendered it twice — the name's
+// "(launchd)" immediately followed by a LAUNCHD pill. Strip that kind-parenthetical from the
+// DISPLAYED name so the pill is the single source of the signal (and card headers read clean too).
+// Display-only: `name` feeds collect's attentionKey de-dupe hash and the client dismissal keys, so
+// this is deliberately NOT done in collect — status.json/attentionKey stay byte-identical, no
+// spurious re-push. Anchored to the known kind words only, so other names are untouched.
+const cleanName = (n) => String(n ?? '').replace(/\s*\((?:launchd|one-?time|oneshot)\)\s*$/i, '');
+
 // ---- liveness -------------------------------------------------------------
 const ageMin = (Date.now() - Date.parse(s.generatedAt)) / 6e4;
 // Threshold is derived by collect from the secretary's configured refresh period (so it tracks the
@@ -128,7 +138,7 @@ const attnCard = (a) => `<article class="attn attn--${esc(a.severity)}" data-att
   <div class="attn__main">
     <div class="attn__head">
       <span class="attn__sev">${a.severity === 'red' ? 'Broken' : 'Warning'}</span>
-      <span class="attn__where">${esc(projEmoji[a.project] || '')} ${esc(a.routine)}</span>
+      <span class="attn__where">${esc(projEmoji[a.project] || '')} ${esc(cleanName(a.routine))}</span>
       ${dismissBtn}
     </div>
     <p class="attn__msg">${esc(a.message)}</p>
@@ -138,7 +148,7 @@ const attnCard = (a) => `<article class="attn attn--${esc(a.severity)}" data-att
 
 const reviewCard = (a) => `<article class="review" data-attn data-akey="${esc(attnKey(a))}">
   <div class="review__head">
-    <span class="review__where">${esc(projEmoji[a.project] || '')} ${esc(a.routine)}</span>
+    <span class="review__where">${esc(projEmoji[a.project] || '')} ${esc(cleanName(a.routine))}</span>
     ${dismissBtn}
   </div>
   <p class="review__msg">${esc(a.message)}</p>
@@ -209,7 +219,7 @@ const routineRow = (r) => {
   const headTitle = line ? ` title="${esc(line)}"` : '';
   return `<li class="row${muted ? ' row--muted' : ''}">
     <span class="row__dot">${dot(r.health)}</span>
-    <span class="row__name">${esc(r.name)}${tags.length ? ' ' + tags.join(' ') : ''}</span>
+    <span class="row__name">${esc(cleanName(r.name))}${tags.length ? ' ' + tags.join(' ') : ''}</span>
     <span class="row__cadence">${esc(r.cadence)}</span>
     <span class="row__ago">${esc(r.lastOutputHuman || '—')}</span>
     <span class="row__head${headMod}"${headTitle}>${esc(line || '')}</span>
