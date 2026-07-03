@@ -251,7 +251,13 @@ function buildRoutine(r) {
     lastOutputAt: r._fr.atMs ? iso(r._fr.atMs) : null,
     lastOutputHuman: r._fr.advisory || r._fr.retired ? '—' : ageHuman(r._fr.atMs),
     issues,
-    review: r.review || null,
+    // `review` is owner-authored decision prose. For a private (holdet) routine it can describe the
+    // bot's internals (e.g. "the live-system guardian is off") and, like `does`, it ships raw in the
+    // PUBLIC tracked status.json and would splice into a rendered "Worth a decision" card + its fix
+    // prompt. Sanitize it here alongside headline/issues/does: nulling it both closes the JSON leak
+    // and structurally keeps any private review off the public page — such a decision belongs in the
+    // private push, never here. No public routine is affected (their reviews still ship).
+    review: priv ? null : (r.review || null),
   };
 }
 

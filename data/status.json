@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-07-02T22:43:31.161Z",
-  "generatedAtLocal": "3 Jul 2026, 00:43 Europe/Copenhagen",
+  "generatedAt": "2026-07-03T01:46:17.860Z",
+  "generatedAtLocal": "3 Jul 2026, 03:46 Europe/Copenhagen",
   "owner": "Alexander Bustrup",
   "attentionKey": "red:Holdet improve loop (launchd):error",
   "staleAfterMin": 360,
@@ -61,6 +61,13 @@
       "routine": "Holdet DNS guard (launchd)",
       "message": "a data source is degraded — details are local-only",
       "kind": "note"
+    },
+    {
+      "severity": "info",
+      "project": "holdet-tdf",
+      "routine": "Holdet watch sentinel (launchd)",
+      "message": "a data source is degraded — details are local-only",
+      "kind": "note"
     }
   ],
   "projects": [
@@ -82,7 +89,7 @@
         }
       ],
       "lastPublish": "2026-07-02T15:42:33.000Z",
-      "lastPublishHuman": "7h ago",
+      "lastPublishHuman": "10h ago",
       "lastPublishSubject": "Update dashboard — 2026-07-02 17:42 Europe/Copenhagen",
       "routineCount": 10,
       "routines": [
@@ -116,7 +123,7 @@
         }
       ],
       "lastPublish": "2026-07-02T15:59:54.000Z",
-      "lastPublishHuman": "7h ago",
+      "lastPublishHuman": "10h ago",
       "lastPublishSubject": "refactor: unify duplicated helpers into one home and delete dead code",
       "routineCount": 3,
       "routines": [
@@ -143,7 +150,7 @@
         }
       ],
       "lastPublish": "2026-07-02T04:51:24.000Z",
-      "lastPublishHuman": "18h ago",
+      "lastPublishHuman": "21h ago",
       "lastPublishSubject": "rolling weekly: 2026-07-02",
       "routineCount": 6,
       "routines": [
@@ -172,9 +179,9 @@
           "url": "https://github.com/abustrup/Routine-overview"
         }
       ],
-      "lastPublish": "2026-07-02T22:19:55.000Z",
-      "lastPublishHuman": "24 min ago",
-      "lastPublishSubject": "heartbeat; unchanged red (holdet improve) already notified, no new action",
+      "lastPublish": "2026-07-02T22:44:31.000Z",
+      "lastPublishHuman": "3h ago",
+      "lastPublishSubject": "docs: journal the roster-headline hover-tooltip clarity fix",
       "routineCount": 2,
       "routines": [
         "routine-overview-secretary",
@@ -194,10 +201,10 @@
       "does": "Refreshes this overview from artifact-truth and flags only what needs attention.",
       "health": "green",
       "private": false,
-      "headline": "heartbeat; unchanged red (holdet improve) already notified, no new action",
+      "headline": "docs: journal the roster-headline hover-tooltip clarity fix",
       "logName": null,
-      "lastOutputAt": "2026-07-02T22:19:55.000Z",
-      "lastOutputHuman": "24 min ago",
+      "lastOutputAt": "2026-07-02T22:44:31.000Z",
+      "lastOutputHuman": "3h ago",
       "issues": [],
       "review": null
     },
@@ -212,9 +219,9 @@
       "does": "Ships one low-risk, high-reward maintenance/design improvement to this overview per run (or nothing), toward the Anthropic aesthetic.",
       "health": "green",
       "private": false,
-      "headline": "improve: label review-card button 'Copy decision prompt' (not 'fix') so the verb matches the 'Worth a decision' section — a judgement call isn't a repair",
+      "headline": "improve: hover tooltip on truncated roster headlines so the full text stays recoverable",
       "logName": null,
-      "lastOutputAt": "2026-07-02T19:48:23.000Z",
+      "lastOutputAt": "2026-07-02T22:44:02.000Z",
       "lastOutputHuman": "3h ago",
       "issues": [],
       "review": null
@@ -233,7 +240,7 @@
       "headline": "brief: 2026-07-02",
       "logName": null,
       "lastOutputAt": "2026-07-02T03:58:16.000Z",
-      "lastOutputHuman": "19h ago",
+      "lastOutputHuman": "22h ago",
       "issues": [],
       "review": null
     },
@@ -251,7 +258,7 @@
       "headline": "rolling weekly: 2026-07-02",
       "logName": null,
       "lastOutputAt": "2026-07-02T04:51:24.000Z",
-      "lastOutputHuman": "18h ago",
+      "lastOutputHuman": "21h ago",
       "issues": [],
       "review": null
     },
@@ -341,7 +348,7 @@
       "headline": "refactor: unify duplicated helpers into one home and delete dead code",
       "logName": null,
       "lastOutputAt": "2026-07-02T15:59:54.000Z",
-      "lastOutputHuman": "7h ago",
+      "lastOutputHuman": "10h ago",
       "issues": [],
       "review": null
     },
@@ -359,7 +366,7 @@
       "headline": "refactor: unify duplicated helpers into one home and delete dead code",
       "logName": null,
       "lastOutputAt": "2026-07-02T15:59:54.000Z",
-      "lastOutputHuman": "7h ago",
+      "lastOutputHuman": "10h ago",
       "issues": [],
       "review": "Overlaps 'Dashboard self-improve' — both daily maintainer passes on the stock repo (02:00 and 13:00). Worth confirming both still earn their slot."
     },
@@ -395,7 +402,7 @@
       "headline": "Update dashboard — 2026-07-02 17:42 Europe/Copenhagen",
       "logName": null,
       "lastOutputAt": "2026-07-02T15:42:33.000Z",
-      "lastOutputHuman": "7h ago",
+      "lastOutputHuman": "10h ago",
       "issues": [],
       "review": null
     },
@@ -412,8 +419,8 @@
       "private": true,
       "headline": "ran — no errors detected",
       "logName": null,
-      "lastOutputAt": "2026-07-02T20:23:57.000Z",
-      "lastOutputHuman": "2h ago",
+      "lastOutputAt": "2026-07-02T23:15:58.000Z",
+      "lastOutputHuman": "3h ago",
       "issues": [],
       "review": null
     },
@@ -431,7 +438,7 @@
       "headline": "ran — no errors detected",
       "logName": null,
       "lastOutputAt": "2026-07-02T20:25:48.268Z",
-      "lastOutputHuman": "2h ago",
+      "lastOutputHuman": "5h ago",
       "issues": [],
       "review": null
     },
@@ -448,10 +455,10 @@
       "private": true,
       "headline": "paused",
       "logName": null,
-      "lastOutputAt": "2026-07-02T20:23:57.000Z",
-      "lastOutputHuman": "2h ago",
+      "lastOutputAt": "2026-07-02T23:15:58.000Z",
+      "lastOutputHuman": "3h ago",
       "issues": [],
-      "review": "Paused — the live-system guardian is off."
+      "review": null
     },
     {
       "id": "holdet-team-b-cycle",
@@ -521,7 +528,7 @@
       "headline": "ran — no errors detected",
       "logName": "evening.log",
       "lastOutputAt": "2026-07-02T20:31:53.887Z",
-      "lastOutputHuman": "2h ago",
+      "lastOutputHuman": "5h ago",
       "issues": [
         {
           "severity": "note",
@@ -544,7 +551,7 @@
       "headline": "ran — no errors detected",
       "logName": "guard.log",
       "lastOutputAt": "2026-07-02T06:30:17.475Z",
-      "lastOutputHuman": "16h ago",
+      "lastOutputHuman": "19h ago",
       "issues": [
         {
           "severity": "note",
@@ -566,9 +573,14 @@
       "private": true,
       "headline": "ran — no errors detected",
       "logName": "watch.log",
-      "lastOutputAt": "2026-07-02T22:04:01.600Z",
-      "lastOutputHuman": "39 min ago",
-      "issues": [],
+      "lastOutputAt": "2026-07-03T01:05:56.096Z",
+      "lastOutputHuman": "40 min ago",
+      "issues": [
+        {
+          "severity": "note",
+          "line": "a data source is degraded — details are local-only"
+        }
+      ],
       "review": null
     },
     {
@@ -585,7 +597,7 @@
       "headline": "error detected in local log — details kept private",
       "logName": "improve.log",
       "lastOutputAt": "2026-07-02T15:04:33.422Z",
-      "lastOutputHuman": "8h ago",
+      "lastOutputHuman": "11h ago",
       "issues": [
         {
           "severity": "error",
