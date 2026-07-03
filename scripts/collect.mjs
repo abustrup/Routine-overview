@@ -356,18 +356,19 @@ function fixFor(a) {
   const constraints = p.constraints || 'Make a change only if you can verify it is safe and does not break anything, then commit.';
   const logName = r?.logName || null;
   const does = r?.does ? ` (${r.does})` : '';
-  let guide, prompt;
+  // Only `prompt` (the copy-paste fix text) and `cwd` are consumed downstream. A former `guide`
+  // field — a one-line human summary — was dropped when the attention cards switched to rendering
+  // `a.message` (2026-07-01), leaving it written-but-unread in the public status.json; not
+  // recomputed here so the fix object carries only fields a consumer actually uses.
+  let prompt;
   if (a.kind === 'error') {
-    guide = `${a.routine} logged an error — it may be broken.`;
     prompt = `The scheduled routine "${a.routine}"${does} is erroring. ${where} ${logName ? `Read ${logName} for the exact error, then find` : 'Find'} the root cause, fix it, add a guard or test so it can't recur, verify by re-running the step, and commit. ${constraints}`;
   } else if (a.kind === 'stale' || a.kind === 'ageing') {
-    guide = `${a.routine} hasn't produced output when expected (${r?.cadence || 'on schedule'}).`;
     prompt = `The scheduled routine "${a.routine}"${does} was expected to run ${r?.cadence || 'on schedule'} but produced no recent output. ${where} Investigate why it stopped (check its scheduler run and its log), fix the cause, verify a fresh run produces output, and commit. ${constraints}`;
   } else {
-    guide = a.message;
     prompt = `About the scheduled routine "${a.routine}"${does}. ${where} Decision to make: ${a.message} Investigate, decide the best action, and implement it if warranted; otherwise briefly explain why to leave it as-is. ${constraints}`;
   }
-  return { guide: scrubPublic(guide), prompt: scrubPublic(prompt.replace(/\s+/g, ' ').trim()), cwd: scrubPublic(cwd) };
+  return { prompt: scrubPublic(prompt.replace(/\s+/g, ' ').trim()), cwd: scrubPublic(cwd) };
 }
 for (const a of attention) {
   const f = fixFor(a);

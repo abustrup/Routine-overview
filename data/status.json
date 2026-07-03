@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-07-03T13:20:31.117Z",
-  "generatedAtLocal": "3 Jul 2026, 15:20 Europe/Copenhagen",
+  "generatedAt": "2026-07-03T13:44:16.539Z",
+  "generatedAtLocal": "3 Jul 2026, 15:44 Europe/Copenhagen",
   "owner": "Alexander Bustrup",
   "attentionKey": "red:Holdet improve loop (launchd):error",
   "staleAfterMin": 360,
@@ -19,7 +19,6 @@
       "message": "error detected in improve.log — details are local-only",
       "kind": "error",
       "fix": {
-        "guide": "Holdet improve loop (launchd) logged an error — it may be broken.",
         "prompt": "The scheduled routine \"Holdet improve loop (launchd)\" is erroring. Working dir: ~/holdet-tdf-bot. Read improve.log for the exact error, then find the root cause, fix it, add a guard or test so it can't recur, verify by re-running the step, and commit. Follow the project's own CLAUDE.md and the holdet-tdf-bot skill, which document its guardrails and protected paths.",
         "cwd": "~/holdet-tdf-bot"
       }
@@ -31,7 +30,6 @@
       "message": "Purpose/target is vague and it's unassigned to any project — decide what it targets (it may overlap another project's maintenance routine) or whether it still earns its daily slot.",
       "kind": "review",
       "fix": {
-        "guide": "Purpose/target is vague and it's unassigned to any project — decide what it targets (it may overlap another project's maintenance routine) or whether it still earns its daily slot.",
         "prompt": "About the scheduled routine \"Maintenance and improvements\" (\"Do maintenance: improve structure\" — target project not specified in the routine name.). First identify which project this routine belongs to, then work there. Decision to make: Purpose/target is vague and it's unassigned to any project — decide what it targets (it may overlap another project's maintenance routine) or whether it still earns its daily slot. Investigate, decide the best action, and implement it if warranted; otherwise briefly explain why to leave it as-is. Make a change only if you can verify it is safe and does not break anything, then commit.",
         "cwd": null
       }
@@ -138,7 +136,7 @@
         }
       ],
       "lastPublish": "2026-07-03T04:51:32.000Z",
-      "lastPublishHuman": "8h ago",
+      "lastPublishHuman": "9h ago",
       "lastPublishSubject": "rolling weekly: 2026-07-03",
       "routineCount": 6,
       "routines": [
@@ -167,9 +165,9 @@
           "url": "https://github.com/abustrup/Routine-overview"
         }
       ],
-      "lastPublish": "2026-07-03T10:45:58.000Z",
-      "lastPublishHuman": "3h ago",
-      "lastPublishSubject": "docs: journal the unassigned-sentinel WARN fix",
+      "lastPublish": "2026-07-03T13:21:21.000Z",
+      "lastPublishHuman": "23 min ago",
+      "lastPublishSubject": "synced retired 'Stock maintenance' enabled→false to scheduler; cleared stale overlap review",
       "routineCount": 2,
       "routines": [
         "routine-overview-secretary",
@@ -189,10 +187,10 @@
       "does": "Refreshes this overview from artifact-truth and flags only what needs attention.",
       "health": "green",
       "private": false,
-      "headline": "docs: journal the unassigned-sentinel WARN fix",
+      "headline": "synced retired 'Stock maintenance' enabled→false to scheduler; cleared stale overlap review",
       "logName": null,
-      "lastOutputAt": "2026-07-03T10:45:58.000Z",
-      "lastOutputHuman": "3h ago",
+      "lastOutputAt": "2026-07-03T13:21:21.000Z",
+      "lastOutputHuman": "23 min ago",
       "issues": [],
       "review": null
     },
@@ -228,7 +226,7 @@
       "headline": "published 2026-07-03",
       "logName": null,
       "lastOutputAt": "2026-07-03T03:54:12.967Z",
-      "lastOutputHuman": "9h ago",
+      "lastOutputHuman": "10h ago",
       "issues": [],
       "review": null
     },
@@ -246,7 +244,7 @@
       "headline": "rolling weekly: 2026-07-03",
       "logName": null,
       "lastOutputAt": "2026-07-03T04:51:32.000Z",
-      "lastOutputHuman": "8h ago",
+      "lastOutputHuman": "9h ago",
       "issues": [],
       "review": null
     },
@@ -408,7 +406,7 @@
       "headline": "ran — no errors detected",
       "logName": null,
       "lastOutputAt": "2026-07-03T12:39:09.000Z",
-      "lastOutputHuman": "41 min ago",
+      "lastOutputHuman": "1h ago",
       "issues": [],
       "review": null
     },
@@ -444,7 +442,7 @@
       "headline": "paused",
       "logName": null,
       "lastOutputAt": "2026-07-03T12:39:09.000Z",
-      "lastOutputHuman": "41 min ago",
+      "lastOutputHuman": "1h ago",
       "issues": [],
       "review": null
     },
@@ -561,8 +559,8 @@
       "private": true,
       "headline": "ran — no errors detected",
       "logName": "watch.log",
-      "lastOutputAt": "2026-07-03T12:12:08.165Z",
-      "lastOutputHuman": "1h ago",
+      "lastOutputAt": "2026-07-03T13:36:13.979Z",
+      "lastOutputHuman": "8 min ago",
       "issues": [
         {
           "severity": "note",
@@ -585,7 +583,7 @@
       "headline": "error detected in local log — details kept private",
       "logName": "improve.log",
       "lastOutputAt": "2026-07-02T15:04:33.422Z",
-      "lastOutputHuman": "22h ago",
+      "lastOutputHuman": "23h ago",
       "issues": [
         {
           "severity": "error",
