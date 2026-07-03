@@ -3,6 +3,41 @@
 Newest first. Each entry: **Assessment** (the biggest gap seen) → **Move** (what shipped, or "none")
 → **Result**. This is the routine's memory: don't rebuild what's shipped or retry what's declined.
 
+### 2026-07-03 15:44 — delete the dead `fix.guide` field from the public status.json (simplify/restraint)
+- **Assessment:** Viewed live (collect+render, then in-browser at desktop width — hero, both attention sections,
+  4 project cards; DOM-inspected the roster: 5 groups / 22 rows = 10+3+6+2+1, and the project dots read
+  `Needs attention` (Holdet, amber via its red maintainer) + 3× `Healthy`). Fleet healthy: **18🟢/0🟡/1🔴/2⏸**,
+  21 total — numbers reconcile (hero "1 needs attention" = the 1 broken card; 18+0+1+2 = 21). The lone red is the
+  familiar sanitized holdet `improve.log` error, out of this routine's safe scope, left untouched. (Since last run
+  the secretary synced retired `Stock maintenance` enabled→false, so paused is now **2**: it + the private
+  `Holdet self-improve`. `Stock maintenance`'s `review` is a settled retirement note and correctly does **not**
+  surface as a card — the review branches fire only for enabled routines or paused *producers*, and it's a paused
+  maintainer.) No template/private leaks (index.html + fresh status.json both clean; the lone `captain` in
+  status.json is the standing benign `Holdet Team B cycle` `does`, `private:false`, never rendered — unchanged).
+  With no live *visual* miss, the genuine remaining gap was a **charter value #3 (restraint — simplify/remove
+  before adding)** one, the same class as the `summary.needsAttention` deletion (2026-07-02 06:15): `fixFor`
+  computed a `guide` (a one-line human summary) into every fix object and shipped it in the tracked **public**
+  status.json (2 occurrences), but **nothing reads it** — the attention cards switched to rendering `a.message`
+  on 2026-07-01 (the 22:47 run, which left `guide` as "harmless"), `render.mjs` never references `a.fix.guide`,
+  and neither `secretary-hourly.md` nor the runbooks touch `guide`/`.fix`. Written-but-unread output on a public
+  surface.
+- **Move:** In `collect.mjs` only — in `fixFor`, removed the `guide` local (`let guide, prompt;` → `let prompt;`),
+  the three `guide = …` assignments across the error/stale/review branches, and `guide` from the returned object
+  (now `{ prompt, cwd }` — exactly the two fields a consumer uses); left a short comment where it stood so a future
+  run doesn't re-add it. The `prompt` and `cwd` computations, the `scrubPublic` backstop, and every branch's prompt
+  text are byte-for-byte unchanged. Contract fully preserved: no change to `private.roots` sanitisation, the
+  `attentionKey` de-dupe, the two-truths health model, or render's escaping/fix-prompt UX (render untouched).
+- **Result:** shipped `caadd64`. Verified: collect+render clean; `"guide"` = **0** in status.json (was 2),
+  `"prompt"` still **2**, and the sole fix object's keys are now exactly `["prompt","cwd"]` with the error prompt
+  intact (`The scheduled routine "Holdet improve loop (launchd)" is erroring. Working dir: ~/holdet-t…`).
+  In-browser after reload: 2 copy buttons present, first prompt 367 chars, no orphaned guide text on the page,
+  verdict "1 routine needs your attention". No template leaks (`undefined`/`NaN`/`[object`/`{repo:`/`{today}`/
+  `{HOME}` = 0 in index.html); no private text on page (`/Users/`/`fatal:`/`topByEv`/`feltet=ERR`/`guardian`/
+  `third brain`/`notify+veto`/`rider`/`captain` = 0) or in status.json (same set = 0 except the standing benign
+  `captain` `does` field). index.html diff is pure timestamp/age + newest-commit-headline churn (guide was never
+  rendered, so rendered output is structurally unchanged). Counts unchanged (18🟢/0🟡/1🔴/2⏸, 21 total);
+  `attentionKey` unchanged.
+
 ### 2026-07-03 10:40 — collect stops crying wolf on the intentional `unassigned` sentinel (honesty)
 - **Assessment:** Viewed live (collect+render, then in-browser at desktop width — hero, both attention sections,
   all four project cards; DOM-inspected the roster: 4 project cards, 22 rows across 5 groups incl. the deliberate
