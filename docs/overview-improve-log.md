@@ -3,6 +3,37 @@
 Newest first. Each entry: **Assessment** (the biggest gap seen) → **Move** (what shipped, or "none")
 → **Result**. This is the routine's memory: don't rebuild what's shipped or retry what's declined.
 
+### 2026-07-03 10:40 — collect stops crying wolf on the intentional `unassigned` sentinel (honesty)
+- **Assessment:** Viewed live (collect+render, then in-browser at desktop width — hero, both attention sections,
+  all four project cards; DOM-inspected the roster: 4 project cards, 22 rows across 5 groups incl. the deliberate
+  "❓ Unassigned" group of 1). Fleet healthy: **19🟢/0🟡/1🔴/1⏸**, 21 total — the lone red is the familiar sanitized
+  holdet `improve.log` error, out of this routine's safe scope, left untouched. (The auditor that was amber-ageing at
+  last commit `01b0773` has since produced fresh output → back to green; pure artifact churn, so `attentionKey`
+  dropped its stale `warn:Holdet auditor:ageing` — nothing my change touched.) Numbers reconcile (hero "1 needs
+  attention" = the 1 broken card; 19+0+1+1 = 21). No template/private leaks (index.html clean; the one benign
+  `captain` in status.json is the standing `Holdet Team B cycle` `does` field, `private:false`, never rendered —
+  unchanged). The genuine remaining miss was **not on the page but in the tooling's honesty (charter value #1 — no
+  false alarm)**: every `node scripts/collect.mjs` printed `WARN routine "maintenance-and-improvements" -> unknown
+  project "unassigned" (won't roll up)`. But `'unassigned'` is a **deliberate sentinel**, not a typo — `render.mjs`
+  renders it as its own synthetic roster group (`order = [...projects, 'unassigned']`) *and* the "Worth a decision"
+  nudge to assign it. So the WARN cried wolf on an intended state **every run**, training the operator's eye to skip
+  the exact line whose real job is to catch a genuine config typo (e.g. `project:"stpck"`) — which silently drops a
+  routine off the page entirely (no group matches → never rendered). A per-run false positive diluting a real safety net.
+- **Move:** In `collect.mjs` only — added `const UNASSIGNED = 'unassigned'` beside `knownProjectIds` (with a comment
+  explaining it's a render-side sentinel, not a typo), and guarded the warn: `if (!knownProjectIds.has(r.project))`
+  → `if (r.project !== UNASSIGNED && !knownProjectIds.has(r.project))`. Console-only: the warn is a developer log
+  line, never written to status.json or the page, so this changes **no** rendered output, health value, count,
+  `attentionKey`, or data — purely restores signal to an operator warning. Contract fully preserved: no change to
+  `private.roots` sanitisation, the `attentionKey` de-dupe, the two-truths health model, or render's escaping/
+  fix-prompt UX (render untouched). Unit-checked the guard predicate: `unassigned`→no warn, `stock`→no warn,
+  `stpck`→**warns** (safety net intact).
+- **Result:** shipped `ebb588b`. Verified: collect+render clean, **no** WARN line emitted (was 1/run); counts
+  unchanged (19🟢/0🟡/1🔴/1⏸, 21 total). No template leaks (`undefined`/`NaN`/`[object`/`{repo:`/`{today}`/`{HOME}`
+  = 0 in index.html); no private text on page (`/Users/`/`fatal:`/`topByEv`/`feltet=ERR`/`rider`/`captain`/`guardian`/
+  `third brain`/`notify+veto` = 0) or in status.json (same set = 0, except the standing benign `captain` `does` field).
+  Temp preview server + its scratchpad launch.json config were reverted before commit (launch.json byte-identical to
+  HEAD; not in the diff).
+
 ### 2026-07-03 09:40 — project dots stop hover-labelling a broken-maintainer project as "Ageing" (honesty)
 - **Assessment:** Viewed live (collect+render, then in-browser at desktop width — hero, both attention sections,
   all four project cards, the full 22-row roster; DOM-inspected dots/titles, not just a screenshot). Fleet healthy:
