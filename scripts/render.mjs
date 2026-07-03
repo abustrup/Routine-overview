@@ -211,9 +211,12 @@ const routineRow = (r) => {
   const issue =
     issues.find((i) => i.severity === 'error') || issues.find((i) => i.severity === 'warn');
   // A note-level issue (e.g. a degraded data source) doesn't change the health dot, but
-  // hiding it would show a known degradation as a spotless green row. Surface it in the
-  // headline slot, dimmer than a warn — honest, not alarming.
-  const note = issue ? null : issues.find((i) => i.severity === 'note');
+  // hiding it would show a known degradation as a spotless GREEN row. Surface it only on an
+  // otherwise-green row — the case it was built for. When the dot is yellow/red from staleness,
+  // the headline must state THAT reason (r.headline already does): otherwise the amber note
+  // misattributes why the dot isn't green — and on a red row it would hide the breakage entirely
+  // behind a lesser note. Keeps every non-green row's text consistent with its own dot.
+  const note = issue || r.health !== 'green' ? null : issues.find((i) => i.severity === 'note');
   const tags = [];
   if (r.enabled === false) tags.push('<span class="tag tag--off">paused</span>');
   if (r.kind === 'launchd') tags.push('<span class="tag">launchd</span>');

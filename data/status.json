@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-07-03T13:44:16.539Z",
-  "generatedAtLocal": "3 Jul 2026, 15:44 Europe/Copenhagen",
+  "generatedAt": "2026-07-03T16:45:37.520Z",
+  "generatedAtLocal": "3 Jul 2026, 18:45 Europe/Copenhagen",
   "owner": "Alexander Bustrup",
-  "attentionKey": "red:Holdet improve loop (launchd):error",
+  "attentionKey": "red:Holdet improve loop (launchd):error|warn:Holdet watch sentinel (launchd):ageing",
   "staleAfterMin": 360,
   "summary": {
-    "green": 18,
-    "yellow": 0,
+    "green": 17,
+    "yellow": 1,
     "red": 1,
     "paused": 2,
     "total": 21
@@ -20,6 +20,17 @@
       "kind": "error",
       "fix": {
         "prompt": "The scheduled routine \"Holdet improve loop (launchd)\" is erroring. Working dir: ~/holdet-tdf-bot. Read improve.log for the exact error, then find the root cause, fix it, add a guard or test so it can't recur, verify by re-running the step, and commit. Follow the project's own CLAUDE.md and the holdet-tdf-bot skill, which document its guardrails and protected paths.",
+        "cwd": "~/holdet-tdf-bot"
+      }
+    },
+    {
+      "severity": "warn",
+      "project": "holdet-tdf",
+      "routine": "Holdet watch sentinel (launchd)",
+      "message": "Ageing — last output 2h ago (expected Hourly).",
+      "kind": "ageing",
+      "fix": {
+        "prompt": "The scheduled routine \"Holdet watch sentinel (launchd)\" was expected to run Hourly but produced no recent output. Working dir: ~/holdet-tdf-bot. Investigate why it stopped (check its scheduler run and its log), fix the cause, verify a fresh run produces output, and commit. Follow the project's own CLAUDE.md and the holdet-tdf-bot skill, which document its guardrails and protected paths.",
         "cwd": "~/holdet-tdf-bot"
       }
     },
@@ -74,9 +85,9 @@
           "url": "~/Documents/AI eksperimenter/Holdet-TDF-2026-pages"
         }
       ],
-      "lastPublish": "2026-07-03T06:15:55.000Z",
-      "lastPublishHuman": "7h ago",
-      "lastPublishSubject": "Update dashboard — 2026-07-03 08:15 Europe/Copenhagen",
+      "lastPublish": "2026-07-03T14:15:14.000Z",
+      "lastPublishHuman": "3h ago",
+      "lastPublishSubject": "Update dashboard — 2026-07-03 16:15 Europe/Copenhagen",
       "routineCount": 10,
       "routines": [
         "holdet-dashboard-improve",
@@ -109,7 +120,7 @@
         }
       ],
       "lastPublish": "2026-07-03T11:23:39.000Z",
-      "lastPublishHuman": "2h ago",
+      "lastPublishHuman": "5h ago",
       "lastPublishSubject": "fix: stop a degenerate day-change from Infinity-poisoning the headline day P&L",
       "routineCount": 3,
       "routines": [
@@ -136,7 +147,7 @@
         }
       ],
       "lastPublish": "2026-07-03T04:51:32.000Z",
-      "lastPublishHuman": "9h ago",
+      "lastPublishHuman": "12h ago",
       "lastPublishSubject": "rolling weekly: 2026-07-03",
       "routineCount": 6,
       "routines": [
@@ -165,9 +176,9 @@
           "url": "https://github.com/abustrup/Routine-overview"
         }
       ],
-      "lastPublish": "2026-07-03T13:21:21.000Z",
-      "lastPublishHuman": "23 min ago",
-      "lastPublishSubject": "synced retired 'Stock maintenance' enabled→false to scheduler; cleared stale overlap review",
+      "lastPublish": "2026-07-03T13:46:24.000Z",
+      "lastPublishHuman": "3h ago",
+      "lastPublishSubject": "docs: journal the dead fix.guide deletion",
       "routineCount": 2,
       "routines": [
         "routine-overview-secretary",
@@ -187,10 +198,10 @@
       "does": "Refreshes this overview from artifact-truth and flags only what needs attention.",
       "health": "green",
       "private": false,
-      "headline": "synced retired 'Stock maintenance' enabled→false to scheduler; cleared stale overlap review",
+      "headline": "docs: journal the dead fix.guide deletion",
       "logName": null,
-      "lastOutputAt": "2026-07-03T13:21:21.000Z",
-      "lastOutputHuman": "23 min ago",
+      "lastOutputAt": "2026-07-03T13:46:24.000Z",
+      "lastOutputHuman": "3h ago",
       "issues": [],
       "review": null
     },
@@ -205,9 +216,9 @@
       "does": "Ships one low-risk, high-reward maintenance/design improvement to this overview per run (or nothing), toward the Anthropic aesthetic.",
       "health": "green",
       "private": false,
-      "headline": "improve: collect stops crying wolf on the intentional 'unassigned' sentinel",
+      "headline": "improve: drop the dead fix.guide field — written to public status.json but read by nothing since cards switched to a.message",
       "logName": null,
-      "lastOutputAt": "2026-07-03T10:45:26.000Z",
+      "lastOutputAt": "2026-07-03T13:45:41.000Z",
       "lastOutputHuman": "3h ago",
       "issues": [],
       "review": null
@@ -226,7 +237,7 @@
       "headline": "published 2026-07-03",
       "logName": null,
       "lastOutputAt": "2026-07-03T03:54:12.967Z",
-      "lastOutputHuman": "10h ago",
+      "lastOutputHuman": "13h ago",
       "issues": [],
       "review": null
     },
@@ -244,7 +255,7 @@
       "headline": "rolling weekly: 2026-07-03",
       "logName": null,
       "lastOutputAt": "2026-07-03T04:51:32.000Z",
-      "lastOutputHuman": "9h ago",
+      "lastOutputHuman": "12h ago",
       "issues": [],
       "review": null
     },
@@ -334,7 +345,7 @@
       "headline": "fix: stop a degenerate day-change from Infinity-poisoning the headline day P&L",
       "logName": null,
       "lastOutputAt": "2026-07-03T11:23:39.000Z",
-      "lastOutputHuman": "2h ago",
+      "lastOutputHuman": "5h ago",
       "issues": [],
       "review": null
     },
@@ -352,7 +363,7 @@
       "headline": "fix: stop a degenerate day-change from Infinity-poisoning the headline day P&L",
       "logName": null,
       "lastOutputAt": "2026-07-03T11:23:39.000Z",
-      "lastOutputHuman": "2h ago",
+      "lastOutputHuman": "5h ago",
       "issues": [],
       "review": "Retired 2026-07-03 — was the redundant second stock maintainer (13:00); 'Dashboard self-improve' (02:00) is now the single canonical guardrailed pass. Disabled in scheduler; config synced to match."
     },
@@ -385,10 +396,10 @@
       "does": "One safe read-only improvement to the holdet dashboard, then publishes the refreshed page.",
       "health": "green",
       "private": false,
-      "headline": "Update dashboard — 2026-07-03 08:15 Europe/Copenhagen",
+      "headline": "Update dashboard — 2026-07-03 16:15 Europe/Copenhagen",
       "logName": null,
-      "lastOutputAt": "2026-07-03T06:15:55.000Z",
-      "lastOutputHuman": "7h ago",
+      "lastOutputAt": "2026-07-03T14:15:14.000Z",
+      "lastOutputHuman": "3h ago",
       "issues": [],
       "review": null
     },
@@ -405,8 +416,8 @@
       "private": true,
       "headline": "ran — no errors detected",
       "logName": null,
-      "lastOutputAt": "2026-07-03T12:39:09.000Z",
-      "lastOutputHuman": "1h ago",
+      "lastOutputAt": "2026-07-03T16:31:23.000Z",
+      "lastOutputHuman": "14 min ago",
       "issues": [],
       "review": null
     },
@@ -424,7 +435,7 @@
       "headline": "ran — no errors detected",
       "logName": null,
       "lastOutputAt": "2026-07-02T20:25:48.268Z",
-      "lastOutputHuman": "17h ago",
+      "lastOutputHuman": "20h ago",
       "issues": [],
       "review": null
     },
@@ -441,8 +452,8 @@
       "private": true,
       "headline": "paused",
       "logName": null,
-      "lastOutputAt": "2026-07-03T12:39:09.000Z",
-      "lastOutputHuman": "1h ago",
+      "lastOutputAt": "2026-07-03T16:31:23.000Z",
+      "lastOutputHuman": "14 min ago",
       "issues": [],
       "review": null
     },
@@ -514,7 +525,7 @@
       "headline": "ran — no errors detected",
       "logName": "evening.log",
       "lastOutputAt": "2026-07-02T20:31:53.887Z",
-      "lastOutputHuman": "17h ago",
+      "lastOutputHuman": "20h ago",
       "issues": [
         {
           "severity": "note",
@@ -555,12 +566,12 @@
       "role": "monitor",
       "enabled": true,
       "does": null,
-      "health": "green",
+      "health": "yellow",
       "private": true,
-      "headline": "ran — no errors detected",
+      "headline": "ageing / warning — details kept private",
       "logName": "watch.log",
-      "lastOutputAt": "2026-07-03T13:36:13.979Z",
-      "lastOutputHuman": "8 min ago",
+      "lastOutputAt": "2026-07-03T14:36:15.377Z",
+      "lastOutputHuman": "2h ago",
       "issues": [
         {
           "severity": "note",
@@ -583,7 +594,7 @@
       "headline": "error detected in local log — details kept private",
       "logName": "improve.log",
       "lastOutputAt": "2026-07-02T15:04:33.422Z",
-      "lastOutputHuman": "23h ago",
+      "lastOutputHuman": "1d ago",
       "issues": [
         {
           "severity": "error",
