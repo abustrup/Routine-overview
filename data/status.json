@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-07-03T08:18:09.069Z",
-  "generatedAtLocal": "3 Jul 2026, 10:18 Europe/Copenhagen",
+  "generatedAt": "2026-07-03T10:44:09.872Z",
+  "generatedAtLocal": "3 Jul 2026, 12:44 Europe/Copenhagen",
   "owner": "Alexander Bustrup",
-  "attentionKey": "red:Holdet improve loop (launchd):error|warn:Holdet auditor:ageing",
+  "attentionKey": "red:Holdet improve loop (launchd):error",
   "staleAfterMin": 360,
   "summary": {
-    "green": 18,
-    "yellow": 1,
+    "green": 19,
+    "yellow": 0,
     "red": 1,
     "paused": 1,
     "total": 21
@@ -21,18 +21,6 @@
       "fix": {
         "guide": "Holdet improve loop (launchd) logged an error — it may be broken.",
         "prompt": "The scheduled routine \"Holdet improve loop (launchd)\" is erroring. Working dir: ~/holdet-tdf-bot. Read improve.log for the exact error, then find the root cause, fix it, add a guard or test so it can't recur, verify by re-running the step, and commit. Follow the project's own CLAUDE.md and the holdet-tdf-bot skill, which document its guardrails and protected paths.",
-        "cwd": "~/holdet-tdf-bot"
-      }
-    },
-    {
-      "severity": "warn",
-      "project": "holdet-tdf",
-      "routine": "Holdet auditor",
-      "message": "Ageing — last output 9h ago (expected Every 5h).",
-      "kind": "ageing",
-      "fix": {
-        "guide": "Holdet auditor hasn't produced output when expected (Every 5h).",
-        "prompt": "The scheduled routine \"Holdet auditor\" was expected to run Every 5h but produced no recent output. Working dir: ~/holdet-tdf-bot. Investigate why it stopped (check its scheduler run and its log), fix the cause, verify a fresh run produces output, and commit. Follow the project's own CLAUDE.md and the holdet-tdf-bot skill, which document its guardrails and protected paths.",
         "cwd": "~/holdet-tdf-bot"
       }
     },
@@ -101,7 +89,7 @@
         }
       ],
       "lastPublish": "2026-07-03T06:15:55.000Z",
-      "lastPublishHuman": "2h ago",
+      "lastPublishHuman": "4h ago",
       "lastPublishSubject": "Update dashboard — 2026-07-03 08:15 Europe/Copenhagen",
       "routineCount": 10,
       "routines": [
@@ -135,7 +123,7 @@
         }
       ],
       "lastPublish": "2026-07-02T15:59:54.000Z",
-      "lastPublishHuman": "16h ago",
+      "lastPublishHuman": "19h ago",
       "lastPublishSubject": "refactor: unify duplicated helpers into one home and delete dead code",
       "routineCount": 3,
       "routines": [
@@ -162,7 +150,7 @@
         }
       ],
       "lastPublish": "2026-07-03T04:51:32.000Z",
-      "lastPublishHuman": "3h ago",
+      "lastPublishHuman": "6h ago",
       "lastPublishSubject": "rolling weekly: 2026-07-03",
       "routineCount": 6,
       "routines": [
@@ -191,9 +179,9 @@
           "url": "https://github.com/abustrup/Routine-overview"
         }
       ],
-      "lastPublish": "2026-07-03T07:51:00.000Z",
-      "lastPublishHuman": "27 min ago",
-      "lastPublishSubject": "docs: journal the project-dot honesty fix",
+      "lastPublish": "2026-07-03T08:21:11.000Z",
+      "lastPublishHuman": "2h ago",
+      "lastPublishSubject": "auditor 'ageing' is false-positive (config 5h vs daily scheduler); flagged, no push",
       "routineCount": 2,
       "routines": [
         "routine-overview-secretary",
@@ -213,10 +201,10 @@
       "does": "Refreshes this overview from artifact-truth and flags only what needs attention.",
       "health": "green",
       "private": false,
-      "headline": "docs: journal the project-dot honesty fix",
+      "headline": "auditor 'ageing' is false-positive (config 5h vs daily scheduler); flagged, no push",
       "logName": null,
-      "lastOutputAt": "2026-07-03T07:51:00.000Z",
-      "lastOutputHuman": "27 min ago",
+      "lastOutputAt": "2026-07-03T08:21:11.000Z",
+      "lastOutputHuman": "2h ago",
       "issues": [],
       "review": null
     },
@@ -234,7 +222,7 @@
       "headline": "improve: project dots stop hover-labelling a broken-maintainer project as 'Ageing'",
       "logName": null,
       "lastOutputAt": "2026-07-03T07:51:00.000Z",
-      "lastOutputHuman": "27 min ago",
+      "lastOutputHuman": "3h ago",
       "issues": [],
       "review": null
     },
@@ -252,7 +240,7 @@
       "headline": "published 2026-07-03",
       "logName": null,
       "lastOutputAt": "2026-07-03T03:54:12.967Z",
-      "lastOutputHuman": "4h ago",
+      "lastOutputHuman": "7h ago",
       "issues": [],
       "review": null
     },
@@ -270,7 +258,7 @@
       "headline": "rolling weekly: 2026-07-03",
       "logName": null,
       "lastOutputAt": "2026-07-03T04:51:32.000Z",
-      "lastOutputHuman": "3h ago",
+      "lastOutputHuman": "6h ago",
       "issues": [],
       "review": null
     },
@@ -360,7 +348,7 @@
       "headline": "refactor: unify duplicated helpers into one home and delete dead code",
       "logName": null,
       "lastOutputAt": "2026-07-02T15:59:54.000Z",
-      "lastOutputHuman": "16h ago",
+      "lastOutputHuman": "19h ago",
       "issues": [],
       "review": null
     },
@@ -378,7 +366,7 @@
       "headline": "refactor: unify duplicated helpers into one home and delete dead code",
       "logName": null,
       "lastOutputAt": "2026-07-02T15:59:54.000Z",
-      "lastOutputHuman": "16h ago",
+      "lastOutputHuman": "19h ago",
       "issues": [],
       "review": "Overlaps 'Dashboard self-improve' — both daily maintainer passes on the stock repo (02:00 and 13:00). Worth confirming both still earn their slot."
     },
@@ -414,7 +402,7 @@
       "headline": "Update dashboard — 2026-07-03 08:15 Europe/Copenhagen",
       "logName": null,
       "lastOutputAt": "2026-07-03T06:15:55.000Z",
-      "lastOutputHuman": "2h ago",
+      "lastOutputHuman": "4h ago",
       "issues": [],
       "review": null
     },
@@ -427,12 +415,12 @@
       "role": "maintainer",
       "enabled": true,
       "does": null,
-      "health": "yellow",
+      "health": "green",
       "private": true,
-      "headline": "ageing / warning — details kept private",
+      "headline": "ran — no errors detected",
       "logName": null,
-      "lastOutputAt": "2026-07-02T23:15:58.000Z",
-      "lastOutputHuman": "9h ago",
+      "lastOutputAt": "2026-07-03T10:18:44.000Z",
+      "lastOutputHuman": "25 min ago",
       "issues": [],
       "review": null
     },
@@ -450,7 +438,7 @@
       "headline": "ran — no errors detected",
       "logName": null,
       "lastOutputAt": "2026-07-02T20:25:48.268Z",
-      "lastOutputHuman": "12h ago",
+      "lastOutputHuman": "14h ago",
       "issues": [],
       "review": null
     },
@@ -467,8 +455,8 @@
       "private": true,
       "headline": "paused",
       "logName": null,
-      "lastOutputAt": "2026-07-02T23:15:58.000Z",
-      "lastOutputHuman": "9h ago",
+      "lastOutputAt": "2026-07-03T10:18:44.000Z",
+      "lastOutputHuman": "25 min ago",
       "issues": [],
       "review": null
     },
@@ -540,7 +528,7 @@
       "headline": "ran — no errors detected",
       "logName": "evening.log",
       "lastOutputAt": "2026-07-02T20:31:53.887Z",
-      "lastOutputHuman": "12h ago",
+      "lastOutputHuman": "14h ago",
       "issues": [
         {
           "severity": "note",
@@ -585,8 +573,8 @@
       "private": true,
       "headline": "ran — no errors detected",
       "logName": "watch.log",
-      "lastOutputAt": "2026-07-03T08:08:46.543Z",
-      "lastOutputHuman": "9 min ago",
+      "lastOutputAt": "2026-07-03T10:10:37.074Z",
+      "lastOutputHuman": "34 min ago",
       "issues": [
         {
           "severity": "note",
@@ -609,7 +597,7 @@
       "headline": "error detected in local log — details kept private",
       "logName": "improve.log",
       "lastOutputAt": "2026-07-02T15:04:33.422Z",
-      "lastOutputHuman": "17h ago",
+      "lastOutputHuman": "20h ago",
       "issues": [
         {
           "severity": "error",

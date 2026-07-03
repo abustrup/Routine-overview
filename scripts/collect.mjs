@@ -226,6 +226,12 @@ function safeIssue(i, r) {
 
 // ---------- build routine records ----------
 const knownProjectIds = new Set(cfg.projects.map((p) => p.id));
+// 'unassigned' is a deliberate sentinel, not a typo: render.mjs renders it as its own synthetic
+// roster group and the "Worth a decision" nudge to assign the routine. So it intentionally won't
+// roll up into a project card — warning about it every run is a false alarm that trains the eye to
+// skip the line meant to catch a *real* config typo (e.g. project: "stpck"), which silently drops
+// the routine off the page entirely. Recognise the sentinel; still warn on genuinely-unknown ids.
+const UNASSIGNED = 'unassigned';
 function buildRoutine(r) {
   r._fr = resolveFreshness(r.freshness);
   const rawIssues = scanLog(r.scan);              // real detection (health) uses raw
@@ -233,7 +239,7 @@ function buildRoutine(r) {
   const priv = routineIsPrivate(r);
   const headline = priv ? safeHeadline(r, health) : r._fr.headline;      // public output sanitized
   const issues = priv ? rawIssues.map((i) => safeIssue(i, r)) : rawIssues;
-  if (!knownProjectIds.has(r.project))
+  if (r.project !== UNASSIGNED && !knownProjectIds.has(r.project))
     console.warn(`collect: WARN routine "${r.id}" -> unknown project "${r.project}" (won't roll up)`);
   return {
     id: r.id, name: r.name, project: r.project, cadence: r.cadence, kind: r.kind,
