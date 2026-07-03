@@ -26,7 +26,7 @@ Newest first. Each entry: **Assessment** (the biggest gap seen) → **Move** (wh
   `oneshot` "Holdet routine self-test" has no parenthetical in its name → `cleanName` is a no-op there, and its
   lone `one-time` pill was never duplicated). Contract fully preserved: no change to `private.roots`
   sanitisation, `attentionKey`, the two-truths health model, or render's escaping/fix-prompt UX.
-- **Result:** shipped `48e1e56`. Verified: collect+render clean; DOM-confirmed the 4 launchd rows now read the
+- **Result:** shipped `12e1323`. Verified: collect+render clean; DOM-confirmed the 4 launchd rows now read the
   clean name + a single `LAUNCHD` pill (`Holdet evening pass` + pill) and the broken card header now reads
   `🚴 Holdet improve loop`. `attentionKey` unchanged (`red:Holdet improve loop (launchd):error`); the only
   `status.json` diffs vs. the pre-run copy are elapsed-age strings (names + key structurally identical, so no
