@@ -3,6 +3,37 @@
 Newest first. Each entry: **Assessment** (the biggest gap seen) → **Move** (what shipped, or "none")
 → **Result**. This is the routine's memory: don't rebuild what's shipped or retry what's declined.
 
+### 2026-07-03 03:40 — sanitize private routines' `review` prose so it stops shipping publicly (trust/honesty)
+- **Assessment:** Viewed live (collect+render, then in-browser desktop **and** mobile — hero, both attention
+  sections, all four project cards, the full 22-row roster). Fleet healthy: 19🟢/0🟡/1🔴/1⏸ — the lone red is
+  the familiar sanitized holdet `improve.log` error, out of this routine's safe scope, left untouched. Numbers
+  reconcile (hero "1 needs attention" = the 1 broken card; 19+0+1+1 = 21 = total). No template leaks, no broken
+  visual. The genuine miss was a **charter value #1 (trust)** leak — the exact field the 2026-07-02 08:40 `does`
+  run *forgot*. `buildRoutine` sanitizes a private routine's `headline`, `issues`, and `does`, but serialized
+  `review: r.review || null` **raw**. Result: the paused private `holdet-self-improve`'s owner-authored review —
+  **"Paused — the live-system guardian is off."** — was shipping verbatim in the tracked, PUBLIC `data/status.json`
+  (`grep -c guardian data/status.json` = 1). That phrase describes the private holdet bot's internal architecture
+  (a live-execution system with a safety guardian, currently disabled) — precisely the strategy-bearing prose the
+  Charter says must never reach the public surface. It didn't render as a *card* today only because the routine is
+  paused + `maintainer` (neither attention branch fires) — but status.json is published regardless of the HTML,
+  the same argument the `does` run made. Same class of leak, same fix it skipped.
+- **Move:** In `collect.mjs` only — one line in `buildRoutine`: `review: r.review || null` →
+  `review: priv ? null : (r.review || null)` (`priv` = the existing `routineIsPrivate(r)`), mirroring the `does`
+  sanitization beside it. Because the in-memory attention build reads `routines[].review`, nulling it in the record
+  also **structurally** keeps any *future* private review off the public page (no "Worth a decision" card, no
+  spliced fix prompt) — a private routine's decision belongs in the private push, never here. All 3 **public**
+  reviews are untouched (they still ship + render). Contract preserved: no change to `private.roots` sanitisation,
+  `attentionKey`, the two-truths health model, or render's escaping/fix-prompt UX (render untouched).
+- **Result:** shipped `f529be6`. Verified: collect+render clean; `guardian`/`live-system` = 0 in **both**
+  status.json and index.html (was 1 in status.json); `holdet-self-improve` review now `null` (still `private:true`);
+  the two live public review cards (Stock maintenance, Maintenance and improvements) preserved and DOM-confirmed
+  rendering; summary unchanged (19🟢/0🟡/1🔴/1⏸, 21 total) and `attentionKey` byte-identical; index.html
+  functionally unchanged (the routine never rendered a card — only per-run timestamp/age churn). No template leaks
+  (`undefined`/`NaN`/`[object`/`{repo:`/`{today}`/`{HOME}` = 0 in index.html); no private text on page or in
+  status.json (`/Users/`/`fatal:`/`topByEv`/`feltet=ERR`/`third brain`/`notify+veto`/`rider` = 0). The lone
+  `captain` in status.json is the pre-existing benign `Holdet Team B cycle` `does` field (`private:false`, an
+  owner-decision item flagged 2026-07-02 08:40) — unchanged by this run. No console errors.
+
 ### 2026-07-03 00:40 — truncated roster headlines get a hover tooltip so the full text is recoverable (clarity)
 - **Assessment:** Viewed live (collect+render, judged against the Charter; also re-read the mobile CSS
   in code). Fleet healthy: 19🟢/0🟡/1🔴/1⏸ — the lone red is the familiar sanitized holdet
