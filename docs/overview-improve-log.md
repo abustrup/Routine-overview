@@ -28,7 +28,7 @@ Newest first. Each entry: **Assessment** (the biggest gap seen) → **Move** (wh
   moved. `collect.mjs` untouched, so contract fully preserved: no change to `private.roots` sanitisation,
   `attentionKey`, the two-truths health model, or render's escaping/fix-prompt UX. status.json byte-diff is only
   the expected artifact churn (fresh real commit subjects + ages); `attentionKey` and `summary` byte-identical.
-- **Result:** shipped `PENDING`. Verified: collect+render clean; DOM-confirmed the Holdet project dot now reads
+- **Result:** shipped `f8ebe04`. Verified: collect+render clean; DOM-confirmed the Holdet project dot now reads
   `title="Needs attention"` (was "Ageing"), the other three still "Healthy", and routine dots unchanged
   (green→Healthy, red→"Needs attention", paused→Paused, retired→Retired). No template leaks
   (`undefined`/`NaN`/`[object`/`{repo:`/`{today}`/`{HOME}` = 0 in index.html); no private text on page or in fresh
