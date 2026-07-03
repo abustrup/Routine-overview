@@ -3,6 +3,38 @@
 Newest first. Each entry: **Assessment** (the biggest gap seen) → **Move** (what shipped, or "none")
 → **Result**. This is the routine's memory: don't rebuild what's shipped or retry what's declined.
 
+### 2026-07-03 09:40 — project dots stop hover-labelling a broken-maintainer project as "Ageing" (honesty)
+- **Assessment:** Viewed live (collect+render, then in-browser at desktop width — hero, both attention sections,
+  all four project cards, the full 22-row roster; DOM-inspected dots/titles, not just a screenshot). Fleet healthy:
+  19🟢/0🟡/1🔴/1⏸, 21 total — the lone red is the familiar sanitized holdet `improve.log` error, out of this
+  routine's safe scope, left untouched. Numbers reconcile (hero "1 needs attention" = the 1 broken card; 19+0+1+1
+  = 21). No template/private leaks (index.html + fresh status.json both clean). The one benign status.json hit
+  (`captain` in `Holdet Team B cycle`'s `does`, `private:false`, never rendered) is the standing 2026-07-02 08:40
+  owner-decision item — unchanged. The genuine remaining miss was a **charter value #1 (honesty)** one baked into
+  the shared `dot()` helper since seed: it labels *every* dot from one routine-centric map (`HEALTH_LABEL`), but a
+  **project**'s rolled-up health doesn't mean the same thing. `collect` deliberately **softens a broken (red)
+  *support* routine to project-yellow** ("attention, not broken"), and a project also turns yellow when a *producer*
+  is merely ageing — so project-yellow is the umbrella "needs attention", never literally "ageing". Result today:
+  the **Holdet TDF bot** card's amber dot rendered `title="Ageing"` (DOM-confirmed) — flatly false, since 0 routines
+  are ageing and the project is amber *only* because its `Holdet improve loop` maintainer is red. A hover label that
+  states a false reason, directly contradicting the hero's "0 ageing / 1 broken".
+- **Move:** In `render.mjs` only — `dot(h, label)` now takes an optional title override; added a
+  `PROJECT_HEALTH_LABEL = { ...HEALTH_LABEL, yellow: 'Needs attention', red: 'Broken' }`; and `projCard` passes
+  `dot(p.health, PROJECT_HEALTH_LABEL[p.health])`. Only two call sites use `dot()` — `routineRow` (kept on
+  `HEALTH_LABEL`, where a yellow routine *is* ageing) and `projCard` — so the change is isolated to project dots.
+  `red → 'Broken'` at the project level is also more accurate than the routine's "Needs attention" (project-red =
+  a *producer* actually failed, matching the attention card's BROKEN badge); not exercised today (no red projects)
+  but correct by construction. Purely a hover-title/vocabulary change — no health value, count, layout, or data
+  moved. `collect.mjs` untouched, so contract fully preserved: no change to `private.roots` sanitisation,
+  `attentionKey`, the two-truths health model, or render's escaping/fix-prompt UX. status.json byte-diff is only
+  the expected artifact churn (fresh real commit subjects + ages); `attentionKey` and `summary` byte-identical.
+- **Result:** shipped `PENDING`. Verified: collect+render clean; DOM-confirmed the Holdet project dot now reads
+  `title="Needs attention"` (was "Ageing"), the other three still "Healthy", and routine dots unchanged
+  (green→Healthy, red→"Needs attention", paused→Paused, retired→Retired). No template leaks
+  (`undefined`/`NaN`/`[object`/`{repo:`/`{today}`/`{HOME}` = 0 in index.html); no private text on page or in fresh
+  status.json (`/Users/`/`fatal:`/`topByEv`/`feltet=ERR`/`guardian`/`third brain`/`notify+veto`/`rider` = 0).
+  Counts unchanged (19🟢/0🟡/1🔴/1⏸, 21 total); `attentionKey`/`summary` unchanged.
+
 ### 2026-07-03 04:15 — stop rendering the launchd kind twice (name's "(launchd)" + the pill) (clarity/craft)
 - **Assessment:** Viewed live (collect+render, then in-browser desktop **and** mobile — hero, both attention
   sections, all four project cards, the full 22-row roster). Fleet healthy: 19🟢/0🟡/1🔴/1⏸ — the lone red is

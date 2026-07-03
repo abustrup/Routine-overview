@@ -28,7 +28,15 @@ const HEALTH_LABEL = {
   retired: 'Retired',
   unknown: 'Idle',
 };
-const dot = (h) => `<span class="dot dot--${esc(h || 'unknown')}" title="${esc(HEALTH_LABEL[h] || h || 'unknown')}" aria-hidden="true"></span>`;
+// A project's rolled-up health doesn't carry the same meaning as one routine's: collect softens a
+// broken (red) *support* routine to project-yellow ("attention, not broken"), and a project also
+// turns yellow when a *producer* is merely ageing — so project-yellow is the umbrella "needs
+// attention", not literally "Ageing" (which would be a false hover label whenever the cause is a
+// broken maintainer, as it is now). Red at the project level means a producer actually failed ->
+// "Broken". Project dots get this vocabulary; routine dots keep HEALTH_LABEL (their yellow really
+// is ageing).
+const PROJECT_HEALTH_LABEL = { ...HEALTH_LABEL, yellow: 'Needs attention', red: 'Broken' };
+const dot = (h, label) => `<span class="dot dot--${esc(h || 'unknown')}" title="${esc(label || HEALTH_LABEL[h] || h || 'unknown')}" aria-hidden="true"></span>`;
 
 // A routine's kind (launchd / one-time) is structured data; its designed representation is the
 // small tag pill in the roster row. Several config names *also* spell the kind out in a trailing
@@ -178,7 +186,7 @@ const projCard = (p) => {
     <header class="proj__head">
       <span class="proj__emoji" aria-hidden="true">${esc(p.emoji)}</span>
       <h3 class="proj__name">${esc(p.name)}</h3>
-      ${dot(p.health)}
+      ${dot(p.health, PROJECT_HEALTH_LABEL[p.health])}
     </header>
     <p class="proj__goal">${esc(p.goal)}</p>
     <div class="proj__now">
