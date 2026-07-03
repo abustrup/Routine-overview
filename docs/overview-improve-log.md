@@ -3,6 +3,40 @@
 Newest first. Each entry: **Assessment** (the biggest gap seen) → **Move** (what shipped, or "none")
 → **Result**. This is the routine's memory: don't rebuild what's shipped or retry what's declined.
 
+### 2026-07-03 18:41 — roster note only surfaces on green rows, so a stale routine's headline matches its dot (honesty)
+- **Assessment:** Viewed live (collect+render, then in-browser at desktop width — hero, both attention sections,
+  4 project cards; DOM-inspected every roster row's dot+head+class, not just a screenshot). Fleet had shifted since
+  last commit to **17🟢/1🟡/1🔴/2⏸**, 21 total — a new **yellow**: `Holdet watch sentinel` went ageing (last output
+  2h ago on Hourly). Numbers reconcile (hero "2 need attention" = 1 broken + 1 ageing = the 2 urgent cards; 17+1+1+2
+  = 21). The lone red is the familiar sanitized holdet `improve.log` error, out of this routine's safe scope, left
+  untouched. No template/private leaks (index.html + fresh status.json both clean; the lone `captain` in status.json
+  is the standing benign `Holdet Team B cycle` `does`, `private:false`, never rendered — unchanged). The genuine miss
+  was a **charter value #1 (honesty)** one exposed by that new yellow: the roster row's *head line* and its *health
+  dot* are computed by two independent ladders. The dot (`healthFor`) goes yellow/red from **staleness**; a `note`
+  issue never changes it. The head line (`routineRow`) prioritises `error > warn > note > headline`. So the watch
+  sentinel — yellow purely from **ageing** (its own record `headline` literally reads "ageing / warning — details
+  kept private") — rendered the amber note **"a data source is degraded"**, a *lesser, separate* condition that
+  didn't drive the dot, and suppressed the reason that did. A reader skimming the row would attribute the amber dot
+  to the degraded source. Worse latent case: a *staleness-red* routine with a note would show amber note text under a
+  **red** dot, hiding the breakage entirely. The note fallback was built (2026-07-01 17:30) explicitly for the GREEN
+  case ("don't show a known degradation as spotless green; health dot stays green") — it was just applied too broadly.
+- **Move:** In `render.mjs` only — one predicate in `routineRow`: `const note = issue ? null : issues.find(note)`
+  → `const note = issue || r.health !== 'green' ? null : issues.find(note)`. Now a note surfaces **only** on an
+  otherwise-green row (its designed purpose); on a yellow/red-from-staleness row the head falls through to
+  `r.headline`, which already states the staleness reason and matches the dot. Also makes stale-with-note and
+  stale-without-note rows render **consistently** (both show the headline now, not amber-note vs grey-headline).
+  `collect.mjs` untouched — contract fully preserved: no change to `private.roots` sanitisation, the `attentionKey`
+  de-dupe, the two-truths health model, or render's escaping/fix-prompt UX. status.json is byte-driven by collect
+  alone, so this render-only change alters no data, health value, count, or key.
+- **Result:** shipped `67b7562`. Verified: collect+render clean; DOM-confirmed the two **green**+note rows
+  (`Holdet evening pass`, `Holdet DNS guard`) STILL show the amber "a data source is degraded" note (original intent
+  intact), while the **yellow** `Holdet watch sentinel` now reads "ageing / warning — details kept private" (grey,
+  no `--note` class) — matching its dot; the red `improve loop` row (error issue) and all paused/retired rows
+  unchanged. No template leaks (`undefined`/`NaN`/`[object`/`{repo:`/`{today}`/`{HOME}` = 0 in index.html); no
+  private text on page (`/Users/`/`fatal:`/`topByEv`/`feltet=ERR`/`guardian`/`third brain`/`notify+veto`/`rider`/
+  `captain` = 0) or in status.json (same set = 0 except the standing benign `captain` `does` field). No console
+  errors. Counts unchanged by the edit (17🟢/1🟡/1🔴/2⏸, 21 total); `attentionKey` unchanged (render-only).
+
 ### 2026-07-03 15:44 — delete the dead `fix.guide` field from the public status.json (simplify/restraint)
 - **Assessment:** Viewed live (collect+render, then in-browser at desktop width — hero, both attention sections,
   4 project cards; DOM-inspected the roster: 5 groups / 22 rows = 10+3+6+2+1, and the project dots read
