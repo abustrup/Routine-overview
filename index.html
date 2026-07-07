@@ -249,7 +249,7 @@
         <p class="eyebrow">Personal routine secretary</p>
         <h1>Routine Overview</h1>
       </div>
-      <div class="stamp">Updated <b>7 Jul 2026, 15:23 Europe/Copenhagen</b></div>
+      <div class="stamp">Updated <b>8 Jul 2026, 00:26 Europe/Copenhagen</b></div>
     </div>
     <p class="subtitle">The health of every scheduled routine across Alexander Bustrup's projects — so you never have to open them one by one.</p>
   </header>
@@ -257,12 +257,12 @@
   <div class="hero hero--alert">
     <div class="hero__row">
       <span class="hero__mark" aria-hidden="true"></span>
-      <p class="hero__verdict">2 routines need your attention</p>
+      <p class="hero__verdict">4 routines need your attention</p>
     </div>
-    <p class="hero__sub">Everything else is running clean.</p>
+    <p class="hero__sub">2 broken, 2 ageing — everything else is running clean.</p>
     <div class="counts">
-      <span class="stat"><span class="dot dot--green" aria-hidden="true"></span><b>11</b><span>healthy</span></span>
-      <span class="stat"><span class="dot dot--yellow" aria-hidden="true"></span><b>0</b><span>ageing</span></span>
+      <span class="stat"><span class="dot dot--green" aria-hidden="true"></span><b>9</b><span>healthy</span></span>
+      <span class="stat"><span class="dot dot--yellow" aria-hidden="true"></span><b>2</b><span>ageing</span></span>
       <span class="stat"><span class="dot dot--red" aria-hidden="true"></span><b>2</b><span>broken</span></span>
       <span class="stat"><span class="dot dot--paused" aria-hidden="true"></span><b>8</b><span>paused</span></span>
       <span class="stat stat--total">21 routines total</span>
@@ -280,7 +280,7 @@
       <span class="attn__where">🚴 Holdet DNS guard</span>
       <button type="button" class="dismiss-x" data-dismiss aria-label="Hide this alert" title="Hide — it comes back if the issue is still there next refresh">×</button>
     </div>
-    <p class="attn__msg">Stale — last output 5d ago (expected ~08:30).</p>
+    <p class="attn__msg">Stale — last output 6d ago (expected ~08:30).</p>
     <div class="fix">
     <div class="fix__actions">
       <button type="button" class="btn btn--copy"
@@ -324,6 +324,58 @@
     </div>
   </div>
   </div>
+</article><article class="attn attn--warn" data-attn data-akey="warn:Routine secretary (this):ageing">
+  <div class="attn__bar" aria-hidden="true"></div>
+  <div class="attn__main">
+    <div class="attn__head">
+      <span class="attn__sev">Warning</span>
+      <span class="attn__where">🗂️ Routine secretary (this)</span>
+      <button type="button" class="dismiss-x" data-dismiss aria-label="Hide this alert" title="Hide — it comes back if the issue is still there next refresh">×</button>
+    </div>
+    <p class="attn__msg">Ageing — last output 9h ago (expected Every 5h · :17).</p>
+    <div class="fix">
+    <div class="fix__actions">
+      <button type="button" class="btn btn--copy"
+              data-copy="The scheduled routine &quot;Routine secretary (this)&quot; (Refreshes this overview from artifact-truth and flags only what needs attention.) was expected to run Every 5h · :17 but produced no recent output. Working dir: ~/Documents/AI eksperimenter/Routine overview. Investigate why it stopped (check its scheduler run and its log), fix the cause, verify a fresh run produces output, and commit. Keep it public-safe: health/status only, no secrets or strategy internals. Verify with node scripts/collect.mjs &amp;&amp; node scripts/render.mjs before pushing.">
+        <span class="btn__label">Copy fix prompt</span>
+        <span class="btn__done" aria-hidden="true">Copied&nbsp;✓</span>
+      </button>
+      <button type="button" class="btn btn--link" data-toggle="fix-3" aria-expanded="false" aria-controls="fix-3">
+        View prompt
+      </button>
+    </div>
+    <div class="fix__body" id="fix-3" hidden>
+      <pre class="fix__prompt">The scheduled routine &quot;Routine secretary (this)&quot; (Refreshes this overview from artifact-truth and flags only what needs attention.) was expected to run Every 5h · :17 but produced no recent output. Working dir: ~/Documents/AI eksperimenter/Routine overview. Investigate why it stopped (check its scheduler run and its log), fix the cause, verify a fresh run produces output, and commit. Keep it public-safe: health/status only, no secrets or strategy internals. Verify with node scripts/collect.mjs &amp;&amp; node scripts/render.mjs before pushing.</pre>
+      <div class="fix__cwd"><span class="fix__cwd-k">cwd</span> <code>~/Documents/AI eksperimenter/Routine overview</code></div>
+    </div>
+  </div>
+  </div>
+</article><article class="attn attn--warn" data-attn data-akey="warn:Holdet auditor:ageing">
+  <div class="attn__bar" aria-hidden="true"></div>
+  <div class="attn__main">
+    <div class="attn__head">
+      <span class="attn__sev">Warning</span>
+      <span class="attn__where">🚴 Holdet auditor</span>
+      <button type="button" class="dismiss-x" data-dismiss aria-label="Hide this alert" title="Hide — it comes back if the issue is still there next refresh">×</button>
+    </div>
+    <p class="attn__msg">Ageing — last output 13h ago (expected Every 5h).</p>
+    <div class="fix">
+    <div class="fix__actions">
+      <button type="button" class="btn btn--copy"
+              data-copy="The scheduled routine &quot;Holdet auditor&quot; was expected to run Every 5h but produced no recent output. Working dir: ~/holdet-tdf-bot. Investigate why it stopped (check its scheduler run and its log), fix the cause, verify a fresh run produces output, and commit. Follow the project's own CLAUDE.md and the holdet-tdf-bot skill, which document its guardrails and protected paths.">
+        <span class="btn__label">Copy fix prompt</span>
+        <span class="btn__done" aria-hidden="true">Copied&nbsp;✓</span>
+      </button>
+      <button type="button" class="btn btn--link" data-toggle="fix-4" aria-expanded="false" aria-controls="fix-4">
+        View prompt
+      </button>
+    </div>
+    <div class="fix__body" id="fix-4" hidden>
+      <pre class="fix__prompt">The scheduled routine &quot;Holdet auditor&quot; was expected to run Every 5h but produced no recent output. Working dir: ~/holdet-tdf-bot. Investigate why it stopped (check its scheduler run and its log), fix the cause, verify a fresh run produces output, and commit. Follow the project's own CLAUDE.md and the holdet-tdf-bot skill, which document its guardrails and protected paths.</pre>
+      <div class="fix__cwd"><span class="fix__cwd-k">cwd</span> <code>~/holdet-tdf-bot</code></div>
+    </div>
+  </div>
+  </div>
 </article>
     </div>
     <div class="empty empty--cleared" data-cleared hidden>
@@ -345,8 +397,8 @@
     <p class="proj__goal">Autonomously field the optimal holdet.dk Tour de France 2026 team every single day and beat the human field — hands-off, with only a human veto.</p>
     <div class="proj__now">
       <span class="proj__now-k">Latest</span>
-      <span class="proj__now-v">Update dashboard — 2026-07-07 11:23 Europe/Copenhagen</span>
-      <span class="proj__now-ago">4h ago</span>
+      <span class="proj__now-v">Update dashboard — 2026-07-07 16:23 Europe/Copenhagen</span>
+      <span class="proj__now-ago">8h ago</span>
     </div>
     <p class="proj__note">Pre-Tour: stage 1 startlist still pending, so the daily brains correctly report 'no material change'. Watch for Tour start.</p>
     <div class="proj__links"><a class="chip" href="https://abustrup.github.io/Holdet-TDF-2026/" target="_blank" rel="noopener">Live dashboard<span class="chip__ext" aria-hidden="true">↗</span></a><span class="chip chip--local">Bot repo</span></div>
@@ -374,7 +426,7 @@
     <div class="proj__now">
       <span class="proj__now-k">Latest</span>
       <span class="proj__now-v">brief: 2026-07-07</span>
-      <span class="proj__now-ago">3h ago</span>
+      <span class="proj__now-ago">12h ago</span>
     </div>
     
     <div class="proj__links"><a class="chip" href="https://abustrup.github.io/alexanders-brief/" target="_blank" rel="noopener">Live brief<span class="chip__ext" aria-hidden="true">↗</span></a><a class="chip" href="https://github.com/abustrup/alexanders-brief" target="_blank" rel="noopener">Repo<span class="chip__ext" aria-hidden="true">↗</span></a></div>
@@ -382,13 +434,13 @@
     <header class="proj__head">
       <span class="proj__emoji" aria-hidden="true">🗂️</span>
       <h3 class="proj__name">Routine Overview</h3>
-      <span class="dot dot--green" title="Healthy" aria-hidden="true"></span>
+      <span class="dot dot--yellow" title="Needs attention" aria-hidden="true"></span>
     </header>
     <p class="proj__goal">Hold the whole picture across every routine and interrupt Alexander only when something genuinely needs him.</p>
     <div class="proj__now">
       <span class="proj__now-k">Latest</span>
-      <span class="proj__now-v">sync: 6 routines enabled→false to match scheduler-truth</span>
-      <span class="proj__now-ago">just now</span>
+      <span class="proj__now-v">synced 6 disabled routines to scheduler-truth; flagged guard+improve launchd agents removed</span>
+      <span class="proj__now-ago">9h ago</span>
     </div>
     
     <div class="proj__links"><a class="chip" href="https://abustrup.github.io/Routine-overview/" target="_blank" rel="noopener">This dashboard<span class="chip__ext" aria-hidden="true">↗</span></a><a class="chip" href="https://github.com/abustrup/Routine-overview" target="_blank" rel="noopener">Repo<span class="chip__ext" aria-hidden="true">↗</span></a></div>
@@ -403,25 +455,25 @@
     <span class="row__dot"><span class="dot dot--green" title="Healthy" aria-hidden="true"></span></span>
     <span class="row__name">Holdet dashboard improve</span>
     <span class="row__cadence">Every 8h</span>
-    <span class="row__ago">4h ago</span>
-    <span class="row__head" title="Update dashboard — 2026-07-07 11:23 Europe/Copenhagen">Update dashboard — 2026-07-07 11:23 Europe/Copenhagen</span>
+    <span class="row__ago">8h ago</span>
+    <span class="row__head" title="Update dashboard — 2026-07-07 16:23 Europe/Copenhagen">Update dashboard — 2026-07-07 16:23 Europe/Copenhagen</span>
   </li><li class="row">
-    <span class="row__dot"><span class="dot dot--green" title="Healthy" aria-hidden="true"></span></span>
+    <span class="row__dot"><span class="dot dot--yellow" title="Ageing" aria-hidden="true"></span></span>
     <span class="row__name">Holdet auditor</span>
     <span class="row__cadence">Every 5h</span>
-    <span class="row__ago">4h ago</span>
-    <span class="row__head" title="ran — no errors detected">ran — no errors detected</span>
+    <span class="row__ago">13h ago</span>
+    <span class="row__head" title="ageing / warning — details kept private">ageing / warning — details kept private</span>
   </li><li class="row">
     <span class="row__dot"><span class="dot dot--green" title="Healthy" aria-hidden="true"></span></span>
     <span class="row__name">Holdet LLM brain</span>
     <span class="row__cadence">Daily · 16:55</span>
-    <span class="row__ago">3h ago</span>
+    <span class="row__ago">12h ago</span>
     <span class="row__head" title="ran — no errors detected">ran — no errors detected</span>
   </li><li class="row row--muted">
     <span class="row__dot"><span class="dot dot--paused" title="Paused" aria-hidden="true"></span></span>
     <span class="row__name">Holdet self-improve <span class="tag tag--off">paused</span></span>
     <span class="row__cadence">Hourly</span>
-    <span class="row__ago">4h ago</span>
+    <span class="row__ago">13h ago</span>
     <span class="row__head" title="paused">paused</span>
   </li><li class="row">
     <span class="row__dot"><span class="dot dot--green" title="Healthy" aria-hidden="true"></span></span>
@@ -439,19 +491,19 @@
     <span class="row__dot"><span class="dot dot--green" title="Healthy" aria-hidden="true"></span></span>
     <span class="row__name">Holdet evening pass <span class="tag">launchd</span></span>
     <span class="row__cadence">~21:05 &amp; ~23:10</span>
-    <span class="row__ago">17h ago</span>
+    <span class="row__ago">18 min ago</span>
     <span class="row__head row__head--note" title="a data source is degraded — details are local-only">a data source is degraded — details are local-only</span>
   </li><li class="row">
     <span class="row__dot"><span class="dot dot--red" title="Needs attention" aria-hidden="true"></span></span>
     <span class="row__name">Holdet DNS guard <span class="tag">launchd</span></span>
     <span class="row__cadence">~08:30</span>
-    <span class="row__ago">5d ago</span>
+    <span class="row__ago">6d ago</span>
     <span class="row__head" title="error detected in local log — details kept private">error detected in local log — details kept private</span>
   </li><li class="row">
     <span class="row__dot"><span class="dot dot--green" title="Healthy" aria-hidden="true"></span></span>
     <span class="row__name">Holdet watch sentinel <span class="tag">launchd</span></span>
     <span class="row__cadence">Hourly</span>
-    <span class="row__ago">38 min ago</span>
+    <span class="row__ago">just now</span>
     <span class="row__head row__head--note" title="a data source is degraded — details are local-only">a data source is degraded — details are local-only</span>
   </li><li class="row">
     <span class="row__dot"><span class="dot dot--red" title="Needs attention" aria-hidden="true"></span></span>
@@ -487,13 +539,13 @@
     <span class="row__dot"><span class="dot dot--green" title="Healthy" aria-hidden="true"></span></span>
     <span class="row__name">Daily news brief</span>
     <span class="row__cadence">Daily · 06:02</span>
-    <span class="row__ago">3h ago</span>
-    <span class="row__head" title="published 2026-07-07">published 2026-07-07</span>
+    <span class="row__ago">12h ago</span>
+    <span class="row__head" title="brief: 2026-07-07">brief: 2026-07-07</span>
   </li><li class="row">
     <span class="row__dot"><span class="dot dot--green" title="Healthy" aria-hidden="true"></span></span>
     <span class="row__name">Rolling weekly (Ugen)</span>
     <span class="row__cadence">Daily · 06:48</span>
-    <span class="row__ago">4h ago</span>
+    <span class="row__ago">13h ago</span>
     <span class="row__head" title="rolling weekly: 2026-07-07">rolling weekly: 2026-07-07</span>
   </li><li class="row">
     <span class="row__dot"><span class="dot dot--green" title="Healthy" aria-hidden="true"></span></span>
@@ -505,7 +557,7 @@
     <span class="row__dot"><span class="dot dot--green" title="Healthy" aria-hidden="true"></span></span>
     <span class="row__name">Rolling yearly (Året)</span>
     <span class="row__cadence">1st of month · 06:57</span>
-    <span class="row__ago">6d ago</span>
+    <span class="row__ago">7d ago</span>
     <span class="row__head" title="rolling yearly: 2026-07-01">rolling yearly: 2026-07-01</span>
   </li><li class="row row--muted">
     <span class="row__dot"><span class="dot dot--paused" title="Paused" aria-hidden="true"></span></span>
@@ -523,11 +575,11 @@
     </div><div class="rgroup">
       <div class="rgroup__head">🗂️ Routine Overview<span class="rgroup__count">2</span></div>
       <ul class="rlist"><li class="row">
-    <span class="row__dot"><span class="dot dot--green" title="Healthy" aria-hidden="true"></span></span>
+    <span class="row__dot"><span class="dot dot--yellow" title="Ageing" aria-hidden="true"></span></span>
     <span class="row__name">Routine secretary (this)</span>
     <span class="row__cadence">Every 5h · :17</span>
-    <span class="row__ago">just now</span>
-    <span class="row__head" title="sync: 6 routines enabled→false to match scheduler-truth">sync: 6 routines enabled→false to match scheduler-truth</span>
+    <span class="row__ago">9h ago</span>
+    <span class="row__head" title="synced 6 disabled routines to scheduler-truth; flagged guard+improve launchd agents removed">synced 6 disabled routines to scheduler-truth; flagged guard+improve launchd agents removed</span>
   </li><li class="row row--muted">
     <span class="row__dot"><span class="dot dot--paused" title="Paused" aria-hidden="true"></span></span>
     <span class="row__name">Overview self-improve <span class="tag tag--off">paused</span></span>
@@ -550,7 +602,7 @@
   <footer>
     Health is reconstructed from each routine's real artifacts — git commits, run-logs and published files — not just whether the scheduler fired. Silent by design: you get a push only when something needs you.
     <br>
-    Generated 7 Jul 2026, 15:23 Europe/Copenhagen
+    Generated 8 Jul 2026, 00:26 Europe/Copenhagen
     <span class="foot-sep">·</span>
     <a href="https://github.com/abustrup/Routine-overview" target="_blank" rel="noopener">github.com/abustrup/Routine-overview</a>
   </footer>
