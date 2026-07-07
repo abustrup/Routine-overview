@@ -77,7 +77,7 @@
     },
     {
       "id": "routine-overview-improve", "project": "meta", "name": "Overview self-improve",
-      "cadence": "Every 3h", "periodHours": 3, "kind": "scheduler", "role": "maintainer", "enabled": true,
+      "cadence": "Every 3h", "periodHours": 3, "kind": "scheduler", "role": "maintainer", "enabled": false,
       "does": "Ships one low-risk, high-reward maintenance/design improvement to this overview per run (or nothing), toward the Anthropic aesthetic.",
       "freshness": { "type": "gitSubject", "repo": "overview", "match": "^improve:" }
     },
@@ -107,19 +107,19 @@
     },
     {
       "id": "daily-deadline-check", "project": "news-brief", "name": "Daily deadline check",
-      "cadence": "Daily · 06:45", "periodHours": 24, "kind": "scheduler", "role": "monitor", "enabled": true,
+      "cadence": "Daily · 06:45", "periodHours": 24, "kind": "scheduler", "role": "monitor", "enabled": false,
       "does": "Verifies today's brief published before 06:40; push-alerts only on a confirmed miss.",
       "freshness": { "type": "selfAlerting" }
     },
     {
       "id": "health-monitor", "project": "news-brief", "name": "Health monitor",
-      "cadence": "Twice daily · 08:11 / 20:11", "periodHours": 12, "kind": "scheduler", "role": "monitor", "enabled": true,
+      "cadence": "Twice daily · 08:11 / 20:11", "periodHours": 12, "kind": "scheduler", "role": "monitor", "enabled": false,
       "does": "Checks the live brief pages are reachable; push-alerts only on confirmed failure.",
       "freshness": { "type": "selfAlerting" }
     },
     {
       "id": "dashboard-self-improve", "project": "stock", "name": "Dashboard self-improve",
-      "cadence": "Daily · 02:00", "periodHours": 24, "kind": "scheduler", "role": "maintainer", "enabled": true,
+      "cadence": "Daily · 02:00", "periodHours": 24, "kind": "scheduler", "role": "maintainer", "enabled": false,
       "does": "Ships at most ONE strictly-better improvement to the stock dashboard per run via reviewed PR (or nothing).",
       "freshness": { "type": "gitAny", "repo": "stock" }
     },
@@ -132,7 +132,7 @@
     },
     {
       "id": "watchlist-integration", "project": "stock", "name": "Watchlist integration",
-      "cadence": "Daily · 07:00", "periodHours": 24, "kind": "scheduler", "role": "producer", "enabled": true,
+      "cadence": "Daily · 07:00", "periodHours": 24, "kind": "scheduler", "role": "producer", "enabled": false,
       "does": "Integrates watchlist companies queued as GitHub issues into the dashboard via reviewable PR.",
       "freshness": { "type": "selfAlerting", "note": "Only acts when integrate-issues are queued; idle is normal." }
     },
@@ -169,7 +169,7 @@
     },
     {
       "id": "maintenance-and-improvements", "project": "unassigned", "name": "Maintenance and improvements",
-      "cadence": "Daily · 12:00", "periodHours": 24, "kind": "scheduler", "role": "maintainer", "enabled": true,
+      "cadence": "Daily · 12:00", "periodHours": 24, "kind": "scheduler", "role": "maintainer", "enabled": false,
       "does": "\"Do maintenance: improve structure\" — target project not specified in the routine name.",
       "freshness": { "type": "selfAlerting" },
       "review": "Purpose/target is vague and it's unassigned to any project — decide what it targets (it may overlap another project's maintenance routine) or whether it still earns its daily slot."
