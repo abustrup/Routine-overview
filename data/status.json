@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-07-08T03:17:55.056Z",
-  "generatedAtLocal": "8 Jul 2026, 05:17 Europe/Copenhagen",
+  "generatedAt": "2026-07-08T08:17:55.186Z",
+  "generatedAtLocal": "8 Jul 2026, 10:17 Europe/Copenhagen",
   "owner": "Alexander Bustrup",
   "attentionKey": "red:Holdet DNS guard (launchd):stale|red:Holdet auditor:stale|red:Holdet improve loop (launchd):error",
   "staleAfterMin": 360,
@@ -16,7 +16,7 @@
       "severity": "red",
       "project": "holdet-tdf",
       "routine": "Holdet auditor",
-      "message": "Stale — last output 18h ago (expected Every 5h).",
+      "message": "Stale — last output 23h ago (expected Every 5h).",
       "kind": "stale",
       "fix": {
         "prompt": "The scheduled routine \"Holdet auditor\" was expected to run Every 5h but produced no recent output. Working dir: ~/holdet-tdf-bot. Investigate why it stopped (check its scheduler run and its log), fix the cause, verify a fresh run produces output, and commit. Follow the project's own CLAUDE.md and the holdet-tdf-bot skill, which document its guardrails and protected paths.",
@@ -86,7 +86,7 @@
         }
       ],
       "lastPublish": "2026-07-08T02:19:52.000Z",
-      "lastPublishHuman": "58 min ago",
+      "lastPublishHuman": "6h ago",
       "lastPublishSubject": "Update dashboard — 2026-07-08 04:19 Europe/Copenhagen",
       "routineCount": 10,
       "routines": [
@@ -146,9 +146,9 @@
           "url": "https://github.com/abustrup/alexanders-brief"
         }
       ],
-      "lastPublish": "2026-07-07T10:33:35.000Z",
-      "lastPublishHuman": "17h ago",
-      "lastPublishSubject": "brief: 2026-07-07",
+      "lastPublish": "2026-07-08T04:52:44.000Z",
+      "lastPublishHuman": "3h ago",
+      "lastPublishSubject": "rolling weekly: 2026-07-08",
       "routineCount": 6,
       "routines": [
         "daily-news-brief",
@@ -176,9 +176,9 @@
           "url": "https://github.com/abustrup/Routine-overview"
         }
       ],
-      "lastPublish": "2026-07-07T22:28:23.000Z",
+      "lastPublish": "2026-07-08T03:20:17.000Z",
       "lastPublishHuman": "5h ago",
-      "lastPublishSubject": "restarted stalled watch sentinel (sleep-gap, now healthy); flagged auditor cadence-drift false-warn",
+      "lastPublishSubject": "auditor red confirmed false-positive via scheduler (daily cron, healthy); DNS-guard+improve relics standing; no push",
       "routineCount": 2,
       "routines": [
         "routine-overview-secretary",
@@ -198,9 +198,9 @@
       "does": "Refreshes this overview from artifact-truth and flags only what needs attention.",
       "health": "green",
       "private": false,
-      "headline": "restarted stalled watch sentinel (sleep-gap, now healthy); flagged auditor cadence-drift false-warn",
+      "headline": "auditor red confirmed false-positive via scheduler (daily cron, healthy); DNS-guard+improve relics standing; no push",
       "logName": null,
-      "lastOutputAt": "2026-07-07T22:28:23.000Z",
+      "lastOutputAt": "2026-07-08T03:20:17.000Z",
       "lastOutputHuman": "5h ago",
       "issues": [],
       "review": null
@@ -219,7 +219,7 @@
       "headline": "improve: roster note only shows on green rows so a stale routine's headline matches its dot",
       "logName": null,
       "lastOutputAt": "2026-07-03T16:46:31.000Z",
-      "lastOutputHuman": "4d ago",
+      "lastOutputHuman": "5d ago",
       "issues": [],
       "review": null
     },
@@ -234,10 +234,10 @@
       "does": "Researches, validates and publishes the Danish morning brief before the 06:40 deadline.",
       "health": "green",
       "private": false,
-      "headline": "brief: 2026-07-07",
+      "headline": "published 2026-07-08",
       "logName": null,
-      "lastOutputAt": "2026-07-07T10:33:35.000Z",
-      "lastOutputHuman": "17h ago",
+      "lastOutputAt": "2026-07-08T04:22:14.064Z",
+      "lastOutputHuman": "4h ago",
       "issues": [],
       "review": null
     },
@@ -252,10 +252,10 @@
       "does": "Refreshes the 7-day rollup edition from the published dailies.",
       "health": "green",
       "private": false,
-      "headline": "rolling weekly: 2026-07-07",
+      "headline": "rolling weekly: 2026-07-08",
       "logName": null,
-      "lastOutputAt": "2026-07-07T09:11:49.000Z",
-      "lastOutputHuman": "18h ago",
+      "lastOutputAt": "2026-07-08T04:52:44.000Z",
+      "lastOutputHuman": "3h ago",
       "issues": [],
       "review": null
     },
@@ -399,7 +399,7 @@
       "headline": "Update dashboard — 2026-07-08 04:19 Europe/Copenhagen",
       "logName": null,
       "lastOutputAt": "2026-07-08T02:19:52.000Z",
-      "lastOutputHuman": "58 min ago",
+      "lastOutputHuman": "6h ago",
       "issues": [],
       "review": null
     },
@@ -417,7 +417,7 @@
       "headline": "error detected in local log — details kept private",
       "logName": null,
       "lastOutputAt": "2026-07-07T09:18:43.000Z",
-      "lastOutputHuman": "18h ago",
+      "lastOutputHuman": "23h ago",
       "issues": [],
       "review": null
     },
@@ -435,7 +435,7 @@
       "headline": "ran — no errors detected",
       "logName": null,
       "lastOutputAt": "2026-07-07T22:32:50.732Z",
-      "lastOutputHuman": "5h ago",
+      "lastOutputHuman": "10h ago",
       "issues": [],
       "review": null
     },
@@ -453,7 +453,7 @@
       "headline": "paused",
       "logName": null,
       "lastOutputAt": "2026-07-07T09:18:43.000Z",
-      "lastOutputHuman": "18h ago",
+      "lastOutputHuman": "23h ago",
       "issues": [],
       "review": null
     },
@@ -525,7 +525,7 @@
       "headline": "ran — no errors detected",
       "logName": "evening.log",
       "lastOutputAt": "2026-07-07T22:08:14.424Z",
-      "lastOutputHuman": "5h ago",
+      "lastOutputHuman": "10h ago",
       "issues": [
         {
           "severity": "note",
@@ -570,8 +570,8 @@
       "private": true,
       "headline": "ran — no errors detected",
       "logName": "watch.log",
-      "lastOutputAt": "2026-07-08T02:26:30.680Z",
-      "lastOutputHuman": "51 min ago",
+      "lastOutputAt": "2026-07-08T07:27:57.180Z",
+      "lastOutputHuman": "50 min ago",
       "issues": [
         {
           "severity": "note",
