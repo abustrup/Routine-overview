@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-07-09T08:20:10.628Z",
-  "generatedAtLocal": "9 Jul 2026, 10:20 Europe/Copenhagen",
+  "generatedAt": "2026-07-09T13:32:21.539Z",
+  "generatedAtLocal": "9 Jul 2026, 15:32 Europe/Copenhagen",
   "owner": "Alexander Bustrup",
   "attentionKey": "red:Holdet DNS guard (launchd):stale|red:Holdet auditor:stale|red:Holdet improve loop (launchd):error",
   "staleAfterMin": 360,
@@ -16,7 +16,7 @@
       "severity": "red",
       "project": "holdet-tdf",
       "routine": "Holdet auditor",
-      "message": "Stale — last output 22h ago (expected Every 5h).",
+      "message": "Stale — last output 1d ago (expected Every 5h).",
       "kind": "stale",
       "fix": {
         "prompt": "The scheduled routine \"Holdet auditor\" was expected to run Every 5h but produced no recent output. Working dir: ~/holdet-tdf-bot. Investigate why it stopped (check its scheduler run and its log), fix the cause, verify a fresh run produces output, and commit. Follow the project's own CLAUDE.md and the holdet-tdf-bot skill, which document its guardrails and protected paths.",
@@ -86,7 +86,7 @@
         }
       ],
       "lastPublish": "2026-07-09T02:19:25.000Z",
-      "lastPublishHuman": "6h ago",
+      "lastPublishHuman": "11h ago",
       "lastPublishSubject": "Update dashboard — 2026-07-09 04:19 Europe/Copenhagen",
       "routineCount": 10,
       "routines": [
@@ -147,7 +147,7 @@
         }
       ],
       "lastPublish": "2026-07-09T04:52:24.000Z",
-      "lastPublishHuman": "3h ago",
+      "lastPublishHuman": "9h ago",
       "lastPublishSubject": "rolling weekly: 2026-07-09",
       "routineCount": 6,
       "routines": [
@@ -176,9 +176,9 @@
           "url": "https://github.com/abustrup/Routine-overview"
         }
       ],
-      "lastPublish": "2026-07-09T03:25:13.000Z",
+      "lastPublish": "2026-07-09T08:21:12.000Z",
       "lastPublishHuman": "5h ago",
-      "lastPublishSubject": "steady-state: auditor red = verified false (daily job vs Every-5h config cadence, fired+produced on schedule); 2 launchd relics (dns/improve, no plist) standing+notified; no allowlisted action; no push",
+      "lastPublishSubject": "steady-state: auditor red = collector cadence artifact (healthy daily cron), 2 launchd relics standing+notified; no allowlisted action; no push",
       "routineCount": 2,
       "routines": [
         "routine-overview-secretary",
@@ -198,9 +198,9 @@
       "does": "Refreshes this overview from artifact-truth and flags only what needs attention.",
       "health": "green",
       "private": false,
-      "headline": "steady-state: auditor red = verified false (daily job vs Every-5h config cadence, fired+produced on schedule); 2 launchd relics (dns/improve, no plist) standing+notified; no allowlisted action; no push",
+      "headline": "steady-state: auditor red = collector cadence artifact (healthy daily cron), 2 launchd relics standing+notified; no allowlisted action; no push",
       "logName": null,
-      "lastOutputAt": "2026-07-09T03:25:13.000Z",
+      "lastOutputAt": "2026-07-09T08:21:12.000Z",
       "lastOutputHuman": "5h ago",
       "issues": [],
       "review": null
@@ -237,7 +237,7 @@
       "headline": "published 2026-07-09",
       "logName": null,
       "lastOutputAt": "2026-07-09T03:58:49.993Z",
-      "lastOutputHuman": "4h ago",
+      "lastOutputHuman": "10h ago",
       "issues": [],
       "review": null
     },
@@ -255,7 +255,7 @@
       "headline": "rolling weekly: 2026-07-09",
       "logName": null,
       "lastOutputAt": "2026-07-09T04:52:24.000Z",
-      "lastOutputHuman": "3h ago",
+      "lastOutputHuman": "9h ago",
       "issues": [],
       "review": null
     },
@@ -399,7 +399,7 @@
       "headline": "Update dashboard — 2026-07-09 04:19 Europe/Copenhagen",
       "logName": null,
       "lastOutputAt": "2026-07-09T02:19:25.000Z",
-      "lastOutputHuman": "6h ago",
+      "lastOutputHuman": "11h ago",
       "issues": [],
       "review": null
     },
@@ -417,7 +417,7 @@
       "headline": "error detected in local log — details kept private",
       "logName": null,
       "lastOutputAt": "2026-07-08T10:03:18.000Z",
-      "lastOutputHuman": "22h ago",
+      "lastOutputHuman": "1d ago",
       "issues": [],
       "review": null
     },
@@ -434,8 +434,8 @@
       "private": true,
       "headline": "ran — no errors detected",
       "logName": null,
-      "lastOutputAt": "2026-07-08T19:37:12.791Z",
-      "lastOutputHuman": "13h ago",
+      "lastOutputAt": "2026-07-09T08:37:37.626Z",
+      "lastOutputHuman": "5h ago",
       "issues": [],
       "review": null
     },
@@ -453,7 +453,7 @@
       "headline": "paused",
       "logName": null,
       "lastOutputAt": "2026-07-08T10:03:18.000Z",
-      "lastOutputHuman": "22h ago",
+      "lastOutputHuman": "1d ago",
       "issues": [],
       "review": null
     },
@@ -525,7 +525,7 @@
       "headline": "ran — no errors detected",
       "logName": "evening.log",
       "lastOutputAt": "2026-07-08T20:31:27.181Z",
-      "lastOutputHuman": "12h ago",
+      "lastOutputHuman": "17h ago",
       "issues": [
         {
           "severity": "note",
@@ -570,8 +570,8 @@
       "private": true,
       "headline": "ran — no errors detected",
       "logName": "watch.log",
-      "lastOutputAt": "2026-07-09T07:21:23.480Z",
-      "lastOutputHuman": "59 min ago",
+      "lastOutputAt": "2026-07-09T12:00:59.172Z",
+      "lastOutputHuman": "2h ago",
       "issues": [
         {
           "severity": "note",
