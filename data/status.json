@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-07-10T03:17:52.350Z",
-  "generatedAtLocal": "10 Jul 2026, 05:17 Europe/Copenhagen",
+  "generatedAt": "2026-07-10T08:17:52.676Z",
+  "generatedAtLocal": "10 Jul 2026, 10:17 Europe/Copenhagen",
   "owner": "Alexander Bustrup",
   "attentionKey": "red:Holdet DNS guard (launchd):stale|red:Holdet auditor:stale|red:Holdet improve loop (launchd):error",
   "staleAfterMin": 360,
@@ -86,7 +86,7 @@
         }
       ],
       "lastPublish": "2026-07-10T02:19:48.000Z",
-      "lastPublishHuman": "58 min ago",
+      "lastPublishHuman": "6h ago",
       "lastPublishSubject": "Update dashboard — 2026-07-10 04:19 Europe/Copenhagen",
       "routineCount": 10,
       "routines": [
@@ -146,9 +146,9 @@
           "url": "https://github.com/abustrup/alexanders-brief"
         }
       ],
-      "lastPublish": "2026-07-09T04:52:24.000Z",
-      "lastPublishHuman": "22h ago",
-      "lastPublishSubject": "rolling weekly: 2026-07-09",
+      "lastPublish": "2026-07-10T04:51:29.000Z",
+      "lastPublishHuman": "3h ago",
+      "lastPublishSubject": "rolling weekly: 2026-07-10",
       "routineCount": 6,
       "routines": [
         "daily-news-brief",
@@ -176,9 +176,9 @@
           "url": "https://github.com/abustrup/Routine-overview"
         }
       ],
-      "lastPublish": "2026-07-09T22:19:15.000Z",
+      "lastPublish": "2026-07-10T03:19:39.000Z",
       "lastPublishHuman": "5h ago",
-      "lastPublishSubject": "steady-state: attentionKey unchanged (no push); auditor red + dashboard-improve yellow = config-cadence false-positives (both healthy daily crons); 2 launchd reds = retired relics (no plist to kickstart) + improve.log another-repo error, all standing/notified; no allowlisted action",
+      "lastPublishSubject": "steady-state: attentionKey diff = only ageing-warn cleared (dashboard-improve fired healthy 02:07Z); 3 reds unchanged/already-notified (auditor daily-cron false-red + 2 launchd relics, no plist to kickstart); no allowlisted action; no push",
       "routineCount": 2,
       "routines": [
         "routine-overview-secretary",
@@ -198,9 +198,9 @@
       "does": "Refreshes this overview from artifact-truth and flags only what needs attention.",
       "health": "green",
       "private": false,
-      "headline": "steady-state: attentionKey unchanged (no push); auditor red + dashboard-improve yellow = config-cadence false-positives (both healthy daily crons); 2 launchd reds = retired relics (no plist to kickstart) + improve.log another-repo error, all standing/notified; no allowlisted action",
+      "headline": "steady-state: attentionKey diff = only ageing-warn cleared (dashboard-improve fired healthy 02:07Z); 3 reds unchanged/already-notified (auditor daily-cron false-red + 2 launchd relics, no plist to kickstart); no allowlisted action; no push",
       "logName": null,
-      "lastOutputAt": "2026-07-09T22:19:15.000Z",
+      "lastOutputAt": "2026-07-10T03:19:39.000Z",
       "lastOutputHuman": "5h ago",
       "issues": [],
       "review": null
@@ -219,7 +219,7 @@
       "headline": "improve: roster note only shows on green rows so a stale routine's headline matches its dot",
       "logName": null,
       "lastOutputAt": "2026-07-03T16:46:31.000Z",
-      "lastOutputHuman": "6d ago",
+      "lastOutputHuman": "7d ago",
       "issues": [],
       "review": null
     },
@@ -234,10 +234,10 @@
       "does": "Researches, validates and publishes the Danish morning brief before the 06:40 deadline.",
       "health": "green",
       "private": false,
-      "headline": "brief: 2026-07-09",
+      "headline": "published 2026-07-10",
       "logName": null,
-      "lastOutputAt": "2026-07-09T03:58:50.000Z",
-      "lastOutputHuman": "23h ago",
+      "lastOutputAt": "2026-07-10T03:54:52.752Z",
+      "lastOutputHuman": "4h ago",
       "issues": [],
       "review": null
     },
@@ -252,10 +252,10 @@
       "does": "Refreshes the 7-day rollup edition from the published dailies.",
       "health": "green",
       "private": false,
-      "headline": "rolling weekly: 2026-07-09",
+      "headline": "rolling weekly: 2026-07-10",
       "logName": null,
-      "lastOutputAt": "2026-07-09T04:52:24.000Z",
-      "lastOutputHuman": "22h ago",
+      "lastOutputAt": "2026-07-10T04:51:29.000Z",
+      "lastOutputHuman": "3h ago",
       "issues": [],
       "review": null
     },
@@ -399,7 +399,7 @@
       "headline": "Update dashboard — 2026-07-10 04:19 Europe/Copenhagen",
       "logName": null,
       "lastOutputAt": "2026-07-10T02:19:48.000Z",
-      "lastOutputHuman": "58 min ago",
+      "lastOutputHuman": "6h ago",
       "issues": [],
       "review": null
     },
@@ -435,7 +435,7 @@
       "headline": "ran — no errors detected",
       "logName": null,
       "lastOutputAt": "2026-07-09T22:00:26.367Z",
-      "lastOutputHuman": "5h ago",
+      "lastOutputHuman": "10h ago",
       "issues": [],
       "review": null
     },
@@ -525,7 +525,7 @@
       "headline": "ran — no errors detected",
       "logName": "evening.log",
       "lastOutputAt": "2026-07-09T20:31:37.722Z",
-      "lastOutputHuman": "7h ago",
+      "lastOutputHuman": "12h ago",
       "issues": [
         {
           "severity": "note",
@@ -570,7 +570,7 @@
       "private": true,
       "headline": "ran — no errors detected",
       "logName": "watch.log",
-      "lastOutputAt": "2026-07-10T03:04:31.452Z",
+      "lastOutputAt": "2026-07-10T08:05:14.929Z",
       "lastOutputHuman": "13 min ago",
       "issues": [
         {
