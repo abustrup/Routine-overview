@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-07-10T22:17:50.148Z",
-  "generatedAtLocal": "11 Jul 2026, 00:17 Europe/Copenhagen",
+  "generatedAt": "2026-07-11T03:17:51.317Z",
+  "generatedAtLocal": "11 Jul 2026, 05:17 Europe/Copenhagen",
   "owner": "Alexander Bustrup",
-  "attentionKey": "red:Holdet DNS guard (launchd):stale|red:Holdet improve loop (launchd):error|warn:Holdet dashboard improve:ageing",
+  "attentionKey": "red:Holdet DNS guard (launchd):stale|red:Holdet improve loop (launchd):error|warn:Holdet auditor:ageing",
   "staleAfterMin": 360,
   "summary": {
     "green": 10,
@@ -37,11 +37,11 @@
     {
       "severity": "warn",
       "project": "holdet-tdf",
-      "routine": "Holdet dashboard improve",
-      "message": "Ageing — last output 20h ago (expected Every 8h).",
+      "routine": "Holdet auditor",
+      "message": "Ageing — last output 10h ago (expected Every 5h).",
       "kind": "ageing",
       "fix": {
-        "prompt": "The scheduled routine \"Holdet dashboard improve\" (One safe read-only improvement to the holdet dashboard, then publishes the refreshed page.) was expected to run Every 8h but produced no recent output. Working dir: ~/holdet-tdf-bot. Investigate why it stopped (check its scheduler run and its log), fix the cause, verify a fresh run produces output, and commit. Follow the project's own CLAUDE.md and the holdet-tdf-bot skill, which document its guardrails and protected paths.",
+        "prompt": "The scheduled routine \"Holdet auditor\" was expected to run Every 5h but produced no recent output. Working dir: ~/holdet-tdf-bot. Investigate why it stopped (check its scheduler run and its log), fix the cause, verify a fresh run produces output, and commit. Follow the project's own CLAUDE.md and the holdet-tdf-bot skill, which document its guardrails and protected paths.",
         "cwd": "~/holdet-tdf-bot"
       }
     },
@@ -85,9 +85,9 @@
           "url": "~/Documents/AI eksperimenter/Holdet-TDF-2026-pages"
         }
       ],
-      "lastPublish": "2026-07-10T02:19:48.000Z",
-      "lastPublishHuman": "20h ago",
-      "lastPublishSubject": "Update dashboard — 2026-07-10 04:19 Europe/Copenhagen",
+      "lastPublish": "2026-07-11T02:25:52.000Z",
+      "lastPublishHuman": "52 min ago",
+      "lastPublishSubject": "Update dashboard — 2026-07-11 04:25 Europe/Copenhagen",
       "routineCount": 10,
       "routines": [
         "holdet-dashboard-improve",
@@ -147,7 +147,7 @@
         }
       ],
       "lastPublish": "2026-07-10T04:51:29.000Z",
-      "lastPublishHuman": "17h ago",
+      "lastPublishHuman": "22h ago",
       "lastPublishSubject": "rolling weekly: 2026-07-10",
       "routineCount": 6,
       "routines": [
@@ -176,9 +176,9 @@
           "url": "https://github.com/abustrup/Routine-overview"
         }
       ],
-      "lastPublish": "2026-07-10T18:19:37.000Z",
-      "lastPublishHuman": "4h ago",
-      "lastPublishSubject": "steady-state: attentionKey diff = only recurring warn:dashboard-improve ageing re-appeared (daily-cron cadence false-positive, fired healthy 02:07Z; same warn fired+unnotified 07-09 eve, self-clears after next 02:07); 2 launchd reds = retired relics (no dns/improve plist to kickstart, improve.log=another-repo code, flag-only) both standing/notified; all producers fired on cadence, no silent failures; no allowlisted action; no push",
+      "lastPublish": "2026-07-10T22:19:09.000Z",
+      "lastPublishHuman": "5h ago",
+      "lastPublishSubject": "steady-state: attentionKey unchanged (no push); all 14 enabled producers fired on cadence, no silent failures; 2 launchd reds = retired relics (no dns/improve plist to kickstart, improve.log=another-repo code, flag-only) both already-notified; warn=dashboard-improve daily-cron false-positive; no allowlisted action",
       "routineCount": 2,
       "routines": [
         "routine-overview-secretary",
@@ -198,10 +198,10 @@
       "does": "Refreshes this overview from artifact-truth and flags only what needs attention.",
       "health": "green",
       "private": false,
-      "headline": "steady-state: attentionKey diff = only recurring warn:dashboard-improve ageing re-appeared (daily-cron cadence false-positive, fired healthy 02:07Z; same warn fired+unnotified 07-09 eve, self-clears after next 02:07); 2 launchd reds = retired relics (no dns/improve plist to kickstart, improve.log=another-repo code, flag-only) both standing/notified; all producers fired on cadence, no silent failures; no allowlisted action; no push",
+      "headline": "steady-state: attentionKey unchanged (no push); all 14 enabled producers fired on cadence, no silent failures; 2 launchd reds = retired relics (no dns/improve plist to kickstart, improve.log=another-repo code, flag-only) both already-notified; warn=dashboard-improve daily-cron false-positive; no allowlisted action",
       "logName": null,
-      "lastOutputAt": "2026-07-10T18:19:37.000Z",
-      "lastOutputHuman": "4h ago",
+      "lastOutputAt": "2026-07-10T22:19:09.000Z",
+      "lastOutputHuman": "5h ago",
       "issues": [],
       "review": null
     },
@@ -237,7 +237,7 @@
       "headline": "brief: 2026-07-10",
       "logName": null,
       "lastOutputAt": "2026-07-10T03:54:52.000Z",
-      "lastOutputHuman": "18h ago",
+      "lastOutputHuman": "23h ago",
       "issues": [],
       "review": null
     },
@@ -255,7 +255,7 @@
       "headline": "rolling weekly: 2026-07-10",
       "logName": null,
       "lastOutputAt": "2026-07-10T04:51:29.000Z",
-      "lastOutputHuman": "17h ago",
+      "lastOutputHuman": "22h ago",
       "issues": [],
       "review": null
     },
@@ -273,7 +273,7 @@
       "headline": "rolling monthly: 2026-06-30",
       "logName": null,
       "lastOutputAt": "2026-06-30T10:28:12.000Z",
-      "lastOutputHuman": "10d ago",
+      "lastOutputHuman": "11d ago",
       "issues": [],
       "review": null
     },
@@ -394,12 +394,12 @@
       "role": "producer",
       "enabled": true,
       "does": "One safe read-only improvement to the holdet dashboard, then publishes the refreshed page.",
-      "health": "yellow",
+      "health": "green",
       "private": false,
-      "headline": "Update dashboard — 2026-07-10 04:19 Europe/Copenhagen",
+      "headline": "Update dashboard — 2026-07-11 04:25 Europe/Copenhagen",
       "logName": null,
-      "lastOutputAt": "2026-07-10T02:19:48.000Z",
-      "lastOutputHuman": "20h ago",
+      "lastOutputAt": "2026-07-11T02:25:52.000Z",
+      "lastOutputHuman": "52 min ago",
       "issues": [],
       "review": null
     },
@@ -412,12 +412,12 @@
       "role": "maintainer",
       "enabled": true,
       "does": null,
-      "health": "green",
+      "health": "yellow",
       "private": true,
-      "headline": "ran — no errors detected",
+      "headline": "ageing / warning — details kept private",
       "logName": null,
       "lastOutputAt": "2026-07-10T17:12:14.000Z",
-      "lastOutputHuman": "5h ago",
+      "lastOutputHuman": "10h ago",
       "issues": [],
       "review": null
     },
@@ -435,7 +435,7 @@
       "headline": "ran — no errors detected",
       "logName": null,
       "lastOutputAt": "2026-07-10T21:21:18.830Z",
-      "lastOutputHuman": "57 min ago",
+      "lastOutputHuman": "6h ago",
       "issues": [],
       "review": null
     },
@@ -453,7 +453,7 @@
       "headline": "paused",
       "logName": null,
       "lastOutputAt": "2026-07-10T17:12:14.000Z",
-      "lastOutputHuman": "5h ago",
+      "lastOutputHuman": "10h ago",
       "issues": [],
       "review": null
     },
@@ -525,7 +525,7 @@
       "headline": "ran — no errors detected",
       "logName": "evening.log",
       "lastOutputAt": "2026-07-10T20:31:39.465Z",
-      "lastOutputHuman": "2h ago",
+      "lastOutputHuman": "7h ago",
       "issues": [
         {
           "severity": "note",
@@ -570,8 +570,8 @@
       "private": true,
       "headline": "ran — no errors detected",
       "logName": "watch.log",
-      "lastOutputAt": "2026-07-10T21:29:07.377Z",
-      "lastOutputHuman": "49 min ago",
+      "lastOutputAt": "2026-07-11T02:29:59.555Z",
+      "lastOutputHuman": "48 min ago",
       "issues": [
         {
           "severity": "note",
@@ -594,7 +594,7 @@
       "headline": "error detected in local log — details kept private",
       "logName": "improve.log",
       "lastOutputAt": "2026-07-02T15:04:33.422Z",
-      "lastOutputHuman": "8d ago",
+      "lastOutputHuman": "9d ago",
       "issues": [
         {
           "severity": "error",
