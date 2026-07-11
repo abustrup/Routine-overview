@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-07-11T13:17:53.823Z",
-  "generatedAtLocal": "11 Jul 2026, 15:17 Europe/Copenhagen",
+  "generatedAt": "2026-07-11T18:22:08.709Z",
+  "generatedAtLocal": "11 Jul 2026, 20:22 Europe/Copenhagen",
   "owner": "Alexander Bustrup",
-  "attentionKey": "red:Holdet DNS guard (launchd):stale|red:Holdet improve loop (launchd):error",
+  "attentionKey": "red:Holdet DNS guard (launchd):stale|red:Holdet improve loop (launchd):error|warn:Holdet auditor:ageing|warn:Holdet dashboard improve:ageing",
   "staleAfterMin": 360,
   "summary": {
-    "green": 11,
-    "yellow": 0,
+    "green": 9,
+    "yellow": 2,
     "red": 2,
     "paused": 8,
     "total": 21
@@ -31,6 +31,28 @@
       "kind": "error",
       "fix": {
         "prompt": "The scheduled routine \"Holdet improve loop (launchd)\" is erroring. Working dir: ~/holdet-tdf-bot. Read improve.log for the exact error, then find the root cause, fix it, add a guard or test so it can't recur, verify by re-running the step, and commit. Follow the project's own CLAUDE.md and the holdet-tdf-bot skill, which document its guardrails and protected paths.",
+        "cwd": "~/holdet-tdf-bot"
+      }
+    },
+    {
+      "severity": "warn",
+      "project": "holdet-tdf",
+      "routine": "Holdet dashboard improve",
+      "message": "Ageing — last output 16h ago (expected Every 8h).",
+      "kind": "ageing",
+      "fix": {
+        "prompt": "The scheduled routine \"Holdet dashboard improve\" (One safe read-only improvement to the holdet dashboard, then publishes the refreshed page.) was expected to run Every 8h but produced no recent output. Working dir: ~/holdet-tdf-bot. Investigate why it stopped (check its scheduler run and its log), fix the cause, verify a fresh run produces output, and commit. Follow the project's own CLAUDE.md and the holdet-tdf-bot skill, which document its guardrails and protected paths.",
+        "cwd": "~/holdet-tdf-bot"
+      }
+    },
+    {
+      "severity": "warn",
+      "project": "holdet-tdf",
+      "routine": "Holdet auditor",
+      "message": "Ageing — last output 10h ago (expected Every 5h).",
+      "kind": "ageing",
+      "fix": {
+        "prompt": "The scheduled routine \"Holdet auditor\" was expected to run Every 5h but produced no recent output. Working dir: ~/holdet-tdf-bot. Investigate why it stopped (check its scheduler run and its log), fix the cause, verify a fresh run produces output, and commit. Follow the project's own CLAUDE.md and the holdet-tdf-bot skill, which document its guardrails and protected paths.",
         "cwd": "~/holdet-tdf-bot"
       }
     },
@@ -75,7 +97,7 @@
         }
       ],
       "lastPublish": "2026-07-11T02:25:52.000Z",
-      "lastPublishHuman": "11h ago",
+      "lastPublishHuman": "16h ago",
       "lastPublishSubject": "Update dashboard — 2026-07-11 04:25 Europe/Copenhagen",
       "routineCount": 10,
       "routines": [
@@ -109,7 +131,7 @@
         }
       ],
       "lastPublish": "2026-07-11T11:14:31.000Z",
-      "lastPublishHuman": "2h ago",
+      "lastPublishHuman": "7h ago",
       "lastPublishSubject": "fix(refresh): don't report throttled/empty provider responses as measured live signals",
       "routineCount": 3,
       "routines": [
@@ -136,7 +158,7 @@
         }
       ],
       "lastPublish": "2026-07-11T04:53:37.000Z",
-      "lastPublishHuman": "8h ago",
+      "lastPublishHuman": "13h ago",
       "lastPublishSubject": "rolling weekly: 2026-07-11",
       "routineCount": 6,
       "routines": [
@@ -165,9 +187,9 @@
           "url": "https://github.com/abustrup/Routine-overview"
         }
       ],
-      "lastPublish": "2026-07-11T08:26:48.000Z",
+      "lastPublish": "2026-07-11T13:19:28.000Z",
       "lastPublishHuman": "5h ago",
-      "lastPublishSubject": "steady-state: attentionKey diff = only auditor warn:ageing→red:stale (same daily-cron cadence false-positive crossing threshold; auditor fired healthy 08:05Z, red-team fixer with no-commit clean audits, config periodHours:5 wrong for 0 10 * * * daily); 2 launchd reds unchanged/already-notified (no dns/improve plist to kickstart, improve=another-repo code flag-only); all enabled producers fired on cadence, no silent failures; observed but did-not-flip enabled-drift on 2 retired-relic scheduler entries (matching precedent); no push, no allowlisted action",
+      "lastPublishSubject": "steady-state: attentionKey diff = only red:auditor:stale CLEARED (daily-cron fixer fired healthy 08:05Z, clean audit=no artifact=legit; remaining 2 reds are already-notified subset => a clearing not a new problem, no push); 2 launchd reds = retired relics (only collect/converge/dashboard/evening/watch plists exist, no dns/improve to kickstart, improve=another-repo flag-only); all enabled producers fired on cadence, no silent failures; enabled-drift on 2 retired-relic scheduler entries unchanged (precedent); no allowlisted action",
       "routineCount": 2,
       "routines": [
         "routine-overview-secretary",
@@ -187,9 +209,9 @@
       "does": "Refreshes this overview from artifact-truth and flags only what needs attention.",
       "health": "green",
       "private": false,
-      "headline": "steady-state: attentionKey diff = only auditor warn:ageing→red:stale (same daily-cron cadence false-positive crossing threshold; auditor fired healthy 08:05Z, red-team fixer with no-commit clean audits, config periodHours:5 wrong for 0 10 * * * daily); 2 launchd reds unchanged/already-notified (no dns/improve plist to kickstart, improve=another-repo code flag-only); all enabled producers fired on cadence, no silent failures; observed but did-not-flip enabled-drift on 2 retired-relic scheduler entries (matching precedent); no push, no allowlisted action",
+      "headline": "steady-state: attentionKey diff = only red:auditor:stale CLEARED (daily-cron fixer fired healthy 08:05Z, clean audit=no artifact=legit; remaining 2 reds are already-notified subset => a clearing not a new problem, no push); 2 launchd reds = retired relics (only collect/converge/dashboard/evening/watch plists exist, no dns/improve to kickstart, improve=another-repo flag-only); all enabled producers fired on cadence, no silent failures; enabled-drift on 2 retired-relic scheduler entries unchanged (precedent); no allowlisted action",
       "logName": null,
-      "lastOutputAt": "2026-07-11T08:26:48.000Z",
+      "lastOutputAt": "2026-07-11T13:19:28.000Z",
       "lastOutputHuman": "5h ago",
       "issues": [],
       "review": null
@@ -226,7 +248,7 @@
       "headline": "published 2026-07-11",
       "logName": null,
       "lastOutputAt": "2026-07-11T03:55:26.676Z",
-      "lastOutputHuman": "9h ago",
+      "lastOutputHuman": "14h ago",
       "issues": [],
       "review": null
     },
@@ -244,7 +266,7 @@
       "headline": "rolling weekly: 2026-07-11",
       "logName": null,
       "lastOutputAt": "2026-07-11T04:53:37.000Z",
-      "lastOutputHuman": "8h ago",
+      "lastOutputHuman": "13h ago",
       "issues": [],
       "review": null
     },
@@ -334,7 +356,7 @@
       "headline": "fix(refresh): don't report throttled/empty provider responses as measured live signals",
       "logName": null,
       "lastOutputAt": "2026-07-11T11:14:31.000Z",
-      "lastOutputHuman": "2h ago",
+      "lastOutputHuman": "7h ago",
       "issues": [],
       "review": null
     },
@@ -352,7 +374,7 @@
       "headline": "fix(refresh): don't report throttled/empty provider responses as measured live signals",
       "logName": null,
       "lastOutputAt": "2026-07-11T11:14:31.000Z",
-      "lastOutputHuman": "2h ago",
+      "lastOutputHuman": "7h ago",
       "issues": [],
       "review": "Retired 2026-07-03 — was the redundant second stock maintainer (13:00); 'Dashboard self-improve' (02:00) is now the single canonical guardrailed pass. Disabled in scheduler; config synced to match."
     },
@@ -383,12 +405,12 @@
       "role": "producer",
       "enabled": true,
       "does": "One safe read-only improvement to the holdet dashboard, then publishes the refreshed page.",
-      "health": "green",
+      "health": "yellow",
       "private": false,
       "headline": "Update dashboard — 2026-07-11 04:25 Europe/Copenhagen",
       "logName": null,
       "lastOutputAt": "2026-07-11T02:25:52.000Z",
-      "lastOutputHuman": "11h ago",
+      "lastOutputHuman": "16h ago",
       "issues": [],
       "review": null
     },
@@ -401,12 +423,12 @@
       "role": "maintainer",
       "enabled": true,
       "does": null,
-      "health": "green",
+      "health": "yellow",
       "private": true,
-      "headline": "ran — no errors detected",
+      "headline": "ageing / warning — details kept private",
       "logName": null,
       "lastOutputAt": "2026-07-11T08:40:01.000Z",
-      "lastOutputHuman": "5h ago",
+      "lastOutputHuman": "10h ago",
       "issues": [],
       "review": null
     },
@@ -424,7 +446,7 @@
       "headline": "ran — no errors detected",
       "logName": null,
       "lastOutputAt": "2026-07-10T21:21:18.830Z",
-      "lastOutputHuman": "16h ago",
+      "lastOutputHuman": "21h ago",
       "issues": [],
       "review": null
     },
@@ -442,7 +464,7 @@
       "headline": "paused",
       "logName": null,
       "lastOutputAt": "2026-07-11T08:40:01.000Z",
-      "lastOutputHuman": "5h ago",
+      "lastOutputHuman": "10h ago",
       "issues": [],
       "review": null
     },
@@ -514,7 +536,7 @@
       "headline": "ran — no errors detected",
       "logName": "evening.log",
       "lastOutputAt": "2026-07-10T20:31:39.465Z",
-      "lastOutputHuman": "17h ago",
+      "lastOutputHuman": "22h ago",
       "issues": [
         {
           "severity": "note",
@@ -559,8 +581,8 @@
       "private": true,
       "headline": "ran — no errors detected",
       "logName": "watch.log",
-      "lastOutputAt": "2026-07-11T12:32:52.608Z",
-      "lastOutputHuman": "45 min ago",
+      "lastOutputAt": "2026-07-11T18:20:36.331Z",
+      "lastOutputHuman": "2 min ago",
       "issues": [
         {
           "severity": "note",
