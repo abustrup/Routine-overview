@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-07-13T18:19:04.804Z",
-  "generatedAtLocal": "13 Jul 2026, 20:19 Europe/Copenhagen",
+  "generatedAt": "2026-07-13T23:01:26.735Z",
+  "generatedAtLocal": "14 Jul 2026, 01:01 Europe/Copenhagen",
   "owner": "Alexander Bustrup",
   "attentionKey": "red:Holdet DNS guard (launchd):stale|red:Holdet improve loop (launchd):error|warn:Holdet dashboard improve:ageing",
   "staleAfterMin": 360,
@@ -16,7 +16,7 @@
       "severity": "red",
       "project": "holdet-tdf",
       "routine": "Holdet DNS guard (launchd)",
-      "message": "Stale — last output 11d ago (expected ~08:30).",
+      "message": "Stale — last output 12d ago (expected ~08:30).",
       "kind": "stale",
       "fix": {
         "prompt": "The scheduled routine \"Holdet DNS guard (launchd)\" was expected to run ~08:30 but produced no recent output. Working dir: ~/holdet-tdf-bot. Investigate why it stopped (check its scheduler run and its log), fix the cause, verify a fresh run produces output, and commit. Follow the project's own CLAUDE.md and the holdet-tdf-bot skill, which document its guardrails and protected paths.",
@@ -38,7 +38,7 @@
       "severity": "warn",
       "project": "holdet-tdf",
       "routine": "Holdet dashboard improve",
-      "message": "Ageing — last output 16h ago (expected Every 8h).",
+      "message": "Ageing — last output 21h ago (expected Every 8h).",
       "kind": "ageing",
       "fix": {
         "prompt": "The scheduled routine \"Holdet dashboard improve\" (One safe read-only improvement to the holdet dashboard, then publishes the refreshed page.) was expected to run Every 8h but produced no recent output. Working dir: ~/holdet-tdf-bot. Investigate why it stopped (check its scheduler run and its log), fix the cause, verify a fresh run produces output, and commit. Follow the project's own CLAUDE.md and the holdet-tdf-bot skill, which document its guardrails and protected paths.",
@@ -86,7 +86,7 @@
         }
       ],
       "lastPublish": "2026-07-13T02:19:26.000Z",
-      "lastPublishHuman": "16h ago",
+      "lastPublishHuman": "21h ago",
       "lastPublishSubject": "Update dashboard — 2026-07-13 04:19 Europe/Copenhagen",
       "routineCount": 10,
       "routines": [
@@ -147,7 +147,7 @@
         }
       ],
       "lastPublish": "2026-07-13T05:07:50.000Z",
-      "lastPublishHuman": "13h ago",
+      "lastPublishHuman": "18h ago",
       "lastPublishSubject": "rolling monthly: 2026-07-13",
       "routineCount": 6,
       "routines": [
@@ -176,9 +176,9 @@
           "url": "https://github.com/abustrup/Routine-overview"
         }
       ],
-      "lastPublish": "2026-07-13T16:29:26.000Z",
-      "lastPublishHuman": "2h ago",
-      "lastPublishSubject": "ACTION: kickstarted stalled holdet watch sentinel (com.holdet.tdf.watch, ~3.8h gap on hourly cadence, clean last-exit hid a silent stall) → recovered, healthy stage-10 snapshot written 16:28Z, watch red CLEARED; remaining {DNS guard:stale 11d, improve:error} = standing already-notified reds, both flag-only (no com.holdet.tdf.dns*/improve* plist to kickstart; improve=another-repo code bug); dashboard-improve:ageing warn = known cron-0-4-daily vs 'every 8h' false-positive (ran 02:08Z healthy); scheduler overlay otherwise clean, all enabled producers fired on cadence w/ future nextRunAt; enabled-drift on retired stock relic unchanged (precedent); pushing once because I took an autonomous action",
+      "lastPublish": "2026-07-13T18:20:29.000Z",
+      "lastPublishHuman": "5h ago",
+      "lastPublishSubject": "steady-state, attentionKey UNCHANGED vs last journal (16:29) → NO push; standing reds {DNS guard:stale 11d, improve:error} both launchd flag-only (no dns/improve plist to kickstart; improve=another-repo code bug), already-notified; dashboard-improve:ageing warn = known cron-0-4-daily vs 'every 8h' false-positive (ran healthy 02:08Z); scheduler overlay clean: all enabled+due producers fired w/ fresh artifacts, evening holdet routines not-due (future nextRunAt), NO stalled launchd service this run; enabled-drift on retired stock relic unchanged (precedent); no allowlisted action taken",
       "routineCount": 2,
       "routines": [
         "routine-overview-secretary",
@@ -198,10 +198,10 @@
       "does": "Refreshes this overview from artifact-truth and flags only what needs attention.",
       "health": "green",
       "private": false,
-      "headline": "ACTION: kickstarted stalled holdet watch sentinel (com.holdet.tdf.watch, ~3.8h gap on hourly cadence, clean last-exit hid a silent stall) → recovered, healthy stage-10 snapshot written 16:28Z, watch red CLEARED; remaining {DNS guard:stale 11d, improve:error} = standing already-notified reds, both flag-only (no com.holdet.tdf.dns*/improve* plist to kickstart; improve=another-repo code bug); dashboard-improve:ageing warn = known cron-0-4-daily vs 'every 8h' false-positive (ran 02:08Z healthy); scheduler overlay otherwise clean, all enabled producers fired on cadence w/ future nextRunAt; enabled-drift on retired stock relic unchanged (precedent); pushing once because I took an autonomous action",
+      "headline": "steady-state, attentionKey UNCHANGED vs last journal (16:29) → NO push; standing reds {DNS guard:stale 11d, improve:error} both launchd flag-only (no dns/improve plist to kickstart; improve=another-repo code bug), already-notified; dashboard-improve:ageing warn = known cron-0-4-daily vs 'every 8h' false-positive (ran healthy 02:08Z); scheduler overlay clean: all enabled+due producers fired w/ fresh artifacts, evening holdet routines not-due (future nextRunAt), NO stalled launchd service this run; enabled-drift on retired stock relic unchanged (precedent); no allowlisted action taken",
       "logName": null,
-      "lastOutputAt": "2026-07-13T16:29:26.000Z",
-      "lastOutputHuman": "2h ago",
+      "lastOutputAt": "2026-07-13T18:20:29.000Z",
+      "lastOutputHuman": "5h ago",
       "issues": [],
       "review": null
     },
@@ -234,10 +234,10 @@
       "does": "Researches, validates and publishes the Danish morning brief before the 06:40 deadline.",
       "health": "green",
       "private": false,
-      "headline": "published 2026-07-13",
+      "headline": "brief: 2026-07-13",
       "logName": null,
-      "lastOutputAt": "2026-07-13T04:17:32.829Z",
-      "lastOutputHuman": "14h ago",
+      "lastOutputAt": "2026-07-13T04:17:32.000Z",
+      "lastOutputHuman": "19h ago",
       "issues": [],
       "review": null
     },
@@ -255,7 +255,7 @@
       "headline": "rolling weekly: 2026-07-13",
       "logName": null,
       "lastOutputAt": "2026-07-13T04:52:28.000Z",
-      "lastOutputHuman": "13h ago",
+      "lastOutputHuman": "18h ago",
       "issues": [],
       "review": null
     },
@@ -273,7 +273,7 @@
       "headline": "rolling monthly: 2026-07-13",
       "logName": null,
       "lastOutputAt": "2026-07-13T05:07:50.000Z",
-      "lastOutputHuman": "13h ago",
+      "lastOutputHuman": "18h ago",
       "issues": [],
       "review": null
     },
@@ -291,7 +291,7 @@
       "headline": "rolling yearly: 2026-07-01",
       "logName": null,
       "lastOutputAt": "2026-07-01T08:56:52.000Z",
-      "lastOutputHuman": "12d ago",
+      "lastOutputHuman": "13d ago",
       "issues": [],
       "review": null
     },
@@ -399,7 +399,7 @@
       "headline": "Update dashboard — 2026-07-13 04:19 Europe/Copenhagen",
       "logName": null,
       "lastOutputAt": "2026-07-13T02:19:26.000Z",
-      "lastOutputHuman": "16h ago",
+      "lastOutputHuman": "21h ago",
       "issues": [],
       "review": null
     },
@@ -416,8 +416,8 @@
       "private": true,
       "headline": "ran — no errors detected",
       "logName": null,
-      "lastOutputAt": "2026-07-13T10:39:31.000Z",
-      "lastOutputHuman": "8h ago",
+      "lastOutputAt": "2026-07-13T22:44:49.000Z",
+      "lastOutputHuman": "17 min ago",
       "issues": [],
       "review": null
     },
@@ -434,8 +434,8 @@
       "private": true,
       "headline": "ran — no errors detected",
       "logName": null,
-      "lastOutputAt": "2026-07-12T21:22:43.934Z",
-      "lastOutputHuman": "21h ago",
+      "lastOutputAt": "2026-07-13T22:38:15.520Z",
+      "lastOutputHuman": "23 min ago",
       "issues": [],
       "review": null
     },
@@ -452,8 +452,8 @@
       "private": true,
       "headline": "paused",
       "logName": null,
-      "lastOutputAt": "2026-07-13T10:39:31.000Z",
-      "lastOutputHuman": "8h ago",
+      "lastOutputAt": "2026-07-13T22:44:49.000Z",
+      "lastOutputHuman": "17 min ago",
       "issues": [],
       "review": null
     },
@@ -524,8 +524,8 @@
       "private": true,
       "headline": "ran — no errors detected",
       "logName": "evening.log",
-      "lastOutputAt": "2026-07-12T20:31:41.937Z",
-      "lastOutputHuman": "22h ago",
+      "lastOutputAt": "2026-07-13T20:31:08.878Z",
+      "lastOutputHuman": "3h ago",
       "issues": [
         {
           "severity": "note",
@@ -548,7 +548,7 @@
       "headline": "error detected in local log — details kept private",
       "logName": "guard.log",
       "lastOutputAt": "2026-07-02T06:30:17.475Z",
-      "lastOutputHuman": "11d ago",
+      "lastOutputHuman": "12d ago",
       "issues": [
         {
           "severity": "note",
@@ -570,8 +570,8 @@
       "private": true,
       "headline": "ran — no errors detected",
       "logName": "watch.log",
-      "lastOutputAt": "2026-07-13T17:28:47.352Z",
-      "lastOutputHuman": "50 min ago",
+      "lastOutputAt": "2026-07-13T22:29:46.882Z",
+      "lastOutputHuman": "32 min ago",
       "issues": [
         {
           "severity": "note",
