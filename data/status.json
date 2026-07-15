@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-07-15T20:26:40.792Z",
-  "generatedAtLocal": "15 Jul 2026, 22:26 Europe/Copenhagen",
+  "generatedAt": "2026-07-15T22:17:52.985Z",
+  "generatedAtLocal": "16 Jul 2026, 00:17 Europe/Copenhagen",
   "owner": "Alexander Bustrup",
   "attentionKey": "red:Holdet DNS guard (launchd):stale|red:Holdet improve loop (launchd):error|warn:Holdet dashboard improve:ageing",
   "staleAfterMin": 360,
@@ -38,7 +38,7 @@
       "severity": "warn",
       "project": "holdet-tdf",
       "routine": "Holdet dashboard improve",
-      "message": "Ageing — last output 18h ago (expected Every 8h).",
+      "message": "Ageing — last output 20h ago (expected Every 8h).",
       "kind": "ageing",
       "fix": {
         "prompt": "The scheduled routine \"Holdet dashboard improve\" (One safe read-only improvement to the holdet dashboard, then publishes the refreshed page.) was expected to run Every 8h but produced no recent output. Working dir: ~/holdet-tdf-bot. Investigate why it stopped (check its scheduler run and its log), fix the cause, verify a fresh run produces output, and commit. Follow the project's own CLAUDE.md and the holdet-tdf-bot skill, which document its guardrails and protected paths.",
@@ -86,7 +86,7 @@
         }
       ],
       "lastPublish": "2026-07-15T02:32:18.000Z",
-      "lastPublishHuman": "18h ago",
+      "lastPublishHuman": "20h ago",
       "lastPublishSubject": "Update dashboard — 2026-07-15 04:32 Europe/Copenhagen",
       "routineCount": 10,
       "routines": [
@@ -120,7 +120,7 @@
         }
       ],
       "lastPublish": "2026-07-15T15:19:24.000Z",
-      "lastPublishHuman": "5h ago",
+      "lastPublishHuman": "7h ago",
       "lastPublishSubject": "feat(universe): add 20 AI-supply-chain names to the opportunity universe",
       "routineCount": 3,
       "routines": [
@@ -147,7 +147,7 @@
         }
       ],
       "lastPublish": "2026-07-15T04:56:29.000Z",
-      "lastPublishHuman": "16h ago",
+      "lastPublishHuman": "17h ago",
       "lastPublishSubject": "rolling weekly: 2026-07-15",
       "routineCount": 6,
       "routines": [
@@ -176,9 +176,9 @@
           "url": "https://github.com/abustrup/Routine-overview"
         }
       ],
-      "lastPublish": "2026-07-15T16:32:30.000Z",
-      "lastPublishHuman": "4h ago",
-      "lastPublishSubject": "steady-state, NO push: attentionKey grew vs 03:23Z journal only because of a Mac-sleep miss cluster (clamshell-asleep ~20:36 07-14 → 17:23 today, confirmed pmset) — but every component (DNS guard:stale, auditor:stale, improve:error, secretary:ageing) was ALREADY notified 07-14 19:01Z, and the current key is a strict SUBSET of that notified set → not novel by content → silent per 'already-notified reds must not re-push' (same call as 22:22Z/03:23Z precedent). Two regrown items are known false positives: auditor:stale = daily-cron-vs-periodHours:5 config mismatch, actually FIRED 14min ago (15:08Z catch-up after wake, nextRun 07-16 08:05); secretary:ageing = this run IS the fresh tick, self-clears on commit. Standing reds unchanged + already-notified: DNS guard stale 13d (launchctl confirms NO com.holdet.tdf.dns* label exists to kickstart — only watch/collect/dashboard/evening/converge present), improve error 'fatal: last is not defined' (another-repo code bug, flag-never-patch, dirty-tree-blocked). Scheduler overlay: enabled+due producers fired on cadence w/ future nextRunAt; the 15:08Z catch-up cluster (auditor/maintenance/stock-relic) is post-wake recovery, not silent failure; converge launchd shows a lone exit-1 right after wake = transient on the protected trade path (collector sees fresh artifacts) → no action. Enabled-drifts (maintenance-and-improvements, retired stock relic: config=paused/scheduler=enabled) left unflipped per pending-retirement precedent. No allowlisted action available.",
+      "lastPublish": "2026-07-15T20:27:35.000Z",
+      "lastPublishHuman": "2h ago",
+      "lastPublishSubject": "AUTONOMOUS: kickstarted stalled holdet watch sentinel (~5 missed hourly ticks, battery Maintenance-Sleep coalesced launchd StartInterval; pmset Sleep 20:06Z→Wake 20:21Z + earlier clamshell). Recovered — fresh logs/watch.log tick 20:26:18Z, LastExitStatus 0; re-collect cleared the watch red (3R→2R). Novel-by-content push per doctrine (autonomous action taken), matching 07-12/07-13/07-14 kickstart precedent. Two standing reds unchanged + already-notified, both flag-only: DNS guard stale 14d (launchctl confirms NO com.holdet.tdf.dns* label to kickstart — only watch/collect/dashboard/evening/converge present; awaiting Alexander to restore plist or retire), improve loop 'fatal: last is not defined' (another-repo code bug, never-patch). warn dashboard-improve:ageing = known daily-cron false-positive (cron 0 4 * * *, fired healthy 02:08Z, next 07-16 02:07Z). Scheduler overlay clean: every enabled MCP producer fired on cadence w/ future nextRunAt; 15:08Z auditor/maintenance/stock-relic cluster = post-wake catch-up, not silent failure; auditor:stale self-cleared via gitAny freshness from evening producer commits. Enabled-drifts (maintenance-and-improvements + retired stock relic: config=paused/scheduler=enabled) left unflipped per pending-retirement precedent.",
       "routineCount": 2,
       "routines": [
         "routine-overview-secretary",
@@ -198,10 +198,10 @@
       "does": "Refreshes this overview from artifact-truth and flags only what needs attention.",
       "health": "green",
       "private": false,
-      "headline": "steady-state, NO push: attentionKey grew vs 03:23Z journal only because of a Mac-sleep miss cluster (clamshell-asleep ~20:36 07-14 → 17:23 today, confirmed pmset) — but every component (DNS guard:stale, auditor:stale, improve:error, secretary:ageing) was ALREADY notified 07-14 19:01Z, and the current key is a strict SUBSET of that notified set → not novel by content → silent per 'already-notified reds must not re-push' (same call as 22:22Z/03:23Z precedent). Two regrown items are known false positives: auditor:stale = daily-cron-vs-periodHours:5 config mismatch, actually FIRED 14min ago (15:08Z catch-up after wake, nextRun 07-16 08:05); secretary:ageing = this run IS the fresh tick, self-clears on commit. Standing reds unchanged + already-notified: DNS guard stale 13d (launchctl confirms NO com.holdet.tdf.dns* label exists to kickstart — only watch/collect/dashboard/evening/converge present), improve error 'fatal: last is not defined' (another-repo code bug, flag-never-patch, dirty-tree-blocked). Scheduler overlay: enabled+due producers fired on cadence w/ future nextRunAt; the 15:08Z catch-up cluster (auditor/maintenance/stock-relic) is post-wake recovery, not silent failure; converge launchd shows a lone exit-1 right after wake = transient on the protected trade path (collector sees fresh artifacts) → no action. Enabled-drifts (maintenance-and-improvements, retired stock relic: config=paused/scheduler=enabled) left unflipped per pending-retirement precedent. No allowlisted action available.",
+      "headline": "AUTONOMOUS: kickstarted stalled holdet watch sentinel (~5 missed hourly ticks, battery Maintenance-Sleep coalesced launchd StartInterval; pmset Sleep 20:06Z→Wake 20:21Z + earlier clamshell). Recovered — fresh logs/watch.log tick 20:26:18Z, LastExitStatus 0; re-collect cleared the watch red (3R→2R). Novel-by-content push per doctrine (autonomous action taken), matching 07-12/07-13/07-14 kickstart precedent. Two standing reds unchanged + already-notified, both flag-only: DNS guard stale 14d (launchctl confirms NO com.holdet.tdf.dns* label to kickstart — only watch/collect/dashboard/evening/converge present; awaiting Alexander to restore plist or retire), improve loop 'fatal: last is not defined' (another-repo code bug, never-patch). warn dashboard-improve:ageing = known daily-cron false-positive (cron 0 4 * * *, fired healthy 02:08Z, next 07-16 02:07Z). Scheduler overlay clean: every enabled MCP producer fired on cadence w/ future nextRunAt; 15:08Z auditor/maintenance/stock-relic cluster = post-wake catch-up, not silent failure; auditor:stale self-cleared via gitAny freshness from evening producer commits. Enabled-drifts (maintenance-and-improvements + retired stock relic: config=paused/scheduler=enabled) left unflipped per pending-retirement precedent.",
       "logName": null,
-      "lastOutputAt": "2026-07-15T16:32:30.000Z",
-      "lastOutputHuman": "4h ago",
+      "lastOutputAt": "2026-07-15T20:27:35.000Z",
+      "lastOutputHuman": "2h ago",
       "issues": [],
       "review": null
     },
@@ -234,10 +234,10 @@
       "does": "Researches, validates and publishes the Danish morning brief before the 06:40 deadline.",
       "health": "green",
       "private": false,
-      "headline": "published 2026-07-15",
+      "headline": "brief: 2026-07-15",
       "logName": null,
-      "lastOutputAt": "2026-07-15T04:19:06.092Z",
-      "lastOutputHuman": "16h ago",
+      "lastOutputAt": "2026-07-15T04:19:06.000Z",
+      "lastOutputHuman": "18h ago",
       "issues": [],
       "review": null
     },
@@ -255,7 +255,7 @@
       "headline": "rolling weekly: 2026-07-15",
       "logName": null,
       "lastOutputAt": "2026-07-15T04:56:29.000Z",
-      "lastOutputHuman": "16h ago",
+      "lastOutputHuman": "17h ago",
       "issues": [],
       "review": null
     },
@@ -291,7 +291,7 @@
       "headline": "rolling yearly: 2026-07-01",
       "logName": null,
       "lastOutputAt": "2026-07-01T08:56:52.000Z",
-      "lastOutputHuman": "14d ago",
+      "lastOutputHuman": "15d ago",
       "issues": [],
       "review": null
     },
@@ -345,7 +345,7 @@
       "headline": "feat(universe): add 20 AI-supply-chain names to the opportunity universe",
       "logName": null,
       "lastOutputAt": "2026-07-15T15:19:24.000Z",
-      "lastOutputHuman": "5h ago",
+      "lastOutputHuman": "7h ago",
       "issues": [],
       "review": null
     },
@@ -363,7 +363,7 @@
       "headline": "feat(universe): add 20 AI-supply-chain names to the opportunity universe",
       "logName": null,
       "lastOutputAt": "2026-07-15T15:19:24.000Z",
-      "lastOutputHuman": "5h ago",
+      "lastOutputHuman": "7h ago",
       "issues": [],
       "review": "Retired 2026-07-03 — was the redundant second stock maintainer (13:00); 'Dashboard self-improve' (02:00) is now the single canonical guardrailed pass. Disabled in scheduler; config synced to match."
     },
@@ -399,7 +399,7 @@
       "headline": "Update dashboard — 2026-07-15 04:32 Europe/Copenhagen",
       "logName": null,
       "lastOutputAt": "2026-07-15T02:32:18.000Z",
-      "lastOutputHuman": "18h ago",
+      "lastOutputHuman": "20h ago",
       "issues": [],
       "review": null
     },
@@ -416,8 +416,8 @@
       "private": true,
       "headline": "ran — no errors detected",
       "logName": null,
-      "lastOutputAt": "2026-07-15T20:24:49.000Z",
-      "lastOutputHuman": "2 min ago",
+      "lastOutputAt": "2026-07-15T21:56:34.000Z",
+      "lastOutputHuman": "21 min ago",
       "issues": [],
       "review": null
     },
@@ -434,8 +434,8 @@
       "private": true,
       "headline": "ran — no errors detected",
       "logName": null,
-      "lastOutputAt": "2026-07-14T22:08:40.055Z",
-      "lastOutputHuman": "22h ago",
+      "lastOutputAt": "2026-07-15T21:19:33.727Z",
+      "lastOutputHuman": "58 min ago",
       "issues": [],
       "review": null
     },
@@ -452,8 +452,8 @@
       "private": true,
       "headline": "paused",
       "logName": null,
-      "lastOutputAt": "2026-07-15T20:24:49.000Z",
-      "lastOutputHuman": "2 min ago",
+      "lastOutputAt": "2026-07-15T21:56:34.000Z",
+      "lastOutputHuman": "21 min ago",
       "issues": [],
       "review": null
     },
@@ -524,8 +524,8 @@
       "private": true,
       "headline": "ran — no errors detected",
       "logName": "evening.log",
-      "lastOutputAt": "2026-07-14T20:31:37.531Z",
-      "lastOutputHuman": "24h ago",
+      "lastOutputAt": "2026-07-15T20:31:25.153Z",
+      "lastOutputHuman": "2h ago",
       "issues": [
         {
           "severity": "note",
@@ -570,8 +570,8 @@
       "private": true,
       "headline": "ran — no errors detected",
       "logName": "watch.log",
-      "lastOutputAt": "2026-07-15T20:26:18.367Z",
-      "lastOutputHuman": "just now",
+      "lastOutputAt": "2026-07-15T21:26:19.647Z",
+      "lastOutputHuman": "52 min ago",
       "issues": [
         {
           "severity": "note",
