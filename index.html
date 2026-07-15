@@ -249,7 +249,7 @@
         <p class="eyebrow">Personal routine secretary</p>
         <h1>Routine Overview</h1>
       </div>
-      <div class="stamp">Updated <b>15 Jul 2026, 05:19 Europe/Copenhagen</b></div>
+      <div class="stamp">Updated <b>15 Jul 2026, 17:22 Europe/Copenhagen</b></div>
     </div>
     <p class="subtitle">The health of every scheduled routine across Alexander Bustrup's projects — so you never have to open them one by one.</p>
   </header>
@@ -257,13 +257,13 @@
   <div class="hero hero--alert">
     <div class="hero__row">
       <span class="hero__mark" aria-hidden="true"></span>
-      <p class="hero__verdict">2 routines need your attention</p>
+      <p class="hero__verdict">4 routines need your attention</p>
     </div>
-    <p class="hero__sub">Everything else is running clean.</p>
+    <p class="hero__sub">3 broken, 1 ageing — everything else is running clean.</p>
     <div class="counts">
-      <span class="stat"><span class="dot dot--green" aria-hidden="true"></span><b>11</b><span>healthy</span></span>
-      <span class="stat"><span class="dot dot--yellow" aria-hidden="true"></span><b>0</b><span>ageing</span></span>
-      <span class="stat"><span class="dot dot--red" aria-hidden="true"></span><b>2</b><span>broken</span></span>
+      <span class="stat"><span class="dot dot--green" aria-hidden="true"></span><b>9</b><span>healthy</span></span>
+      <span class="stat"><span class="dot dot--yellow" aria-hidden="true"></span><b>1</b><span>ageing</span></span>
+      <span class="stat"><span class="dot dot--red" aria-hidden="true"></span><b>3</b><span>broken</span></span>
       <span class="stat"><span class="dot dot--paused" aria-hidden="true"></span><b>8</b><span>paused</span></span>
       <span class="stat stat--total">21 routines total</span>
     </div>
@@ -272,7 +272,33 @@
   <section aria-labelledby="sec-attn" data-attn-section>
     <div class="sec-head"><h2 id="sec-attn">Needs your attention</h2><span class="rule"></span><button type="button" class="sec-restore" data-restore hidden><span data-restore-count>0</span> hidden · Show</button></div>
     <div class="attn-list" data-attn-list>
-    <article class="attn attn--red" data-attn data-akey="red:Holdet DNS guard (launchd):stale">
+    <article class="attn attn--red" data-attn data-akey="red:Holdet auditor:stale">
+  <div class="attn__bar" aria-hidden="true"></div>
+  <div class="attn__main">
+    <div class="attn__head">
+      <span class="attn__sev">Broken</span>
+      <span class="attn__where">🚴 Holdet auditor</span>
+      <button type="button" class="dismiss-x" data-dismiss aria-label="Hide this alert" title="Hide — it comes back if the issue is still there next refresh">×</button>
+    </div>
+    <p class="attn__msg">Stale — last output 17h ago (expected Every 5h).</p>
+    <div class="fix">
+    <div class="fix__actions">
+      <button type="button" class="btn btn--copy"
+              data-copy="The scheduled routine &quot;Holdet auditor&quot; was expected to run Every 5h but produced no recent output. Working dir: ~/holdet-tdf-bot. Investigate why it stopped (check its scheduler run and its log), fix the cause, verify a fresh run produces output, and commit. Follow the project's own CLAUDE.md and the holdet-tdf-bot skill, which document its guardrails and protected paths.">
+        <span class="btn__label">Copy fix prompt</span>
+        <span class="btn__done" aria-hidden="true">Copied&nbsp;✓</span>
+      </button>
+      <button type="button" class="btn btn--link" data-toggle="fix-1" aria-expanded="false" aria-controls="fix-1">
+        View prompt
+      </button>
+    </div>
+    <div class="fix__body" id="fix-1" hidden>
+      <pre class="fix__prompt">The scheduled routine &quot;Holdet auditor&quot; was expected to run Every 5h but produced no recent output. Working dir: ~/holdet-tdf-bot. Investigate why it stopped (check its scheduler run and its log), fix the cause, verify a fresh run produces output, and commit. Follow the project's own CLAUDE.md and the holdet-tdf-bot skill, which document its guardrails and protected paths.</pre>
+      <div class="fix__cwd"><span class="fix__cwd-k">cwd</span> <code>~/holdet-tdf-bot</code></div>
+    </div>
+  </div>
+  </div>
+</article><article class="attn attn--red" data-attn data-akey="red:Holdet DNS guard (launchd):stale">
   <div class="attn__bar" aria-hidden="true"></div>
   <div class="attn__main">
     <div class="attn__head">
@@ -288,11 +314,11 @@
         <span class="btn__label">Copy fix prompt</span>
         <span class="btn__done" aria-hidden="true">Copied&nbsp;✓</span>
       </button>
-      <button type="button" class="btn btn--link" data-toggle="fix-1" aria-expanded="false" aria-controls="fix-1">
+      <button type="button" class="btn btn--link" data-toggle="fix-2" aria-expanded="false" aria-controls="fix-2">
         View prompt
       </button>
     </div>
-    <div class="fix__body" id="fix-1" hidden>
+    <div class="fix__body" id="fix-2" hidden>
       <pre class="fix__prompt">The scheduled routine &quot;Holdet DNS guard (launchd)&quot; was expected to run ~08:30 but produced no recent output. Working dir: ~/holdet-tdf-bot. Investigate why it stopped (check its scheduler run and its log), fix the cause, verify a fresh run produces output, and commit. Follow the project's own CLAUDE.md and the holdet-tdf-bot skill, which document its guardrails and protected paths.</pre>
       <div class="fix__cwd"><span class="fix__cwd-k">cwd</span> <code>~/holdet-tdf-bot</code></div>
     </div>
@@ -314,13 +340,39 @@
         <span class="btn__label">Copy fix prompt</span>
         <span class="btn__done" aria-hidden="true">Copied&nbsp;✓</span>
       </button>
-      <button type="button" class="btn btn--link" data-toggle="fix-2" aria-expanded="false" aria-controls="fix-2">
+      <button type="button" class="btn btn--link" data-toggle="fix-3" aria-expanded="false" aria-controls="fix-3">
         View prompt
       </button>
     </div>
-    <div class="fix__body" id="fix-2" hidden>
+    <div class="fix__body" id="fix-3" hidden>
       <pre class="fix__prompt">The scheduled routine &quot;Holdet improve loop (launchd)&quot; is erroring. Working dir: ~/holdet-tdf-bot. Read improve.log for the exact error, then find the root cause, fix it, add a guard or test so it can't recur, verify by re-running the step, and commit. Follow the project's own CLAUDE.md and the holdet-tdf-bot skill, which document its guardrails and protected paths.</pre>
       <div class="fix__cwd"><span class="fix__cwd-k">cwd</span> <code>~/holdet-tdf-bot</code></div>
+    </div>
+  </div>
+  </div>
+</article><article class="attn attn--warn" data-attn data-akey="warn:Routine secretary (this):ageing">
+  <div class="attn__bar" aria-hidden="true"></div>
+  <div class="attn__main">
+    <div class="attn__head">
+      <span class="attn__sev">Warning</span>
+      <span class="attn__where">🗂️ Routine secretary (this)</span>
+      <button type="button" class="dismiss-x" data-dismiss aria-label="Hide this alert" title="Hide — it comes back if the issue is still there next refresh">×</button>
+    </div>
+    <p class="attn__msg">Ageing — last output 12h ago (expected Every 5h · :17).</p>
+    <div class="fix">
+    <div class="fix__actions">
+      <button type="button" class="btn btn--copy"
+              data-copy="The scheduled routine &quot;Routine secretary (this)&quot; (Refreshes this overview from artifact-truth and flags only what needs attention.) was expected to run Every 5h · :17 but produced no recent output. Working dir: ~/Documents/AI eksperimenter/Routine overview. Investigate why it stopped (check its scheduler run and its log), fix the cause, verify a fresh run produces output, and commit. Keep it public-safe: health/status only, no secrets or strategy internals. Verify with node scripts/collect.mjs &amp;&amp; node scripts/render.mjs before pushing.">
+        <span class="btn__label">Copy fix prompt</span>
+        <span class="btn__done" aria-hidden="true">Copied&nbsp;✓</span>
+      </button>
+      <button type="button" class="btn btn--link" data-toggle="fix-4" aria-expanded="false" aria-controls="fix-4">
+        View prompt
+      </button>
+    </div>
+    <div class="fix__body" id="fix-4" hidden>
+      <pre class="fix__prompt">The scheduled routine &quot;Routine secretary (this)&quot; (Refreshes this overview from artifact-truth and flags only what needs attention.) was expected to run Every 5h · :17 but produced no recent output. Working dir: ~/Documents/AI eksperimenter/Routine overview. Investigate why it stopped (check its scheduler run and its log), fix the cause, verify a fresh run produces output, and commit. Keep it public-safe: health/status only, no secrets or strategy internals. Verify with node scripts/collect.mjs &amp;&amp; node scripts/render.mjs before pushing.</pre>
+      <div class="fix__cwd"><span class="fix__cwd-k">cwd</span> <code>~/Documents/AI eksperimenter/Routine overview</code></div>
     </div>
   </div>
   </div>
@@ -346,7 +398,7 @@
     <div class="proj__now">
       <span class="proj__now-k">Latest</span>
       <span class="proj__now-v">Update dashboard — 2026-07-15 04:32 Europe/Copenhagen</span>
-      <span class="proj__now-ago">47 min ago</span>
+      <span class="proj__now-ago">13h ago</span>
     </div>
     <p class="proj__note">Pre-Tour: stage 1 startlist still pending, so the daily brains correctly report 'no material change'. Watch for Tour start.</p>
     <div class="proj__links"><a class="chip" href="https://abustrup.github.io/Holdet-TDF-2026/" target="_blank" rel="noopener">Live dashboard<span class="chip__ext" aria-hidden="true">↗</span></a><span class="chip chip--local">Bot repo</span></div>
@@ -359,8 +411,8 @@
     <p class="proj__goal">A calm, trust-first decision instrument that tells me — in one glance — the single sized move my broker never would, and honestly says 'do nothing' when that's right.</p>
     <div class="proj__now">
       <span class="proj__now-k">Latest</span>
-      <span class="proj__now-v">fix: stop a degenerate day-change from Infinity-poisoning the headline day P&amp;L</span>
-      <span class="proj__now-ago">4d ago</span>
+      <span class="proj__now-v">feat(universe): add 20 AI-supply-chain names to the opportunity universe</span>
+      <span class="proj__now-ago">3 min ago</span>
     </div>
     
     <div class="proj__links"><a class="chip" href="https://abustrup.github.io/personal-stock-dashboard/" target="_blank" rel="noopener">Live dashboard<span class="chip__ext" aria-hidden="true">↗</span></a><a class="chip" href="https://github.com/abustrup/personal-stock-dashboard" target="_blank" rel="noopener">Repo<span class="chip__ext" aria-hidden="true">↗</span></a></div>
@@ -373,8 +425,8 @@
     <p class="proj__goal">Publish a trustworthy, beautifully-edited Danish morning brief every day before 06:40 — sharper and broader than any single newspaper.</p>
     <div class="proj__now">
       <span class="proj__now-k">Latest</span>
-      <span class="proj__now-v">rolling weekly: 2026-07-14</span>
-      <span class="proj__now-ago">22h ago</span>
+      <span class="proj__now-v">rolling weekly: 2026-07-15</span>
+      <span class="proj__now-ago">10h ago</span>
     </div>
     
     <div class="proj__links"><a class="chip" href="https://abustrup.github.io/alexanders-brief/" target="_blank" rel="noopener">Live brief<span class="chip__ext" aria-hidden="true">↗</span></a><a class="chip" href="https://github.com/abustrup/alexanders-brief" target="_blank" rel="noopener">Repo<span class="chip__ext" aria-hidden="true">↗</span></a></div>
@@ -382,13 +434,13 @@
     <header class="proj__head">
       <span class="proj__emoji" aria-hidden="true">🗂️</span>
       <h3 class="proj__name">Routine Overview</h3>
-      <span class="dot dot--green" title="Healthy" aria-hidden="true"></span>
+      <span class="dot dot--yellow" title="Needs attention" aria-hidden="true"></span>
     </header>
     <p class="proj__goal">Hold the whole picture across every routine and interrupt Alexander only when something genuinely needs him.</p>
     <div class="proj__now">
       <span class="proj__now-k">Latest</span>
-      <span class="proj__now-v">steady-state, NO push: attentionKey SHRANK to a strict subset of last journal (secretary's own 'ageing' warn cleared — this run is the fresh tick) → no novel key, all 4 items already notified 19:01Z. Reds triaged, none newly actionable: (1) auditor:stale 23h — fired healthy 08:06Z (nextRun 07-15 08:05Z) but made no commit; its probe is gitAny(holdetBot) and the bot's last commit is 23:18Z overnight batch. Same CONFIG-CADENCE FALSE POSITIVE flagged yesterday (config cadence 'Every 5h'/periodHours 5 vs scheduler cron '0 10 * * *' = DAILY) — it merely aged warn→red as the day passed; no new evidence of failure. Cannot self-fix: periodHours is config beyond the allowlist. (2) DNS guard:stale 13d — guard.log untouched since 07-02 08:30; launchctl confirms NO com.holdet.tdf.dns* label exists to kickstart → flag-only, already notified. (3) improve:error — 'fatal: last is not defined', another-repo code bug → flag-only, never patch. NEW DIAGNOSTIC (root cause of the improve red, reported not pushed): holdet-bot has 2 uncommitted files (dashboard/template.html +175 lines, dashboard/IMPROVEMENTS.md, both from the 07-14 04:2x dashboard-improve run) and improve.js is now logging 'tracked source has uncommitted changes — skipping auto-merge to avoid clobbering' → the dirty tree is BLOCKING every improve auto-merge. Cleaning it is outside the allowlist (another repo) → needs Alexander. Warn dashboard-improve:ageing = the known daily-cron-vs-config-8h twin false positive (ran healthy 02:08Z). Scheduler overlay otherwise clean: all 5 present launchd services exit-0, watch sentinel fresh (21:50Z, no stall), every enabled+due MCP producer fired on cadence with future nextRunAt, tonight's evening batch in flight and not yet due to commit — NO silent failure. Two enabled-drifts (config=paused, scheduler=enabled: retired stock relic + maintenance-and-improvements) unchanged and left unflipped per precedent — they are pending-retirement decisions, and flipping them green would dress up daily waste as healthy ('honest over tidy'). No allowlisted action available.</span>
-      <span class="proj__now-ago">5h ago</span>
+      <span class="proj__now-v">steady-state clearing, NO push: attentionKey {DNS guard:stale, improve:error} is a STRICT SUBSET of last journal (22:22Z) — auditor:stale red + dashboard-improve:ageing warn both CLEARED (auditor fired 07-14 08:06Z + overnight bot commit satisfied its gitAny freshness probe; holdet-dashboard-improve fired healthy 02:08Z, nextRun 07-16 02:07Z). No novel key, no autonomous action → silent. Both remaining reds standing + already-notified, flag-only: (1) DNS guard stale 13d — launchctl confirms NO com.holdet.tdf.dns* label exists to kickstart (5 present launchd services watch/collect/dashboard/evening/converge all exit-0, none stalled); (2) improve:error 'fatal: last is not defined' = another-repo code bug, flag-never-patch, still blocked by holdet-bot's dirty tree per yesterday's diagnostic. Scheduler overlay clean: daily-news-brief fired 03:07Z, every enabled evening holdet producer fired last night on cadence w/ future nextRunAt, NO silent failure. System awake (Amphetamine, no sleep gap) so misses aren't sleep-induced. Two enabled-drifts (maintenance-and-improvements, retired stock relic: config=paused/scheduler=enabled) left unflipped per precedent — pending-retirement decisions, not sync errors. No allowlisted action available.</span>
+      <span class="proj__now-ago">12h ago</span>
     </div>
     
     <div class="proj__links"><a class="chip" href="https://abustrup.github.io/Routine-overview/" target="_blank" rel="noopener">This dashboard<span class="chip__ext" aria-hidden="true">↗</span></a><a class="chip" href="https://github.com/abustrup/Routine-overview" target="_blank" rel="noopener">Repo<span class="chip__ext" aria-hidden="true">↗</span></a></div>
@@ -403,25 +455,25 @@
     <span class="row__dot"><span class="dot dot--green" title="Healthy" aria-hidden="true"></span></span>
     <span class="row__name">Holdet dashboard improve</span>
     <span class="row__cadence">Every 8h</span>
-    <span class="row__ago">47 min ago</span>
+    <span class="row__ago">13h ago</span>
     <span class="row__head" title="Update dashboard — 2026-07-15 04:32 Europe/Copenhagen">Update dashboard — 2026-07-15 04:32 Europe/Copenhagen</span>
   </li><li class="row">
-    <span class="row__dot"><span class="dot dot--green" title="Healthy" aria-hidden="true"></span></span>
+    <span class="row__dot"><span class="dot dot--red" title="Needs attention" aria-hidden="true"></span></span>
     <span class="row__name">Holdet auditor</span>
     <span class="row__cadence">Every 5h</span>
-    <span class="row__ago">5h ago</span>
-    <span class="row__head" title="ran — no errors detected">ran — no errors detected</span>
+    <span class="row__ago">17h ago</span>
+    <span class="row__head" title="error detected in local log — details kept private">error detected in local log — details kept private</span>
   </li><li class="row">
     <span class="row__dot"><span class="dot dot--green" title="Healthy" aria-hidden="true"></span></span>
     <span class="row__name">Holdet LLM brain</span>
     <span class="row__cadence">Daily · 16:55</span>
-    <span class="row__ago">5h ago</span>
+    <span class="row__ago">17h ago</span>
     <span class="row__head" title="ran — no errors detected">ran — no errors detected</span>
   </li><li class="row row--muted">
     <span class="row__dot"><span class="dot dot--paused" title="Paused" aria-hidden="true"></span></span>
     <span class="row__name">Holdet self-improve <span class="tag tag--off">paused</span></span>
     <span class="row__cadence">Hourly</span>
-    <span class="row__ago">5h ago</span>
+    <span class="row__ago">17h ago</span>
     <span class="row__head" title="paused">paused</span>
   </li><li class="row">
     <span class="row__dot"><span class="dot dot--green" title="Healthy" aria-hidden="true"></span></span>
@@ -439,7 +491,7 @@
     <span class="row__dot"><span class="dot dot--green" title="Healthy" aria-hidden="true"></span></span>
     <span class="row__name">Holdet evening pass <span class="tag">launchd</span></span>
     <span class="row__cadence">~21:05 &amp; ~23:10</span>
-    <span class="row__ago">7h ago</span>
+    <span class="row__ago">19h ago</span>
     <span class="row__head row__head--note" title="a data source is degraded — details are local-only">a data source is degraded — details are local-only</span>
   </li><li class="row">
     <span class="row__dot"><span class="dot dot--red" title="Needs attention" aria-hidden="true"></span></span>
@@ -451,7 +503,7 @@
     <span class="row__dot"><span class="dot dot--green" title="Healthy" aria-hidden="true"></span></span>
     <span class="row__name">Holdet watch sentinel <span class="tag">launchd</span></span>
     <span class="row__cadence">Hourly</span>
-    <span class="row__ago">27 min ago</span>
+    <span class="row__ago">30 min ago</span>
     <span class="row__head row__head--note" title="a data source is degraded — details are local-only">a data source is degraded — details are local-only</span>
   </li><li class="row">
     <span class="row__dot"><span class="dot dot--red" title="Needs attention" aria-hidden="true"></span></span>
@@ -466,14 +518,14 @@
     <span class="row__dot"><span class="dot dot--paused" title="Paused" aria-hidden="true"></span></span>
     <span class="row__name">Dashboard self-improve <span class="tag tag--off">paused</span></span>
     <span class="row__cadence">Daily · 02:00</span>
-    <span class="row__ago">4d ago</span>
-    <span class="row__head" title="fix: stop a degenerate day-change from Infinity-poisoning the headline day P&amp;L">fix: stop a degenerate day-change from Infinity-poisoning the headline day P&amp;L</span>
+    <span class="row__ago">3 min ago</span>
+    <span class="row__head" title="feat(universe): add 20 AI-supply-chain names to the opportunity universe">feat(universe): add 20 AI-supply-chain names to the opportunity universe</span>
   </li><li class="row row--muted">
     <span class="row__dot"><span class="dot dot--paused" title="Paused" aria-hidden="true"></span></span>
     <span class="row__name">Stock maintenance <span class="tag tag--off">paused</span></span>
     <span class="row__cadence">Daily · 13:00</span>
-    <span class="row__ago">4d ago</span>
-    <span class="row__head" title="fix: stop a degenerate day-change from Infinity-poisoning the headline day P&amp;L">fix: stop a degenerate day-change from Infinity-poisoning the headline day P&amp;L</span>
+    <span class="row__ago">3 min ago</span>
+    <span class="row__head" title="feat(universe): add 20 AI-supply-chain names to the opportunity universe">feat(universe): add 20 AI-supply-chain names to the opportunity universe</span>
   </li><li class="row row--muted">
     <span class="row__dot"><span class="dot dot--paused" title="Paused" aria-hidden="true"></span></span>
     <span class="row__name">Watchlist integration <span class="tag tag--off">paused</span></span>
@@ -487,14 +539,14 @@
     <span class="row__dot"><span class="dot dot--green" title="Healthy" aria-hidden="true"></span></span>
     <span class="row__name">Daily news brief</span>
     <span class="row__cadence">Daily · 06:02</span>
-    <span class="row__ago">23h ago</span>
-    <span class="row__head" title="brief: 2026-07-14">brief: 2026-07-14</span>
+    <span class="row__ago">11h ago</span>
+    <span class="row__head" title="published 2026-07-15">published 2026-07-15</span>
   </li><li class="row">
     <span class="row__dot"><span class="dot dot--green" title="Healthy" aria-hidden="true"></span></span>
     <span class="row__name">Rolling weekly (Ugen)</span>
     <span class="row__cadence">Daily · 06:48</span>
-    <span class="row__ago">22h ago</span>
-    <span class="row__head" title="rolling weekly: 2026-07-14">rolling weekly: 2026-07-14</span>
+    <span class="row__ago">10h ago</span>
+    <span class="row__head" title="rolling weekly: 2026-07-15">rolling weekly: 2026-07-15</span>
   </li><li class="row">
     <span class="row__dot"><span class="dot dot--green" title="Healthy" aria-hidden="true"></span></span>
     <span class="row__name">Rolling monthly (Måneden)</span>
@@ -523,16 +575,16 @@
     </div><div class="rgroup">
       <div class="rgroup__head">🗂️ Routine Overview<span class="rgroup__count">2</span></div>
       <ul class="rlist"><li class="row">
-    <span class="row__dot"><span class="dot dot--green" title="Healthy" aria-hidden="true"></span></span>
+    <span class="row__dot"><span class="dot dot--yellow" title="Ageing" aria-hidden="true"></span></span>
     <span class="row__name">Routine secretary (this)</span>
     <span class="row__cadence">Every 5h · :17</span>
-    <span class="row__ago">5h ago</span>
-    <span class="row__head" title="steady-state, NO push: attentionKey SHRANK to a strict subset of last journal (secretary's own 'ageing' warn cleared — this run is the fresh tick) → no novel key, all 4 items already notified 19:01Z. Reds triaged, none newly actionable: (1) auditor:stale 23h — fired healthy 08:06Z (nextRun 07-15 08:05Z) but made no commit; its probe is gitAny(holdetBot) and the bot's last commit is 23:18Z overnight batch. Same CONFIG-CADENCE FALSE POSITIVE flagged yesterday (config cadence 'Every 5h'/periodHours 5 vs scheduler cron '0 10 * * *' = DAILY) — it merely aged warn→red as the day passed; no new evidence of failure. Cannot self-fix: periodHours is config beyond the allowlist. (2) DNS guard:stale 13d — guard.log untouched since 07-02 08:30; launchctl confirms NO com.holdet.tdf.dns* label exists to kickstart → flag-only, already notified. (3) improve:error — 'fatal: last is not defined', another-repo code bug → flag-only, never patch. NEW DIAGNOSTIC (root cause of the improve red, reported not pushed): holdet-bot has 2 uncommitted files (dashboard/template.html +175 lines, dashboard/IMPROVEMENTS.md, both from the 07-14 04:2x dashboard-improve run) and improve.js is now logging 'tracked source has uncommitted changes — skipping auto-merge to avoid clobbering' → the dirty tree is BLOCKING every improve auto-merge. Cleaning it is outside the allowlist (another repo) → needs Alexander. Warn dashboard-improve:ageing = the known daily-cron-vs-config-8h twin false positive (ran healthy 02:08Z). Scheduler overlay otherwise clean: all 5 present launchd services exit-0, watch sentinel fresh (21:50Z, no stall), every enabled+due MCP producer fired on cadence with future nextRunAt, tonight's evening batch in flight and not yet due to commit — NO silent failure. Two enabled-drifts (config=paused, scheduler=enabled: retired stock relic + maintenance-and-improvements) unchanged and left unflipped per precedent — they are pending-retirement decisions, and flipping them green would dress up daily waste as healthy ('honest over tidy'). No allowlisted action available.">steady-state, NO push: attentionKey SHRANK to a strict subset of last journal (secretary's own 'ageing' warn cleared — this run is the fresh tick) → no novel key, all 4 items already notified 19:01Z. Reds triaged, none newly actionable: (1) auditor:stale 23h — fired healthy 08:06Z (nextRun 07-15 08:05Z) but made no commit; its probe is gitAny(holdetBot) and the bot's last commit is 23:18Z overnight batch. Same CONFIG-CADENCE FALSE POSITIVE flagged yesterday (config cadence 'Every 5h'/periodHours 5 vs scheduler cron '0 10 * * *' = DAILY) — it merely aged warn→red as the day passed; no new evidence of failure. Cannot self-fix: periodHours is config beyond the allowlist. (2) DNS guard:stale 13d — guard.log untouched since 07-02 08:30; launchctl confirms NO com.holdet.tdf.dns* label exists to kickstart → flag-only, already notified. (3) improve:error — 'fatal: last is not defined', another-repo code bug → flag-only, never patch. NEW DIAGNOSTIC (root cause of the improve red, reported not pushed): holdet-bot has 2 uncommitted files (dashboard/template.html +175 lines, dashboard/IMPROVEMENTS.md, both from the 07-14 04:2x dashboard-improve run) and improve.js is now logging 'tracked source has uncommitted changes — skipping auto-merge to avoid clobbering' → the dirty tree is BLOCKING every improve auto-merge. Cleaning it is outside the allowlist (another repo) → needs Alexander. Warn dashboard-improve:ageing = the known daily-cron-vs-config-8h twin false positive (ran healthy 02:08Z). Scheduler overlay otherwise clean: all 5 present launchd services exit-0, watch sentinel fresh (21:50Z, no stall), every enabled+due MCP producer fired on cadence with future nextRunAt, tonight's evening batch in flight and not yet due to commit — NO silent failure. Two enabled-drifts (config=paused, scheduler=enabled: retired stock relic + maintenance-and-improvements) unchanged and left unflipped per precedent — they are pending-retirement decisions, and flipping them green would dress up daily waste as healthy ('honest over tidy'). No allowlisted action available.</span>
+    <span class="row__ago">12h ago</span>
+    <span class="row__head" title="steady-state clearing, NO push: attentionKey {DNS guard:stale, improve:error} is a STRICT SUBSET of last journal (22:22Z) — auditor:stale red + dashboard-improve:ageing warn both CLEARED (auditor fired 07-14 08:06Z + overnight bot commit satisfied its gitAny freshness probe; holdet-dashboard-improve fired healthy 02:08Z, nextRun 07-16 02:07Z). No novel key, no autonomous action → silent. Both remaining reds standing + already-notified, flag-only: (1) DNS guard stale 13d — launchctl confirms NO com.holdet.tdf.dns* label exists to kickstart (5 present launchd services watch/collect/dashboard/evening/converge all exit-0, none stalled); (2) improve:error 'fatal: last is not defined' = another-repo code bug, flag-never-patch, still blocked by holdet-bot's dirty tree per yesterday's diagnostic. Scheduler overlay clean: daily-news-brief fired 03:07Z, every enabled evening holdet producer fired last night on cadence w/ future nextRunAt, NO silent failure. System awake (Amphetamine, no sleep gap) so misses aren't sleep-induced. Two enabled-drifts (maintenance-and-improvements, retired stock relic: config=paused/scheduler=enabled) left unflipped per precedent — pending-retirement decisions, not sync errors. No allowlisted action available.">steady-state clearing, NO push: attentionKey {DNS guard:stale, improve:error} is a STRICT SUBSET of last journal (22:22Z) — auditor:stale red + dashboard-improve:ageing warn both CLEARED (auditor fired 07-14 08:06Z + overnight bot commit satisfied its gitAny freshness probe; holdet-dashboard-improve fired healthy 02:08Z, nextRun 07-16 02:07Z). No novel key, no autonomous action → silent. Both remaining reds standing + already-notified, flag-only: (1) DNS guard stale 13d — launchctl confirms NO com.holdet.tdf.dns* label exists to kickstart (5 present launchd services watch/collect/dashboard/evening/converge all exit-0, none stalled); (2) improve:error 'fatal: last is not defined' = another-repo code bug, flag-never-patch, still blocked by holdet-bot's dirty tree per yesterday's diagnostic. Scheduler overlay clean: daily-news-brief fired 03:07Z, every enabled evening holdet producer fired last night on cadence w/ future nextRunAt, NO silent failure. System awake (Amphetamine, no sleep gap) so misses aren't sleep-induced. Two enabled-drifts (maintenance-and-improvements, retired stock relic: config=paused/scheduler=enabled) left unflipped per precedent — pending-retirement decisions, not sync errors. No allowlisted action available.</span>
   </li><li class="row row--muted">
     <span class="row__dot"><span class="dot dot--paused" title="Paused" aria-hidden="true"></span></span>
     <span class="row__name">Overview self-improve <span class="tag tag--off">paused</span></span>
     <span class="row__cadence">Every 3h</span>
-    <span class="row__ago">11d ago</span>
+    <span class="row__ago">12d ago</span>
     <span class="row__head" title="improve: roster note only shows on green rows so a stale routine's headline matches its dot">improve: roster note only shows on green rows so a stale routine's headline matches its dot</span>
   </li></ul>
     </div><div class="rgroup">
@@ -550,7 +602,7 @@
   <footer>
     Health is reconstructed from each routine's real artifacts — git commits, run-logs and published files — not just whether the scheduler fired. Silent by design: you get a push only when something needs you.
     <br>
-    Generated 15 Jul 2026, 05:19 Europe/Copenhagen
+    Generated 15 Jul 2026, 17:22 Europe/Copenhagen
     <span class="foot-sep">·</span>
     <a href="https://github.com/abustrup/Routine-overview" target="_blank" rel="noopener">github.com/abustrup/Routine-overview</a>
   </footer>
