@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-07-16T18:18:51.480Z",
-  "generatedAtLocal": "16 Jul 2026, 20:18 Europe/Copenhagen",
+  "generatedAt": "2026-07-16T22:18:43.886Z",
+  "generatedAtLocal": "17 Jul 2026, 00:18 Europe/Copenhagen",
   "owner": "Alexander Bustrup",
   "attentionKey": "red:Holdet DNS guard (launchd):stale|red:Holdet improve loop (launchd):error|warn:Holdet dashboard improve:ageing",
   "staleAfterMin": 360,
@@ -16,7 +16,7 @@
       "severity": "red",
       "project": "holdet-tdf",
       "routine": "Holdet DNS guard (launchd)",
-      "message": "Stale — last output 14d ago (expected ~08:30).",
+      "message": "Stale — last output 15d ago (expected ~08:30).",
       "kind": "stale",
       "fix": {
         "prompt": "The scheduled routine \"Holdet DNS guard (launchd)\" was expected to run ~08:30 but produced no recent output. Working dir: ~/holdet-tdf-bot. Investigate why it stopped (check its scheduler run and its log), fix the cause, verify a fresh run produces output, and commit. Follow the project's own CLAUDE.md and the holdet-tdf-bot skill, which document its guardrails and protected paths.",
@@ -38,7 +38,7 @@
       "severity": "warn",
       "project": "holdet-tdf",
       "routine": "Holdet dashboard improve",
-      "message": "Ageing — last output 16h ago (expected Every 8h).",
+      "message": "Ageing — last output 20h ago (expected Every 8h).",
       "kind": "ageing",
       "fix": {
         "prompt": "The scheduled routine \"Holdet dashboard improve\" (One safe read-only improvement to the holdet dashboard, then publishes the refreshed page.) was expected to run Every 8h but produced no recent output. Working dir: ~/holdet-tdf-bot. Investigate why it stopped (check its scheduler run and its log), fix the cause, verify a fresh run produces output, and commit. Follow the project's own CLAUDE.md and the holdet-tdf-bot skill, which document its guardrails and protected paths.",
@@ -86,7 +86,7 @@
         }
       ],
       "lastPublish": "2026-07-16T02:27:56.000Z",
-      "lastPublishHuman": "16h ago",
+      "lastPublishHuman": "20h ago",
       "lastPublishSubject": "Update dashboard — 2026-07-16 04:27 Europe/Copenhagen",
       "routineCount": 10,
       "routines": [
@@ -120,7 +120,7 @@
         }
       ],
       "lastPublish": "2026-07-16T12:00:31.000Z",
-      "lastPublishHuman": "6h ago",
+      "lastPublishHuman": "10h ago",
       "lastPublishSubject": "docs(auto-log): record the 2026-07-16 maintenance run",
       "routineCount": 3,
       "routines": [
@@ -147,7 +147,7 @@
         }
       ],
       "lastPublish": "2026-07-16T04:53:29.000Z",
-      "lastPublishHuman": "13h ago",
+      "lastPublishHuman": "17h ago",
       "lastPublishSubject": "rolling weekly: 2026-07-16",
       "routineCount": 6,
       "routines": [
@@ -176,9 +176,9 @@
           "url": "https://github.com/abustrup/Routine-overview"
         }
       ],
-      "lastPublish": "2026-07-16T13:20:15.000Z",
-      "lastPublishHuman": "5h ago",
-      "lastPublishSubject": "steady-state, NO push: attentionKey byte-identical to 03:22Z journal key {DNS guard:stale, improve:error} — auditor:ageing warn CLEARED (fired 08:05Z, output landed). Both reds standing + already-notified, flag-only: DNS guard stale 14d (launchctl confirms no com.holdet.tdf.dns* label to kickstart), improve 'fatal: last is not defined' (another-repo bug, flag-never-patch). Overlay clean: 5 launchd exit-0, watch fresh 12:46Z tick, system awake no sleep gap; all enabled MCP producers on cadence w/ future nextRunAt (brief 03:07Z, weekly 04:48Z, dashboard-improve 02:07Z, researcher 06:47Z, meta 07:11Z, auditor 08:05Z, maintenance 10:04Z, relic 11:10Z); evening batch due tonight. Enabled-drifts unflipped per pending-retirement precedent.",
+      "lastPublish": "2026-07-16T18:21:14.000Z",
+      "lastPublishHuman": "4h ago",
+      "lastPublishSubject": "steady-state, NO push: key differs from 13:20Z journal only by re-appeared warn:dashboard-improve:ageing — known daily-cron-vs-periodHours:8 false positive (fired healthy 02:07Z, next 07-17 02:07Z); exact 3-item key already notified 07-13+07-15, all components already-notified, no autonomous action => silent. Standing reds unchanged flag-only: DNS guard stale 14d (no com.holdet.tdf.dns* label to kickstart), improve 'fatal: last is not defined' (another-repo bug, improve.log untouched since Jul 2). Overlay clean: 5 launchd exit-0, watch fresh 19:34-local tick; battery hit 1% → brief sleeps 19:20–19:39 local, recovered on AC, no missed runs; all enabled MCP producers on cadence w/ future nextRunAt, evening batch due tonight. Enabled-drifts unflipped per pending-retirement precedent.",
       "routineCount": 2,
       "routines": [
         "routine-overview-secretary",
@@ -198,10 +198,10 @@
       "does": "Refreshes this overview from artifact-truth and flags only what needs attention.",
       "health": "green",
       "private": false,
-      "headline": "steady-state, NO push: attentionKey byte-identical to 03:22Z journal key {DNS guard:stale, improve:error} — auditor:ageing warn CLEARED (fired 08:05Z, output landed). Both reds standing + already-notified, flag-only: DNS guard stale 14d (launchctl confirms no com.holdet.tdf.dns* label to kickstart), improve 'fatal: last is not defined' (another-repo bug, flag-never-patch). Overlay clean: 5 launchd exit-0, watch fresh 12:46Z tick, system awake no sleep gap; all enabled MCP producers on cadence w/ future nextRunAt (brief 03:07Z, weekly 04:48Z, dashboard-improve 02:07Z, researcher 06:47Z, meta 07:11Z, auditor 08:05Z, maintenance 10:04Z, relic 11:10Z); evening batch due tonight. Enabled-drifts unflipped per pending-retirement precedent.",
+      "headline": "steady-state, NO push: key differs from 13:20Z journal only by re-appeared warn:dashboard-improve:ageing — known daily-cron-vs-periodHours:8 false positive (fired healthy 02:07Z, next 07-17 02:07Z); exact 3-item key already notified 07-13+07-15, all components already-notified, no autonomous action => silent. Standing reds unchanged flag-only: DNS guard stale 14d (no com.holdet.tdf.dns* label to kickstart), improve 'fatal: last is not defined' (another-repo bug, improve.log untouched since Jul 2). Overlay clean: 5 launchd exit-0, watch fresh 19:34-local tick; battery hit 1% → brief sleeps 19:20–19:39 local, recovered on AC, no missed runs; all enabled MCP producers on cadence w/ future nextRunAt, evening batch due tonight. Enabled-drifts unflipped per pending-retirement precedent.",
       "logName": null,
-      "lastOutputAt": "2026-07-16T13:20:15.000Z",
-      "lastOutputHuman": "5h ago",
+      "lastOutputAt": "2026-07-16T18:21:14.000Z",
+      "lastOutputHuman": "4h ago",
       "issues": [],
       "review": null
     },
@@ -234,10 +234,10 @@
       "does": "Researches, validates and publishes the Danish morning brief before the 06:40 deadline.",
       "health": "green",
       "private": false,
-      "headline": "published 2026-07-16",
+      "headline": "brief: 2026-07-16",
       "logName": null,
-      "lastOutputAt": "2026-07-16T04:05:23.169Z",
-      "lastOutputHuman": "14h ago",
+      "lastOutputAt": "2026-07-16T04:05:23.000Z",
+      "lastOutputHuman": "18h ago",
       "issues": [],
       "review": null
     },
@@ -255,7 +255,7 @@
       "headline": "rolling weekly: 2026-07-16",
       "logName": null,
       "lastOutputAt": "2026-07-16T04:53:29.000Z",
-      "lastOutputHuman": "13h ago",
+      "lastOutputHuman": "17h ago",
       "issues": [],
       "review": null
     },
@@ -291,7 +291,7 @@
       "headline": "rolling yearly: 2026-07-01",
       "logName": null,
       "lastOutputAt": "2026-07-01T08:56:52.000Z",
-      "lastOutputHuman": "15d ago",
+      "lastOutputHuman": "16d ago",
       "issues": [],
       "review": null
     },
@@ -345,7 +345,7 @@
       "headline": "docs(auto-log): record the 2026-07-16 maintenance run",
       "logName": null,
       "lastOutputAt": "2026-07-16T12:00:31.000Z",
-      "lastOutputHuman": "6h ago",
+      "lastOutputHuman": "10h ago",
       "issues": [],
       "review": null
     },
@@ -363,7 +363,7 @@
       "headline": "docs(auto-log): record the 2026-07-16 maintenance run",
       "logName": null,
       "lastOutputAt": "2026-07-16T12:00:31.000Z",
-      "lastOutputHuman": "6h ago",
+      "lastOutputHuman": "10h ago",
       "issues": [],
       "review": "Retired 2026-07-03 — was the redundant second stock maintainer (13:00); 'Dashboard self-improve' (02:00) is now the single canonical guardrailed pass. Disabled in scheduler; config synced to match."
     },
@@ -399,7 +399,7 @@
       "headline": "Update dashboard — 2026-07-16 04:27 Europe/Copenhagen",
       "logName": null,
       "lastOutputAt": "2026-07-16T02:27:56.000Z",
-      "lastOutputHuman": "16h ago",
+      "lastOutputHuman": "20h ago",
       "issues": [],
       "review": null
     },
@@ -416,8 +416,8 @@
       "private": true,
       "headline": "ran — no errors detected",
       "logName": null,
-      "lastOutputAt": "2026-07-16T12:57:03.000Z",
-      "lastOutputHuman": "5h ago",
+      "lastOutputAt": "2026-07-16T22:01:40.000Z",
+      "lastOutputHuman": "17 min ago",
       "issues": [],
       "review": null
     },
@@ -434,8 +434,8 @@
       "private": true,
       "headline": "ran — no errors detected",
       "logName": null,
-      "lastOutputAt": "2026-07-15T21:19:33.727Z",
-      "lastOutputHuman": "21h ago",
+      "lastOutputAt": "2026-07-16T19:52:33.173Z",
+      "lastOutputHuman": "2h ago",
       "issues": [],
       "review": null
     },
@@ -452,8 +452,8 @@
       "private": true,
       "headline": "paused",
       "logName": null,
-      "lastOutputAt": "2026-07-16T12:57:03.000Z",
-      "lastOutputHuman": "5h ago",
+      "lastOutputAt": "2026-07-16T22:01:40.000Z",
+      "lastOutputHuman": "17 min ago",
       "issues": [],
       "review": null
     },
@@ -524,8 +524,8 @@
       "private": true,
       "headline": "ran — no errors detected",
       "logName": "evening.log",
-      "lastOutputAt": "2026-07-15T20:31:25.153Z",
-      "lastOutputHuman": "22h ago",
+      "lastOutputAt": "2026-07-16T20:32:05.548Z",
+      "lastOutputHuman": "2h ago",
       "issues": [
         {
           "severity": "note",
@@ -548,7 +548,7 @@
       "headline": "error detected in local log — details kept private",
       "logName": "guard.log",
       "lastOutputAt": "2026-07-02T06:30:17.475Z",
-      "lastOutputHuman": "14d ago",
+      "lastOutputHuman": "15d ago",
       "issues": [
         {
           "severity": "note",
@@ -570,8 +570,8 @@
       "private": true,
       "headline": "ran — no errors detected",
       "logName": "watch.log",
-      "lastOutputAt": "2026-07-16T17:34:19.711Z",
-      "lastOutputHuman": "45 min ago",
+      "lastOutputAt": "2026-07-16T21:34:38.018Z",
+      "lastOutputHuman": "44 min ago",
       "issues": [
         {
           "severity": "note",
