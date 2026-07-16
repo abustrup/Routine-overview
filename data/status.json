@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-07-16T08:18:01.481Z",
-  "generatedAtLocal": "16 Jul 2026, 10:18 Europe/Copenhagen",
+  "generatedAt": "2026-07-16T13:18:54.928Z",
+  "generatedAtLocal": "16 Jul 2026, 15:18 Europe/Copenhagen",
   "owner": "Alexander Bustrup",
-  "attentionKey": "red:Holdet DNS guard (launchd):stale|red:Holdet improve loop (launchd):error|warn:Holdet auditor:ageing",
+  "attentionKey": "red:Holdet DNS guard (launchd):stale|red:Holdet improve loop (launchd):error",
   "staleAfterMin": 360,
   "summary": {
-    "green": 10,
-    "yellow": 1,
+    "green": 11,
+    "yellow": 0,
     "red": 2,
     "paused": 8,
     "total": 21
@@ -31,17 +31,6 @@
       "kind": "error",
       "fix": {
         "prompt": "The scheduled routine \"Holdet improve loop (launchd)\" is erroring. Working dir: ~/holdet-tdf-bot. Read improve.log for the exact error, then find the root cause, fix it, add a guard or test so it can't recur, verify by re-running the step, and commit. Follow the project's own CLAUDE.md and the holdet-tdf-bot skill, which document its guardrails and protected paths.",
-        "cwd": "~/holdet-tdf-bot"
-      }
-    },
-    {
-      "severity": "warn",
-      "project": "holdet-tdf",
-      "routine": "Holdet auditor",
-      "message": "Ageing — last output 10h ago (expected Every 5h).",
-      "kind": "ageing",
-      "fix": {
-        "prompt": "The scheduled routine \"Holdet auditor\" was expected to run Every 5h but produced no recent output. Working dir: ~/holdet-tdf-bot. Investigate why it stopped (check its scheduler run and its log), fix the cause, verify a fresh run produces output, and commit. Follow the project's own CLAUDE.md and the holdet-tdf-bot skill, which document its guardrails and protected paths.",
         "cwd": "~/holdet-tdf-bot"
       }
     },
@@ -86,7 +75,7 @@
         }
       ],
       "lastPublish": "2026-07-16T02:27:56.000Z",
-      "lastPublishHuman": "6h ago",
+      "lastPublishHuman": "11h ago",
       "lastPublishSubject": "Update dashboard — 2026-07-16 04:27 Europe/Copenhagen",
       "routineCount": 10,
       "routines": [
@@ -119,9 +108,9 @@
           "url": "https://github.com/abustrup/personal-stock-dashboard"
         }
       ],
-      "lastPublish": "2026-07-15T15:19:24.000Z",
-      "lastPublishHuman": "17h ago",
-      "lastPublishSubject": "feat(universe): add 20 AI-supply-chain names to the opportunity universe",
+      "lastPublish": "2026-07-16T12:00:31.000Z",
+      "lastPublishHuman": "1h ago",
+      "lastPublishSubject": "docs(auto-log): record the 2026-07-16 maintenance run",
       "routineCount": 3,
       "routines": [
         "dashboard-self-improve",
@@ -147,7 +136,7 @@
         }
       ],
       "lastPublish": "2026-07-16T04:53:29.000Z",
-      "lastPublishHuman": "3h ago",
+      "lastPublishHuman": "8h ago",
       "lastPublishSubject": "rolling weekly: 2026-07-16",
       "routineCount": 6,
       "routines": [
@@ -176,9 +165,9 @@
           "url": "https://github.com/abustrup/Routine-overview"
         }
       ],
-      "lastPublish": "2026-07-16T03:18:54.000Z",
+      "lastPublish": "2026-07-16T08:19:55.000Z",
       "lastPublishHuman": "5h ago",
-      "lastPublishSubject": "overview: 2026-07-16 03:22 — 11🟢 0🟡 2🔴",
+      "lastPublishSubject": "steady-state, NO push: attentionKey {DNS guard:stale, improve:error, auditor:ageing} byte-identical to already-NOTIFIED 07-14 08:26Z key — every component already-notified, no autonomous action => silent. warn auditor:ageing = known daily-cron-vs-periodHours false positive (fired 08:05:10Z, 13 min before collect, nextRun 07-17 08:05 — run in flight, not silent failure). Standing reds unchanged flag-only: DNS guard stale 14d (no com.holdet.tdf.dns* label to kickstart), improve 'fatal: last is not defined' (another-repo bug, flag-never-patch). Overlay clean: 5 launchd exit-0, watch ticking, no sleep gap since 07-15 22:21 wake; all enabled MCP producers on cadence w/ future nextRunAt. Enabled-drifts unflipped per pending-retirement precedent.",
       "routineCount": 2,
       "routines": [
         "routine-overview-secretary",
@@ -198,9 +187,9 @@
       "does": "Refreshes this overview from artifact-truth and flags only what needs attention.",
       "health": "green",
       "private": false,
-      "headline": "overview: 2026-07-16 03:22 — 11🟢 0🟡 2🔴",
+      "headline": "steady-state, NO push: attentionKey {DNS guard:stale, improve:error, auditor:ageing} byte-identical to already-NOTIFIED 07-14 08:26Z key — every component already-notified, no autonomous action => silent. warn auditor:ageing = known daily-cron-vs-periodHours false positive (fired 08:05:10Z, 13 min before collect, nextRun 07-17 08:05 — run in flight, not silent failure). Standing reds unchanged flag-only: DNS guard stale 14d (no com.holdet.tdf.dns* label to kickstart), improve 'fatal: last is not defined' (another-repo bug, flag-never-patch). Overlay clean: 5 launchd exit-0, watch ticking, no sleep gap since 07-15 22:21 wake; all enabled MCP producers on cadence w/ future nextRunAt. Enabled-drifts unflipped per pending-retirement precedent.",
       "logName": null,
-      "lastOutputAt": "2026-07-16T03:18:54.000Z",
+      "lastOutputAt": "2026-07-16T08:19:55.000Z",
       "lastOutputHuman": "5h ago",
       "issues": [],
       "review": null
@@ -237,7 +226,7 @@
       "headline": "published 2026-07-16",
       "logName": null,
       "lastOutputAt": "2026-07-16T04:05:23.169Z",
-      "lastOutputHuman": "4h ago",
+      "lastOutputHuman": "9h ago",
       "issues": [],
       "review": null
     },
@@ -255,7 +244,7 @@
       "headline": "rolling weekly: 2026-07-16",
       "logName": null,
       "lastOutputAt": "2026-07-16T04:53:29.000Z",
-      "lastOutputHuman": "3h ago",
+      "lastOutputHuman": "8h ago",
       "issues": [],
       "review": null
     },
@@ -342,10 +331,10 @@
       "does": "Ships at most ONE strictly-better improvement to the stock dashboard per run via reviewed PR (or nothing).",
       "health": "paused",
       "private": false,
-      "headline": "feat(universe): add 20 AI-supply-chain names to the opportunity universe",
+      "headline": "docs(auto-log): record the 2026-07-16 maintenance run",
       "logName": null,
-      "lastOutputAt": "2026-07-15T15:19:24.000Z",
-      "lastOutputHuman": "17h ago",
+      "lastOutputAt": "2026-07-16T12:00:31.000Z",
+      "lastOutputHuman": "1h ago",
       "issues": [],
       "review": null
     },
@@ -360,10 +349,10 @@
       "does": "Structural maintenance passes on the stock dashboard.",
       "health": "paused",
       "private": false,
-      "headline": "feat(universe): add 20 AI-supply-chain names to the opportunity universe",
+      "headline": "docs(auto-log): record the 2026-07-16 maintenance run",
       "logName": null,
-      "lastOutputAt": "2026-07-15T15:19:24.000Z",
-      "lastOutputHuman": "17h ago",
+      "lastOutputAt": "2026-07-16T12:00:31.000Z",
+      "lastOutputHuman": "1h ago",
       "issues": [],
       "review": "Retired 2026-07-03 — was the redundant second stock maintainer (13:00); 'Dashboard self-improve' (02:00) is now the single canonical guardrailed pass. Disabled in scheduler; config synced to match."
     },
@@ -399,7 +388,7 @@
       "headline": "Update dashboard — 2026-07-16 04:27 Europe/Copenhagen",
       "logName": null,
       "lastOutputAt": "2026-07-16T02:27:56.000Z",
-      "lastOutputHuman": "6h ago",
+      "lastOutputHuman": "11h ago",
       "issues": [],
       "review": null
     },
@@ -412,12 +401,12 @@
       "role": "maintainer",
       "enabled": true,
       "does": null,
-      "health": "yellow",
+      "health": "green",
       "private": true,
-      "headline": "ageing / warning — details kept private",
+      "headline": "ran — no errors detected",
       "logName": null,
-      "lastOutputAt": "2026-07-15T21:56:34.000Z",
-      "lastOutputHuman": "10h ago",
+      "lastOutputAt": "2026-07-16T12:57:03.000Z",
+      "lastOutputHuman": "22 min ago",
       "issues": [],
       "review": null
     },
@@ -435,7 +424,7 @@
       "headline": "ran — no errors detected",
       "logName": null,
       "lastOutputAt": "2026-07-15T21:19:33.727Z",
-      "lastOutputHuman": "11h ago",
+      "lastOutputHuman": "16h ago",
       "issues": [],
       "review": null
     },
@@ -452,8 +441,8 @@
       "private": true,
       "headline": "paused",
       "logName": null,
-      "lastOutputAt": "2026-07-15T21:56:34.000Z",
-      "lastOutputHuman": "10h ago",
+      "lastOutputAt": "2026-07-16T12:57:03.000Z",
+      "lastOutputHuman": "22 min ago",
       "issues": [],
       "review": null
     },
@@ -525,7 +514,7 @@
       "headline": "ran — no errors detected",
       "logName": "evening.log",
       "lastOutputAt": "2026-07-15T20:31:25.153Z",
-      "lastOutputHuman": "12h ago",
+      "lastOutputHuman": "17h ago",
       "issues": [
         {
           "severity": "note",
@@ -570,8 +559,8 @@
       "private": true,
       "headline": "ran — no errors detected",
       "logName": "watch.log",
-      "lastOutputAt": "2026-07-16T07:28:22.383Z",
-      "lastOutputHuman": "50 min ago",
+      "lastOutputAt": "2026-07-16T12:46:13.895Z",
+      "lastOutputHuman": "33 min ago",
       "issues": [
         {
           "severity": "note",
