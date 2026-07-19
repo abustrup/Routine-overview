@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-07-19T08:17:53.428Z",
-  "generatedAtLocal": "19 Jul 2026, 10:17 Europe/Copenhagen",
+  "generatedAt": "2026-07-19T18:17:55.950Z",
+  "generatedAtLocal": "19 Jul 2026, 20:17 Europe/Copenhagen",
   "owner": "Alexander Bustrup",
-  "attentionKey": "red:Holdet DNS guard (launchd):stale|red:Holdet improve loop (launchd):error",
+  "attentionKey": "red:Holdet DNS guard (launchd):stale|red:Holdet improve loop (launchd):error|warn:Holdet auditor:ageing|warn:Holdet dashboard improve:ageing|warn:Routine secretary (this):ageing",
   "staleAfterMin": 360,
   "summary": {
-    "green": 11,
-    "yellow": 0,
+    "green": 8,
+    "yellow": 3,
     "red": 2,
     "paused": 8,
     "total": 21
@@ -31,6 +31,39 @@
       "kind": "error",
       "fix": {
         "prompt": "The scheduled routine \"Holdet improve loop (launchd)\" is erroring. Working dir: ~/holdet-tdf-bot. Read improve.log for the exact error, then find the root cause, fix it, add a guard or test so it can't recur, verify by re-running the step, and commit. Follow the project's own CLAUDE.md and the holdet-tdf-bot skill, which document its guardrails and protected paths.",
+        "cwd": "~/holdet-tdf-bot"
+      }
+    },
+    {
+      "severity": "warn",
+      "project": "meta",
+      "routine": "Routine secretary (this)",
+      "message": "Ageing — last output 10h ago (expected Every 5h · :17).",
+      "kind": "ageing",
+      "fix": {
+        "prompt": "The scheduled routine \"Routine secretary (this)\" (Refreshes this overview from artifact-truth and flags only what needs attention.) was expected to run Every 5h · :17 but produced no recent output. Working dir: ~/Documents/AI eksperimenter/Routine overview. Investigate why it stopped (check its scheduler run and its log), fix the cause, verify a fresh run produces output, and commit. Keep it public-safe: health/status only, no secrets or strategy internals. Verify with node scripts/collect.mjs && node scripts/render.mjs before pushing.",
+        "cwd": "~/Documents/AI eksperimenter/Routine overview"
+      }
+    },
+    {
+      "severity": "warn",
+      "project": "holdet-tdf",
+      "routine": "Holdet dashboard improve",
+      "message": "Ageing — last output 16h ago (expected Every 8h).",
+      "kind": "ageing",
+      "fix": {
+        "prompt": "The scheduled routine \"Holdet dashboard improve\" (One safe read-only improvement to the holdet dashboard, then publishes the refreshed page.) was expected to run Every 8h but produced no recent output. Working dir: ~/holdet-tdf-bot. Investigate why it stopped (check its scheduler run and its log), fix the cause, verify a fresh run produces output, and commit. Follow the project's own CLAUDE.md and the holdet-tdf-bot skill, which document its guardrails and protected paths.",
+        "cwd": "~/holdet-tdf-bot"
+      }
+    },
+    {
+      "severity": "warn",
+      "project": "holdet-tdf",
+      "routine": "Holdet auditor",
+      "message": "Ageing — last output 10h ago (expected Every 5h).",
+      "kind": "ageing",
+      "fix": {
+        "prompt": "The scheduled routine \"Holdet auditor\" was expected to run Every 5h but produced no recent output. Working dir: ~/holdet-tdf-bot. Investigate why it stopped (check its scheduler run and its log), fix the cause, verify a fresh run produces output, and commit. Follow the project's own CLAUDE.md and the holdet-tdf-bot skill, which document its guardrails and protected paths.",
         "cwd": "~/holdet-tdf-bot"
       }
     },
@@ -68,7 +101,7 @@
         }
       ],
       "lastPublish": "2026-07-19T02:22:02.000Z",
-      "lastPublishHuman": "6h ago",
+      "lastPublishHuman": "16h ago",
       "lastPublishSubject": "Update dashboard — 2026-07-19 04:22 Europe/Copenhagen",
       "routineCount": 10,
       "routines": [
@@ -129,7 +162,7 @@
         }
       ],
       "lastPublish": "2026-07-19T04:51:36.000Z",
-      "lastPublishHuman": "3h ago",
+      "lastPublishHuman": "13h ago",
       "lastPublishSubject": "rolling weekly: 2026-07-19",
       "routineCount": 6,
       "routines": [
@@ -147,7 +180,7 @@
       "emoji": "🗂️",
       "goal": "Hold the whole picture across every routine and interrupt Alexander only when something genuinely needs him.",
       "note": null,
-      "health": "green",
+      "health": "yellow",
       "links": [
         {
           "label": "This dashboard",
@@ -158,9 +191,9 @@
           "url": "https://github.com/abustrup/Routine-overview"
         }
       ],
-      "lastPublish": "2026-07-19T03:20:41.000Z",
-      "lastPublishHuman": "5h ago",
-      "lastPublishSubject": "steady-state, NO push: key differs from 22:21Z journal but no new actionable content — 2 clearings (self-referential secretary:stale; dashboard-improve:ageing false pos, fired healthy 02:08Z) + rolling-weekly:ageing which is the already-pushed 07-18 miss crossing 2d. FORWARD RISK RESOLVED: pmset shows ZERO sleep events on 07-19 (Mac awake since 07-18 21:36 CEST wake) — the battery/sleep condition that killed the 07-18 brief did not recur. daily-news-brief IN FLIGHT not failed (fired 03:07Z, deadline 04:40Z, typical finish 03:50-04:19Z); 08:17Z run confirms. No autonomous action: enabled-drift ZERO across 26 tasks, 5 launchd exit-0, brief is role:producer => flag-only. Holdet healthy (watch 05:14, converge 05:17, coach stage 15). Standing reds flag-only: DNS guard stale 17d (no launchd label exists), improve error (another-repo bug).",
+      "lastPublish": "2026-07-19T08:19:57.000Z",
+      "lastPublishHuman": "10h ago",
+      "lastPublishSubject": "RECOVERY CONFIRMED, NO push: 07-19 brief published 05:59 CEST (data/2026-07-19.json, 38052f5) 41 min inside the 06:40 deadline, rolling-weekly followed 06:51 — the battery/sleep condition that killed the 07-18 edition did NOT recur (pmset: zero sleep events on 07-19; Mac now on AC 100%). Key differs from 03:19Z journal by TWO CLEARINGS ONLY (news-brief:ageing + rolling-weekly:ageing, both verified against dated artifact+commit, not just a vanished warn); residual key = the two standing already-notified reds => silent per novelty-by-content. 07-18 stays a permanent gap in Jul-10..19; streak resumed, not repaired. No autonomous action: enabled-drift ZERO across 26 tasks, 5 launchd exit-0, safe-list empty. NEW EXPLANATION for DNS guard red: holdet commit 6c15d30 retired the guard job deliberately — the red is a tracking artifact for a job that no longer exists; retiring it in config is outside the allowlist => flag-only, awaiting Alexander. improve:error unchanged flag-only (another-repo bug). Holdet healthy: watch 10:16, converge 10:18, auditor shipped 2 commits 10:14/10:16.",
       "routineCount": 2,
       "routines": [
         "routine-overview-secretary",
@@ -178,12 +211,12 @@
       "role": "maintainer",
       "enabled": true,
       "does": "Refreshes this overview from artifact-truth and flags only what needs attention.",
-      "health": "green",
+      "health": "yellow",
       "private": false,
-      "headline": "steady-state, NO push: key differs from 22:21Z journal but no new actionable content — 2 clearings (self-referential secretary:stale; dashboard-improve:ageing false pos, fired healthy 02:08Z) + rolling-weekly:ageing which is the already-pushed 07-18 miss crossing 2d. FORWARD RISK RESOLVED: pmset shows ZERO sleep events on 07-19 (Mac awake since 07-18 21:36 CEST wake) — the battery/sleep condition that killed the 07-18 brief did not recur. daily-news-brief IN FLIGHT not failed (fired 03:07Z, deadline 04:40Z, typical finish 03:50-04:19Z); 08:17Z run confirms. No autonomous action: enabled-drift ZERO across 26 tasks, 5 launchd exit-0, brief is role:producer => flag-only. Holdet healthy (watch 05:14, converge 05:17, coach stage 15). Standing reds flag-only: DNS guard stale 17d (no launchd label exists), improve error (another-repo bug).",
+      "headline": "RECOVERY CONFIRMED, NO push: 07-19 brief published 05:59 CEST (data/2026-07-19.json, 38052f5) 41 min inside the 06:40 deadline, rolling-weekly followed 06:51 — the battery/sleep condition that killed the 07-18 edition did NOT recur (pmset: zero sleep events on 07-19; Mac now on AC 100%). Key differs from 03:19Z journal by TWO CLEARINGS ONLY (news-brief:ageing + rolling-weekly:ageing, both verified against dated artifact+commit, not just a vanished warn); residual key = the two standing already-notified reds => silent per novelty-by-content. 07-18 stays a permanent gap in Jul-10..19; streak resumed, not repaired. No autonomous action: enabled-drift ZERO across 26 tasks, 5 launchd exit-0, safe-list empty. NEW EXPLANATION for DNS guard red: holdet commit 6c15d30 retired the guard job deliberately — the red is a tracking artifact for a job that no longer exists; retiring it in config is outside the allowlist => flag-only, awaiting Alexander. improve:error unchanged flag-only (another-repo bug). Holdet healthy: watch 10:16, converge 10:18, auditor shipped 2 commits 10:14/10:16.",
       "logName": null,
-      "lastOutputAt": "2026-07-19T03:20:41.000Z",
-      "lastOutputHuman": "5h ago",
+      "lastOutputAt": "2026-07-19T08:19:57.000Z",
+      "lastOutputHuman": "10h ago",
       "issues": [],
       "review": null
     },
@@ -219,7 +252,7 @@
       "headline": "published 2026-07-19",
       "logName": null,
       "lastOutputAt": "2026-07-19T03:59:31.172Z",
-      "lastOutputHuman": "4h ago",
+      "lastOutputHuman": "14h ago",
       "issues": [],
       "review": null
     },
@@ -237,7 +270,7 @@
       "headline": "rolling weekly: 2026-07-19",
       "logName": null,
       "lastOutputAt": "2026-07-19T04:51:36.000Z",
-      "lastOutputHuman": "3h ago",
+      "lastOutputHuman": "13h ago",
       "issues": [],
       "review": null
     },
@@ -255,7 +288,7 @@
       "headline": "rolling monthly: 2026-07-13",
       "logName": null,
       "lastOutputAt": "2026-07-13T05:07:50.000Z",
-      "lastOutputHuman": "6d ago",
+      "lastOutputHuman": "7d ago",
       "issues": [],
       "review": null
     },
@@ -376,12 +409,12 @@
       "role": "producer",
       "enabled": true,
       "does": "One safe read-only improvement to the holdet dashboard, then publishes the refreshed page.",
-      "health": "green",
+      "health": "yellow",
       "private": false,
       "headline": "Update dashboard — 2026-07-19 04:22 Europe/Copenhagen",
       "logName": null,
       "lastOutputAt": "2026-07-19T02:22:02.000Z",
-      "lastOutputHuman": "6h ago",
+      "lastOutputHuman": "16h ago",
       "issues": [],
       "review": null
     },
@@ -394,12 +427,12 @@
       "role": "maintainer",
       "enabled": true,
       "does": null,
-      "health": "green",
+      "health": "yellow",
       "private": true,
-      "headline": "ran — no errors detected",
+      "headline": "ageing / warning — details kept private",
       "logName": null,
-      "lastOutputAt": "2026-07-19T08:16:31.000Z",
-      "lastOutputHuman": "1 min ago",
+      "lastOutputAt": "2026-07-19T08:24:28.000Z",
+      "lastOutputHuman": "10h ago",
       "issues": [],
       "review": null
     },
@@ -417,7 +450,7 @@
       "headline": "ran — no errors detected",
       "logName": null,
       "lastOutputAt": "2026-07-18T21:36:20.492Z",
-      "lastOutputHuman": "11h ago",
+      "lastOutputHuman": "21h ago",
       "issues": [],
       "review": null
     },
@@ -434,8 +467,8 @@
       "private": true,
       "headline": "paused",
       "logName": null,
-      "lastOutputAt": "2026-07-19T08:16:31.000Z",
-      "lastOutputHuman": "1 min ago",
+      "lastOutputAt": "2026-07-19T08:24:28.000Z",
+      "lastOutputHuman": "10h ago",
       "issues": [],
       "review": null
     },
@@ -507,7 +540,7 @@
       "headline": "ran — no errors detected",
       "logName": "evening.log",
       "lastOutputAt": "2026-07-18T20:31:40.405Z",
-      "lastOutputHuman": "12h ago",
+      "lastOutputHuman": "22h ago",
       "issues": [
         {
           "severity": "note",
@@ -552,8 +585,8 @@
       "private": true,
       "headline": "ran — no errors detected",
       "logName": "watch.log",
-      "lastOutputAt": "2026-07-19T08:16:07.692Z",
-      "lastOutputHuman": "2 min ago",
+      "lastOutputAt": "2026-07-19T17:51:35.531Z",
+      "lastOutputHuman": "26 min ago",
       "issues": [],
       "review": null
     },
