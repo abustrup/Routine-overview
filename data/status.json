@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-07-19T03:18:33.491Z",
-  "generatedAtLocal": "19 Jul 2026, 05:18 Europe/Copenhagen",
+  "generatedAt": "2026-07-19T08:17:53.428Z",
+  "generatedAtLocal": "19 Jul 2026, 10:17 Europe/Copenhagen",
   "owner": "Alexander Bustrup",
-  "attentionKey": "red:Holdet DNS guard (launchd):stale|red:Holdet improve loop (launchd):error|warn:Daily news brief:ageing|warn:Rolling weekly (Ugen):ageing",
+  "attentionKey": "red:Holdet DNS guard (launchd):stale|red:Holdet improve loop (launchd):error",
   "staleAfterMin": 360,
   "summary": {
-    "green": 9,
-    "yellow": 2,
+    "green": 11,
+    "yellow": 0,
     "red": 2,
     "paused": 8,
     "total": 21
@@ -32,28 +32,6 @@
       "fix": {
         "prompt": "The scheduled routine \"Holdet improve loop (launchd)\" is erroring. Working dir: ~/holdet-tdf-bot. Read improve.log for the exact error, then find the root cause, fix it, add a guard or test so it can't recur, verify by re-running the step, and commit. Follow the project's own CLAUDE.md and the holdet-tdf-bot skill, which document its guardrails and protected paths.",
         "cwd": "~/holdet-tdf-bot"
-      }
-    },
-    {
-      "severity": "warn",
-      "project": "news-brief",
-      "routine": "Daily news brief",
-      "message": "Ageing — last output 2d ago (expected Daily · 06:02).",
-      "kind": "ageing",
-      "fix": {
-        "prompt": "The scheduled routine \"Daily news brief\" (Researches, validates and publishes the Danish morning brief before the 06:40 deadline.) was expected to run Daily · 06:02 but produced no recent output. Working dir: ~/Documents/AI eksperimenter/News breif 1. Investigate why it stopped (check its scheduler run and its log), fix the cause, verify a fresh run produces output, and commit. Follow prompts/daily-brief.md and the project's guardrails; never expose any secrets or credentials; publish at most once per date.",
-        "cwd": "~/Documents/AI eksperimenter/News breif 1"
-      }
-    },
-    {
-      "severity": "warn",
-      "project": "news-brief",
-      "routine": "Rolling weekly (Ugen)",
-      "message": "Ageing — last output 2d ago (expected Daily · 06:48).",
-      "kind": "ageing",
-      "fix": {
-        "prompt": "The scheduled routine \"Rolling weekly (Ugen)\" (Refreshes the 7-day rollup edition from the published dailies.) was expected to run Daily · 06:48 but produced no recent output. Working dir: ~/Documents/AI eksperimenter/News breif 1. Investigate why it stopped (check its scheduler run and its log), fix the cause, verify a fresh run produces output, and commit. Follow prompts/daily-brief.md and the project's guardrails; never expose any secrets or credentials; publish at most once per date.",
-        "cwd": "~/Documents/AI eksperimenter/News breif 1"
       }
     },
     {
@@ -90,7 +68,7 @@
         }
       ],
       "lastPublish": "2026-07-19T02:22:02.000Z",
-      "lastPublishHuman": "57 min ago",
+      "lastPublishHuman": "6h ago",
       "lastPublishSubject": "Update dashboard — 2026-07-19 04:22 Europe/Copenhagen",
       "routineCount": 10,
       "routines": [
@@ -139,7 +117,7 @@
       "emoji": "📰",
       "goal": "Publish a trustworthy, beautifully-edited Danish morning brief every day before 06:40 — sharper and broader than any single newspaper.",
       "note": null,
-      "health": "yellow",
+      "health": "green",
       "links": [
         {
           "label": "Live brief",
@@ -150,9 +128,9 @@
           "url": "https://github.com/abustrup/alexanders-brief"
         }
       ],
-      "lastPublish": "2026-07-17T04:53:29.000Z",
-      "lastPublishHuman": "2d ago",
-      "lastPublishSubject": "rolling weekly: 2026-07-17",
+      "lastPublish": "2026-07-19T04:51:36.000Z",
+      "lastPublishHuman": "3h ago",
+      "lastPublishSubject": "rolling weekly: 2026-07-19",
       "routineCount": 6,
       "routines": [
         "daily-news-brief",
@@ -180,9 +158,9 @@
           "url": "https://github.com/abustrup/Routine-overview"
         }
       ],
-      "lastPublish": "2026-07-18T22:21:24.000Z",
+      "lastPublish": "2026-07-19T03:20:41.000Z",
       "lastPublishHuman": "5h ago",
-      "lastPublishSubject": "REAL MISS: Alexanders Brief has no 2026-07-18 edition (fired 03:09Z, produced nothing) — breaks unbroken Jul-10..17 streak; rolling-weekly also fired+produced nothing. Root cause = all-day Mac maintenance-sleep cycling on 07-18, which also cost this secretary all 4 daytime runs (self-referential red, self-clears here). PUSHED: new+real+forward-risk (07-19 brief due 05:07 CEST, Mac on battery 48%). No autonomous action available: 5 launchd exit-0 nothing stalled, enabled-drift ZERO across 26 tasks, brief is role:producer => flag-only never re-run. Standing reds unchanged flag-only: DNS guard stale 17d (no launchd label exists), improve error (another-repo Max-plan bug). auditor:stale CLEARED (fired 08:16Z).",
+      "lastPublishSubject": "steady-state, NO push: key differs from 22:21Z journal but no new actionable content — 2 clearings (self-referential secretary:stale; dashboard-improve:ageing false pos, fired healthy 02:08Z) + rolling-weekly:ageing which is the already-pushed 07-18 miss crossing 2d. FORWARD RISK RESOLVED: pmset shows ZERO sleep events on 07-19 (Mac awake since 07-18 21:36 CEST wake) — the battery/sleep condition that killed the 07-18 brief did not recur. daily-news-brief IN FLIGHT not failed (fired 03:07Z, deadline 04:40Z, typical finish 03:50-04:19Z); 08:17Z run confirms. No autonomous action: enabled-drift ZERO across 26 tasks, 5 launchd exit-0, brief is role:producer => flag-only. Holdet healthy (watch 05:14, converge 05:17, coach stage 15). Standing reds flag-only: DNS guard stale 17d (no launchd label exists), improve error (another-repo bug).",
       "routineCount": 2,
       "routines": [
         "routine-overview-secretary",
@@ -202,9 +180,9 @@
       "does": "Refreshes this overview from artifact-truth and flags only what needs attention.",
       "health": "green",
       "private": false,
-      "headline": "REAL MISS: Alexanders Brief has no 2026-07-18 edition (fired 03:09Z, produced nothing) — breaks unbroken Jul-10..17 streak; rolling-weekly also fired+produced nothing. Root cause = all-day Mac maintenance-sleep cycling on 07-18, which also cost this secretary all 4 daytime runs (self-referential red, self-clears here). PUSHED: new+real+forward-risk (07-19 brief due 05:07 CEST, Mac on battery 48%). No autonomous action available: 5 launchd exit-0 nothing stalled, enabled-drift ZERO across 26 tasks, brief is role:producer => flag-only never re-run. Standing reds unchanged flag-only: DNS guard stale 17d (no launchd label exists), improve error (another-repo Max-plan bug). auditor:stale CLEARED (fired 08:16Z).",
+      "headline": "steady-state, NO push: key differs from 22:21Z journal but no new actionable content — 2 clearings (self-referential secretary:stale; dashboard-improve:ageing false pos, fired healthy 02:08Z) + rolling-weekly:ageing which is the already-pushed 07-18 miss crossing 2d. FORWARD RISK RESOLVED: pmset shows ZERO sleep events on 07-19 (Mac awake since 07-18 21:36 CEST wake) — the battery/sleep condition that killed the 07-18 brief did not recur. daily-news-brief IN FLIGHT not failed (fired 03:07Z, deadline 04:40Z, typical finish 03:50-04:19Z); 08:17Z run confirms. No autonomous action: enabled-drift ZERO across 26 tasks, 5 launchd exit-0, brief is role:producer => flag-only. Holdet healthy (watch 05:14, converge 05:17, coach stage 15). Standing reds flag-only: DNS guard stale 17d (no launchd label exists), improve error (another-repo bug).",
       "logName": null,
-      "lastOutputAt": "2026-07-18T22:21:24.000Z",
+      "lastOutputAt": "2026-07-19T03:20:41.000Z",
       "lastOutputHuman": "5h ago",
       "issues": [],
       "review": null
@@ -223,7 +201,7 @@
       "headline": "improve: roster note only shows on green rows so a stale routine's headline matches its dot",
       "logName": null,
       "lastOutputAt": "2026-07-03T16:46:31.000Z",
-      "lastOutputHuman": "15d ago",
+      "lastOutputHuman": "16d ago",
       "issues": [],
       "review": null
     },
@@ -236,12 +214,12 @@
       "role": "producer",
       "enabled": true,
       "does": "Researches, validates and publishes the Danish morning brief before the 06:40 deadline.",
-      "health": "yellow",
+      "health": "green",
       "private": false,
-      "headline": "brief: 2026-07-17",
+      "headline": "published 2026-07-19",
       "logName": null,
-      "lastOutputAt": "2026-07-17T03:50:27.000Z",
-      "lastOutputHuman": "2d ago",
+      "lastOutputAt": "2026-07-19T03:59:31.172Z",
+      "lastOutputHuman": "4h ago",
       "issues": [],
       "review": null
     },
@@ -254,12 +232,12 @@
       "role": "producer",
       "enabled": true,
       "does": "Refreshes the 7-day rollup edition from the published dailies.",
-      "health": "yellow",
+      "health": "green",
       "private": false,
-      "headline": "rolling weekly: 2026-07-17",
+      "headline": "rolling weekly: 2026-07-19",
       "logName": null,
-      "lastOutputAt": "2026-07-17T04:53:29.000Z",
-      "lastOutputHuman": "2d ago",
+      "lastOutputAt": "2026-07-19T04:51:36.000Z",
+      "lastOutputHuman": "3h ago",
       "issues": [],
       "review": null
     },
@@ -403,7 +381,7 @@
       "headline": "Update dashboard — 2026-07-19 04:22 Europe/Copenhagen",
       "logName": null,
       "lastOutputAt": "2026-07-19T02:22:02.000Z",
-      "lastOutputHuman": "57 min ago",
+      "lastOutputHuman": "6h ago",
       "issues": [],
       "review": null
     },
@@ -420,8 +398,8 @@
       "private": true,
       "headline": "ran — no errors detected",
       "logName": null,
-      "lastOutputAt": "2026-07-18T21:59:40.000Z",
-      "lastOutputHuman": "5h ago",
+      "lastOutputAt": "2026-07-19T08:16:31.000Z",
+      "lastOutputHuman": "1 min ago",
       "issues": [],
       "review": null
     },
@@ -439,7 +417,7 @@
       "headline": "ran — no errors detected",
       "logName": null,
       "lastOutputAt": "2026-07-18T21:36:20.492Z",
-      "lastOutputHuman": "6h ago",
+      "lastOutputHuman": "11h ago",
       "issues": [],
       "review": null
     },
@@ -456,8 +434,8 @@
       "private": true,
       "headline": "paused",
       "logName": null,
-      "lastOutputAt": "2026-07-18T21:59:40.000Z",
-      "lastOutputHuman": "5h ago",
+      "lastOutputAt": "2026-07-19T08:16:31.000Z",
+      "lastOutputHuman": "1 min ago",
       "issues": [],
       "review": null
     },
@@ -529,7 +507,7 @@
       "headline": "ran — no errors detected",
       "logName": "evening.log",
       "lastOutputAt": "2026-07-18T20:31:40.405Z",
-      "lastOutputHuman": "7h ago",
+      "lastOutputHuman": "12h ago",
       "issues": [
         {
           "severity": "note",
@@ -574,8 +552,8 @@
       "private": true,
       "headline": "ran — no errors detected",
       "logName": "watch.log",
-      "lastOutputAt": "2026-07-19T03:14:47.431Z",
-      "lastOutputHuman": "4 min ago",
+      "lastOutputAt": "2026-07-19T08:16:07.692Z",
+      "lastOutputHuman": "2 min ago",
       "issues": [],
       "review": null
     },
