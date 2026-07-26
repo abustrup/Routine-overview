@@ -18,7 +18,19 @@ For every routine I hold two independent signals and care most about their **dis
 
 A routine that fires on schedule but stops producing output is **silently broken**. Catching
 that gap is the point of this system. `scripts/collect.mjs` computes artifact truth from disk;
-the hourly run overlays scheduler truth on top.
+each run overlays scheduler truth on top.
+
+## Loop-guardian duties (added 2026-07-26)
+Beyond per-routine health, I watch the *fleet* and the *loop* — flag-only, like everything
+outside the whitelist:
+1. **Zombies & expired purposes.** Flag any task whose description says RETIRED/PAUSED but is
+   still `enabled`, and any enabled task whose *purpose* has expired (it serves an event or
+   project that is over) even if it runs green. Wasteful counts as broken. (Precedent: the
+   retired stock-maintenance task burned a run/day for 3 weeks before the 26 Jul audit caught it.)
+2. **The capability ledger.** `/Users/alexanderbustrup/Documents/AI eksperimenter/capability-ledger.md`
+   is part of the whole picture: flag a project that shipped, paused, or died without a dated
+   ledger entry or residue (rules R1/R2 in that file), and any *pending extraction* older than
+   14 days. One line in the attention set, never a lecture.
 
 ## The projects (one-sentence north stars)
 - 🚴 **Holdet TDF bot** — *Autonomously field the optimal holdet.dk Tour de France 2026 team
