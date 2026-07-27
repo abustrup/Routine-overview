@@ -1,13 +1,13 @@
 {
-  "generatedAt": "2026-07-26T15:05:14.658Z",
-  "generatedAtLocal": "26 Jul 2026, 17:05 Europe/Copenhagen",
+  "generatedAt": "2026-07-27T06:20:48.962Z",
+  "generatedAtLocal": "27 Jul 2026, 08:20 Europe/Copenhagen",
   "owner": "Alexander Bustrup",
-  "attentionKey": "red:Holdet DNS guard (launchd):stale|red:Holdet improve loop (launchd):error|red:Holdet watch sentinel (launchd):error|red:Rolling weekly (Ugen):stale|red:Routine secretary (this):stale",
+  "attentionKey": "red:Holdet DNS guard (launchd):stale|red:Holdet improve loop (launchd):error|red:Routine secretary (this):stale",
   "staleAfterMin": 360,
   "summary": {
-    "green": 5,
+    "green": 7,
     "yellow": 0,
-    "red": 5,
+    "red": 3,
     "paused": 11,
     "total": 21
   },
@@ -16,7 +16,7 @@
       "severity": "red",
       "project": "meta",
       "routine": "Routine secretary (this)",
-      "message": "Stale — last output 7d ago (expected Every 5h · :17).",
+      "message": "Stale — last output 15h ago (expected Every 5h · :17).",
       "kind": "stale",
       "fix": {
         "prompt": "The scheduled routine \"Routine secretary (this)\" (Refreshes this overview from artifact-truth and flags only what needs attention.) was expected to run Every 5h · :17 but produced no recent output. Working dir: ~/Documents/AI eksperimenter/Routine overview. Investigate why it stopped (check its scheduler run and its log), fix the cause, verify a fresh run produces output, and commit. Keep it public-safe: health/status only, no secrets or strategy internals. Verify with node scripts/collect.mjs && node scripts/render.mjs before pushing.",
@@ -25,34 +25,12 @@
     },
     {
       "severity": "red",
-      "project": "news-brief",
-      "routine": "Rolling weekly (Ugen)",
-      "message": "Stale — last output 7d ago (expected Daily · 06:48).",
-      "kind": "stale",
-      "fix": {
-        "prompt": "The scheduled routine \"Rolling weekly (Ugen)\" (Refreshes the 7-day rollup edition from the published dailies.) was expected to run Daily · 06:48 but produced no recent output. Working dir: ~/Documents/AI eksperimenter/News breif 1. Investigate why it stopped (check its scheduler run and its log), fix the cause, verify a fresh run produces output, and commit. Follow prompts/daily-brief.md and the project's guardrails; never expose any secrets or credentials; publish at most once per date.",
-        "cwd": "~/Documents/AI eksperimenter/News breif 1"
-      }
-    },
-    {
-      "severity": "red",
       "project": "holdet-tdf",
       "routine": "Holdet DNS guard (launchd)",
-      "message": "Stale — last output 24d ago (expected ~08:30).",
+      "message": "Stale — last output 25d ago (expected ~08:30).",
       "kind": "stale",
       "fix": {
         "prompt": "The scheduled routine \"Holdet DNS guard (launchd)\" was expected to run ~08:30 but produced no recent output. Working dir: ~/holdet-tdf-bot. Investigate why it stopped (check its scheduler run and its log), fix the cause, verify a fresh run produces output, and commit. Follow the project's own CLAUDE.md and the holdet-tdf-bot skill, which document its guardrails and protected paths.",
-        "cwd": "~/holdet-tdf-bot"
-      }
-    },
-    {
-      "severity": "red",
-      "project": "holdet-tdf",
-      "routine": "Holdet watch sentinel (launchd)",
-      "message": "error detected in watch.log — details are local-only",
-      "kind": "error",
-      "fix": {
-        "prompt": "The scheduled routine \"Holdet watch sentinel (launchd)\" is erroring. Working dir: ~/holdet-tdf-bot. Read watch.log for the exact error, then find the root cause, fix it, add a guard or test so it can't recur, verify by re-running the step, and commit. Follow the project's own CLAUDE.md and the holdet-tdf-bot skill, which document its guardrails and protected paths.",
         "cwd": "~/holdet-tdf-bot"
       }
     },
@@ -128,7 +106,7 @@
         }
       ],
       "lastPublish": "2026-07-25T14:15:54.000Z",
-      "lastPublishHuman": "1d ago",
+      "lastPublishHuman": "2d ago",
       "lastPublishSubject": "docs(auto-log): record the 2026-07-25 maintenance run",
       "routineCount": 3,
       "routines": [
@@ -143,7 +121,7 @@
       "emoji": "📰",
       "goal": "Publish a trustworthy, beautifully-edited Danish morning brief every day before 06:40 — sharper and broader than any single newspaper.",
       "note": null,
-      "health": "red",
+      "health": "green",
       "links": [
         {
           "label": "Live brief",
@@ -154,9 +132,9 @@
           "url": "https://github.com/abustrup/alexanders-brief"
         }
       ],
-      "lastPublish": "2026-07-26T08:33:58.000Z",
-      "lastPublishHuman": "7h ago",
-      "lastPublishSubject": "brief: 2026-07-26",
+      "lastPublish": "2026-07-27T05:06:17.000Z",
+      "lastPublishHuman": "1h ago",
+      "lastPublishSubject": "rolling monthly: 2026-07-27",
       "routineCount": 6,
       "routines": [
         "daily-news-brief",
@@ -184,9 +162,9 @@
           "url": "https://github.com/abustrup/Routine-overview"
         }
       ],
-      "lastPublish": "2026-07-19T18:19:58.000Z",
-      "lastPublishHuman": "7d ago",
-      "lastPublishSubject": "steady-state, NO push: key differs from 08:19Z journal by 3 added warns, all known non-actionable — secretary:ageing (self-referential, self-clears here), dashboard-improve:ageing + auditor:ageing (both known periodHours-vs-daily-cron false positives; auditor fired 08:05Z and shipped 3 commits 10:14/10:16/10:24). Residual red set unchanged = 2 standing already-notified reds => silent per novelty-by-content. REAL but self-referential: this secretary missed its own 15:17 CEST run (no 13:19Z journal, 10h since last output vs 5h period) — cause is the afternoon low-battery/clamshell cycle (batt hit 8% by 16:33, dense Maintenance-Sleep 16:43-18:17), same class as the 07-17 cluster; self-clears on this commit. NO forward-risk push for tonight's holdet evening batch: the trade path is launchd (evening+converge), which replays missed intervals on wake — unlike a Claude task, which is why 07-18's brief was lost for good; batt recovered to 61%/11:48. No autonomous action: enabled-drift ZERO re-verified name-by-name, 5 launchd exit-0, safe-list empty. Standing reds flag-only: DNS guard = tracking artifact for a job holdet commit 6c15d30 deliberately retired (config retirement is outside the allowlist), improve:error (another-repo bug). Holdet healthy: watch 19:51, converge 20:06, dashboard 19:36.",
+      "lastPublish": "2026-07-26T15:07:54.000Z",
+      "lastPublishHuman": "15h ago",
+      "lastPublishSubject": "PUSHED (new+real+action): Ugen SILENT FAILURE — rolling-weekly fired all 7 days, committed nothing since 07-19, docs/week.html frozen 19 Jul 06:51 while sibling rolling-monthly updated 25 Jul and today's index.html shipped => not sleep, not a legit no-op (3 dailies were there to roll up); role:producer, safe-list empty => flag-only. NEW RED holdet watch: SQLITE_FULL at collect.js:131 but 178GiB free — real state is bot.db 0 BYTES since 19 Jul; another repo => flag-never-patch; holdet-final-settlement fires 27 Jul 09:00 and may find no db. HAND-REPORTED BLIND SPOT: Brief shows green (today published 10:33) but missed 5 of 13 editions Jul 14-26 (18/21/22/23/25) — pmset shows Low Power Sleep at 1% batt and Claude tasks never replay missed intervals; fileToday can only see today, never a miss RATE. AUTONOMOUS: synced 5 drifted enabled flags (holdet-dashboard-improve/auditor/llm-brain/team-b -> false per today's post-Tour retirements, dashboard-self-improve -> TRUE, a live task nothing was watching) => 2 phantom reds cleared, dashboard-self-improve green, nothing manufactured. Context: TDF 2026 ENDED (S21 Paris) + fleet audit ran today => ZERO enabled RETIRED/PAUSED tasks. Loop-guardian: ledger CLEAN (4 dated 07-26 entries + debrief; both open items dated today). FLAGGED not touched: 5 holdet launchd jobs still armed post-Tour incl. the evening+converge trade path; this secretary's own config cadence still Every-5h vs scheduler Daily 08:17 so it will red ITSELF daily (periodHours is not the enabled flag => outside allowlist). Standing flag-only: DNS guard tracking artifact, improve loop bug.",
       "routineCount": 2,
       "routines": [
         "routine-overview-secretary",
@@ -206,10 +184,10 @@
       "does": "Refreshes this overview from artifact-truth and flags only what needs attention.",
       "health": "red",
       "private": false,
-      "headline": "steady-state, NO push: key differs from 08:19Z journal by 3 added warns, all known non-actionable — secretary:ageing (self-referential, self-clears here), dashboard-improve:ageing + auditor:ageing (both known periodHours-vs-daily-cron false positives; auditor fired 08:05Z and shipped 3 commits 10:14/10:16/10:24). Residual red set unchanged = 2 standing already-notified reds => silent per novelty-by-content. REAL but self-referential: this secretary missed its own 15:17 CEST run (no 13:19Z journal, 10h since last output vs 5h period) — cause is the afternoon low-battery/clamshell cycle (batt hit 8% by 16:33, dense Maintenance-Sleep 16:43-18:17), same class as the 07-17 cluster; self-clears on this commit. NO forward-risk push for tonight's holdet evening batch: the trade path is launchd (evening+converge), which replays missed intervals on wake — unlike a Claude task, which is why 07-18's brief was lost for good; batt recovered to 61%/11:48. No autonomous action: enabled-drift ZERO re-verified name-by-name, 5 launchd exit-0, safe-list empty. Standing reds flag-only: DNS guard = tracking artifact for a job holdet commit 6c15d30 deliberately retired (config retirement is outside the allowlist), improve:error (another-repo bug). Holdet healthy: watch 19:51, converge 20:06, dashboard 19:36.",
+      "headline": "PUSHED (new+real+action): Ugen SILENT FAILURE — rolling-weekly fired all 7 days, committed nothing since 07-19, docs/week.html frozen 19 Jul 06:51 while sibling rolling-monthly updated 25 Jul and today's index.html shipped => not sleep, not a legit no-op (3 dailies were there to roll up); role:producer, safe-list empty => flag-only. NEW RED holdet watch: SQLITE_FULL at collect.js:131 but 178GiB free — real state is bot.db 0 BYTES since 19 Jul; another repo => flag-never-patch; holdet-final-settlement fires 27 Jul 09:00 and may find no db. HAND-REPORTED BLIND SPOT: Brief shows green (today published 10:33) but missed 5 of 13 editions Jul 14-26 (18/21/22/23/25) — pmset shows Low Power Sleep at 1% batt and Claude tasks never replay missed intervals; fileToday can only see today, never a miss RATE. AUTONOMOUS: synced 5 drifted enabled flags (holdet-dashboard-improve/auditor/llm-brain/team-b -> false per today's post-Tour retirements, dashboard-self-improve -> TRUE, a live task nothing was watching) => 2 phantom reds cleared, dashboard-self-improve green, nothing manufactured. Context: TDF 2026 ENDED (S21 Paris) + fleet audit ran today => ZERO enabled RETIRED/PAUSED tasks. Loop-guardian: ledger CLEAN (4 dated 07-26 entries + debrief; both open items dated today). FLAGGED not touched: 5 holdet launchd jobs still armed post-Tour incl. the evening+converge trade path; this secretary's own config cadence still Every-5h vs scheduler Daily 08:17 so it will red ITSELF daily (periodHours is not the enabled flag => outside allowlist). Standing flag-only: DNS guard tracking artifact, improve loop bug.",
       "logName": null,
-      "lastOutputAt": "2026-07-19T18:19:58.000Z",
-      "lastOutputHuman": "7d ago",
+      "lastOutputAt": "2026-07-26T15:07:54.000Z",
+      "lastOutputHuman": "15h ago",
       "issues": [],
       "review": null
     },
@@ -224,10 +202,10 @@
       "does": "Ships one low-risk, high-reward maintenance/design improvement to this overview per run (or nothing), toward the Anthropic aesthetic.",
       "health": "paused",
       "private": false,
-      "headline": "",
+      "headline": "improve: roster note only shows on green rows so a stale routine's headline matches its dot",
       "logName": null,
-      "lastOutputAt": null,
-      "lastOutputHuman": "—",
+      "lastOutputAt": "2026-07-03T16:46:31.000Z",
+      "lastOutputHuman": "24d ago",
       "issues": [],
       "review": null
     },
@@ -242,10 +220,10 @@
       "does": "Researches, validates and publishes the Danish morning brief before the 06:40 deadline.",
       "health": "green",
       "private": false,
-      "headline": "published 2026-07-26",
+      "headline": "published 2026-07-27",
       "logName": null,
-      "lastOutputAt": "2026-07-26T08:33:57.350Z",
-      "lastOutputHuman": "7h ago",
+      "lastOutputAt": "2026-07-27T04:01:24.884Z",
+      "lastOutputHuman": "2h ago",
       "issues": [],
       "review": null
     },
@@ -258,12 +236,12 @@
       "role": "producer",
       "enabled": true,
       "does": "Refreshes the 7-day rollup edition from the published dailies.",
-      "health": "red",
+      "health": "green",
       "private": false,
-      "headline": "rolling weekly: 2026-07-19",
+      "headline": "rolling weekly: 2026-07-27",
       "logName": null,
-      "lastOutputAt": "2026-07-19T04:51:36.000Z",
-      "lastOutputHuman": "7d ago",
+      "lastOutputAt": "2026-07-27T04:54:09.000Z",
+      "lastOutputHuman": "1h ago",
       "issues": [],
       "review": null
     },
@@ -278,10 +256,10 @@
       "does": "Refreshes the 30-day rollup edition.",
       "health": "green",
       "private": false,
-      "headline": "rolling monthly: 2026-07-25",
+      "headline": "rolling monthly: 2026-07-27",
       "logName": null,
-      "lastOutputAt": "2026-07-25T13:34:54.000Z",
-      "lastOutputHuman": "1d ago",
+      "lastOutputAt": "2026-07-27T05:06:17.000Z",
+      "lastOutputHuman": "1h ago",
       "issues": [],
       "review": null
     },
@@ -299,7 +277,7 @@
       "headline": "rolling yearly: 2026-07-01",
       "logName": null,
       "lastOutputAt": "2026-07-01T08:56:52.000Z",
-      "lastOutputHuman": "25d ago",
+      "lastOutputHuman": "26d ago",
       "issues": [],
       "review": null
     },
@@ -353,7 +331,7 @@
       "headline": "docs(auto-log): record the 2026-07-25 maintenance run",
       "logName": null,
       "lastOutputAt": "2026-07-25T14:15:54.000Z",
-      "lastOutputHuman": "1d ago",
+      "lastOutputHuman": "2d ago",
       "issues": [],
       "review": null
     },
@@ -371,7 +349,7 @@
       "headline": "docs(auto-log): record the 2026-07-25 maintenance run",
       "logName": null,
       "lastOutputAt": "2026-07-25T14:15:54.000Z",
-      "lastOutputHuman": "1d ago",
+      "lastOutputHuman": "2d ago",
       "issues": [],
       "review": "Retired 2026-07-03 — was the redundant second stock maintainer (13:00); 'Dashboard self-improve' (02:00) is now the single canonical guardrailed pass. Disabled in scheduler; config synced to match."
     },
@@ -425,7 +403,7 @@
       "headline": "paused",
       "logName": null,
       "lastOutputAt": "2026-07-20T08:35:28.000Z",
-      "lastOutputHuman": "6d ago",
+      "lastOutputHuman": "7d ago",
       "issues": [],
       "review": null
     },
@@ -443,7 +421,7 @@
       "headline": "paused",
       "logName": null,
       "lastOutputAt": "2026-07-25T20:52:33.487Z",
-      "lastOutputHuman": "18h ago",
+      "lastOutputHuman": "1d ago",
       "issues": [],
       "review": null
     },
@@ -461,7 +439,7 @@
       "headline": "paused",
       "logName": null,
       "lastOutputAt": "2026-07-20T08:35:28.000Z",
-      "lastOutputHuman": "6d ago",
+      "lastOutputHuman": "7d ago",
       "issues": [],
       "review": null
     },
@@ -532,8 +510,8 @@
       "private": true,
       "headline": "ran — no errors detected",
       "logName": "evening.log",
-      "lastOutputAt": "2026-07-25T20:32:00.171Z",
-      "lastOutputHuman": "19h ago",
+      "lastOutputAt": "2026-07-26T20:31:06.738Z",
+      "lastOutputHuman": "10h ago",
       "issues": [],
       "review": null
     },
@@ -551,7 +529,7 @@
       "headline": "error detected in local log — details kept private",
       "logName": "guard.log",
       "lastOutputAt": "2026-07-02T06:30:17.475Z",
-      "lastOutputHuman": "24d ago",
+      "lastOutputHuman": "25d ago",
       "issues": [
         {
           "severity": "note",
@@ -569,18 +547,13 @@
       "role": "monitor",
       "enabled": true,
       "does": null,
-      "health": "red",
+      "health": "green",
       "private": true,
-      "headline": "error detected in local log — details kept private",
+      "headline": "ran — no errors detected",
       "logName": "watch.log",
-      "lastOutputAt": "2026-07-26T14:12:31.254Z",
-      "lastOutputHuman": "53 min ago",
-      "issues": [
-        {
-          "severity": "error",
-          "line": "error detected in watch.log — details are local-only"
-        }
-      ],
+      "lastOutputAt": "2026-07-27T06:18:24.295Z",
+      "lastOutputHuman": "2 min ago",
+      "issues": [],
       "review": null
     },
     {
@@ -597,7 +570,7 @@
       "headline": "error detected in local log — details kept private",
       "logName": "improve.log",
       "lastOutputAt": "2026-07-02T15:04:33.422Z",
-      "lastOutputHuman": "24d ago",
+      "lastOutputHuman": "25d ago",
       "issues": [
         {
           "severity": "error",
