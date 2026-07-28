@@ -249,22 +249,22 @@
         <p class="eyebrow">Personal routine secretary</p>
         <h1>Routine Overview</h1>
       </div>
-      <div class="stamp">Updated <b>28 Jul 2026, 12:00 Europe/Copenhagen</b></div>
+      <div class="stamp">Updated <b>28 Jul 2026, 20:16 Europe/Copenhagen</b></div>
     </div>
     <p class="subtitle">The health of every scheduled routine across Alexander Bustrup's projects — so you never have to open them one by one.</p>
   </header>
 
-  <div class="hero hero--alert">
+  <div class="hero hero--warn">
     <div class="hero__row">
       <span class="hero__mark" aria-hidden="true"></span>
-      <p class="hero__verdict">3 routines need your attention</p>
+      <p class="hero__verdict">1 routine ageing — nothing broken</p>
     </div>
-    <p class="hero__sub">2 broken, 1 ageing — everything else is running clean.</p>
+    <p class="hero__sub">No errors detected across the fleet.</p>
     <div class="counts">
-      <span class="stat"><span class="dot dot--green" aria-hidden="true"></span><b>7</b><span>healthy</span></span>
+      <span class="stat"><span class="dot dot--green" aria-hidden="true"></span><b>5</b><span>healthy</span></span>
       <span class="stat"><span class="dot dot--yellow" aria-hidden="true"></span><b>1</b><span>ageing</span></span>
-      <span class="stat"><span class="dot dot--red" aria-hidden="true"></span><b>2</b><span>broken</span></span>
-      <span class="stat"><span class="dot dot--paused" aria-hidden="true"></span><b>11</b><span>paused</span></span>
+      <span class="stat"><span class="dot dot--red" aria-hidden="true"></span><b>0</b><span>broken</span></span>
+      <span class="stat"><span class="dot dot--paused" aria-hidden="true"></span><b>15</b><span>paused</span></span>
       <span class="stat stat--total">21 routines total</span>
     </div>
   </div>
@@ -272,19 +272,19 @@
   <section aria-labelledby="sec-attn" data-attn-section>
     <div class="sec-head"><h2 id="sec-attn">Needs your attention</h2><span class="rule"></span><button type="button" class="sec-restore" data-restore hidden><span data-restore-count>0</span> hidden · Show</button></div>
     <div class="attn-list" data-attn-list>
-    <article class="attn attn--red" data-attn data-akey="red:Holdet DNS guard (launchd):stale">
+    <article class="attn attn--warn" data-attn data-akey="warn:Dashboard self-improve:ageing">
   <div class="attn__bar" aria-hidden="true"></div>
   <div class="attn__main">
     <div class="attn__head">
-      <span class="attn__sev">Broken</span>
-      <span class="attn__where">🚴 Holdet DNS guard</span>
+      <span class="attn__sev">Warning</span>
+      <span class="attn__where">📈 Dashboard self-improve</span>
       <button type="button" class="dismiss-x" data-dismiss aria-label="Hide this alert" title="Hide — it comes back if the issue is still there next refresh">×</button>
     </div>
-    <p class="attn__msg">Stale — last output 26d ago (expected ~08:30).</p>
+    <p class="attn__msg">Ageing — last output 3d ago (expected Daily · 02:00).</p>
     <div class="fix">
     <div class="fix__actions">
       <button type="button" class="btn btn--copy"
-              data-copy="The scheduled routine &quot;Holdet DNS guard (launchd)&quot; was expected to run ~08:30 but produced no recent output. Working dir: ~/holdet-tdf-bot. Investigate why it stopped (check its scheduler run and its log), fix the cause, verify a fresh run produces output, and commit. Follow the project's own CLAUDE.md and the holdet-tdf-bot skill, which document its guardrails and protected paths.">
+              data-copy="The scheduled routine &quot;Dashboard self-improve&quot; (Ships at most ONE strictly-better improvement to the stock dashboard per run via reviewed PR (or nothing).) was expected to run Daily · 02:00 but produced no recent output. Working dir: ~/Documents/AI eksperimenter/personal-stock-dashboard. Investigate why it stopped (check its scheduler run and its log), fix the cause, verify a fresh run produces output, and commit. Open a small PR to main and keep CI green. Public repo: demo data only, never real positions or secrets.">
         <span class="btn__label">Copy fix prompt</span>
         <span class="btn__done" aria-hidden="true">Copied&nbsp;✓</span>
       </button>
@@ -293,58 +293,6 @@
       </button>
     </div>
     <div class="fix__body" id="fix-1" hidden>
-      <pre class="fix__prompt">The scheduled routine &quot;Holdet DNS guard (launchd)&quot; was expected to run ~08:30 but produced no recent output. Working dir: ~/holdet-tdf-bot. Investigate why it stopped (check its scheduler run and its log), fix the cause, verify a fresh run produces output, and commit. Follow the project's own CLAUDE.md and the holdet-tdf-bot skill, which document its guardrails and protected paths.</pre>
-      <div class="fix__cwd"><span class="fix__cwd-k">cwd</span> <code>~/holdet-tdf-bot</code></div>
-    </div>
-  </div>
-  </div>
-</article><article class="attn attn--red" data-attn data-akey="red:Holdet improve loop (launchd):error">
-  <div class="attn__bar" aria-hidden="true"></div>
-  <div class="attn__main">
-    <div class="attn__head">
-      <span class="attn__sev">Broken</span>
-      <span class="attn__where">🚴 Holdet improve loop</span>
-      <button type="button" class="dismiss-x" data-dismiss aria-label="Hide this alert" title="Hide — it comes back if the issue is still there next refresh">×</button>
-    </div>
-    <p class="attn__msg">error detected in improve.log — details are local-only</p>
-    <div class="fix">
-    <div class="fix__actions">
-      <button type="button" class="btn btn--copy"
-              data-copy="The scheduled routine &quot;Holdet improve loop (launchd)&quot; is erroring. Working dir: ~/holdet-tdf-bot. Read improve.log for the exact error, then find the root cause, fix it, add a guard or test so it can't recur, verify by re-running the step, and commit. Follow the project's own CLAUDE.md and the holdet-tdf-bot skill, which document its guardrails and protected paths.">
-        <span class="btn__label">Copy fix prompt</span>
-        <span class="btn__done" aria-hidden="true">Copied&nbsp;✓</span>
-      </button>
-      <button type="button" class="btn btn--link" data-toggle="fix-2" aria-expanded="false" aria-controls="fix-2">
-        View prompt
-      </button>
-    </div>
-    <div class="fix__body" id="fix-2" hidden>
-      <pre class="fix__prompt">The scheduled routine &quot;Holdet improve loop (launchd)&quot; is erroring. Working dir: ~/holdet-tdf-bot. Read improve.log for the exact error, then find the root cause, fix it, add a guard or test so it can't recur, verify by re-running the step, and commit. Follow the project's own CLAUDE.md and the holdet-tdf-bot skill, which document its guardrails and protected paths.</pre>
-      <div class="fix__cwd"><span class="fix__cwd-k">cwd</span> <code>~/holdet-tdf-bot</code></div>
-    </div>
-  </div>
-  </div>
-</article><article class="attn attn--warn" data-attn data-akey="warn:Dashboard self-improve:ageing">
-  <div class="attn__bar" aria-hidden="true"></div>
-  <div class="attn__main">
-    <div class="attn__head">
-      <span class="attn__sev">Warning</span>
-      <span class="attn__where">📈 Dashboard self-improve</span>
-      <button type="button" class="dismiss-x" data-dismiss aria-label="Hide this alert" title="Hide — it comes back if the issue is still there next refresh">×</button>
-    </div>
-    <p class="attn__msg">Ageing — last output 2d ago (expected Daily · 02:00).</p>
-    <div class="fix">
-    <div class="fix__actions">
-      <button type="button" class="btn btn--copy"
-              data-copy="The scheduled routine &quot;Dashboard self-improve&quot; (Ships at most ONE strictly-better improvement to the stock dashboard per run via reviewed PR (or nothing).) was expected to run Daily · 02:00 but produced no recent output. Working dir: ~/Documents/AI eksperimenter/personal-stock-dashboard. Investigate why it stopped (check its scheduler run and its log), fix the cause, verify a fresh run produces output, and commit. Open a small PR to main and keep CI green. Public repo: demo data only, never real positions or secrets.">
-        <span class="btn__label">Copy fix prompt</span>
-        <span class="btn__done" aria-hidden="true">Copied&nbsp;✓</span>
-      </button>
-      <button type="button" class="btn btn--link" data-toggle="fix-3" aria-expanded="false" aria-controls="fix-3">
-        View prompt
-      </button>
-    </div>
-    <div class="fix__body" id="fix-3" hidden>
       <pre class="fix__prompt">The scheduled routine &quot;Dashboard self-improve&quot; (Ships at most ONE strictly-better improvement to the stock dashboard per run via reviewed PR (or nothing).) was expected to run Daily · 02:00 but produced no recent output. Working dir: ~/Documents/AI eksperimenter/personal-stock-dashboard. Investigate why it stopped (check its scheduler run and its log), fix the cause, verify a fresh run produces output, and commit. Open a small PR to main and keep CI green. Public repo: demo data only, never real positions or secrets.</pre>
       <div class="fix__cwd"><span class="fix__cwd-k">cwd</span> <code>~/Documents/AI eksperimenter/personal-stock-dashboard</code></div>
     </div>
@@ -366,13 +314,13 @@
     <header class="proj__head">
       <span class="proj__emoji" aria-hidden="true">🚴</span>
       <h3 class="proj__name">Holdet TDF bot</h3>
-      <span class="dot dot--yellow" title="Needs attention" aria-hidden="true"></span>
+      <span class="dot dot--green" title="Healthy" aria-hidden="true"></span>
     </header>
     <p class="proj__goal">Autonomously field the optimal holdet.dk Tour de France 2026 team every single day and beat the human field — hands-off, with only a human veto.</p>
     <div class="proj__now">
       <span class="proj__now-k">Latest</span>
-      <span class="proj__now-v">Update dashboard — 2026-07-19 04:22 Europe/Copenhagen</span>
-      <span class="proj__now-ago">9d ago</span>
+      <span class="proj__now-v">—</span>
+      <span class="proj__now-ago">—</span>
     </div>
     <p class="proj__note">Pre-Tour: stage 1 startlist still pending, so the daily brains correctly report 'no material change'. Watch for Tour start.</p>
     <div class="proj__links"><a class="chip" href="https://abustrup.github.io/Holdet-TDF-2026/" target="_blank" rel="noopener">Live dashboard<span class="chip__ext" aria-hidden="true">↗</span></a><span class="chip chip--local">Bot repo</span></div>
@@ -386,7 +334,7 @@
     <div class="proj__now">
       <span class="proj__now-k">Latest</span>
       <span class="proj__now-v">fix: stop a rail brief promising a click it can't deliver</span>
-      <span class="proj__now-ago">2d ago</span>
+      <span class="proj__now-ago">3d ago</span>
     </div>
     
     <div class="proj__links"><a class="chip" href="https://abustrup.github.io/personal-stock-dashboard/" target="_blank" rel="noopener">Live dashboard<span class="chip__ext" aria-hidden="true">↗</span></a><a class="chip" href="https://github.com/abustrup/personal-stock-dashboard" target="_blank" rel="noopener">Repo<span class="chip__ext" aria-hidden="true">↗</span></a></div>
@@ -400,7 +348,7 @@
     <div class="proj__now">
       <span class="proj__now-k">Latest</span>
       <span class="proj__now-v">rolling weekly: 2026-07-28</span>
-      <span class="proj__now-ago">5h ago</span>
+      <span class="proj__now-ago">13h ago</span>
     </div>
     
     <div class="proj__links"><a class="chip" href="https://abustrup.github.io/alexanders-brief/" target="_blank" rel="noopener">Live brief<span class="chip__ext" aria-hidden="true">↗</span></a><a class="chip" href="https://github.com/abustrup/alexanders-brief" target="_blank" rel="noopener">Repo<span class="chip__ext" aria-hidden="true">↗</span></a></div>
@@ -413,8 +361,8 @@
     <p class="proj__goal">Hold the whole picture across every routine and interrupt Alexander only when something genuinely needs him.</p>
     <div class="proj__now">
       <span class="proj__now-k">Latest</span>
-      <span class="proj__now-v">overview: 2026-07-28 08:24 — journal correction + harness lesson logged. Corrected this run's journal line, which claimed 'no autonomous action' before I took one: appended a dated evidence entry to harness-priorities.md ('2026-07-28 · fleet · structural · routine-secretary') recording that an artifact check is only as fresh as the working copy it reads — the collector called dashboard-self-improve 3d stale off a clone parked on abandoned branch maintenance/2026-07-25, unfetched since Jul 26, while GitHub main showed PR #62 merged 07-28T00:48Z. Reconciled into the front-matter Fleet health rule as one clause (front matter held at 84 lines) plus a v3.8 Changes entry. Authority is that file's own Mechanics grant ('any session or routine appends directly, no approval gate, and flags it so Alexander can veto'), not the repair allowlist. Same defect class as the 07-27 lastRunAt entry, one layer down.</span>
-      <span class="proj__now-ago">4h ago</span>
+      <span class="proj__now-v">docs: journal the branch-independent git freshness fix</span>
+      <span class="proj__now-ago">8h ago</span>
     </div>
     
     <div class="proj__links"><a class="chip" href="https://abustrup.github.io/Routine-overview/" target="_blank" rel="noopener">This dashboard<span class="chip__ext" aria-hidden="true">↗</span></a><a class="chip" href="https://github.com/abustrup/Routine-overview" target="_blank" rel="noopener">Repo<span class="chip__ext" aria-hidden="true">↗</span></a></div>
@@ -429,25 +377,25 @@
     <span class="row__dot"><span class="dot dot--paused" title="Paused" aria-hidden="true"></span></span>
     <span class="row__name">Holdet dashboard improve <span class="tag tag--off">paused</span></span>
     <span class="row__cadence">Every 8h</span>
-    <span class="row__ago">9d ago</span>
-    <span class="row__head" title="Update dashboard — 2026-07-19 04:22 Europe/Copenhagen">Update dashboard — 2026-07-19 04:22 Europe/Copenhagen</span>
+    <span class="row__ago">—</span>
+    <span class="row__head"></span>
   </li><li class="row row--muted">
     <span class="row__dot"><span class="dot dot--paused" title="Paused" aria-hidden="true"></span></span>
     <span class="row__name">Holdet auditor <span class="tag tag--off">paused</span></span>
     <span class="row__cadence">Every 5h</span>
-    <span class="row__ago">8d ago</span>
+    <span class="row__ago">—</span>
     <span class="row__head" title="paused">paused</span>
   </li><li class="row row--muted">
     <span class="row__dot"><span class="dot dot--paused" title="Paused" aria-hidden="true"></span></span>
     <span class="row__name">Holdet LLM brain <span class="tag tag--off">paused</span></span>
     <span class="row__cadence">Daily · 16:55</span>
-    <span class="row__ago">3d ago</span>
+    <span class="row__ago">—</span>
     <span class="row__head" title="paused">paused</span>
   </li><li class="row row--muted">
     <span class="row__dot"><span class="dot dot--paused" title="Paused" aria-hidden="true"></span></span>
     <span class="row__name">Holdet self-improve <span class="tag tag--off">paused</span></span>
     <span class="row__cadence">Hourly</span>
-    <span class="row__ago">8d ago</span>
+    <span class="row__ago">—</span>
     <span class="row__head" title="paused">paused</span>
   </li><li class="row row--muted">
     <span class="row__dot"><span class="dot dot--paused" title="Paused" aria-hidden="true"></span></span>
@@ -461,30 +409,30 @@
     <span class="row__cadence">One-time</span>
     <span class="row__ago">—</span>
     <span class="row__head" title="one-time — completed">one-time — completed</span>
-  </li><li class="row">
-    <span class="row__dot"><span class="dot dot--green" title="Healthy" aria-hidden="true"></span></span>
-    <span class="row__name">Holdet evening pass <span class="tag">launchd</span></span>
+  </li><li class="row row--muted">
+    <span class="row__dot"><span class="dot dot--paused" title="Paused" aria-hidden="true"></span></span>
+    <span class="row__name">Holdet evening pass <span class="tag tag--off">paused</span> <span class="tag">launchd</span></span>
     <span class="row__cadence">~21:05 &amp; ~23:10</span>
-    <span class="row__ago">13h ago</span>
-    <span class="row__head" title="ran — no errors detected">ran — no errors detected</span>
-  </li><li class="row">
-    <span class="row__dot"><span class="dot dot--red" title="Needs attention" aria-hidden="true"></span></span>
-    <span class="row__name">Holdet DNS guard <span class="tag">launchd</span></span>
+    <span class="row__ago">—</span>
+    <span class="row__head" title="paused">paused</span>
+  </li><li class="row row--muted">
+    <span class="row__dot"><span class="dot dot--paused" title="Paused" aria-hidden="true"></span></span>
+    <span class="row__name">Holdet DNS guard <span class="tag tag--off">paused</span> <span class="tag">launchd</span></span>
     <span class="row__cadence">~08:30</span>
-    <span class="row__ago">26d ago</span>
-    <span class="row__head" title="error detected in local log — details kept private">error detected in local log — details kept private</span>
-  </li><li class="row">
-    <span class="row__dot"><span class="dot dot--green" title="Healthy" aria-hidden="true"></span></span>
-    <span class="row__name">Holdet watch sentinel <span class="tag">launchd</span></span>
+    <span class="row__ago">—</span>
+    <span class="row__head" title="paused">paused</span>
+  </li><li class="row row--muted">
+    <span class="row__dot"><span class="dot dot--paused" title="Paused" aria-hidden="true"></span></span>
+    <span class="row__name">Holdet watch sentinel <span class="tag tag--off">paused</span> <span class="tag">launchd</span></span>
     <span class="row__cadence">Hourly</span>
-    <span class="row__ago">14 min ago</span>
-    <span class="row__head" title="ran — no errors detected">ran — no errors detected</span>
-  </li><li class="row">
-    <span class="row__dot"><span class="dot dot--red" title="Needs attention" aria-hidden="true"></span></span>
-    <span class="row__name">Holdet improve loop <span class="tag">launchd</span></span>
+    <span class="row__ago">—</span>
+    <span class="row__head" title="paused">paused</span>
+  </li><li class="row row--muted">
+    <span class="row__dot"><span class="dot dot--paused" title="Paused" aria-hidden="true"></span></span>
+    <span class="row__name">Holdet improve loop <span class="tag tag--off">paused</span> <span class="tag">launchd</span></span>
     <span class="row__cadence">Every 5h</span>
-    <span class="row__ago">26d ago</span>
-    <span class="row__head row__head--issue" title="error detected in improve.log — details are local-only">error detected in improve.log — details are local-only</span>
+    <span class="row__ago">—</span>
+    <span class="row__head" title="paused">paused</span>
   </li></ul>
     </div><div class="rgroup">
       <div class="rgroup__head">📈 Personal stock dashboard<span class="rgroup__count">3</span></div>
@@ -492,13 +440,13 @@
     <span class="row__dot"><span class="dot dot--yellow" title="Ageing" aria-hidden="true"></span></span>
     <span class="row__name">Dashboard self-improve</span>
     <span class="row__cadence">Daily · 02:00</span>
-    <span class="row__ago">2d ago</span>
+    <span class="row__ago">3d ago</span>
     <span class="row__head" title="fix: stop a rail brief promising a click it can't deliver">fix: stop a rail brief promising a click it can't deliver</span>
   </li><li class="row row--muted">
     <span class="row__dot"><span class="dot dot--paused" title="Paused" aria-hidden="true"></span></span>
     <span class="row__name">Stock maintenance <span class="tag tag--off">paused</span></span>
     <span class="row__cadence">Daily · 13:00</span>
-    <span class="row__ago">2d ago</span>
+    <span class="row__ago">3d ago</span>
     <span class="row__head" title="fix: stop a rail brief promising a click it can't deliver">fix: stop a rail brief promising a click it can't deliver</span>
   </li><li class="row row--muted">
     <span class="row__dot"><span class="dot dot--paused" title="Paused" aria-hidden="true"></span></span>
@@ -513,19 +461,19 @@
     <span class="row__dot"><span class="dot dot--green" title="Healthy" aria-hidden="true"></span></span>
     <span class="row__name">Daily news brief</span>
     <span class="row__cadence">Daily · 06:02</span>
-    <span class="row__ago">6h ago</span>
+    <span class="row__ago">14h ago</span>
     <span class="row__head" title="published 2026-07-28">published 2026-07-28</span>
   </li><li class="row">
     <span class="row__dot"><span class="dot dot--green" title="Healthy" aria-hidden="true"></span></span>
     <span class="row__name">Rolling weekly (Ugen)</span>
     <span class="row__cadence">Daily · 06:48</span>
-    <span class="row__ago">5h ago</span>
+    <span class="row__ago">13h ago</span>
     <span class="row__head" title="rolling weekly: 2026-07-28">rolling weekly: 2026-07-28</span>
   </li><li class="row">
     <span class="row__dot"><span class="dot dot--green" title="Healthy" aria-hidden="true"></span></span>
     <span class="row__name">Rolling monthly (Måneden)</span>
     <span class="row__cadence">Mondays · 07:02</span>
-    <span class="row__ago">1d ago</span>
+    <span class="row__ago">2d ago</span>
     <span class="row__head" title="rolling monthly: 2026-07-27">rolling monthly: 2026-07-27</span>
   </li><li class="row">
     <span class="row__dot"><span class="dot dot--green" title="Healthy" aria-hidden="true"></span></span>
@@ -552,14 +500,14 @@
     <span class="row__dot"><span class="dot dot--green" title="Healthy" aria-hidden="true"></span></span>
     <span class="row__name">Routine secretary (this)</span>
     <span class="row__cadence">Every 5h · :17</span>
-    <span class="row__ago">4h ago</span>
-    <span class="row__head" title="overview: 2026-07-28 08:24 — journal correction + harness lesson logged. Corrected this run's journal line, which claimed 'no autonomous action' before I took one: appended a dated evidence entry to harness-priorities.md ('2026-07-28 · fleet · structural · routine-secretary') recording that an artifact check is only as fresh as the working copy it reads — the collector called dashboard-self-improve 3d stale off a clone parked on abandoned branch maintenance/2026-07-25, unfetched since Jul 26, while GitHub main showed PR #62 merged 07-28T00:48Z. Reconciled into the front-matter Fleet health rule as one clause (front matter held at 84 lines) plus a v3.8 Changes entry. Authority is that file's own Mechanics grant ('any session or routine appends directly, no approval gate, and flags it so Alexander can veto'), not the repair allowlist. Same defect class as the 07-27 lastRunAt entry, one layer down.">overview: 2026-07-28 08:24 — journal correction + harness lesson logged. Corrected this run's journal line, which claimed 'no autonomous action' before I took one: appended a dated evidence entry to harness-priorities.md ('2026-07-28 · fleet · structural · routine-secretary') recording that an artifact check is only as fresh as the working copy it reads — the collector called dashboard-self-improve 3d stale off a clone parked on abandoned branch maintenance/2026-07-25, unfetched since Jul 26, while GitHub main showed PR #62 merged 07-28T00:48Z. Reconciled into the front-matter Fleet health rule as one clause (front matter held at 84 lines) plus a v3.8 Changes entry. Authority is that file's own Mechanics grant ('any session or routine appends directly, no approval gate, and flags it so Alexander can veto'), not the repair allowlist. Same defect class as the 07-27 lastRunAt entry, one layer down.</span>
+    <span class="row__ago">8h ago</span>
+    <span class="row__head" title="docs: journal the branch-independent git freshness fix">docs: journal the branch-independent git freshness fix</span>
   </li><li class="row row--muted">
     <span class="row__dot"><span class="dot dot--paused" title="Paused" aria-hidden="true"></span></span>
     <span class="row__name">Overview self-improve <span class="tag tag--off">paused</span></span>
     <span class="row__cadence">Every 3h</span>
-    <span class="row__ago">25d ago</span>
-    <span class="row__head" title="improve: roster note only shows on green rows so a stale routine's headline matches its dot">improve: roster note only shows on green rows so a stale routine's headline matches its dot</span>
+    <span class="row__ago">8h ago</span>
+    <span class="row__head" title="improve: git freshness reads the repository, not whichever branch someone left checked out — a clone parked on an abandoned branch froze Dashboard self-improve's reading at that tip and can equally manufacture a false green">improve: git freshness reads the repository, not whichever branch someone left checked out — a clone parked on an abandoned branch froze Dashboard self-improve's reading at that tip and can equally manufacture a false green</span>
   </li></ul>
     </div><div class="rgroup">
       <div class="rgroup__head">❓ Unassigned<span class="rgroup__count">1</span></div>
@@ -576,7 +524,7 @@
   <footer>
     Health is reconstructed from each routine's real artifacts — git commits, run-logs and published files — not just whether the scheduler fired. Silent by design: you get a push only when something needs you.
     <br>
-    Generated 28 Jul 2026, 12:00 Europe/Copenhagen
+    Generated 28 Jul 2026, 20:16 Europe/Copenhagen
     <span class="foot-sep">·</span>
     <a href="https://github.com/abustrup/Routine-overview" target="_blank" rel="noopener">github.com/abustrup/Routine-overview</a>
   </footer>

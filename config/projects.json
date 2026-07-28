@@ -184,28 +184,28 @@
   "launchd": [
     {
       "id": "holdet-evening", "project": "holdet-tdf", "name": "Holdet evening pass (launchd)",
-      "cadence": "~21:05 & ~23:10", "periodHours": 24, "kind": "launchd", "role": "producer",
+      "cadence": "~21:05 & ~23:10", "periodHours": 24, "kind": "launchd", "role": "producer", "enabled": false,
       "does": "Full daily chain: collect → decide → notify+veto → execute+verify on holdet.dk.",
       "freshness": { "type": "logMtime", "path": "{repo:holdetBot}/logs/evening.log" },
       "scan": { "path": "{repo:holdetBot}/logs/evening.log", "error": ["fatal:", "Traceback", "is not defined", "Cannot read", "Uncaught"], "warn": [], "note": ["feltet=ERR"], "ignore": ["already handled"] }
     },
     {
       "id": "holdet-guard", "project": "holdet-tdf", "name": "Holdet DNS guard (launchd)",
-      "cadence": "~08:30", "periodHours": 24, "kind": "launchd", "role": "monitor",
+      "cadence": "~08:30", "periodHours": 24, "kind": "launchd", "role": "monitor", "enabled": false,
       "does": "Morning start-list re-check for non-starters (DNS) before the stage.",
       "freshness": { "type": "logMtime", "path": "{repo:holdetBot}/logs/guard.log" },
       "scan": { "path": "{repo:holdetBot}/logs/guard.log", "error": ["fatal:", "Traceback", "is not defined"], "note": ["feltet=ERR"] }
     },
     {
       "id": "holdet-watch", "project": "holdet-tdf", "name": "Holdet watch sentinel (launchd)",
-      "cadence": "Hourly", "periodHours": 1, "kind": "launchd", "role": "monitor",
+      "cadence": "Hourly", "periodHours": 1, "kind": "launchd", "role": "monitor", "enabled": false,
       "does": "Hourly read-only sentinel; reconciles results and flags material change.",
       "freshness": { "type": "logMtime", "path": "{repo:holdetBot}/logs/watch.log" },
       "scan": { "path": "{repo:holdetBot}/logs/watch.log", "error": ["fatal:", "Traceback", "is not defined"], "note": ["feltet=ERR"] }
     },
     {
       "id": "holdet-improve", "project": "holdet-tdf", "name": "Holdet improve loop (launchd)",
-      "cadence": "Every 5h", "periodHours": 5, "kind": "launchd", "role": "maintainer",
+      "cadence": "Every 5h", "periodHours": 5, "kind": "launchd", "role": "maintainer", "enabled": false,
       "does": "Backtest + optimize weights; proposes at most one verified improvement.",
       "freshness": { "type": "logMtime", "path": "{repo:holdetBot}/logs/improve.log" },
       "scan": { "path": "{repo:holdetBot}/logs/improve.log", "error": ["fatal:", "Traceback", "is not defined", "Cannot read", "Uncaught"], "ignore": ["LLM advisor: unavailable", "no LLM auth", "skipping auto-merge"] }

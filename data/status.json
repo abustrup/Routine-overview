@@ -1,56 +1,27 @@
 {
-  "generatedAt": "2026-07-28T10:00:15.736Z",
-  "generatedAtLocal": "28 Jul 2026, 12:00 Europe/Copenhagen",
+  "generatedAt": "2026-07-28T18:16:59.002Z",
+  "generatedAtLocal": "28 Jul 2026, 20:16 Europe/Copenhagen",
   "owner": "Alexander Bustrup",
-  "attentionKey": "red:Holdet DNS guard (launchd):stale|red:Holdet improve loop (launchd):error|warn:Dashboard self-improve:ageing",
+  "attentionKey": "warn:Dashboard self-improve:ageing",
   "staleAfterMin": 360,
   "summary": {
-    "green": 7,
+    "green": 5,
     "yellow": 1,
-    "red": 2,
-    "paused": 11,
+    "red": 0,
+    "paused": 15,
     "total": 21
   },
   "attention": [
     {
-      "severity": "red",
-      "project": "holdet-tdf",
-      "routine": "Holdet DNS guard (launchd)",
-      "message": "Stale — last output 26d ago (expected ~08:30).",
-      "kind": "stale",
-      "fix": {
-        "prompt": "The scheduled routine \"Holdet DNS guard (launchd)\" was expected to run ~08:30 but produced no recent output. Working dir: ~/holdet-tdf-bot. Investigate why it stopped (check its scheduler run and its log), fix the cause, verify a fresh run produces output, and commit. Follow the project's own CLAUDE.md and the holdet-tdf-bot skill, which document its guardrails and protected paths.",
-        "cwd": "~/holdet-tdf-bot"
-      }
-    },
-    {
-      "severity": "red",
-      "project": "holdet-tdf",
-      "routine": "Holdet improve loop (launchd)",
-      "message": "error detected in improve.log — details are local-only",
-      "kind": "error",
-      "fix": {
-        "prompt": "The scheduled routine \"Holdet improve loop (launchd)\" is erroring. Working dir: ~/holdet-tdf-bot. Read improve.log for the exact error, then find the root cause, fix it, add a guard or test so it can't recur, verify by re-running the step, and commit. Follow the project's own CLAUDE.md and the holdet-tdf-bot skill, which document its guardrails and protected paths.",
-        "cwd": "~/holdet-tdf-bot"
-      }
-    },
-    {
       "severity": "warn",
       "project": "stock",
       "routine": "Dashboard self-improve",
-      "message": "Ageing — last output 2d ago (expected Daily · 02:00).",
+      "message": "Ageing — last output 3d ago (expected Daily · 02:00).",
       "kind": "ageing",
       "fix": {
         "prompt": "The scheduled routine \"Dashboard self-improve\" (Ships at most ONE strictly-better improvement to the stock dashboard per run via reviewed PR (or nothing).) was expected to run Daily · 02:00 but produced no recent output. Working dir: ~/Documents/AI eksperimenter/personal-stock-dashboard. Investigate why it stopped (check its scheduler run and its log), fix the cause, verify a fresh run produces output, and commit. Open a small PR to main and keep CI green. Public repo: demo data only, never real positions or secrets.",
         "cwd": "~/Documents/AI eksperimenter/personal-stock-dashboard"
       }
-    },
-    {
-      "severity": "info",
-      "project": "holdet-tdf",
-      "routine": "Holdet DNS guard (launchd)",
-      "message": "a data source is degraded — details are local-only",
-      "kind": "note"
     }
   ],
   "projects": [
@@ -60,7 +31,7 @@
       "emoji": "🚴",
       "goal": "Autonomously field the optimal holdet.dk Tour de France 2026 team every single day and beat the human field — hands-off, with only a human veto.",
       "note": "Pre-Tour: stage 1 startlist still pending, so the daily brains correctly report 'no material change'. Watch for Tour start.",
-      "health": "yellow",
+      "health": "green",
       "links": [
         {
           "label": "Live dashboard",
@@ -71,9 +42,9 @@
           "url": "~/Documents/AI eksperimenter/Holdet-TDF-2026-pages"
         }
       ],
-      "lastPublish": "2026-07-19T02:22:02.000Z",
-      "lastPublishHuman": "9d ago",
-      "lastPublishSubject": "Update dashboard — 2026-07-19 04:22 Europe/Copenhagen",
+      "lastPublish": null,
+      "lastPublishHuman": "—",
+      "lastPublishSubject": null,
       "routineCount": 10,
       "routines": [
         "holdet-dashboard-improve",
@@ -106,7 +77,7 @@
         }
       ],
       "lastPublish": "2026-07-26T01:06:40.000Z",
-      "lastPublishHuman": "2d ago",
+      "lastPublishHuman": "3d ago",
       "lastPublishSubject": "fix: stop a rail brief promising a click it can't deliver",
       "routineCount": 3,
       "routines": [
@@ -133,7 +104,7 @@
         }
       ],
       "lastPublish": "2026-07-28T04:53:31.000Z",
-      "lastPublishHuman": "5h ago",
+      "lastPublishHuman": "13h ago",
       "lastPublishSubject": "rolling weekly: 2026-07-28",
       "routineCount": 6,
       "routines": [
@@ -162,9 +133,9 @@
           "url": "https://github.com/abustrup/Routine-overview"
         }
       ],
-      "lastPublish": "2026-07-28T06:26:06.000Z",
-      "lastPublishHuman": "4h ago",
-      "lastPublishSubject": "overview: 2026-07-28 08:24 — journal correction + harness lesson logged. Corrected this run's journal line, which claimed 'no autonomous action' before I took one: appended a dated evidence entry to harness-priorities.md ('2026-07-28 · fleet · structural · routine-secretary') recording that an artifact check is only as fresh as the working copy it reads — the collector called dashboard-self-improve 3d stale off a clone parked on abandoned branch maintenance/2026-07-25, unfetched since Jul 26, while GitHub main showed PR #62 merged 07-28T00:48Z. Reconciled into the front-matter Fleet health rule as one clause (front matter held at 84 lines) plus a v3.8 Changes entry. Authority is that file's own Mechanics grant ('any session or routine appends directly, no approval gate, and flags it so Alexander can veto'), not the repair allowlist. Same defect class as the 07-27 lastRunAt entry, one layer down.",
+      "lastPublish": "2026-07-28T10:05:37.000Z",
+      "lastPublishHuman": "8h ago",
+      "lastPublishSubject": "docs: journal the branch-independent git freshness fix",
       "routineCount": 2,
       "routines": [
         "routine-overview-secretary",
@@ -184,10 +155,10 @@
       "does": "Refreshes this overview from artifact-truth and flags only what needs attention.",
       "health": "green",
       "private": false,
-      "headline": "overview: 2026-07-28 08:24 — journal correction + harness lesson logged. Corrected this run's journal line, which claimed 'no autonomous action' before I took one: appended a dated evidence entry to harness-priorities.md ('2026-07-28 · fleet · structural · routine-secretary') recording that an artifact check is only as fresh as the working copy it reads — the collector called dashboard-self-improve 3d stale off a clone parked on abandoned branch maintenance/2026-07-25, unfetched since Jul 26, while GitHub main showed PR #62 merged 07-28T00:48Z. Reconciled into the front-matter Fleet health rule as one clause (front matter held at 84 lines) plus a v3.8 Changes entry. Authority is that file's own Mechanics grant ('any session or routine appends directly, no approval gate, and flags it so Alexander can veto'), not the repair allowlist. Same defect class as the 07-27 lastRunAt entry, one layer down.",
+      "headline": "docs: journal the branch-independent git freshness fix",
       "logName": null,
-      "lastOutputAt": "2026-07-28T06:26:06.000Z",
-      "lastOutputHuman": "4h ago",
+      "lastOutputAt": "2026-07-28T10:05:37.000Z",
+      "lastOutputHuman": "8h ago",
       "issues": [],
       "review": null
     },
@@ -202,10 +173,10 @@
       "does": "Ships one low-risk, high-reward maintenance/design improvement to this overview per run (or nothing), toward the Anthropic aesthetic.",
       "health": "paused",
       "private": false,
-      "headline": "improve: roster note only shows on green rows so a stale routine's headline matches its dot",
+      "headline": "improve: git freshness reads the repository, not whichever branch someone left checked out — a clone parked on an abandoned branch froze Dashboard self-improve's reading at that tip and can equally manufacture a false green",
       "logName": null,
-      "lastOutputAt": "2026-07-03T16:46:31.000Z",
-      "lastOutputHuman": "25d ago",
+      "lastOutputAt": "2026-07-28T10:05:21.000Z",
+      "lastOutputHuman": "8h ago",
       "issues": [],
       "review": null
     },
@@ -223,7 +194,7 @@
       "headline": "published 2026-07-28",
       "logName": null,
       "lastOutputAt": "2026-07-28T03:52:24.032Z",
-      "lastOutputHuman": "6h ago",
+      "lastOutputHuman": "14h ago",
       "issues": [],
       "review": null
     },
@@ -241,7 +212,7 @@
       "headline": "rolling weekly: 2026-07-28",
       "logName": null,
       "lastOutputAt": "2026-07-28T04:53:31.000Z",
-      "lastOutputHuman": "5h ago",
+      "lastOutputHuman": "13h ago",
       "issues": [],
       "review": null
     },
@@ -259,7 +230,7 @@
       "headline": "rolling monthly: 2026-07-27",
       "logName": null,
       "lastOutputAt": "2026-07-27T05:06:17.000Z",
-      "lastOutputHuman": "1d ago",
+      "lastOutputHuman": "2d ago",
       "issues": [],
       "review": null
     },
@@ -331,7 +302,7 @@
       "headline": "fix: stop a rail brief promising a click it can't deliver",
       "logName": null,
       "lastOutputAt": "2026-07-26T01:06:40.000Z",
-      "lastOutputHuman": "2d ago",
+      "lastOutputHuman": "3d ago",
       "issues": [],
       "review": null
     },
@@ -349,7 +320,7 @@
       "headline": "fix: stop a rail brief promising a click it can't deliver",
       "logName": null,
       "lastOutputAt": "2026-07-26T01:06:40.000Z",
-      "lastOutputHuman": "2d ago",
+      "lastOutputHuman": "3d ago",
       "issues": [],
       "review": "Retired 2026-07-03 — was the redundant second stock maintainer (13:00); 'Dashboard self-improve' (02:00) is now the single canonical guardrailed pass. Disabled in scheduler; config synced to match."
     },
@@ -382,10 +353,10 @@
       "does": "One safe read-only improvement to the holdet dashboard, then publishes the refreshed page.",
       "health": "paused",
       "private": false,
-      "headline": "Update dashboard — 2026-07-19 04:22 Europe/Copenhagen",
+      "headline": "",
       "logName": null,
-      "lastOutputAt": "2026-07-19T02:22:02.000Z",
-      "lastOutputHuman": "9d ago",
+      "lastOutputAt": null,
+      "lastOutputHuman": "—",
       "issues": [],
       "review": null
     },
@@ -402,8 +373,8 @@
       "private": true,
       "headline": "paused",
       "logName": null,
-      "lastOutputAt": "2026-07-20T08:35:28.000Z",
-      "lastOutputHuman": "8d ago",
+      "lastOutputAt": null,
+      "lastOutputHuman": "—",
       "issues": [],
       "review": null
     },
@@ -420,8 +391,8 @@
       "private": true,
       "headline": "paused",
       "logName": null,
-      "lastOutputAt": "2026-07-25T20:52:33.487Z",
-      "lastOutputHuman": "3d ago",
+      "lastOutputAt": null,
+      "lastOutputHuman": "—",
       "issues": [],
       "review": null
     },
@@ -438,8 +409,8 @@
       "private": true,
       "headline": "paused",
       "logName": null,
-      "lastOutputAt": "2026-07-20T08:35:28.000Z",
-      "lastOutputHuman": "8d ago",
+      "lastOutputAt": null,
+      "lastOutputHuman": "—",
       "issues": [],
       "review": null
     },
@@ -504,14 +475,14 @@
       "cadence": "~21:05 & ~23:10",
       "kind": "launchd",
       "role": "producer",
-      "enabled": true,
+      "enabled": false,
       "does": null,
-      "health": "green",
+      "health": "paused",
       "private": true,
-      "headline": "ran — no errors detected",
+      "headline": "paused",
       "logName": "evening.log",
-      "lastOutputAt": "2026-07-27T20:31:31.127Z",
-      "lastOutputHuman": "13h ago",
+      "lastOutputAt": null,
+      "lastOutputHuman": "—",
       "issues": [],
       "review": null
     },
@@ -522,20 +493,15 @@
       "cadence": "~08:30",
       "kind": "launchd",
       "role": "monitor",
-      "enabled": true,
+      "enabled": false,
       "does": null,
-      "health": "red",
+      "health": "paused",
       "private": true,
-      "headline": "error detected in local log — details kept private",
+      "headline": "paused",
       "logName": "guard.log",
-      "lastOutputAt": "2026-07-02T06:30:17.475Z",
-      "lastOutputHuman": "26d ago",
-      "issues": [
-        {
-          "severity": "note",
-          "line": "a data source is degraded — details are local-only"
-        }
-      ],
+      "lastOutputAt": null,
+      "lastOutputHuman": "—",
+      "issues": [],
       "review": null
     },
     {
@@ -545,14 +511,14 @@
       "cadence": "Hourly",
       "kind": "launchd",
       "role": "monitor",
-      "enabled": true,
+      "enabled": false,
       "does": null,
-      "health": "green",
+      "health": "paused",
       "private": true,
-      "headline": "ran — no errors detected",
+      "headline": "paused",
       "logName": "watch.log",
-      "lastOutputAt": "2026-07-28T09:46:11.056Z",
-      "lastOutputHuman": "14 min ago",
+      "lastOutputAt": null,
+      "lastOutputHuman": "—",
       "issues": [],
       "review": null
     },
@@ -563,20 +529,15 @@
       "cadence": "Every 5h",
       "kind": "launchd",
       "role": "maintainer",
-      "enabled": true,
+      "enabled": false,
       "does": null,
-      "health": "red",
+      "health": "paused",
       "private": true,
-      "headline": "error detected in local log — details kept private",
+      "headline": "paused",
       "logName": "improve.log",
-      "lastOutputAt": "2026-07-02T15:04:33.422Z",
-      "lastOutputHuman": "26d ago",
-      "issues": [
-        {
-          "severity": "error",
-          "line": "error detected in improve.log — details are local-only"
-        }
-      ],
+      "lastOutputAt": null,
+      "lastOutputHuman": "—",
+      "issues": [],
       "review": null
     }
   ]
