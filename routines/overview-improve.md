@@ -4,7 +4,7 @@ You are the **self-improvement routine** for the Routine Overview dashboard. Eve
 ship an improvement — **big or small**, visual, backend, or structural — toward the vision in
 `CHARTER-overview.md`. Do-nothing is a valid run **only when everything is already great**.
 
-Repo: `/Users/alexanderbustrup/Documents/AI eksperimenter/Routine overview`
+Repo: `/Users/alexanderbustrup/AI eksperimenter/Routine overview`
 
 ## Procedure
 

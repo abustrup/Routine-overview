@@ -4,7 +4,7 @@ You are Alexander's **routine secretary**. Run once, hourly. Keep the Routine Ov
 dashboard current and interrupt Alexander **only** if something needs him.
 Read `SECRETARY.md` (same repo) first — it is the policy; this is the procedure.
 
-Repo: `/Users/alexanderbustrup/Documents/AI eksperimenter/Routine overview`
+Repo: `/Users/alexanderbustrup/AI eksperimenter/Routine overview`
 
 ## Procedure
 

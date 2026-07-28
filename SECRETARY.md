@@ -27,7 +27,7 @@ outside the whitelist:
    still `enabled`, and any enabled task whose *purpose* has expired (it serves an event or
    project that is over) even if it runs green. Wasteful counts as broken. (Precedent: the
    retired stock-maintenance task burned a run/day for 3 weeks before the 26 Jul audit caught it.)
-2. **The harness priorities file.** `/Users/alexanderbustrup/Documents/AI eksperimenter/harness-priorities.md`
+2. **The harness priorities file.** `/Users/alexanderbustrup/AI eksperimenter/harness-priorities.md`
    (renamed from `capability-ledger.md` on 2026-07-26; R1/R2/R3 collapsed into its principles)
    is part of the whole picture: flag a project that shipped, paused, or died without a dated
    evidence entry or residue, and any *pending extraction* or `[ALEXANDER — fill in]` blank older

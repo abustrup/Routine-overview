@@ -7,11 +7,11 @@
     "roots": ["{HOME}/holdet-tdf-bot"]
   },
   "repos": {
-    "holdetPages": "{HOME}/Documents/AI eksperimenter/Holdet-TDF-2026-pages",
-    "briefPages": "{HOME}/Documents/AI eksperimenter/alexanders-brief-pages",
-    "stock": "{HOME}/Documents/AI eksperimenter/personal-stock-dashboard",
+    "holdetPages": "{HOME}/AI eksperimenter/Holdet-TDF-2026-pages",
+    "briefPages": "{HOME}/AI eksperimenter/alexanders-brief-pages",
+    "stock": "{HOME}/AI eksperimenter/personal-stock-dashboard",
     "holdetBot": "{HOME}/holdet-tdf-bot",
-    "overview": "{HOME}/Documents/AI eksperimenter/Routine overview"
+    "overview": "{HOME}/AI eksperimenter/Routine overview"
   },
   "projects": [
     {
@@ -38,7 +38,7 @@
         { "label": "Repo", "url": "https://github.com/abustrup/personal-stock-dashboard" }
       ],
       "healthFromRepo": "stock",
-      "fixCwd": "{HOME}/Documents/AI eksperimenter/personal-stock-dashboard",
+      "fixCwd": "{HOME}/AI eksperimenter/personal-stock-dashboard",
       "constraints": "Open a small PR to main and keep CI green. Public repo: demo data only, never real positions or secrets."
     },
     {
@@ -51,7 +51,7 @@
         { "label": "Repo", "url": "https://github.com/abustrup/alexanders-brief" }
       ],
       "healthFromRepo": "briefPages",
-      "fixCwd": "{HOME}/Documents/AI eksperimenter/News breif 1",
+      "fixCwd": "{HOME}/AI eksperimenter/News breif 1",
       "constraints": "Follow prompts/daily-brief.md and the project's guardrails; never expose any secrets or credentials; publish at most once per date."
     },
     {
@@ -64,7 +64,7 @@
         { "label": "Repo", "url": "https://github.com/abustrup/Routine-overview" }
       ],
       "healthFromRepo": "overview",
-      "fixCwd": "{HOME}/Documents/AI eksperimenter/Routine overview",
+      "fixCwd": "{HOME}/AI eksperimenter/Routine overview",
       "constraints": "Keep it public-safe: health/status only, no secrets or strategy internals. Verify with node scripts/collect.mjs && node scripts/render.mjs before pushing."
     }
   ],
