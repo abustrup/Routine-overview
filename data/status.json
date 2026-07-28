@@ -1,28 +1,17 @@
 {
-  "generatedAt": "2026-07-28T06:18:24.930Z",
-  "generatedAtLocal": "28 Jul 2026, 08:18 Europe/Copenhagen",
+  "generatedAt": "2026-07-28T10:00:15.736Z",
+  "generatedAtLocal": "28 Jul 2026, 12:00 Europe/Copenhagen",
   "owner": "Alexander Bustrup",
-  "attentionKey": "red:Holdet DNS guard (launchd):stale|red:Holdet improve loop (launchd):error|red:Routine secretary (this):stale|warn:Dashboard self-improve:ageing",
+  "attentionKey": "red:Holdet DNS guard (launchd):stale|red:Holdet improve loop (launchd):error|warn:Dashboard self-improve:ageing",
   "staleAfterMin": 360,
   "summary": {
-    "green": 6,
+    "green": 7,
     "yellow": 1,
-    "red": 3,
+    "red": 2,
     "paused": 11,
     "total": 21
   },
   "attention": [
-    {
-      "severity": "red",
-      "project": "meta",
-      "routine": "Routine secretary (this)",
-      "message": "Stale — last output 24h ago (expected Every 5h · :17).",
-      "kind": "stale",
-      "fix": {
-        "prompt": "The scheduled routine \"Routine secretary (this)\" (Refreshes this overview from artifact-truth and flags only what needs attention.) was expected to run Every 5h · :17 but produced no recent output. Working dir: ~/Documents/AI eksperimenter/Routine overview. Investigate why it stopped (check its scheduler run and its log), fix the cause, verify a fresh run produces output, and commit. Keep it public-safe: health/status only, no secrets or strategy internals. Verify with node scripts/collect.mjs && node scripts/render.mjs before pushing.",
-        "cwd": "~/Documents/AI eksperimenter/Routine overview"
-      }
-    },
     {
       "severity": "red",
       "project": "holdet-tdf",
@@ -49,7 +38,7 @@
       "severity": "warn",
       "project": "stock",
       "routine": "Dashboard self-improve",
-      "message": "Ageing — last output 3d ago (expected Daily · 02:00).",
+      "message": "Ageing — last output 2d ago (expected Daily · 02:00).",
       "kind": "ageing",
       "fix": {
         "prompt": "The scheduled routine \"Dashboard self-improve\" (Ships at most ONE strictly-better improvement to the stock dashboard per run via reviewed PR (or nothing).) was expected to run Daily · 02:00 but produced no recent output. Working dir: ~/Documents/AI eksperimenter/personal-stock-dashboard. Investigate why it stopped (check its scheduler run and its log), fix the cause, verify a fresh run produces output, and commit. Open a small PR to main and keep CI green. Public repo: demo data only, never real positions or secrets.",
@@ -116,9 +105,9 @@
           "url": "https://github.com/abustrup/personal-stock-dashboard"
         }
       ],
-      "lastPublish": "2026-07-25T14:15:54.000Z",
-      "lastPublishHuman": "3d ago",
-      "lastPublishSubject": "docs(auto-log): record the 2026-07-25 maintenance run",
+      "lastPublish": "2026-07-26T01:06:40.000Z",
+      "lastPublishHuman": "2d ago",
+      "lastPublishSubject": "fix: stop a rail brief promising a click it can't deliver",
       "routineCount": 3,
       "routines": [
         "dashboard-self-improve",
@@ -144,7 +133,7 @@
         }
       ],
       "lastPublish": "2026-07-28T04:53:31.000Z",
-      "lastPublishHuman": "1h ago",
+      "lastPublishHuman": "5h ago",
       "lastPublishSubject": "rolling weekly: 2026-07-28",
       "routineCount": 6,
       "routines": [
@@ -162,7 +151,7 @@
       "emoji": "🗂️",
       "goal": "Hold the whole picture across every routine and interrupt Alexander only when something genuinely needs him.",
       "note": null,
-      "health": "yellow",
+      "health": "green",
       "links": [
         {
           "label": "This dashboard",
@@ -173,9 +162,9 @@
           "url": "https://github.com/abustrup/Routine-overview"
         }
       ],
-      "lastPublish": "2026-07-27T06:22:24.000Z",
-      "lastPublishHuman": "24h ago",
-      "lastPublishSubject": "PUSHED (new+real+action): NEW capability-ledger-retest (ENABLED, fires 01 Aug 09:30) reads /Documents/AI eksperimenter/capability-ledger.md which NO LONGER EXISTS — renamed harness-priorities.md 26 Jul; step 1 is 'read the ledger in full' => it will find nothing. Editing another task's SKILL.md is outside allowlist => flag. AUTONOMOUS (in-repo prose): SECRETARY.md loop-guardian duty #2 pointed at the same dead path and cited rules R1/R2 that no longer exist => repointed at harness-priorities.md, rename dated, 14-day rule extended to [ALEXANDER — fill in] blanks. TWO REDS CLEARED, both verified by dated artifact not vanished-warn: (1) Rolling weekly (Ugen) recovered ON ITS OWN — docs/week.html rewritten 07-27 06:54, commit 4b96581; the 07-19..07-26 gap stays permanent, not repaired; (2) Holdet watch SQLITE_FULL did not recur — 08:17:54 tick clean, snapshot stage 21 / 206 players / 6 of 7 sources — but the CAUSE is unfixed, bot.db still 0 BYTES since 19 Jul => symptom stopped, another repo, flag-never-patch. Brief GREEN and no new miss: 2026-07-27 edition published 06:01, 39 min inside deadline, 2 consecutive; standing 5-of-14-days miss rate (Jul 14-27) NOT re-pushed; pmset zero sleep events today. Zombie sweep clean across 10 enabled tasks; harness-priorities clean (both open items dated 07-26, 1 day old). FLAGGED not touched: holdet-final-settlement fires 09:00 today but the debrief already recorded rank 12,913 (top 24%) on 26 Jul => its work is done before it runs; 5 holdet launchd jobs incl. the evening+converge trade path still armed post-Tour; this secretary's own config still says Every-5h vs scheduler Daily 08:17 so it reds ITSELF daily (periodHours is not the enabled flag). enabled-drift ZERO, 5 launchd exit-0, safe-list empty.",
+      "lastPublish": "2026-07-28T06:26:06.000Z",
+      "lastPublishHuman": "4h ago",
+      "lastPublishSubject": "overview: 2026-07-28 08:24 — journal correction + harness lesson logged. Corrected this run's journal line, which claimed 'no autonomous action' before I took one: appended a dated evidence entry to harness-priorities.md ('2026-07-28 · fleet · structural · routine-secretary') recording that an artifact check is only as fresh as the working copy it reads — the collector called dashboard-self-improve 3d stale off a clone parked on abandoned branch maintenance/2026-07-25, unfetched since Jul 26, while GitHub main showed PR #62 merged 07-28T00:48Z. Reconciled into the front-matter Fleet health rule as one clause (front matter held at 84 lines) plus a v3.8 Changes entry. Authority is that file's own Mechanics grant ('any session or routine appends directly, no approval gate, and flags it so Alexander can veto'), not the repair allowlist. Same defect class as the 07-27 lastRunAt entry, one layer down.",
       "routineCount": 2,
       "routines": [
         "routine-overview-secretary",
@@ -193,12 +182,12 @@
       "role": "maintainer",
       "enabled": true,
       "does": "Refreshes this overview from artifact-truth and flags only what needs attention.",
-      "health": "red",
+      "health": "green",
       "private": false,
-      "headline": "PUSHED (new+real+action): NEW capability-ledger-retest (ENABLED, fires 01 Aug 09:30) reads /Documents/AI eksperimenter/capability-ledger.md which NO LONGER EXISTS — renamed harness-priorities.md 26 Jul; step 1 is 'read the ledger in full' => it will find nothing. Editing another task's SKILL.md is outside allowlist => flag. AUTONOMOUS (in-repo prose): SECRETARY.md loop-guardian duty #2 pointed at the same dead path and cited rules R1/R2 that no longer exist => repointed at harness-priorities.md, rename dated, 14-day rule extended to [ALEXANDER — fill in] blanks. TWO REDS CLEARED, both verified by dated artifact not vanished-warn: (1) Rolling weekly (Ugen) recovered ON ITS OWN — docs/week.html rewritten 07-27 06:54, commit 4b96581; the 07-19..07-26 gap stays permanent, not repaired; (2) Holdet watch SQLITE_FULL did not recur — 08:17:54 tick clean, snapshot stage 21 / 206 players / 6 of 7 sources — but the CAUSE is unfixed, bot.db still 0 BYTES since 19 Jul => symptom stopped, another repo, flag-never-patch. Brief GREEN and no new miss: 2026-07-27 edition published 06:01, 39 min inside deadline, 2 consecutive; standing 5-of-14-days miss rate (Jul 14-27) NOT re-pushed; pmset zero sleep events today. Zombie sweep clean across 10 enabled tasks; harness-priorities clean (both open items dated 07-26, 1 day old). FLAGGED not touched: holdet-final-settlement fires 09:00 today but the debrief already recorded rank 12,913 (top 24%) on 26 Jul => its work is done before it runs; 5 holdet launchd jobs incl. the evening+converge trade path still armed post-Tour; this secretary's own config still says Every-5h vs scheduler Daily 08:17 so it reds ITSELF daily (periodHours is not the enabled flag). enabled-drift ZERO, 5 launchd exit-0, safe-list empty.",
+      "headline": "overview: 2026-07-28 08:24 — journal correction + harness lesson logged. Corrected this run's journal line, which claimed 'no autonomous action' before I took one: appended a dated evidence entry to harness-priorities.md ('2026-07-28 · fleet · structural · routine-secretary') recording that an artifact check is only as fresh as the working copy it reads — the collector called dashboard-self-improve 3d stale off a clone parked on abandoned branch maintenance/2026-07-25, unfetched since Jul 26, while GitHub main showed PR #62 merged 07-28T00:48Z. Reconciled into the front-matter Fleet health rule as one clause (front matter held at 84 lines) plus a v3.8 Changes entry. Authority is that file's own Mechanics grant ('any session or routine appends directly, no approval gate, and flags it so Alexander can veto'), not the repair allowlist. Same defect class as the 07-27 lastRunAt entry, one layer down.",
       "logName": null,
-      "lastOutputAt": "2026-07-27T06:22:24.000Z",
-      "lastOutputHuman": "24h ago",
+      "lastOutputAt": "2026-07-28T06:26:06.000Z",
+      "lastOutputHuman": "4h ago",
       "issues": [],
       "review": null
     },
@@ -234,7 +223,7 @@
       "headline": "published 2026-07-28",
       "logName": null,
       "lastOutputAt": "2026-07-28T03:52:24.032Z",
-      "lastOutputHuman": "2h ago",
+      "lastOutputHuman": "6h ago",
       "issues": [],
       "review": null
     },
@@ -252,7 +241,7 @@
       "headline": "rolling weekly: 2026-07-28",
       "logName": null,
       "lastOutputAt": "2026-07-28T04:53:31.000Z",
-      "lastOutputHuman": "1h ago",
+      "lastOutputHuman": "5h ago",
       "issues": [],
       "review": null
     },
@@ -339,10 +328,10 @@
       "does": "Ships at most ONE strictly-better improvement to the stock dashboard per run via reviewed PR (or nothing).",
       "health": "yellow",
       "private": false,
-      "headline": "docs(auto-log): record the 2026-07-25 maintenance run",
+      "headline": "fix: stop a rail brief promising a click it can't deliver",
       "logName": null,
-      "lastOutputAt": "2026-07-25T14:15:54.000Z",
-      "lastOutputHuman": "3d ago",
+      "lastOutputAt": "2026-07-26T01:06:40.000Z",
+      "lastOutputHuman": "2d ago",
       "issues": [],
       "review": null
     },
@@ -357,10 +346,10 @@
       "does": "Structural maintenance passes on the stock dashboard.",
       "health": "paused",
       "private": false,
-      "headline": "docs(auto-log): record the 2026-07-25 maintenance run",
+      "headline": "fix: stop a rail brief promising a click it can't deliver",
       "logName": null,
-      "lastOutputAt": "2026-07-25T14:15:54.000Z",
-      "lastOutputHuman": "3d ago",
+      "lastOutputAt": "2026-07-26T01:06:40.000Z",
+      "lastOutputHuman": "2d ago",
       "issues": [],
       "review": "Retired 2026-07-03 — was the redundant second stock maintainer (13:00); 'Dashboard self-improve' (02:00) is now the single canonical guardrailed pass. Disabled in scheduler; config synced to match."
     },
@@ -432,7 +421,7 @@
       "headline": "paused",
       "logName": null,
       "lastOutputAt": "2026-07-25T20:52:33.487Z",
-      "lastOutputHuman": "2d ago",
+      "lastOutputHuman": "3d ago",
       "issues": [],
       "review": null
     },
@@ -522,7 +511,7 @@
       "headline": "ran — no errors detected",
       "logName": "evening.log",
       "lastOutputAt": "2026-07-27T20:31:31.127Z",
-      "lastOutputHuman": "10h ago",
+      "lastOutputHuman": "13h ago",
       "issues": [],
       "review": null
     },
@@ -562,8 +551,8 @@
       "private": true,
       "headline": "ran — no errors detected",
       "logName": "watch.log",
-      "lastOutputAt": "2026-07-28T05:45:18.563Z",
-      "lastOutputHuman": "33 min ago",
+      "lastOutputAt": "2026-07-28T09:46:11.056Z",
+      "lastOutputHuman": "14 min ago",
       "issues": [],
       "review": null
     },

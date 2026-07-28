@@ -54,11 +54,27 @@ function git(dir, args) {
 function repoOk(dir) { return dir && existsSync(join(dir, '.git')); }
 
 // Last commit (optionally whose subject matches an extended-regex). Returns {when, subject} or null.
+//
+// Reads the whole clone, NOT the checked-out branch. A bare `git log -1` answers "what is the tip
+// of whichever branch a human last left checked out" — a working-copy accident — while this
+// collector's freshness types mean "did this repo produce output". Those diverge the moment a
+// clone is parked on a side branch, and then the dashboard reports the accident as fleet health.
+// Seen live 2026-07-28: the stock clone sat on abandoned branch maintenance/2026-07-25, so
+// `Dashboard self-improve` was called stale at that branch's frozen tip while origin/main in the
+// same clone was two days newer. The mirror case is worse — a parked branch with a *recent* commit
+// would manufacture a false green while the mainline lay dead, and the Charter's first value is
+// that a grey dot beats a false green.
+//   --branches --remotes  every local + remote-tracking branch this clone knows about
+//   HEAD                  covers a detached HEAD, which belongs to no branch
+// Deliberately NOT `--all`: that also walks refs/stash and refs/notes, whose commit dates would
+// count a stashed edit as published output.
 const SEP = String.fromCharCode(31); // 0x1F unit separator
+const ALL_BRANCHES = ['--branches', '--remotes', 'HEAD'];
 function lastCommit(dir, grep) {
   if (!repoOk(dir)) return null;
   const args = ['log', '-1', `--pretty=%cI${SEP}%s`];
   if (grep) args.push('-E', `--grep=${grep}`);
+  args.push(...ALL_BRANCHES);
   const out = git(dir, args);
   if (!out) return null;
   const i = out.indexOf(SEP); // slice, don't destructure — a subject may itself contain SEP
