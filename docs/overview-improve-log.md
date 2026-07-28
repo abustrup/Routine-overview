@@ -3,6 +3,72 @@
 Newest first. Each entry: **Assessment** (the biggest gap seen) → **Move** (what shipped, or "none")
 → **Result**. This is the routine's memory: don't rebuild what's shipped or retry what's declined.
 
+### 2026-07-28 12:00 — git freshness reads the repository, not whichever branch someone left checked out (honesty)
+- **Assessment:** Viewed live (pull → collect+render → in-browser at desktop **and** mobile 375px — hero, all 3
+  attention cards, 4 project cards, the full 22-row roster; DOM-inspected chips/dots/rows, not just a screenshot).
+  Fleet **7🟢/1🟡/2🔴/11⏸**, 21 total — numbers reconcile (hero "3 need attention" = 2 broken + 1 ageing = the 3
+  cards; 7+1+2+11 = 21 = total). First run since 2026-07-03 (the routine has been `enabled:false` in the scheduler
+  since then; **checked and the config agrees**, `enabled:false` both sides, so the page's "Overview self-improve
+  PAUSED" row is honest — no drift, nothing to sync). The genuine biggest gap was a **charter value #1 (honesty —
+  provenance integrity)** defect in the collector's most load-bearing primitive, the one the hourly secretary flagged
+  on 07-28 as outside *its* allowlist ("editing collect.mjs = code not prose") and therefore squarely this routine's
+  job. `lastCommit()` ran a bare `git log -1`, which answers *"what is the tip of whichever branch a human last left
+  checked out"* — a working-copy accident — while every `gitAny`/`gitSubject` freshness source means *"did this repo
+  produce output"*. The code did not match its own declared semantic. **Live proof:** the stock clone sits on
+  abandoned branch `maintenance/2026-07-25`, HEAD `3b14ab5` `2026-07-25T16:15:54` — *exactly* the "3d ago" the page
+  reported for `Dashboard self-improve` — while `origin/main` **in the same clone** was already two days newer
+  (`0756d0b` `2026-07-26T03:06:40`), and GitHub main newer still (the routine merged PR #62 at 07-28T00:48Z, ~11h
+  before this run). So the dashboard was accusing a routine that had shipped that morning. The mirror case is the
+  dangerous one: a clone parked on a branch with a *recent* commit would manufacture a **false green** over a dead
+  mainline — and the Charter's first value is that a grey dot beats a false green. This is the collector's ground
+  truth being hostage to `git checkout`, so it silently mis-reads *every* git-backed routine (5 of 22) and both
+  places `lastCommit` feeds: routine rows **and** the project "Latest" line.
+- **Move:** In `collect.mjs` only — one primitive, one home, so both consumers inherit it: `lastCommit()` now appends
+  `['--branches', '--remotes', 'HEAD']` to its `git log` args, reading the newest commit across every local and
+  remote-tracking branch the clone knows about, plus `HEAD` so a detached checkout still resolves. Deliberately
+  **not** `--all`: that also walks `refs/stash` and `refs/notes`, which would count a stashed edit as published
+  output (verified — see below). The `-E --grep=` path is unaffected (still filters, now across all branches).
+  Contract fully preserved: no change to `private.roots` sanitisation, the `attentionKey` de-dupe, the two-truths
+  health model, or render's escaping/fix-prompt UX (`render.mjs` untouched).
+- **Result:** shipped `d076d08`. Verified: collect+render clean, no console errors, desktop + mobile intact.
+  **Effect measured before-vs-after on the same run:** exactly 3 readings moved, all in the stock clone, all toward
+  truth — `dashboard-self-improve` and `stock---do-maintenance-improve-structure` `2026-07-25T14:15:54Z` →
+  `2026-07-26T01:06:40Z` ("3d ago" → "2d ago"), and the stock project card's Latest `docs(auto-log): record the
+  2026-07-25 maintenance run` → `fix: stop a rail brief promising a click it can't deliver`. Every other repo read
+  byte-identically (brief-pages, holdet-pages, holdet-bot, overview — confirmed each by hand). **`attentionKey`
+  byte-identical**, so the secretary sees no spurious "new" set and won't re-push. Counts unchanged
+  (7🟢/1🟡/2🔴/11⏸, 21 total); chips still sum to total (21 = 21); no health value or project dot moved.
+  **5 synthetic edge cases in throwaway repos:** (1) parked on an *old* side branch with main newer → 07-02 → 07-20
+  ✅ the bug, fixed; (2) parked on a *new* side branch with main dead → unchanged, so no *new* false green is
+  introduced (`gitAny` has always meant "any commit in this repo"); (3) detached HEAD → resolves; (4) a stash dated
+  07-28 over real output dated 07-05 → `--all` wrongly reports 07-28, the shipped form correctly reports 07-05;
+  (5) empty repo → both old and new forms error, `git()` catches → `null`, identical behaviour, no crash. No template
+  leaks (`undefined`/`NaN`/`[object`/`{repo:`/`{today}`/`{HOME}` = 0 in index.html); no private text on the page
+  (`/Users/`/`fatal:`/`topByEv`/`feltet=ERR`/`rider`/`captain`/`guardian`/`third brain`/`notify+veto`/`Backtest` = 0)
+  or in status.json (same set = 0 except the standing benign `Holdet Team B cycle` `does` `captain`, `private:false`,
+  never rendered — the 2026-07-02 08:40 owner-decision item, unchanged). Every `secret*` hit in both files is
+  "secretary" (5) or the intentional prompt copy "secrets" — no token or credential.
+- **Noted for a future run (analysis done, deliberately NOT this run — one move):** this fix makes the reading
+  *branch-independent*, but not *current*. A clone can still be arbitrarily behind its remote, and then no local
+  read can see the truth: today the stock clone's last fetch was 2026-07-26 13:15 (~47h before this run, vs the
+  routine's 42h warn window), which is why `Dashboard self-improve` is **still** a false amber at "2d ago" — the
+  07-28 commit simply is not on this disk. Worse, `Holdet-TDF-2026-pages` has not been fetched since **2026-07-01**
+  (HEAD 07-19), harmless only while `holdet-dashboard-improve` stays paused. The honest fix is to stop asserting a
+  staleness verdict the evidence cannot support: derive `seenThroughMs` from `.git/FETCH_HEAD` mtime (falling back to
+  `.git/packed-refs`), and when a clone with a remote has not been refreshed inside the routine's own healthy window,
+  report the *reading limit* rather than accusing the routine. **Do not** simply route it to the existing `unknown`
+  health — that state renders as `HEALTH_LABEL.unknown = 'Idle'` (wrong word) and is excluded from the
+  green/yellow/red/paused chips, so it would silently break the chips-sum-equals-total invariant that the
+  2026-07-02 02:50 run established; it also fires no attention branch, which would trade a false alarm for silence.
+  Budget that run for the chip/label/attention handling too, or it will regress an invariant.
+- **Also noted (separate, clarity not honesty):** the secretary's commit subjects are now *paragraphs* — today's is
+  ~900 chars — and `cleanSubject`'s status-line strip only fires when a subject contains BOTH a health-dot emoji and
+  a ` · `, which this one does not. So the whole paragraph renders raw in the Routine Overview project card's
+  "Latest" line, where it wraps and dominates the calm editorial surface (the roster row survives on
+  `text-overflow:ellipsis` + the 07-03 hover tooltip). A length cap with an ellipsis, with the tooltip keeping the
+  full text recoverable, is the obvious charter value #2/#4 move — but it is the 4th pass over `cleanSubject`, so it
+  wants its own run and a check that it does not re-solve 07-02's problems.
+
 ### 2026-07-03 18:41 — roster note only surfaces on green rows, so a stale routine's headline matches its dot (honesty)
 - **Assessment:** Viewed live (collect+render, then in-browser at desktop width — hero, both attention sections,
   4 project cards; DOM-inspected every roster row's dot+head+class, not just a screenshot). Fleet had shifted since
