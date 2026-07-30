@@ -11,7 +11,8 @@
     "briefPages": "{HOME}/AI eksperimenter/alexanders-brief-pages",
     "stock": "{HOME}/AI eksperimenter/personal-stock-dashboard",
     "holdetBot": "{HOME}/holdet-tdf-bot",
-    "overview": "{HOME}/AI eksperimenter/Routine overview"
+    "overview": "{HOME}/AI eksperimenter/Routine overview",
+    "quotes": "{HOME}/Quote-collection"
   },
   "projects": [
     {
@@ -66,6 +67,20 @@
       "healthFromRepo": "overview",
       "fixCwd": "{HOME}/AI eksperimenter/Routine overview",
       "constraints": "Keep it public-safe: health/status only, no secrets or strategy internals. Verify with node scripts/collect.mjs && node scripts/render.mjs before pushing."
+    },
+    {
+      "id": "quotes",
+      "name": "Quote collection",
+      "emoji": "❞",
+      "goal": "Keep every line worth keeping, with its attribution tracked — and widen it beyond what I happen to read, without anything entering that I did not choose myself.",
+      "links": [
+        { "label": "The collection", "url": "https://abustrup.github.io/Quote-collection/" },
+        { "label": "The board", "url": "https://abustrup.github.io/Quote-collection/scout.html" },
+        { "label": "Repo", "url": "https://github.com/abustrup/Quote-collection" }
+      ],
+      "healthFromRepo": "quotes",
+      "fixCwd": "{HOME}/Quote-collection",
+      "constraints": "Public repo and a public site. The scout may write data/proposals.json, scout-log.md and data/works.json only — never data/quotes.json, which is his to fill by ticking the board. Keep npm test and npm run check green."
     }
   ],
   "routines": [
@@ -173,6 +188,13 @@
       "does": "\"Do maintenance: improve structure\" — target project not specified in the routine name.",
       "freshness": { "type": "selfAlerting" },
       "review": "Purpose/target is vague and it's unassigned to any project — decide what it targets (it may overlap another project's maintenance routine) or whether it still earns its daily slot."
+    },
+    {
+      "id": "quote-scout", "project": "quotes", "name": "Quote scout",
+      "cadence": "Sundays · 09:05", "periodHours": 168, "kind": "scheduler", "role": "producer", "enabled": true,
+      "does": "Reads the collection, finds lines from works it does not hold, and posts a board for him to tick. Proposes only — it may never add a quote.",
+      "freshness": { "type": "gitSubject", "repo": "quotes", "match": "^scout:" },
+      "review": "Created 2026-07-30. EXPIRES 2026-09-27 — by then at least 3 proposed lines must have been kept across at least two boards, or it retires itself. Watch the hit rate in scout-log.md, not the number of proposals."
     },
     {
       "id": "holdet-routine-selftest", "project": "holdet-tdf", "name": "Holdet routine self-test",

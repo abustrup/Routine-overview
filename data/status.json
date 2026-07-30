@@ -1,17 +1,28 @@
 {
-  "generatedAt": "2026-07-28T18:16:59.002Z",
-  "generatedAtLocal": "28 Jul 2026, 20:16 Europe/Copenhagen",
+  "generatedAt": "2026-07-30T17:16:52.346Z",
+  "generatedAtLocal": "30 Jul 2026, 19:16 Europe/Copenhagen",
   "owner": "Alexander Bustrup",
-  "attentionKey": "warn:Dashboard self-improve:ageing",
+  "attentionKey": "warn:Dashboard self-improve:ageing|warn:Rolling weekly (Ugen):ageing",
   "staleAfterMin": 360,
   "summary": {
-    "green": 5,
-    "yellow": 1,
+    "green": 4,
+    "yellow": 2,
     "red": 0,
     "paused": 15,
-    "total": 21
+    "total": 22
   },
   "attention": [
+    {
+      "severity": "warn",
+      "project": "news-brief",
+      "routine": "Rolling weekly (Ugen)",
+      "message": "Ageing — last output 3d ago (expected Daily · 06:48).",
+      "kind": "ageing",
+      "fix": {
+        "prompt": "The scheduled routine \"Rolling weekly (Ugen)\" (Refreshes the 7-day rollup edition from the published dailies.) was expected to run Daily · 06:48 but produced no recent output. Working dir: ~/AI eksperimenter/News breif 1. Investigate why it stopped (check its scheduler run and its log), fix the cause, verify a fresh run produces output, and commit. Follow prompts/daily-brief.md and the project's guardrails; never expose any secrets or credentials; publish at most once per date.",
+        "cwd": "~/AI eksperimenter/News breif 1"
+      }
+    },
     {
       "severity": "warn",
       "project": "stock",
@@ -19,8 +30,19 @@
       "message": "Ageing — last output 3d ago (expected Daily · 02:00).",
       "kind": "ageing",
       "fix": {
-        "prompt": "The scheduled routine \"Dashboard self-improve\" (Ships at most ONE strictly-better improvement to the stock dashboard per run via reviewed PR (or nothing).) was expected to run Daily · 02:00 but produced no recent output. Working dir: ~/Documents/AI eksperimenter/personal-stock-dashboard. Investigate why it stopped (check its scheduler run and its log), fix the cause, verify a fresh run produces output, and commit. Open a small PR to main and keep CI green. Public repo: demo data only, never real positions or secrets.",
-        "cwd": "~/Documents/AI eksperimenter/personal-stock-dashboard"
+        "prompt": "The scheduled routine \"Dashboard self-improve\" (Ships at most ONE strictly-better improvement to the stock dashboard per run via reviewed PR (or nothing).) was expected to run Daily · 02:00 but produced no recent output. Working dir: ~/AI eksperimenter/personal-stock-dashboard. Investigate why it stopped (check its scheduler run and its log), fix the cause, verify a fresh run produces output, and commit. Open a small PR to main and keep CI green. Public repo: demo data only, never real positions or secrets.",
+        "cwd": "~/AI eksperimenter/personal-stock-dashboard"
+      }
+    },
+    {
+      "severity": "review",
+      "project": "quotes",
+      "routine": "Quote scout",
+      "message": "Created 2026-07-30. EXPIRES 2026-09-27 — by then at least 3 proposed lines must have been kept across at least two boards, or it retires itself. Watch the hit rate in scout-log.md, not the number of proposals.",
+      "kind": "review",
+      "fix": {
+        "prompt": "About the scheduled routine \"Quote scout\" (Reads the collection, finds lines from works it does not hold, and posts a board for him to tick. Proposes only — it may never add a quote.). Working dir: ~/Quote-collection. Decision to make: Created 2026-07-30. EXPIRES 2026-09-27 — by then at least 3 proposed lines must have been kept across at least two boards, or it retires itself. Watch the hit rate in scout-log.md, not the number of proposals. Investigate, decide the best action, and implement it if warranted; otherwise briefly explain why to leave it as-is. Public repo and a public site. The scout may write data/proposals.json, scout-log.md and data/works.json only — never data/quotes.json, which is his to fill by ticking the board. Keep npm test and npm run check green.",
+        "cwd": "~/Quote-collection"
       }
     }
   ],
@@ -39,7 +61,7 @@
         },
         {
           "label": "Bot repo",
-          "url": "~/Documents/AI eksperimenter/Holdet-TDF-2026-pages"
+          "url": "~/AI eksperimenter/Holdet-TDF-2026-pages"
         }
       ],
       "lastPublish": null,
@@ -76,9 +98,9 @@
           "url": "https://github.com/abustrup/personal-stock-dashboard"
         }
       ],
-      "lastPublish": "2026-07-26T01:06:40.000Z",
+      "lastPublish": "2026-07-28T00:48:18.000Z",
       "lastPublishHuman": "3d ago",
-      "lastPublishSubject": "fix: stop a rail brief promising a click it can't deliver",
+      "lastPublishSubject": "fix: refuse an import the app cannot value instead of rendering a NaN book",
       "routineCount": 3,
       "routines": [
         "dashboard-self-improve",
@@ -92,7 +114,7 @@
       "emoji": "📰",
       "goal": "Publish a trustworthy, beautifully-edited Danish morning brief every day before 06:40 — sharper and broader than any single newspaper.",
       "note": null,
-      "health": "green",
+      "health": "yellow",
       "links": [
         {
           "label": "Live brief",
@@ -103,9 +125,9 @@
           "url": "https://github.com/abustrup/alexanders-brief"
         }
       ],
-      "lastPublish": "2026-07-28T04:53:31.000Z",
+      "lastPublish": "2026-07-30T04:06:37.000Z",
       "lastPublishHuman": "13h ago",
-      "lastPublishSubject": "rolling weekly: 2026-07-28",
+      "lastPublishSubject": "brief: 2026-07-30",
       "routineCount": 6,
       "routines": [
         "daily-news-brief",
@@ -133,13 +155,42 @@
           "url": "https://github.com/abustrup/Routine-overview"
         }
       ],
-      "lastPublish": "2026-07-28T10:05:37.000Z",
-      "lastPublishHuman": "8h ago",
-      "lastPublishSubject": "docs: journal the branch-independent git freshness fix",
+      "lastPublish": "2026-07-30T17:16:52.000Z",
+      "lastPublishHuman": "just now",
+      "lastPublishSubject": "Enrol the quote scout, and the collection it proposes into",
       "routineCount": 2,
       "routines": [
         "routine-overview-secretary",
         "routine-overview-improve"
+      ]
+    },
+    {
+      "id": "quotes",
+      "name": "Quote collection",
+      "emoji": "❞",
+      "goal": "Keep every line worth keeping, with its attribution tracked — and widen it beyond what I happen to read, without anything entering that I did not choose myself.",
+      "note": null,
+      "health": "green",
+      "links": [
+        {
+          "label": "The collection",
+          "url": "https://abustrup.github.io/Quote-collection/"
+        },
+        {
+          "label": "The board",
+          "url": "https://abustrup.github.io/Quote-collection/scout.html"
+        },
+        {
+          "label": "Repo",
+          "url": "https://github.com/abustrup/Quote-collection"
+        }
+      ],
+      "lastPublish": "2026-07-30T17:06:47.000Z",
+      "lastPublishHuman": "10 min ago",
+      "lastPublishSubject": "Rebuild the first board against the collection that survived #8",
+      "routineCount": 1,
+      "routines": [
+        "quote-scout"
       ]
     }
   ],
@@ -155,10 +206,10 @@
       "does": "Refreshes this overview from artifact-truth and flags only what needs attention.",
       "health": "green",
       "private": false,
-      "headline": "docs: journal the branch-independent git freshness fix",
+      "headline": "Enrol the quote scout, and the collection it proposes into",
       "logName": null,
-      "lastOutputAt": "2026-07-28T10:05:37.000Z",
-      "lastOutputHuman": "8h ago",
+      "lastOutputAt": "2026-07-30T17:16:52.000Z",
+      "lastOutputHuman": "just now",
       "issues": [],
       "review": null
     },
@@ -176,7 +227,7 @@
       "headline": "improve: git freshness reads the repository, not whichever branch someone left checked out — a clone parked on an abandoned branch froze Dashboard self-improve's reading at that tip and can equally manufacture a false green",
       "logName": null,
       "lastOutputAt": "2026-07-28T10:05:21.000Z",
-      "lastOutputHuman": "8h ago",
+      "lastOutputHuman": "2d ago",
       "issues": [],
       "review": null
     },
@@ -191,10 +242,10 @@
       "does": "Researches, validates and publishes the Danish morning brief before the 06:40 deadline.",
       "health": "green",
       "private": false,
-      "headline": "published 2026-07-28",
+      "headline": "published 2026-07-30",
       "logName": null,
-      "lastOutputAt": "2026-07-28T03:52:24.032Z",
-      "lastOutputHuman": "14h ago",
+      "lastOutputAt": "2026-07-30T04:06:37.400Z",
+      "lastOutputHuman": "13h ago",
       "issues": [],
       "review": null
     },
@@ -207,12 +258,12 @@
       "role": "producer",
       "enabled": true,
       "does": "Refreshes the 7-day rollup edition from the published dailies.",
-      "health": "green",
+      "health": "yellow",
       "private": false,
       "headline": "rolling weekly: 2026-07-28",
       "logName": null,
       "lastOutputAt": "2026-07-28T04:53:31.000Z",
-      "lastOutputHuman": "13h ago",
+      "lastOutputHuman": "3d ago",
       "issues": [],
       "review": null
     },
@@ -230,7 +281,7 @@
       "headline": "rolling monthly: 2026-07-27",
       "logName": null,
       "lastOutputAt": "2026-07-27T05:06:17.000Z",
-      "lastOutputHuman": "2d ago",
+      "lastOutputHuman": "4d ago",
       "issues": [],
       "review": null
     },
@@ -248,7 +299,7 @@
       "headline": "rolling yearly: 2026-07-01",
       "logName": null,
       "lastOutputAt": "2026-07-01T08:56:52.000Z",
-      "lastOutputHuman": "27d ago",
+      "lastOutputHuman": "29d ago",
       "issues": [],
       "review": null
     },
@@ -299,9 +350,9 @@
       "does": "Ships at most ONE strictly-better improvement to the stock dashboard per run via reviewed PR (or nothing).",
       "health": "yellow",
       "private": false,
-      "headline": "fix: stop a rail brief promising a click it can't deliver",
+      "headline": "fix: refuse an import the app cannot value instead of rendering a NaN book",
       "logName": null,
-      "lastOutputAt": "2026-07-26T01:06:40.000Z",
+      "lastOutputAt": "2026-07-28T00:48:18.000Z",
       "lastOutputHuman": "3d ago",
       "issues": [],
       "review": null
@@ -317,9 +368,9 @@
       "does": "Structural maintenance passes on the stock dashboard.",
       "health": "paused",
       "private": false,
-      "headline": "fix: stop a rail brief promising a click it can't deliver",
+      "headline": "fix: refuse an import the app cannot value instead of rendering a NaN book",
       "logName": null,
-      "lastOutputAt": "2026-07-26T01:06:40.000Z",
+      "lastOutputAt": "2026-07-28T00:48:18.000Z",
       "lastOutputHuman": "3d ago",
       "issues": [],
       "review": "Retired 2026-07-03 — was the redundant second stock maintainer (13:00); 'Dashboard self-improve' (02:00) is now the single canonical guardrailed pass. Disabled in scheduler; config synced to match."
@@ -449,6 +500,24 @@
       "lastOutputHuman": "—",
       "issues": [],
       "review": "Purpose/target is vague and it's unassigned to any project — decide what it targets (it may overlap another project's maintenance routine) or whether it still earns its daily slot."
+    },
+    {
+      "id": "quote-scout",
+      "name": "Quote scout",
+      "project": "quotes",
+      "cadence": "Sundays · 09:05",
+      "kind": "scheduler",
+      "role": "producer",
+      "enabled": true,
+      "does": "Reads the collection, finds lines from works it does not hold, and posts a board for him to tick. Proposes only — it may never add a quote.",
+      "health": "unknown",
+      "private": false,
+      "headline": "",
+      "logName": null,
+      "lastOutputAt": null,
+      "lastOutputHuman": "—",
+      "issues": [],
+      "review": "Created 2026-07-30. EXPIRES 2026-09-27 — by then at least 3 proposed lines must have been kept across at least two boards, or it retires itself. Watch the hit rate in scout-log.md, not the number of proposals."
     },
     {
       "id": "holdet-routine-selftest",

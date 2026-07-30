@@ -249,7 +249,7 @@
         <p class="eyebrow">Personal routine secretary</p>
         <h1>Routine Overview</h1>
       </div>
-      <div class="stamp">Updated <b>28 Jul 2026, 20:16 Europe/Copenhagen</b></div>
+      <div class="stamp">Updated <b>30 Jul 2026, 19:16 Europe/Copenhagen</b></div>
     </div>
     <p class="subtitle">The health of every scheduled routine across Alexander Bustrup's projects — so you never have to open them one by one.</p>
   </header>
@@ -257,22 +257,48 @@
   <div class="hero hero--warn">
     <div class="hero__row">
       <span class="hero__mark" aria-hidden="true"></span>
-      <p class="hero__verdict">1 routine ageing — nothing broken</p>
+      <p class="hero__verdict">2 routines ageing — nothing broken</p>
     </div>
     <p class="hero__sub">No errors detected across the fleet.</p>
     <div class="counts">
-      <span class="stat"><span class="dot dot--green" aria-hidden="true"></span><b>5</b><span>healthy</span></span>
-      <span class="stat"><span class="dot dot--yellow" aria-hidden="true"></span><b>1</b><span>ageing</span></span>
+      <span class="stat"><span class="dot dot--green" aria-hidden="true"></span><b>4</b><span>healthy</span></span>
+      <span class="stat"><span class="dot dot--yellow" aria-hidden="true"></span><b>2</b><span>ageing</span></span>
       <span class="stat"><span class="dot dot--red" aria-hidden="true"></span><b>0</b><span>broken</span></span>
       <span class="stat"><span class="dot dot--paused" aria-hidden="true"></span><b>15</b><span>paused</span></span>
-      <span class="stat stat--total">21 routines total</span>
+      <span class="stat stat--total">22 routines total</span>
     </div>
   </div>
 
   <section aria-labelledby="sec-attn" data-attn-section>
     <div class="sec-head"><h2 id="sec-attn">Needs your attention</h2><span class="rule"></span><button type="button" class="sec-restore" data-restore hidden><span data-restore-count>0</span> hidden · Show</button></div>
     <div class="attn-list" data-attn-list>
-    <article class="attn attn--warn" data-attn data-akey="warn:Dashboard self-improve:ageing">
+    <article class="attn attn--warn" data-attn data-akey="warn:Rolling weekly (Ugen):ageing">
+  <div class="attn__bar" aria-hidden="true"></div>
+  <div class="attn__main">
+    <div class="attn__head">
+      <span class="attn__sev">Warning</span>
+      <span class="attn__where">📰 Rolling weekly (Ugen)</span>
+      <button type="button" class="dismiss-x" data-dismiss aria-label="Hide this alert" title="Hide — it comes back if the issue is still there next refresh">×</button>
+    </div>
+    <p class="attn__msg">Ageing — last output 3d ago (expected Daily · 06:48).</p>
+    <div class="fix">
+    <div class="fix__actions">
+      <button type="button" class="btn btn--copy"
+              data-copy="The scheduled routine &quot;Rolling weekly (Ugen)&quot; (Refreshes the 7-day rollup edition from the published dailies.) was expected to run Daily · 06:48 but produced no recent output. Working dir: ~/AI eksperimenter/News breif 1. Investigate why it stopped (check its scheduler run and its log), fix the cause, verify a fresh run produces output, and commit. Follow prompts/daily-brief.md and the project's guardrails; never expose any secrets or credentials; publish at most once per date.">
+        <span class="btn__label">Copy fix prompt</span>
+        <span class="btn__done" aria-hidden="true">Copied&nbsp;✓</span>
+      </button>
+      <button type="button" class="btn btn--link" data-toggle="fix-1" aria-expanded="false" aria-controls="fix-1">
+        View prompt
+      </button>
+    </div>
+    <div class="fix__body" id="fix-1" hidden>
+      <pre class="fix__prompt">The scheduled routine &quot;Rolling weekly (Ugen)&quot; (Refreshes the 7-day rollup edition from the published dailies.) was expected to run Daily · 06:48 but produced no recent output. Working dir: ~/AI eksperimenter/News breif 1. Investigate why it stopped (check its scheduler run and its log), fix the cause, verify a fresh run produces output, and commit. Follow prompts/daily-brief.md and the project's guardrails; never expose any secrets or credentials; publish at most once per date.</pre>
+      <div class="fix__cwd"><span class="fix__cwd-k">cwd</span> <code>~/AI eksperimenter/News breif 1</code></div>
+    </div>
+  </div>
+  </div>
+</article><article class="attn attn--warn" data-attn data-akey="warn:Dashboard self-improve:ageing">
   <div class="attn__bar" aria-hidden="true"></div>
   <div class="attn__main">
     <div class="attn__head">
@@ -284,17 +310,17 @@
     <div class="fix">
     <div class="fix__actions">
       <button type="button" class="btn btn--copy"
-              data-copy="The scheduled routine &quot;Dashboard self-improve&quot; (Ships at most ONE strictly-better improvement to the stock dashboard per run via reviewed PR (or nothing).) was expected to run Daily · 02:00 but produced no recent output. Working dir: ~/Documents/AI eksperimenter/personal-stock-dashboard. Investigate why it stopped (check its scheduler run and its log), fix the cause, verify a fresh run produces output, and commit. Open a small PR to main and keep CI green. Public repo: demo data only, never real positions or secrets.">
+              data-copy="The scheduled routine &quot;Dashboard self-improve&quot; (Ships at most ONE strictly-better improvement to the stock dashboard per run via reviewed PR (or nothing).) was expected to run Daily · 02:00 but produced no recent output. Working dir: ~/AI eksperimenter/personal-stock-dashboard. Investigate why it stopped (check its scheduler run and its log), fix the cause, verify a fresh run produces output, and commit. Open a small PR to main and keep CI green. Public repo: demo data only, never real positions or secrets.">
         <span class="btn__label">Copy fix prompt</span>
         <span class="btn__done" aria-hidden="true">Copied&nbsp;✓</span>
       </button>
-      <button type="button" class="btn btn--link" data-toggle="fix-1" aria-expanded="false" aria-controls="fix-1">
+      <button type="button" class="btn btn--link" data-toggle="fix-2" aria-expanded="false" aria-controls="fix-2">
         View prompt
       </button>
     </div>
-    <div class="fix__body" id="fix-1" hidden>
-      <pre class="fix__prompt">The scheduled routine &quot;Dashboard self-improve&quot; (Ships at most ONE strictly-better improvement to the stock dashboard per run via reviewed PR (or nothing).) was expected to run Daily · 02:00 but produced no recent output. Working dir: ~/Documents/AI eksperimenter/personal-stock-dashboard. Investigate why it stopped (check its scheduler run and its log), fix the cause, verify a fresh run produces output, and commit. Open a small PR to main and keep CI green. Public repo: demo data only, never real positions or secrets.</pre>
-      <div class="fix__cwd"><span class="fix__cwd-k">cwd</span> <code>~/Documents/AI eksperimenter/personal-stock-dashboard</code></div>
+    <div class="fix__body" id="fix-2" hidden>
+      <pre class="fix__prompt">The scheduled routine &quot;Dashboard self-improve&quot; (Ships at most ONE strictly-better improvement to the stock dashboard per run via reviewed PR (or nothing).) was expected to run Daily · 02:00 but produced no recent output. Working dir: ~/AI eksperimenter/personal-stock-dashboard. Investigate why it stopped (check its scheduler run and its log), fix the cause, verify a fresh run produces output, and commit. Open a small PR to main and keep CI green. Public repo: demo data only, never real positions or secrets.</pre>
+      <div class="fix__cwd"><span class="fix__cwd-k">cwd</span> <code>~/AI eksperimenter/personal-stock-dashboard</code></div>
     </div>
   </div>
   </div>
@@ -306,7 +332,36 @@
 </div>
   </section>
 
-  
+  <section aria-labelledby="sec-review" data-attn-section>
+          <div class="sec-head"><h2 id="sec-review">Worth a decision</h2><span class="rule"></span><button type="button" class="sec-restore" data-restore hidden><span data-restore-count>0</span> hidden · Show</button></div>
+          <div class="attn-list" data-attn-list><article class="review" data-attn data-akey="review:Quote scout:review">
+  <div class="review__head">
+    <span class="review__where">❞ Quote scout</span>
+    <button type="button" class="dismiss-x" data-dismiss aria-label="Hide this alert" title="Hide — it comes back if the issue is still there next refresh">×</button>
+  </div>
+  <p class="review__msg">Created 2026-07-30. EXPIRES 2026-09-27 — by then at least 3 proposed lines must have been kept across at least two boards, or it retires itself. Watch the hit rate in scout-log.md, not the number of proposals.</p>
+  <div class="fix">
+    <div class="fix__actions">
+      <button type="button" class="btn btn--copy btn--ghost"
+              data-copy="About the scheduled routine &quot;Quote scout&quot; (Reads the collection, finds lines from works it does not hold, and posts a board for him to tick. Proposes only — it may never add a quote.). Working dir: ~/Quote-collection. Decision to make: Created 2026-07-30. EXPIRES 2026-09-27 — by then at least 3 proposed lines must have been kept across at least two boards, or it retires itself. Watch the hit rate in scout-log.md, not the number of proposals. Investigate, decide the best action, and implement it if warranted; otherwise briefly explain why to leave it as-is. Public repo and a public site. The scout may write data/proposals.json, scout-log.md and data/works.json only — never data/quotes.json, which is his to fill by ticking the board. Keep npm test and npm run check green.">
+        <span class="btn__label">Copy decision prompt</span>
+        <span class="btn__done" aria-hidden="true">Copied&nbsp;✓</span>
+      </button>
+      <button type="button" class="btn btn--link" data-toggle="fix-3" aria-expanded="false" aria-controls="fix-3">
+        View prompt
+      </button>
+    </div>
+    <div class="fix__body" id="fix-3" hidden>
+      <pre class="fix__prompt">About the scheduled routine &quot;Quote scout&quot; (Reads the collection, finds lines from works it does not hold, and posts a board for him to tick. Proposes only — it may never add a quote.). Working dir: ~/Quote-collection. Decision to make: Created 2026-07-30. EXPIRES 2026-09-27 — by then at least 3 proposed lines must have been kept across at least two boards, or it retires itself. Watch the hit rate in scout-log.md, not the number of proposals. Investigate, decide the best action, and implement it if warranted; otherwise briefly explain why to leave it as-is. Public repo and a public site. The scout may write data/proposals.json, scout-log.md and data/works.json only — never data/quotes.json, which is his to fill by ticking the board. Keep npm test and npm run check green.</pre>
+      <div class="fix__cwd"><span class="fix__cwd-k">cwd</span> <code>~/Quote-collection</code></div>
+    </div>
+  </div>
+</article></div>
+          <div class="empty empty--cleared" data-cleared hidden>
+  <span class="empty__dot" aria-hidden="true"></span>
+  <div><strong>You've hidden these items.</strong> <span>They'll come back after the next refresh if the issue is still there. <button type="button" class="linkbtn" data-restore>Show hidden</button></span></div>
+</div>
+        </section>
 
   <section aria-labelledby="sec-proj">
     <div class="sec-head"><h2 id="sec-proj">Projects</h2><span class="rule"></span></div>
@@ -333,7 +388,7 @@
     <p class="proj__goal">A calm, trust-first decision instrument that tells me — in one glance — the single sized move my broker never would, and honestly says 'do nothing' when that's right.</p>
     <div class="proj__now">
       <span class="proj__now-k">Latest</span>
-      <span class="proj__now-v">fix: stop a rail brief promising a click it can't deliver</span>
+      <span class="proj__now-v">fix: refuse an import the app cannot value instead of rendering a NaN book</span>
       <span class="proj__now-ago">3d ago</span>
     </div>
     
@@ -342,12 +397,12 @@
     <header class="proj__head">
       <span class="proj__emoji" aria-hidden="true">📰</span>
       <h3 class="proj__name">Alexanders Brief</h3>
-      <span class="dot dot--green" title="Healthy" aria-hidden="true"></span>
+      <span class="dot dot--yellow" title="Needs attention" aria-hidden="true"></span>
     </header>
     <p class="proj__goal">Publish a trustworthy, beautifully-edited Danish morning brief every day before 06:40 — sharper and broader than any single newspaper.</p>
     <div class="proj__now">
       <span class="proj__now-k">Latest</span>
-      <span class="proj__now-v">rolling weekly: 2026-07-28</span>
+      <span class="proj__now-v">brief: 2026-07-30</span>
       <span class="proj__now-ago">13h ago</span>
     </div>
     
@@ -361,11 +416,25 @@
     <p class="proj__goal">Hold the whole picture across every routine and interrupt Alexander only when something genuinely needs him.</p>
     <div class="proj__now">
       <span class="proj__now-k">Latest</span>
-      <span class="proj__now-v">docs: journal the branch-independent git freshness fix</span>
-      <span class="proj__now-ago">8h ago</span>
+      <span class="proj__now-v">Enrol the quote scout, and the collection it proposes into</span>
+      <span class="proj__now-ago">just now</span>
     </div>
     
     <div class="proj__links"><a class="chip" href="https://abustrup.github.io/Routine-overview/" target="_blank" rel="noopener">This dashboard<span class="chip__ext" aria-hidden="true">↗</span></a><a class="chip" href="https://github.com/abustrup/Routine-overview" target="_blank" rel="noopener">Repo<span class="chip__ext" aria-hidden="true">↗</span></a></div>
+  </article><article class="proj">
+    <header class="proj__head">
+      <span class="proj__emoji" aria-hidden="true">❞</span>
+      <h3 class="proj__name">Quote collection</h3>
+      <span class="dot dot--green" title="Healthy" aria-hidden="true"></span>
+    </header>
+    <p class="proj__goal">Keep every line worth keeping, with its attribution tracked — and widen it beyond what I happen to read, without anything entering that I did not choose myself.</p>
+    <div class="proj__now">
+      <span class="proj__now-k">Latest</span>
+      <span class="proj__now-v">Rebuild the first board against the collection that survived #8</span>
+      <span class="proj__now-ago">10 min ago</span>
+    </div>
+    
+    <div class="proj__links"><a class="chip" href="https://abustrup.github.io/Quote-collection/" target="_blank" rel="noopener">The collection<span class="chip__ext" aria-hidden="true">↗</span></a><a class="chip" href="https://abustrup.github.io/Quote-collection/scout.html" target="_blank" rel="noopener">The board<span class="chip__ext" aria-hidden="true">↗</span></a><a class="chip" href="https://github.com/abustrup/Quote-collection" target="_blank" rel="noopener">Repo<span class="chip__ext" aria-hidden="true">↗</span></a></div>
   </article></div>
   </section>
 
@@ -441,13 +510,13 @@
     <span class="row__name">Dashboard self-improve</span>
     <span class="row__cadence">Daily · 02:00</span>
     <span class="row__ago">3d ago</span>
-    <span class="row__head" title="fix: stop a rail brief promising a click it can't deliver">fix: stop a rail brief promising a click it can't deliver</span>
+    <span class="row__head" title="fix: refuse an import the app cannot value instead of rendering a NaN book">fix: refuse an import the app cannot value instead of rendering a NaN book</span>
   </li><li class="row row--muted">
     <span class="row__dot"><span class="dot dot--paused" title="Paused" aria-hidden="true"></span></span>
     <span class="row__name">Stock maintenance <span class="tag tag--off">paused</span></span>
     <span class="row__cadence">Daily · 13:00</span>
     <span class="row__ago">3d ago</span>
-    <span class="row__head" title="fix: stop a rail brief promising a click it can't deliver">fix: stop a rail brief promising a click it can't deliver</span>
+    <span class="row__head" title="fix: refuse an import the app cannot value instead of rendering a NaN book">fix: refuse an import the app cannot value instead of rendering a NaN book</span>
   </li><li class="row row--muted">
     <span class="row__dot"><span class="dot dot--paused" title="Paused" aria-hidden="true"></span></span>
     <span class="row__name">Watchlist integration <span class="tag tag--off">paused</span></span>
@@ -461,25 +530,25 @@
     <span class="row__dot"><span class="dot dot--green" title="Healthy" aria-hidden="true"></span></span>
     <span class="row__name">Daily news brief</span>
     <span class="row__cadence">Daily · 06:02</span>
-    <span class="row__ago">14h ago</span>
-    <span class="row__head" title="published 2026-07-28">published 2026-07-28</span>
+    <span class="row__ago">13h ago</span>
+    <span class="row__head" title="published 2026-07-30">published 2026-07-30</span>
   </li><li class="row">
-    <span class="row__dot"><span class="dot dot--green" title="Healthy" aria-hidden="true"></span></span>
+    <span class="row__dot"><span class="dot dot--yellow" title="Ageing" aria-hidden="true"></span></span>
     <span class="row__name">Rolling weekly (Ugen)</span>
     <span class="row__cadence">Daily · 06:48</span>
-    <span class="row__ago">13h ago</span>
+    <span class="row__ago">3d ago</span>
     <span class="row__head" title="rolling weekly: 2026-07-28">rolling weekly: 2026-07-28</span>
   </li><li class="row">
     <span class="row__dot"><span class="dot dot--green" title="Healthy" aria-hidden="true"></span></span>
     <span class="row__name">Rolling monthly (Måneden)</span>
     <span class="row__cadence">Mondays · 07:02</span>
-    <span class="row__ago">2d ago</span>
+    <span class="row__ago">4d ago</span>
     <span class="row__head" title="rolling monthly: 2026-07-27">rolling monthly: 2026-07-27</span>
   </li><li class="row">
     <span class="row__dot"><span class="dot dot--green" title="Healthy" aria-hidden="true"></span></span>
     <span class="row__name">Rolling yearly (Året)</span>
     <span class="row__cadence">1st of month · 06:57</span>
-    <span class="row__ago">27d ago</span>
+    <span class="row__ago">29d ago</span>
     <span class="row__head" title="rolling yearly: 2026-07-01">rolling yearly: 2026-07-01</span>
   </li><li class="row row--muted">
     <span class="row__dot"><span class="dot dot--paused" title="Paused" aria-hidden="true"></span></span>
@@ -500,14 +569,23 @@
     <span class="row__dot"><span class="dot dot--green" title="Healthy" aria-hidden="true"></span></span>
     <span class="row__name">Routine secretary (this)</span>
     <span class="row__cadence">Every 5h · :17</span>
-    <span class="row__ago">8h ago</span>
-    <span class="row__head" title="docs: journal the branch-independent git freshness fix">docs: journal the branch-independent git freshness fix</span>
+    <span class="row__ago">just now</span>
+    <span class="row__head" title="Enrol the quote scout, and the collection it proposes into">Enrol the quote scout, and the collection it proposes into</span>
   </li><li class="row row--muted">
     <span class="row__dot"><span class="dot dot--paused" title="Paused" aria-hidden="true"></span></span>
     <span class="row__name">Overview self-improve <span class="tag tag--off">paused</span></span>
     <span class="row__cadence">Every 3h</span>
-    <span class="row__ago">8h ago</span>
+    <span class="row__ago">2d ago</span>
     <span class="row__head" title="improve: git freshness reads the repository, not whichever branch someone left checked out — a clone parked on an abandoned branch froze Dashboard self-improve's reading at that tip and can equally manufacture a false green">improve: git freshness reads the repository, not whichever branch someone left checked out — a clone parked on an abandoned branch froze Dashboard self-improve's reading at that tip and can equally manufacture a false green</span>
+  </li></ul>
+    </div><div class="rgroup">
+      <div class="rgroup__head">❞ Quote collection<span class="rgroup__count">1</span></div>
+      <ul class="rlist"><li class="row">
+    <span class="row__dot"><span class="dot dot--unknown" title="Idle" aria-hidden="true"></span></span>
+    <span class="row__name">Quote scout</span>
+    <span class="row__cadence">Sundays · 09:05</span>
+    <span class="row__ago">—</span>
+    <span class="row__head"></span>
   </li></ul>
     </div><div class="rgroup">
       <div class="rgroup__head">❓ Unassigned<span class="rgroup__count">1</span></div>
@@ -524,7 +602,7 @@
   <footer>
     Health is reconstructed from each routine's real artifacts — git commits, run-logs and published files — not just whether the scheduler fired. Silent by design: you get a push only when something needs you.
     <br>
-    Generated 28 Jul 2026, 20:16 Europe/Copenhagen
+    Generated 30 Jul 2026, 19:16 Europe/Copenhagen
     <span class="foot-sep">·</span>
     <a href="https://github.com/abustrup/Routine-overview" target="_blank" rel="noopener">github.com/abustrup/Routine-overview</a>
   </footer>
