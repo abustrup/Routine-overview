@@ -9,8 +9,17 @@ Repo: `/Users/alexanderbustrup/AI eksperimenter/Routine overview`
 ## Procedure
 
 1. **Sync & collect.** In the repo:
-   `git pull --quiet --no-rebase 2>/dev/null; node scripts/collect.mjs; node scripts/render.mjs`
+   `git pull --no-rebase; node scripts/collect.mjs; node scripts/render.mjs`
    This reconstructs artifact-truth health into `data/status.json` and rebuilds `index.html`.
+   **Read the pull's output — do not silence it.** Until 2026-08-11 this line ended in
+   `2>/dev/null`, and a dirty working copy (the portable-contract sync job writes
+   `.claude/rules/working-with-alexander.md` locally and never commits it) made the pull abort
+   *silently* every run. Local `main` sat unpushed and 2 commits behind `origin/main` from
+   2026-08-02 to 2026-08-11. If the pull fails, park the offending file
+   (`git stash push -- <path>`), pull, then reconcile — that file is generated from
+   `~/.claude/CLAUDE-portable.md`, so the source of truth wins, never a hand-merge.
+   Also check `git branch -v` for `[ahead N, behind M]`: a divergence here means the dashboard
+   was published from a fork of itself.
 
 2. **Overlay scheduler-truth.** Call `list_scheduled_tasks` (scheduled-tasks MCP). For each
    routine cross-check against `data/status.json`:

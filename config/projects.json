@@ -275,7 +275,7 @@
       "periodHours": 24,
       "kind": "scheduler",
       "role": "maintainer",
-      "enabled": true,
+      "enabled": false,
       "does": "Ships at most ONE strictly-better improvement to the stock dashboard per run via reviewed PR (or nothing).",
       "freshness": {
         "type": "gitAny",
