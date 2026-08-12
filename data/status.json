@@ -1,22 +1,33 @@
 {
-  "generatedAt": "2026-08-11T15:58:10.941Z",
-  "generatedAtLocal": "11 Aug 2026, 17:58 Europe/Copenhagen",
+  "generatedAt": "2026-08-12T19:14:28.032Z",
+  "generatedAtLocal": "12 Aug 2026, 21:14 Europe/Copenhagen",
   "owner": "Alexander Bustrup",
-  "attentionKey": "red:Rolling weekly (Ugen):stale|warn:Rolling monthly (Måneden):ageing",
+  "attentionKey": "red:Rolling weekly (Ugen):stale|red:Routine secretary (this):stale|warn:Rolling monthly (Måneden):ageing",
   "staleAfterMin": 360,
   "summary": {
-    "green": 4,
+    "green": 3,
     "yellow": 1,
-    "red": 1,
+    "red": 2,
     "paused": 16,
     "total": 22
   },
   "attention": [
     {
       "severity": "red",
+      "project": "meta",
+      "routine": "Routine secretary (this)",
+      "message": "Stale — last output 1d ago (expected Every 5h · :17).",
+      "kind": "stale",
+      "fix": {
+        "prompt": "The scheduled routine \"Routine secretary (this)\" (Refreshes this overview from artifact-truth and flags only what needs attention.) was expected to run Every 5h · :17 but produced no recent output. Working dir: ~/AI eksperimenter/Routine overview. Investigate why it stopped (check its scheduler run and its log), fix the cause, verify a fresh run produces output, and commit. Keep it public-safe: health/status only, no secrets or strategy internals. Verify with node scripts/collect.mjs && node scripts/render.mjs before pushing.",
+        "cwd": "~/AI eksperimenter/Routine overview"
+      }
+    },
+    {
+      "severity": "red",
       "project": "news-brief",
       "routine": "Rolling weekly (Ugen)",
-      "message": "Stale — last output 14d ago (expected Daily · 06:48).",
+      "message": "Stale — last output 16d ago (expected Daily · 06:48).",
       "kind": "stale",
       "fix": {
         "prompt": "The scheduled routine \"Rolling weekly (Ugen)\" (Refreshes the 7-day rollup edition from the published dailies.) was expected to run Daily · 06:48 but produced no recent output. Working dir: ~/AI eksperimenter/News breif 1. Investigate why it stopped (check its scheduler run and its log), fix the cause, verify a fresh run produces output, and commit. Follow prompts/daily-brief.md and the project's guardrails; never expose any secrets or credentials; publish at most once per date.",
@@ -27,7 +38,7 @@
       "severity": "warn",
       "project": "news-brief",
       "routine": "Rolling monthly (Måneden)",
-      "message": "Ageing — last output 15d ago (expected Mondays · 07:02).",
+      "message": "Ageing — last output 17d ago (expected Mondays · 07:02).",
       "kind": "ageing",
       "fix": {
         "prompt": "The scheduled routine \"Rolling monthly (Måneden)\" (Refreshes the 30-day rollup edition.) was expected to run Mondays · 07:02 but produced no recent output. Working dir: ~/AI eksperimenter/News breif 1. Investigate why it stopped (check its scheduler run and its log), fix the cause, verify a fresh run produces output, and commit. Follow prompts/daily-brief.md and the project's guardrails; never expose any secrets or credentials; publish at most once per date.",
@@ -99,7 +110,7 @@
         }
       ],
       "lastPublish": "2026-07-28T00:48:18.000Z",
-      "lastPublishHuman": "15d ago",
+      "lastPublishHuman": "16d ago",
       "lastPublishSubject": "fix: refuse an import the app cannot value instead of rendering a NaN book",
       "routineCount": 3,
       "routines": [
@@ -126,7 +137,7 @@
         }
       ],
       "lastPublish": "2026-08-11T14:43:57.000Z",
-      "lastPublishHuman": "1h ago",
+      "lastPublishHuman": "1d ago",
       "lastPublishSubject": "brief: 2026-08-11",
       "routineCount": 6,
       "routines": [
@@ -156,7 +167,7 @@
         }
       ],
       "lastPublish": "2026-08-11T14:45:13.000Z",
-      "lastPublishHuman": "1h ago",
+      "lastPublishHuman": "1d ago",
       "lastPublishSubject": "brief: 2026-08-11",
       "routineCount": 0,
       "routines": []
@@ -167,7 +178,7 @@
       "emoji": "🗂️",
       "goal": "Hold the whole picture across every routine and interrupt Alexander only when something genuinely needs him.",
       "note": null,
-      "health": "green",
+      "health": "yellow",
       "links": [
         {
           "label": "This dashboard",
@@ -178,9 +189,9 @@
           "url": "https://github.com/abustrup/Routine-overview"
         }
       ],
-      "lastPublish": "2026-08-11T15:51:18.000Z",
-      "lastPublishHuman": "7 min ago",
-      "lastPublishSubject": "Merge branch 'main' of https://github.com/abustrup/Routine-overview",
+      "lastPublish": "2026-08-11T16:00:45.000Z",
+      "lastPublishHuman": "1d ago",
+      "lastPublishSubject": "PUSHED",
       "routineCount": 2,
       "routines": [
         "routine-overview-secretary",
@@ -209,7 +220,7 @@
         }
       ],
       "lastPublish": "2026-08-11T15:26:51.000Z",
-      "lastPublishHuman": "31 min ago",
+      "lastPublishHuman": "1d ago",
       "lastPublishSubject": "Fix the tombstone count that has held the build red since 2026-08-02",
       "routineCount": 1,
       "routines": [
@@ -227,12 +238,12 @@
       "role": "maintainer",
       "enabled": true,
       "does": "Refreshes this overview from artifact-truth and flags only what needs attention.",
-      "health": "green",
+      "health": "red",
       "private": false,
-      "headline": "Merge branch 'main' of https://github.com/abustrup/Routine-overview",
+      "headline": "PUSHED",
       "logName": null,
-      "lastOutputAt": "2026-08-11T15:51:18.000Z",
-      "lastOutputHuman": "7 min ago",
+      "lastOutputAt": "2026-08-11T16:00:45.000Z",
+      "lastOutputHuman": "1d ago",
       "issues": [],
       "review": null
     },
@@ -250,7 +261,7 @@
       "headline": "improve: git freshness reads the repository, not whichever branch someone left checked out — a clone parked on an abandoned branch froze Dashboard self-improve's reading at that tip and can equally manufacture a false green",
       "logName": null,
       "lastOutputAt": "2026-07-28T10:05:21.000Z",
-      "lastOutputHuman": "14d ago",
+      "lastOutputHuman": "15d ago",
       "issues": [],
       "review": null
     },
@@ -265,10 +276,10 @@
       "does": "Researches, validates and publishes the Danish morning brief before the 06:40 deadline.",
       "health": "green",
       "private": false,
-      "headline": "published 2026-08-11",
+      "headline": "brief: 2026-08-11",
       "logName": null,
-      "lastOutputAt": "2026-08-11T14:43:57.827Z",
-      "lastOutputHuman": "1h ago",
+      "lastOutputAt": "2026-08-11T14:43:57.000Z",
+      "lastOutputHuman": "1d ago",
       "issues": [],
       "review": null
     },
@@ -286,7 +297,7 @@
       "headline": "rolling weekly: 2026-07-28",
       "logName": null,
       "lastOutputAt": "2026-07-28T04:53:31.000Z",
-      "lastOutputHuman": "14d ago",
+      "lastOutputHuman": "16d ago",
       "issues": [],
       "review": null
     },
@@ -304,7 +315,7 @@
       "headline": "rolling monthly: 2026-07-27",
       "logName": null,
       "lastOutputAt": "2026-07-27T05:06:17.000Z",
-      "lastOutputHuman": "15d ago",
+      "lastOutputHuman": "17d ago",
       "issues": [],
       "review": null
     },
@@ -322,7 +333,7 @@
       "headline": "rolling yearly: 2026-07-01",
       "logName": null,
       "lastOutputAt": "2026-07-01T08:56:52.000Z",
-      "lastOutputHuman": "41d ago",
+      "lastOutputHuman": "42d ago",
       "issues": [],
       "review": null
     },
@@ -376,7 +387,7 @@
       "headline": "fix: refuse an import the app cannot value instead of rendering a NaN book",
       "logName": null,
       "lastOutputAt": "2026-07-28T00:48:18.000Z",
-      "lastOutputHuman": "15d ago",
+      "lastOutputHuman": "16d ago",
       "issues": [],
       "review": null
     },
@@ -394,7 +405,7 @@
       "headline": "fix: refuse an import the app cannot value instead of rendering a NaN book",
       "logName": null,
       "lastOutputAt": "2026-07-28T00:48:18.000Z",
-      "lastOutputHuman": "15d ago",
+      "lastOutputHuman": "16d ago",
       "issues": [],
       "review": "Retired 2026-07-03 — was the redundant second stock maintainer (13:00); 'Dashboard self-improve' (02:00) is now the single canonical guardrailed pass. Disabled in scheduler; config synced to match."
     },
@@ -538,7 +549,7 @@
       "headline": "scout: hold the sixth board one run; register two works he mined by hand",
       "logName": null,
       "lastOutputAt": "2026-08-11T14:00:48.000Z",
-      "lastOutputHuman": "2h ago",
+      "lastOutputHuman": "1d ago",
       "issues": [],
       "review": "Created 2026-07-30. EXPIRES 2026-09-27 — by then at least 3 proposed lines must have been kept across at least two boards, or it retires itself. Watch the hit rate in scout-log.md, not the number of proposals."
     },

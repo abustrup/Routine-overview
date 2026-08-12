@@ -249,7 +249,7 @@
         <p class="eyebrow">Personal routine secretary</p>
         <h1>Routine Overview</h1>
       </div>
-      <div class="stamp">Updated <b>11 Aug 2026, 17:58 Europe/Copenhagen</b></div>
+      <div class="stamp">Updated <b>12 Aug 2026, 21:14 Europe/Copenhagen</b></div>
     </div>
     <p class="subtitle">The health of every scheduled routine across Alexander Bustrup's projects — so you never have to open them one by one.</p>
   </header>
@@ -257,13 +257,13 @@
   <div class="hero hero--alert">
     <div class="hero__row">
       <span class="hero__mark" aria-hidden="true"></span>
-      <p class="hero__verdict">2 routines need your attention</p>
+      <p class="hero__verdict">3 routines need your attention</p>
     </div>
-    <p class="hero__sub">1 broken, 1 ageing — everything else is running clean.</p>
+    <p class="hero__sub">2 broken, 1 ageing — everything else is running clean.</p>
     <div class="counts">
-      <span class="stat"><span class="dot dot--green" aria-hidden="true"></span><b>4</b><span>healthy</span></span>
+      <span class="stat"><span class="dot dot--green" aria-hidden="true"></span><b>3</b><span>healthy</span></span>
       <span class="stat"><span class="dot dot--yellow" aria-hidden="true"></span><b>1</b><span>ageing</span></span>
-      <span class="stat"><span class="dot dot--red" aria-hidden="true"></span><b>1</b><span>broken</span></span>
+      <span class="stat"><span class="dot dot--red" aria-hidden="true"></span><b>2</b><span>broken</span></span>
       <span class="stat"><span class="dot dot--paused" aria-hidden="true"></span><b>16</b><span>paused</span></span>
       <span class="stat stat--total">22 routines total</span>
     </div>
@@ -272,19 +272,19 @@
   <section aria-labelledby="sec-attn" data-attn-section>
     <div class="sec-head"><h2 id="sec-attn">Needs your attention</h2><span class="rule"></span><button type="button" class="sec-restore" data-restore hidden><span data-restore-count>0</span> hidden · Show</button></div>
     <div class="attn-list" data-attn-list>
-    <article class="attn attn--red" data-attn data-akey="red:Rolling weekly (Ugen):stale">
+    <article class="attn attn--red" data-attn data-akey="red:Routine secretary (this):stale">
   <div class="attn__bar" aria-hidden="true"></div>
   <div class="attn__main">
     <div class="attn__head">
       <span class="attn__sev">Broken</span>
-      <span class="attn__where">📰 Rolling weekly (Ugen)</span>
+      <span class="attn__where">🗂️ Routine secretary (this)</span>
       <button type="button" class="dismiss-x" data-dismiss aria-label="Hide this alert" title="Hide — it comes back if the issue is still there next refresh">×</button>
     </div>
-    <p class="attn__msg">Stale — last output 14d ago (expected Daily · 06:48).</p>
+    <p class="attn__msg">Stale — last output 1d ago (expected Every 5h · :17).</p>
     <div class="fix">
     <div class="fix__actions">
       <button type="button" class="btn btn--copy"
-              data-copy="The scheduled routine &quot;Rolling weekly (Ugen)&quot; (Refreshes the 7-day rollup edition from the published dailies.) was expected to run Daily · 06:48 but produced no recent output. Working dir: ~/AI eksperimenter/News breif 1. Investigate why it stopped (check its scheduler run and its log), fix the cause, verify a fresh run produces output, and commit. Follow prompts/daily-brief.md and the project's guardrails; never expose any secrets or credentials; publish at most once per date.">
+              data-copy="The scheduled routine &quot;Routine secretary (this)&quot; (Refreshes this overview from artifact-truth and flags only what needs attention.) was expected to run Every 5h · :17 but produced no recent output. Working dir: ~/AI eksperimenter/Routine overview. Investigate why it stopped (check its scheduler run and its log), fix the cause, verify a fresh run produces output, and commit. Keep it public-safe: health/status only, no secrets or strategy internals. Verify with node scripts/collect.mjs &amp;&amp; node scripts/render.mjs before pushing.">
         <span class="btn__label">Copy fix prompt</span>
         <span class="btn__done" aria-hidden="true">Copied&nbsp;✓</span>
       </button>
@@ -293,6 +293,32 @@
       </button>
     </div>
     <div class="fix__body" id="fix-1" hidden>
+      <pre class="fix__prompt">The scheduled routine &quot;Routine secretary (this)&quot; (Refreshes this overview from artifact-truth and flags only what needs attention.) was expected to run Every 5h · :17 but produced no recent output. Working dir: ~/AI eksperimenter/Routine overview. Investigate why it stopped (check its scheduler run and its log), fix the cause, verify a fresh run produces output, and commit. Keep it public-safe: health/status only, no secrets or strategy internals. Verify with node scripts/collect.mjs &amp;&amp; node scripts/render.mjs before pushing.</pre>
+      <div class="fix__cwd"><span class="fix__cwd-k">cwd</span> <code>~/AI eksperimenter/Routine overview</code></div>
+    </div>
+  </div>
+  </div>
+</article><article class="attn attn--red" data-attn data-akey="red:Rolling weekly (Ugen):stale">
+  <div class="attn__bar" aria-hidden="true"></div>
+  <div class="attn__main">
+    <div class="attn__head">
+      <span class="attn__sev">Broken</span>
+      <span class="attn__where">📰 Rolling weekly (Ugen)</span>
+      <button type="button" class="dismiss-x" data-dismiss aria-label="Hide this alert" title="Hide — it comes back if the issue is still there next refresh">×</button>
+    </div>
+    <p class="attn__msg">Stale — last output 16d ago (expected Daily · 06:48).</p>
+    <div class="fix">
+    <div class="fix__actions">
+      <button type="button" class="btn btn--copy"
+              data-copy="The scheduled routine &quot;Rolling weekly (Ugen)&quot; (Refreshes the 7-day rollup edition from the published dailies.) was expected to run Daily · 06:48 but produced no recent output. Working dir: ~/AI eksperimenter/News breif 1. Investigate why it stopped (check its scheduler run and its log), fix the cause, verify a fresh run produces output, and commit. Follow prompts/daily-brief.md and the project's guardrails; never expose any secrets or credentials; publish at most once per date.">
+        <span class="btn__label">Copy fix prompt</span>
+        <span class="btn__done" aria-hidden="true">Copied&nbsp;✓</span>
+      </button>
+      <button type="button" class="btn btn--link" data-toggle="fix-2" aria-expanded="false" aria-controls="fix-2">
+        View prompt
+      </button>
+    </div>
+    <div class="fix__body" id="fix-2" hidden>
       <pre class="fix__prompt">The scheduled routine &quot;Rolling weekly (Ugen)&quot; (Refreshes the 7-day rollup edition from the published dailies.) was expected to run Daily · 06:48 but produced no recent output. Working dir: ~/AI eksperimenter/News breif 1. Investigate why it stopped (check its scheduler run and its log), fix the cause, verify a fresh run produces output, and commit. Follow prompts/daily-brief.md and the project's guardrails; never expose any secrets or credentials; publish at most once per date.</pre>
       <div class="fix__cwd"><span class="fix__cwd-k">cwd</span> <code>~/AI eksperimenter/News breif 1</code></div>
     </div>
@@ -306,7 +332,7 @@
       <span class="attn__where">📰 Rolling monthly (Måneden)</span>
       <button type="button" class="dismiss-x" data-dismiss aria-label="Hide this alert" title="Hide — it comes back if the issue is still there next refresh">×</button>
     </div>
-    <p class="attn__msg">Ageing — last output 15d ago (expected Mondays · 07:02).</p>
+    <p class="attn__msg">Ageing — last output 17d ago (expected Mondays · 07:02).</p>
     <div class="fix">
     <div class="fix__actions">
       <button type="button" class="btn btn--copy"
@@ -314,11 +340,11 @@
         <span class="btn__label">Copy fix prompt</span>
         <span class="btn__done" aria-hidden="true">Copied&nbsp;✓</span>
       </button>
-      <button type="button" class="btn btn--link" data-toggle="fix-2" aria-expanded="false" aria-controls="fix-2">
+      <button type="button" class="btn btn--link" data-toggle="fix-3" aria-expanded="false" aria-controls="fix-3">
         View prompt
       </button>
     </div>
-    <div class="fix__body" id="fix-2" hidden>
+    <div class="fix__body" id="fix-3" hidden>
       <pre class="fix__prompt">The scheduled routine &quot;Rolling monthly (Måneden)&quot; (Refreshes the 30-day rollup edition.) was expected to run Mondays · 07:02 but produced no recent output. Working dir: ~/AI eksperimenter/News breif 1. Investigate why it stopped (check its scheduler run and its log), fix the cause, verify a fresh run produces output, and commit. Follow prompts/daily-brief.md and the project's guardrails; never expose any secrets or credentials; publish at most once per date.</pre>
       <div class="fix__cwd"><span class="fix__cwd-k">cwd</span> <code>~/AI eksperimenter/News breif 1</code></div>
     </div>
@@ -347,11 +373,11 @@
         <span class="btn__label">Copy decision prompt</span>
         <span class="btn__done" aria-hidden="true">Copied&nbsp;✓</span>
       </button>
-      <button type="button" class="btn btn--link" data-toggle="fix-3" aria-expanded="false" aria-controls="fix-3">
+      <button type="button" class="btn btn--link" data-toggle="fix-4" aria-expanded="false" aria-controls="fix-4">
         View prompt
       </button>
     </div>
-    <div class="fix__body" id="fix-3" hidden>
+    <div class="fix__body" id="fix-4" hidden>
       <pre class="fix__prompt">About the scheduled routine &quot;Quote scout&quot; (Reads the collection, finds lines from works it does not hold, and posts a board for him to tick. Proposes only — it may never add a quote.). Working dir: ~/Quote-collection. Decision to make: Created 2026-07-30. EXPIRES 2026-09-27 — by then at least 3 proposed lines must have been kept across at least two boards, or it retires itself. Watch the hit rate in scout-log.md, not the number of proposals. Investigate, decide the best action, and implement it if warranted; otherwise briefly explain why to leave it as-is. Public repo and a public site. The scout may write data/proposals.json, scout-log.md and data/works.json only — never data/quotes.json, which is his to fill by ticking the board. Keep npm test and npm run check green.</pre>
       <div class="fix__cwd"><span class="fix__cwd-k">cwd</span> <code>~/Quote-collection</code></div>
     </div>
@@ -389,7 +415,7 @@
     <div class="proj__now">
       <span class="proj__now-k">Latest</span>
       <span class="proj__now-v">fix: refuse an import the app cannot value instead of rendering a NaN book</span>
-      <span class="proj__now-ago">15d ago</span>
+      <span class="proj__now-ago">16d ago</span>
     </div>
     
     <div class="proj__links"><a class="chip" href="https://abustrup.github.io/personal-stock-dashboard/" target="_blank" rel="noopener">Live dashboard<span class="chip__ext" aria-hidden="true">↗</span></a><a class="chip" href="https://github.com/abustrup/personal-stock-dashboard" target="_blank" rel="noopener">Repo<span class="chip__ext" aria-hidden="true">↗</span></a></div>
@@ -403,7 +429,7 @@
     <div class="proj__now">
       <span class="proj__now-k">Latest</span>
       <span class="proj__now-v">brief: 2026-08-11</span>
-      <span class="proj__now-ago">1h ago</span>
+      <span class="proj__now-ago">1d ago</span>
     </div>
     
     <div class="proj__links"><a class="chip" href="https://abustrup.github.io/alexanders-brief/" target="_blank" rel="noopener">Live brief<span class="chip__ext" aria-hidden="true">↗</span></a><a class="chip" href="https://github.com/abustrup/alexanders-brief" target="_blank" rel="noopener">Repo<span class="chip__ext" aria-hidden="true">↗</span></a></div>
@@ -417,7 +443,7 @@
     <div class="proj__now">
       <span class="proj__now-k">Latest</span>
       <span class="proj__now-v">brief: 2026-08-11</span>
-      <span class="proj__now-ago">1h ago</span>
+      <span class="proj__now-ago">1d ago</span>
     </div>
     <p class="proj__note">Not live until abustrup/thomas-nyheder exists on GitHub — run go-live.sh in the Pages clone. Until then each run produces a local edition and fails at push, which is the intended loud signal. Scheduler taskId is still 'dagens-kompas-daily' from before the rename.</p>
     <div class="proj__links"><a class="chip" href="https://abustrup.github.io/thomas-nyheder/" target="_blank" rel="noopener">Live brief<span class="chip__ext" aria-hidden="true">↗</span></a><a class="chip" href="https://github.com/abustrup/thomas-nyheder" target="_blank" rel="noopener">Repo<span class="chip__ext" aria-hidden="true">↗</span></a></div>
@@ -425,13 +451,13 @@
     <header class="proj__head">
       <span class="proj__emoji" aria-hidden="true">🗂️</span>
       <h3 class="proj__name">Routine Overview</h3>
-      <span class="dot dot--green" title="Healthy" aria-hidden="true"></span>
+      <span class="dot dot--yellow" title="Needs attention" aria-hidden="true"></span>
     </header>
     <p class="proj__goal">Hold the whole picture across every routine and interrupt Alexander only when something genuinely needs him.</p>
     <div class="proj__now">
       <span class="proj__now-k">Latest</span>
-      <span class="proj__now-v">Merge branch 'main' of https://github.com/abustrup/Routine-overview</span>
-      <span class="proj__now-ago">7 min ago</span>
+      <span class="proj__now-v">PUSHED</span>
+      <span class="proj__now-ago">1d ago</span>
     </div>
     
     <div class="proj__links"><a class="chip" href="https://abustrup.github.io/Routine-overview/" target="_blank" rel="noopener">This dashboard<span class="chip__ext" aria-hidden="true">↗</span></a><a class="chip" href="https://github.com/abustrup/Routine-overview" target="_blank" rel="noopener">Repo<span class="chip__ext" aria-hidden="true">↗</span></a></div>
@@ -445,7 +471,7 @@
     <div class="proj__now">
       <span class="proj__now-k">Latest</span>
       <span class="proj__now-v">Fix the tombstone count that has held the build red since 2026-08-02</span>
-      <span class="proj__now-ago">31 min ago</span>
+      <span class="proj__now-ago">1d ago</span>
     </div>
     
     <div class="proj__links"><a class="chip" href="https://abustrup.github.io/Quote-collection/" target="_blank" rel="noopener">The collection<span class="chip__ext" aria-hidden="true">↗</span></a><a class="chip" href="https://abustrup.github.io/Quote-collection/scout.html" target="_blank" rel="noopener">The board<span class="chip__ext" aria-hidden="true">↗</span></a><a class="chip" href="https://github.com/abustrup/Quote-collection" target="_blank" rel="noopener">Repo<span class="chip__ext" aria-hidden="true">↗</span></a></div>
@@ -523,13 +549,13 @@
     <span class="row__dot"><span class="dot dot--paused" title="Paused" aria-hidden="true"></span></span>
     <span class="row__name">Dashboard self-improve <span class="tag tag--off">paused</span></span>
     <span class="row__cadence">Daily · 02:00</span>
-    <span class="row__ago">15d ago</span>
+    <span class="row__ago">16d ago</span>
     <span class="row__head" title="fix: refuse an import the app cannot value instead of rendering a NaN book">fix: refuse an import the app cannot value instead of rendering a NaN book</span>
   </li><li class="row row--muted">
     <span class="row__dot"><span class="dot dot--paused" title="Paused" aria-hidden="true"></span></span>
     <span class="row__name">Stock maintenance <span class="tag tag--off">paused</span></span>
     <span class="row__cadence">Daily · 13:00</span>
-    <span class="row__ago">15d ago</span>
+    <span class="row__ago">16d ago</span>
     <span class="row__head" title="fix: refuse an import the app cannot value instead of rendering a NaN book">fix: refuse an import the app cannot value instead of rendering a NaN book</span>
   </li><li class="row row--muted">
     <span class="row__dot"><span class="dot dot--paused" title="Paused" aria-hidden="true"></span></span>
@@ -544,25 +570,25 @@
     <span class="row__dot"><span class="dot dot--green" title="Healthy" aria-hidden="true"></span></span>
     <span class="row__name">Daily news brief</span>
     <span class="row__cadence">Daily · 06:02</span>
-    <span class="row__ago">1h ago</span>
-    <span class="row__head" title="published 2026-08-11">published 2026-08-11</span>
+    <span class="row__ago">1d ago</span>
+    <span class="row__head" title="brief: 2026-08-11">brief: 2026-08-11</span>
   </li><li class="row">
     <span class="row__dot"><span class="dot dot--red" title="Needs attention" aria-hidden="true"></span></span>
     <span class="row__name">Rolling weekly (Ugen)</span>
     <span class="row__cadence">Daily · 06:48</span>
-    <span class="row__ago">14d ago</span>
+    <span class="row__ago">16d ago</span>
     <span class="row__head" title="rolling weekly: 2026-07-28">rolling weekly: 2026-07-28</span>
   </li><li class="row">
     <span class="row__dot"><span class="dot dot--yellow" title="Ageing" aria-hidden="true"></span></span>
     <span class="row__name">Rolling monthly (Måneden)</span>
     <span class="row__cadence">Mondays · 07:02</span>
-    <span class="row__ago">15d ago</span>
+    <span class="row__ago">17d ago</span>
     <span class="row__head" title="rolling monthly: 2026-07-27">rolling monthly: 2026-07-27</span>
   </li><li class="row">
     <span class="row__dot"><span class="dot dot--green" title="Healthy" aria-hidden="true"></span></span>
     <span class="row__name">Rolling yearly (Året)</span>
     <span class="row__cadence">1st of month · 06:57</span>
-    <span class="row__ago">41d ago</span>
+    <span class="row__ago">42d ago</span>
     <span class="row__head" title="rolling yearly: 2026-07-01">rolling yearly: 2026-07-01</span>
   </li><li class="row row--muted">
     <span class="row__dot"><span class="dot dot--paused" title="Paused" aria-hidden="true"></span></span>
@@ -580,16 +606,16 @@
     </div><div class="rgroup">
       <div class="rgroup__head">🗂️ Routine Overview<span class="rgroup__count">2</span></div>
       <ul class="rlist"><li class="row">
-    <span class="row__dot"><span class="dot dot--green" title="Healthy" aria-hidden="true"></span></span>
+    <span class="row__dot"><span class="dot dot--red" title="Needs attention" aria-hidden="true"></span></span>
     <span class="row__name">Routine secretary (this)</span>
     <span class="row__cadence">Every 5h · :17</span>
-    <span class="row__ago">7 min ago</span>
-    <span class="row__head" title="Merge branch 'main' of https://github.com/abustrup/Routine-overview">Merge branch 'main' of https://github.com/abustrup/Routine-overview</span>
+    <span class="row__ago">1d ago</span>
+    <span class="row__head" title="PUSHED">PUSHED</span>
   </li><li class="row row--muted">
     <span class="row__dot"><span class="dot dot--paused" title="Paused" aria-hidden="true"></span></span>
     <span class="row__name">Overview self-improve <span class="tag tag--off">paused</span></span>
     <span class="row__cadence">Every 3h</span>
-    <span class="row__ago">14d ago</span>
+    <span class="row__ago">15d ago</span>
     <span class="row__head" title="improve: git freshness reads the repository, not whichever branch someone left checked out — a clone parked on an abandoned branch froze Dashboard self-improve's reading at that tip and can equally manufacture a false green">improve: git freshness reads the repository, not whichever branch someone left checked out — a clone parked on an abandoned branch froze Dashboard self-improve's reading at that tip and can equally manufacture a false green</span>
   </li></ul>
     </div><div class="rgroup">
@@ -598,7 +624,7 @@
     <span class="row__dot"><span class="dot dot--green" title="Healthy" aria-hidden="true"></span></span>
     <span class="row__name">Quote scout</span>
     <span class="row__cadence">Sundays · 09:05</span>
-    <span class="row__ago">2h ago</span>
+    <span class="row__ago">1d ago</span>
     <span class="row__head" title="scout: hold the sixth board one run; register two works he mined by hand">scout: hold the sixth board one run; register two works he mined by hand</span>
   </li></ul>
     </div><div class="rgroup">
@@ -616,7 +642,7 @@
   <footer>
     Health is reconstructed from each routine's real artifacts — git commits, run-logs and published files — not just whether the scheduler fired. Silent by design: you get a push only when something needs you.
     <br>
-    Generated 11 Aug 2026, 17:58 Europe/Copenhagen
+    Generated 12 Aug 2026, 21:14 Europe/Copenhagen
     <span class="foot-sep">·</span>
     <a href="https://github.com/abustrup/Routine-overview" target="_blank" rel="noopener">github.com/abustrup/Routine-overview</a>
   </footer>
