@@ -145,7 +145,7 @@
       "project": "meta",
       "name": "Routine secretary (this)",
       "cadence": "Every 5h · :17",
-      "periodHours": 5,
+      "periodHours": 24,
       "kind": "scheduler",
       "role": "maintainer",
       "enabled": true,
