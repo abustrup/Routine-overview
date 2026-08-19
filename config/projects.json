@@ -144,7 +144,7 @@
       "id": "routine-overview-secretary",
       "project": "meta",
       "name": "Routine secretary (this)",
-      "cadence": "Every 5h · :17",
+      "cadence": "Daily · 08:17",
       "periodHours": 24,
       "kind": "scheduler",
       "role": "maintainer",
