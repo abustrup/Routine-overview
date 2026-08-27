@@ -454,19 +454,19 @@
     </div>
   </div>
   </div>
-</article><article class="attn attn--red" data-attn data-akey="red:GitHub Actions fired nothing (both repos):stale">
+</article><article class="attn attn--red" data-attn data-akey="red:GitHub Actions: scheduled runs did not fire:stale">
   <div class="attn__bar" aria-hidden="true"></div>
   <div class="attn__main">
     <div class="attn__head">
       <span class="attn__sev">Broken</span>
-      <span class="attn__where">📰 GitHub Actions fired nothing (both repos)</span>
+      <span class="attn__where">📰 GitHub Actions: scheduled runs did not fire</span>
       <button type="button" class="dismiss-x" data-dismiss aria-label="Hide this alert" title="Hide — it comes back if the issue is still there next refresh">×</button>
     </div>
-    <p class="attn__msg">The cloud fallback is dead too: ZERO workflow runs in abustrup/alexanders-brief and abustrup/thomas-nyheder on 2026-08-27, including the every-30min watchdogs. All workflows are active and Actions is enabled. Coincides with an open GitHub billing incident (started 2026-08-26 23:37 UTC).</p>
+    <p class="attn__msg">Both brief repos ran 7-13 workflows a day from 08-16 to 08-26, then ZERO on 08-27 — including the every-30min watchdogs. All their workflows are active and Actions is enabled. Not an account-wide outage: a Pages deploy succeeded in this repo at 10:45Z today. So the cron trigger specifically failed for those two repos. An open GitHub billing incident began 2026-08-26 23:37 UTC.</p>
     <div class="fix">
     <div class="fix__actions">
       <button type="button" class="btn btn--copy"
-              data-copy="GitHub Actions fired zero workflows on 2026-08-27 in both abustrup/alexanders-brief and abustrup/thomas-nyheder — including the watchdogs that normally run every ~30 minutes. Verified: all workflows report state=active, Actions permissions enabled=true, both repos public and not archived. Both repos ran 7-13 workflows per day from 08-16 through 08-26, then zero. GitHub Status shows an open billing incident that began 2026-08-26 23:37 UTC. Check https://www.githubstatus.com and the repo Actions tabs; if GitHub has recovered, dispatch today's runs manually and confirm the watchdogs resume.">
+              data-copy="The scheduled (cron) workflows in abustrup/alexanders-brief and abustrup/thomas-nyheder fired ZERO times on 2026-08-27, including the watchdogs that normally run every ~30 minutes, after 7-13 runs per day from 08-16 through 08-26. Verified: all their workflows report state=active, Actions permissions enabled=true, both repos public and not archived. This is NOT an account-wide Actions outage — a GitHub-managed pages-build-deployment succeeded in abustrup/Routine-overview at 2026-08-27 10:45Z. So schedule-event delivery failed for these two repos specifically. GitHub Status shows an open billing incident from 2026-08-26 23:37 UTC. Check the Actions tab of both repos, re-dispatch today runs manually if the deadline case still justifies it, and confirm tomorrow scheduled runs fire. If cron delivery stays unreliable, consider triggering the daily publish from the Mac instead of relying on the GitHub cron.">
         <span class="btn__label">Copy fix prompt</span>
         <span class="btn__done" aria-hidden="true">Copied&nbsp;✓</span>
       </button>
@@ -475,7 +475,7 @@
       </button>
     </div>
     <div class="fix__body" id="fix-8" hidden>
-      <pre class="fix__prompt">GitHub Actions fired zero workflows on 2026-08-27 in both abustrup/alexanders-brief and abustrup/thomas-nyheder — including the watchdogs that normally run every ~30 minutes. Verified: all workflows report state=active, Actions permissions enabled=true, both repos public and not archived. Both repos ran 7-13 workflows per day from 08-16 through 08-26, then zero. GitHub Status shows an open billing incident that began 2026-08-26 23:37 UTC. Check https://www.githubstatus.com and the repo Actions tabs; if GitHub has recovered, dispatch today's runs manually and confirm the watchdogs resume.</pre>
+      <pre class="fix__prompt">The scheduled (cron) workflows in abustrup/alexanders-brief and abustrup/thomas-nyheder fired ZERO times on 2026-08-27, including the watchdogs that normally run every ~30 minutes, after 7-13 runs per day from 08-16 through 08-26. Verified: all their workflows report state=active, Actions permissions enabled=true, both repos public and not archived. This is NOT an account-wide Actions outage — a GitHub-managed pages-build-deployment succeeded in abustrup/Routine-overview at 2026-08-27 10:45Z. So schedule-event delivery failed for these two repos specifically. GitHub Status shows an open billing incident from 2026-08-26 23:37 UTC. Check the Actions tab of both repos, re-dispatch today runs manually if the deadline case still justifies it, and confirm tomorrow scheduled runs fire. If cron delivery stays unreliable, consider triggering the daily publish from the Mac instead of relying on the GitHub cron.</pre>
       <div class="fix__cwd"><span class="fix__cwd-k">cwd</span> <code>~/AI eksperimenter/alexanders-brief-pages</code></div>
     </div>
   </div>
