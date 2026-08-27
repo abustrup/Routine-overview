@@ -2,7 +2,7 @@
   "generatedAt": "2026-08-27T10:12:58.219Z",
   "generatedAtLocal": "27 Aug 2026, 12:12 Europe/Copenhagen",
   "owner": "Alexander Bustrup",
-  "attentionKey": "red:Daily news brief:stale|red:GitHub Actions: scheduled runs did not fire:stale|red:Mac sleeps overnight (Amphetamine off):stale|red:Rolling monthly (Måneden):stale|red:Rolling weekly (Ugen):stale|red:Rollup editions (Ugen/Måneden/Året):stale|red:Routine secretary (this):stale|red:Thomas' Nyheder (not enrolled):stale|warn:Rolling yearly (Året):ageing",
+  "attentionKey": "red:Daily news brief:stale|red:GitHub Actions: scheduled runs did not fire:stale|red:Mac sleeps overnight (unplugged, 1-min idle sleep):stale|red:Rolling monthly (Måneden):stale|red:Rolling weekly (Ugen):stale|red:Rollup editions (Ugen/Måneden/Året):stale|red:Routine secretary (this):stale|red:Thomas' Nyheder (not enrolled):stale|warn:Rolling yearly (Året):ageing",
   "staleAfterMin": 1500,
   "summary": {
     "green": 1,
@@ -70,11 +70,11 @@
     {
       "severity": "red",
       "project": "meta",
-      "routine": "Mac sleeps overnight (Amphetamine off)",
-      "message": "ROOT CAUSE — Amphetamine is not running, so the Mac sleep/DarkWake-cycles all night (~45s awake every ~15min). No nightly routine can finish. Verified in the 03:00-06:00 sleep log for 2026-08-27.",
+      "routine": "Mac sleeps overnight (unplugged, 1-min idle sleep)",
+      "message": "ROOT CAUSE, verified: idle sleep is set to 1 MINUTE on both AC and battery, the Mac is on battery at 20% and discharging, and Amphetamine was not running. Overnight it sleep/DarkWake-cycles — awake ~45s every ~15min through 03:00-06:00 today. No nightly routine can finish. I started Amphetamine (now running), but it holds no session yet: that needs one click, or the Mac plugged in.",
       "kind": "stale",
       "fix": {
-        "prompt": "Amphetamine is not running on Alexander's Mac, so it sleep-cycles overnight and every nightly routine dies mid-run. Verify with: pmset -g assertions | grep PreventUserIdleSystemSleep  and  pgrep -x Amphetamine. Start Amphetamine, confirm it holds a PreventUserIdleSystemSleep assertion, then check tonight that the 05:07 daily-news-brief run completes and publishes. Consider making the assertion survive restarts so this cannot lapse silently again, and consider an alert when the assertion is absent at 02:00.",
+        "prompt": "Alexander Mac cannot run anything overnight. Three verified facts as of 2026-08-27 13:05 CEST: (1) pmset idle sleep is set to 1 minute on BOTH AC and Battery profiles; (2) the machine is on battery at 20 percent and discharging; (3) Amphetamine was not running at all — I launched it, it is running as of this run, but it holds no PreventUserIdleSystemSleep assertion yet. Fix in this order: plug the Mac in; start an Amphetamine session (menu bar icon, Start new session, Indefinitely) and turn on its preference to start a session automatically at launch; then raise the AC idle-sleep from 1 minute (needs an admin password, e.g. sudo pmset -c sleep 0). Verify with: pmset -g assertions | grep PreventUserIdleSystemSleep — Amphetamine should own it. Then confirm the 05:07 daily-news-brief run completes tomorrow. Consider an alert when that assertion is missing at 02:00, since this failure mode is silent and cost 3 editions.",
         "cwd": "~"
       }
     },
