@@ -249,7 +249,7 @@
         <p class="eyebrow">Personal routine secretary</p>
         <h1>Routine Overview</h1>
       </div>
-      <div class="stamp">Updated <b>27 Aug 2026, 12:12 Europe/Copenhagen</b></div>
+      <div class="stamp">Updated <b>28 Aug 2026, 10:14 Europe/Copenhagen</b></div>
     </div>
     <p class="subtitle">The health of every scheduled routine across Alexander Bustrup's projects — so you never have to open them one by one.</p>
   </header>
@@ -257,13 +257,13 @@
   <div class="hero hero--alert">
     <div class="hero__row">
       <span class="hero__mark" aria-hidden="true"></span>
-      <p class="hero__verdict">5 routines need your attention</p>
+      <p class="hero__verdict">3 routines need your attention</p>
     </div>
-    <p class="hero__sub">4 broken, 1 ageing — everything else is running clean.</p>
+    <p class="hero__sub">2 broken, 1 ageing — everything else is running clean.</p>
     <div class="counts">
-      <span class="stat"><span class="dot dot--green" aria-hidden="true"></span><b>1</b><span>healthy</span></span>
+      <span class="stat"><span class="dot dot--green" aria-hidden="true"></span><b>3</b><span>healthy</span></span>
       <span class="stat"><span class="dot dot--yellow" aria-hidden="true"></span><b>1</b><span>ageing</span></span>
-      <span class="stat"><span class="dot dot--red" aria-hidden="true"></span><b>4</b><span>broken</span></span>
+      <span class="stat"><span class="dot dot--red" aria-hidden="true"></span><b>2</b><span>broken</span></span>
       <span class="stat"><span class="dot dot--paused" aria-hidden="true"></span><b>16</b><span>paused</span></span>
       <span class="stat stat--total">22 routines total</span>
     </div>
@@ -272,19 +272,19 @@
   <section aria-labelledby="sec-attn" data-attn-section>
     <div class="sec-head"><h2 id="sec-attn">Needs your attention</h2><span class="rule"></span><button type="button" class="sec-restore" data-restore hidden><span data-restore-count>0</span> hidden · Show</button></div>
     <div class="attn-list" data-attn-list>
-    <article class="attn attn--red" data-attn data-akey="red:Routine secretary (this):stale">
+    <article class="attn attn--red" data-attn data-akey="red:GitHub Actions: no scheduled run fired:no-trigger">
   <div class="attn__bar" aria-hidden="true"></div>
   <div class="attn__main">
     <div class="attn__head">
       <span class="attn__sev">Broken</span>
-      <span class="attn__where">🗂️ Routine secretary (this)</span>
+      <span class="attn__where">📰 GitHub Actions: no scheduled run fired</span>
       <button type="button" class="dismiss-x" data-dismiss aria-label="Hide this alert" title="Hide — it comes back if the issue is still there next refresh">×</button>
     </div>
-    <p class="attn__msg">Stale — last output 6d ago (expected Daily · 08:17).</p>
+    <p class="attn__msg">Zero scheduled workflow runs in either brief repo since 2026-08-27 18:20Z (~14h). 13 due triggers today, 0 fired — including both cross-repo watchdogs, so the alarm channel is silent too. Workflows active, Actions enabled, repos public, GitHub status operational.</p>
     <div class="fix">
     <div class="fix__actions">
       <button type="button" class="btn btn--copy"
-              data-copy="The scheduled routine &quot;Routine secretary (this)&quot; (Refreshes this overview from artifact-truth and flags only what needs attention.) was expected to run Daily · 08:17 but produced no recent output. Working dir: ~/AI eksperimenter/Routine overview. Investigate why it stopped (check its scheduler run and its log), fix the cause, verify a fresh run produces output, and commit. Keep it public-safe: health/status only, no secrets or strategy internals. Verify with node scripts/collect.mjs &amp;&amp; node scripts/render.mjs before pushing.">
+              data-copy="GitHub Actions scheduled runs stopped firing for abustrup/alexanders-brief and abustrup/thomas-nyheder. Verified 2026-08-28 08:30Z: `gh api /repos/&lt;r&gt;/actions/runs?created=&quot;&gt;=2026-08-28&quot;` returns total_count 0 for both; last run of any kind 2026-08-27T18:20:47Z; all workflows state=active; Actions enabled=true, allowed_actions=all; both repos public and not archived; githubstatus.com reports all systems operational with no incidents. 13 scheduled triggers were due today across 4 workflows (brief daily 06:11/06:47/07:13 CPH, Thomas daily 05:11/05:53 CPH, and two 4-poll watchdogs) and none were created. The same blackout happened 2026-08-26 08:06Z to 2026-08-27 15:08Z. Diagnose why cron delivery is being dropped for these two repos, and decide whether the morning path should stop depending on GitHub cron alone.">
         <span class="btn__label">Copy fix prompt</span>
         <span class="btn__done" aria-hidden="true">Copied&nbsp;✓</span>
       </button>
@@ -293,7 +293,33 @@
       </button>
     </div>
     <div class="fix__body" id="fix-1" hidden>
-      <pre class="fix__prompt">The scheduled routine &quot;Routine secretary (this)&quot; (Refreshes this overview from artifact-truth and flags only what needs attention.) was expected to run Daily · 08:17 but produced no recent output. Working dir: ~/AI eksperimenter/Routine overview. Investigate why it stopped (check its scheduler run and its log), fix the cause, verify a fresh run produces output, and commit. Keep it public-safe: health/status only, no secrets or strategy internals. Verify with node scripts/collect.mjs &amp;&amp; node scripts/render.mjs before pushing.</pre>
+      <pre class="fix__prompt">GitHub Actions scheduled runs stopped firing for abustrup/alexanders-brief and abustrup/thomas-nyheder. Verified 2026-08-28 08:30Z: `gh api /repos/&lt;r&gt;/actions/runs?created=&quot;&gt;=2026-08-28&quot;` returns total_count 0 for both; last run of any kind 2026-08-27T18:20:47Z; all workflows state=active; Actions enabled=true, allowed_actions=all; both repos public and not archived; githubstatus.com reports all systems operational with no incidents. 13 scheduled triggers were due today across 4 workflows (brief daily 06:11/06:47/07:13 CPH, Thomas daily 05:11/05:53 CPH, and two 4-poll watchdogs) and none were created. The same blackout happened 2026-08-26 08:06Z to 2026-08-27 15:08Z. Diagnose why cron delivery is being dropped for these two repos, and decide whether the morning path should stop depending on GitHub cron alone.</pre>
+      <div class="fix__cwd"><span class="fix__cwd-k">cwd</span> <code>~/AI eksperimenter/alexanders-brief-pages</code></div>
+    </div>
+  </div>
+  </div>
+</article><article class="attn attn--red" data-attn data-akey="red:Mac hibernated overnight (battery 1%):host-asleep">
+  <div class="attn__bar" aria-hidden="true"></div>
+  <div class="attn__main">
+    <div class="attn__head">
+      <span class="attn__sev">Broken</span>
+      <span class="attn__where">🗂️ Mac hibernated overnight (battery 1%)</span>
+      <button type="button" class="dismiss-x" data-dismiss aria-label="Hide this alert" title="Hide — it comes back if the issue is still there next refresh">×</button>
+    </div>
+    <p class="attn__msg">Left unplugged and drained to 1%: Low Power Sleep 06:29–09:19 CPH. The 05:07 and 05:53 producers never fired on schedule; all three morning tasks ran as one catch-up batch at 10:14. Second night in a row. No sleep assertion survives an empty battery.</p>
+    <div class="fix">
+    <div class="fix__actions">
+      <button type="button" class="btn btn--copy"
+              data-copy="This Mac hibernated overnight on 2026-08-28 with the battery at 1% (pmset log: &quot;Entering Sleep state due to Low Power Sleep ... Using Batt (Charge:1%)&quot; at 06:29, woke from Hibernate on lid+charger at 09:19). daily-news-brief, dagens-kompas-daily and routine-overview-secretary all carry an identical lastRunAt of 08:14:30Z — one catch-up batch on wake, not three scheduled fires. Amphetamine was running but held no PreventUserIdleSystemSleep assertion, and no assertion survives an empty battery anyway. The same class of failure happened on 2026-08-27 (unplugged at 20%, idle sleep set to 1 minute). Decide the durable fix: keep it plugged in overnight, raise the idle-sleep setting, or move the morning path off this host entirely.">
+        <span class="btn__label">Copy fix prompt</span>
+        <span class="btn__done" aria-hidden="true">Copied&nbsp;✓</span>
+      </button>
+      <button type="button" class="btn btn--link" data-toggle="fix-2" aria-expanded="false" aria-controls="fix-2">
+        View prompt
+      </button>
+    </div>
+    <div class="fix__body" id="fix-2" hidden>
+      <pre class="fix__prompt">This Mac hibernated overnight on 2026-08-28 with the battery at 1% (pmset log: &quot;Entering Sleep state due to Low Power Sleep ... Using Batt (Charge:1%)&quot; at 06:29, woke from Hibernate on lid+charger at 09:19). daily-news-brief, dagens-kompas-daily and routine-overview-secretary all carry an identical lastRunAt of 08:14:30Z — one catch-up batch on wake, not three scheduled fires. Amphetamine was running but held no PreventUserIdleSystemSleep assertion, and no assertion survives an empty battery anyway. The same class of failure happened on 2026-08-27 (unplugged at 20%, idle sleep set to 1 minute). Decide the durable fix: keep it plugged in overnight, raise the idle-sleep setting, or move the morning path off this host entirely.</pre>
       <div class="fix__cwd"><span class="fix__cwd-k">cwd</span> <code>~/AI eksperimenter/Routine overview</code></div>
     </div>
   </div>
@@ -306,7 +332,7 @@
       <span class="attn__where">📰 Rolling weekly (Ugen)</span>
       <button type="button" class="dismiss-x" data-dismiss aria-label="Hide this alert" title="Hide — it comes back if the issue is still there next refresh">×</button>
     </div>
-    <p class="attn__msg">Stale — last output 30d ago (expected Daily · 06:48).</p>
+    <p class="attn__msg">Stale — last output 31d ago (expected Daily · 06:48).</p>
     <div class="fix">
     <div class="fix__actions">
       <button type="button" class="btn btn--copy"
@@ -314,11 +340,11 @@
         <span class="btn__label">Copy fix prompt</span>
         <span class="btn__done" aria-hidden="true">Copied&nbsp;✓</span>
       </button>
-      <button type="button" class="btn btn--link" data-toggle="fix-2" aria-expanded="false" aria-controls="fix-2">
+      <button type="button" class="btn btn--link" data-toggle="fix-3" aria-expanded="false" aria-controls="fix-3">
         View prompt
       </button>
     </div>
-    <div class="fix__body" id="fix-2" hidden>
+    <div class="fix__body" id="fix-3" hidden>
       <pre class="fix__prompt">The scheduled routine &quot;Rolling weekly (Ugen)&quot; (Refreshes the 7-day rollup edition from the published dailies.) was expected to run Daily · 06:48 but produced no recent output. Working dir: ~/AI eksperimenter/News breif 1. Investigate why it stopped (check its scheduler run and its log), fix the cause, verify a fresh run produces output, and commit. Follow prompts/daily-brief.md and the project's guardrails; never expose any secrets or credentials; publish at most once per date.</pre>
       <div class="fix__cwd"><span class="fix__cwd-k">cwd</span> <code>~/AI eksperimenter/News breif 1</code></div>
     </div>
@@ -332,7 +358,7 @@
       <span class="attn__where">📰 Rolling monthly (Måneden)</span>
       <button type="button" class="dismiss-x" data-dismiss aria-label="Hide this alert" title="Hide — it comes back if the issue is still there next refresh">×</button>
     </div>
-    <p class="attn__msg">Stale — last output 31d ago (expected Mondays · 07:02).</p>
+    <p class="attn__msg">Stale — last output 32d ago (expected Mondays · 07:02).</p>
     <div class="fix">
     <div class="fix__actions">
       <button type="button" class="btn btn--copy"
@@ -340,11 +366,11 @@
         <span class="btn__label">Copy fix prompt</span>
         <span class="btn__done" aria-hidden="true">Copied&nbsp;✓</span>
       </button>
-      <button type="button" class="btn btn--link" data-toggle="fix-3" aria-expanded="false" aria-controls="fix-3">
+      <button type="button" class="btn btn--link" data-toggle="fix-4" aria-expanded="false" aria-controls="fix-4">
         View prompt
       </button>
     </div>
-    <div class="fix__body" id="fix-3" hidden>
+    <div class="fix__body" id="fix-4" hidden>
       <pre class="fix__prompt">The scheduled routine &quot;Rolling monthly (Måneden)&quot; (Refreshes the 30-day rollup edition.) was expected to run Mondays · 07:02 but produced no recent output. Working dir: ~/AI eksperimenter/News breif 1. Investigate why it stopped (check its scheduler run and its log), fix the cause, verify a fresh run produces output, and commit. Follow prompts/daily-brief.md and the project's guardrails; never expose any secrets or credentials; publish at most once per date.</pre>
       <div class="fix__cwd"><span class="fix__cwd-k">cwd</span> <code>~/AI eksperimenter/News breif 1</code></div>
     </div>
@@ -358,37 +384,11 @@
       <span class="attn__where">📰 Rolling yearly (Året)</span>
       <button type="button" class="dismiss-x" data-dismiss aria-label="Hide this alert" title="Hide — it comes back if the issue is still there next refresh">×</button>
     </div>
-    <p class="attn__msg">Ageing — last output 57d ago (expected 1st of month · 06:57).</p>
+    <p class="attn__msg">Ageing — last output 58d ago (expected 1st of month · 06:57).</p>
     <div class="fix">
     <div class="fix__actions">
       <button type="button" class="btn btn--copy"
               data-copy="The scheduled routine &quot;Rolling yearly (Året)&quot; (Refreshes the 12-month rollup edition.) was expected to run 1st of month · 06:57 but produced no recent output. Working dir: ~/AI eksperimenter/News breif 1. Investigate why it stopped (check its scheduler run and its log), fix the cause, verify a fresh run produces output, and commit. Follow prompts/daily-brief.md and the project's guardrails; never expose any secrets or credentials; publish at most once per date.">
-        <span class="btn__label">Copy fix prompt</span>
-        <span class="btn__done" aria-hidden="true">Copied&nbsp;✓</span>
-      </button>
-      <button type="button" class="btn btn--link" data-toggle="fix-4" aria-expanded="false" aria-controls="fix-4">
-        View prompt
-      </button>
-    </div>
-    <div class="fix__body" id="fix-4" hidden>
-      <pre class="fix__prompt">The scheduled routine &quot;Rolling yearly (Året)&quot; (Refreshes the 12-month rollup edition.) was expected to run 1st of month · 06:57 but produced no recent output. Working dir: ~/AI eksperimenter/News breif 1. Investigate why it stopped (check its scheduler run and its log), fix the cause, verify a fresh run produces output, and commit. Follow prompts/daily-brief.md and the project's guardrails; never expose any secrets or credentials; publish at most once per date.</pre>
-      <div class="fix__cwd"><span class="fix__cwd-k">cwd</span> <code>~/AI eksperimenter/News breif 1</code></div>
-    </div>
-  </div>
-  </div>
-</article><article class="attn attn--red" data-attn data-akey="red:Mac sleeps overnight (unplugged, 1-min idle sleep):stale">
-  <div class="attn__bar" aria-hidden="true"></div>
-  <div class="attn__main">
-    <div class="attn__head">
-      <span class="attn__sev">Broken</span>
-      <span class="attn__where">🗂️ Mac sleeps overnight (unplugged, 1-min idle sleep)</span>
-      <button type="button" class="dismiss-x" data-dismiss aria-label="Hide this alert" title="Hide — it comes back if the issue is still there next refresh">×</button>
-    </div>
-    <p class="attn__msg">ROOT CAUSE, verified: idle sleep is set to 1 MINUTE on both AC and battery, the Mac is on battery at 20% and discharging, and Amphetamine was not running. Overnight it sleep/DarkWake-cycles — awake ~45s every ~15min through 03:00-06:00 today. No nightly routine can finish. I started Amphetamine (now running), but it holds no session yet: that needs one click, or the Mac plugged in.</p>
-    <div class="fix">
-    <div class="fix__actions">
-      <button type="button" class="btn btn--copy"
-              data-copy="Alexander Mac cannot run anything overnight. Three verified facts as of 2026-08-27 13:05 CEST: (1) pmset idle sleep is set to 1 minute on BOTH AC and Battery profiles; (2) the machine is on battery at 20 percent and discharging; (3) Amphetamine was not running at all — I launched it, it is running as of this run, but it holds no PreventUserIdleSystemSleep assertion yet. Fix in this order: plug the Mac in; start an Amphetamine session (menu bar icon, Start new session, Indefinitely) and turn on its preference to start a session automatically at launch; then raise the AC idle-sleep from 1 minute (needs an admin password, e.g. sudo pmset -c sleep 0). Verify with: pmset -g assertions | grep PreventUserIdleSystemSleep — Amphetamine should own it. Then confirm the 05:07 daily-news-brief run completes tomorrow. Consider an alert when that assertion is missing at 02:00, since this failure mode is silent and cost 3 editions.">
         <span class="btn__label">Copy fix prompt</span>
         <span class="btn__done" aria-hidden="true">Copied&nbsp;✓</span>
       </button>
@@ -397,112 +397,8 @@
       </button>
     </div>
     <div class="fix__body" id="fix-5" hidden>
-      <pre class="fix__prompt">Alexander Mac cannot run anything overnight. Three verified facts as of 2026-08-27 13:05 CEST: (1) pmset idle sleep is set to 1 minute on BOTH AC and Battery profiles; (2) the machine is on battery at 20 percent and discharging; (3) Amphetamine was not running at all — I launched it, it is running as of this run, but it holds no PreventUserIdleSystemSleep assertion yet. Fix in this order: plug the Mac in; start an Amphetamine session (menu bar icon, Start new session, Indefinitely) and turn on its preference to start a session automatically at launch; then raise the AC idle-sleep from 1 minute (needs an admin password, e.g. sudo pmset -c sleep 0). Verify with: pmset -g assertions | grep PreventUserIdleSystemSleep — Amphetamine should own it. Then confirm the 05:07 daily-news-brief run completes tomorrow. Consider an alert when that assertion is missing at 02:00, since this failure mode is silent and cost 3 editions.</pre>
-      <div class="fix__cwd"><span class="fix__cwd-k">cwd</span> <code>~</code></div>
-    </div>
-  </div>
-  </div>
-</article><article class="attn attn--red" data-attn data-akey="red:Daily news brief:stale">
-  <div class="attn__bar" aria-hidden="true"></div>
-  <div class="attn__main">
-    <div class="attn__head">
-      <span class="attn__sev">Broken</span>
-      <span class="attn__where">📰 Daily news brief</span>
-      <button type="button" class="dismiss-x" data-dismiss aria-label="Hide this alert" title="Hide — it comes back if the issue is still there next refresh">×</button>
-    </div>
-    <p class="attn__msg">LOST 2026-08-27 (deadline 08:00 passed), and lost 08-24 and 08-25. 3 of the last 7 editions gone. The card read green because freshness measures staleness, not the deadline.</p>
-    <div class="fix">
-    <div class="fix__actions">
-      <button type="button" class="btn btn--copy"
-              data-copy="Alexanders Brief lost its 2026-08-27 edition (deadline 08:00 Europe/Copenhagen), and also lost 2026-08-24 and 2026-08-25 — 3 of the last 7. Two causes, both verified: (a) the Mac sleeps overnight because Amphetamine is not running, so the local 05:07 run cannot finish; (b) GitHub Actions fired zero workflows in abustrup/alexanders-brief on 2026-08-27 despite all workflows being active. Fix the sleep problem first, then decide whether to publish today's edition late. Working dir: ~/AI eksperimenter/News breif 1. Follow prompts/daily-brief.md, publish at most once per date, never expose secrets.">
-        <span class="btn__label">Copy fix prompt</span>
-        <span class="btn__done" aria-hidden="true">Copied&nbsp;✓</span>
-      </button>
-      <button type="button" class="btn btn--link" data-toggle="fix-6" aria-expanded="false" aria-controls="fix-6">
-        View prompt
-      </button>
-    </div>
-    <div class="fix__body" id="fix-6" hidden>
-      <pre class="fix__prompt">Alexanders Brief lost its 2026-08-27 edition (deadline 08:00 Europe/Copenhagen), and also lost 2026-08-24 and 2026-08-25 — 3 of the last 7. Two causes, both verified: (a) the Mac sleeps overnight because Amphetamine is not running, so the local 05:07 run cannot finish; (b) GitHub Actions fired zero workflows in abustrup/alexanders-brief on 2026-08-27 despite all workflows being active. Fix the sleep problem first, then decide whether to publish today's edition late. Working dir: ~/AI eksperimenter/News breif 1. Follow prompts/daily-brief.md, publish at most once per date, never expose secrets.</pre>
+      <pre class="fix__prompt">The scheduled routine &quot;Rolling yearly (Året)&quot; (Refreshes the 12-month rollup edition.) was expected to run 1st of month · 06:57 but produced no recent output. Working dir: ~/AI eksperimenter/News breif 1. Investigate why it stopped (check its scheduler run and its log), fix the cause, verify a fresh run produces output, and commit. Follow prompts/daily-brief.md and the project's guardrails; never expose any secrets or credentials; publish at most once per date.</pre>
       <div class="fix__cwd"><span class="fix__cwd-k">cwd</span> <code>~/AI eksperimenter/News breif 1</code></div>
-    </div>
-  </div>
-  </div>
-</article><article class="attn attn--red" data-attn data-akey="red:Thomas' Nyheder (not enrolled):stale">
-  <div class="attn__bar" aria-hidden="true"></div>
-  <div class="attn__main">
-    <div class="attn__head">
-      <span class="attn__sev">Broken</span>
-      <span class="attn__where">📰 Thomas' Nyheder (not enrolled)</span>
-      <button type="button" class="dismiss-x" data-dismiss aria-label="Hide this alert" title="Hide — it comes back if the issue is still there next refresh">×</button>
-    </div>
-    <p class="attn__msg">LOST 2026-08-27 (deadline 07:15 passed), and lost 08-25, 08-21 and 08-18. Invisible to this dashboard: dagens-kompas-daily still has no row in config/projects.json — flagged 08-16, 08-19 and 08-21.</p>
-    <div class="fix">
-    <div class="fix__actions">
-      <button type="button" class="btn btn--copy"
-              data-copy="Thomas' Nyheder (abustrup/thomas-nyheder, task dagens-kompas-daily) has lost 4 editions: 2026-08-18, 08-21, 08-25 and 08-27. It has no row in &quot;~/AI eksperimenter/Routine overview&quot;/config/projects.json, so the dashboard has no concept of it and cannot flag its failures — this has been flagged on 2026-08-16, 08-19 and 08-21 without being fixed. Add the routine row (repo thomasPages, freshness fileToday on data/{today}.json with a ^brief: gitSubject fallback), then fix the publishing failures themselves.">
-        <span class="btn__label">Copy fix prompt</span>
-        <span class="btn__done" aria-hidden="true">Copied&nbsp;✓</span>
-      </button>
-      <button type="button" class="btn btn--link" data-toggle="fix-7" aria-expanded="false" aria-controls="fix-7">
-        View prompt
-      </button>
-    </div>
-    <div class="fix__body" id="fix-7" hidden>
-      <pre class="fix__prompt">Thomas' Nyheder (abustrup/thomas-nyheder, task dagens-kompas-daily) has lost 4 editions: 2026-08-18, 08-21, 08-25 and 08-27. It has no row in &quot;~/AI eksperimenter/Routine overview&quot;/config/projects.json, so the dashboard has no concept of it and cannot flag its failures — this has been flagged on 2026-08-16, 08-19 and 08-21 without being fixed. Add the routine row (repo thomasPages, freshness fileToday on data/{today}.json with a ^brief: gitSubject fallback), then fix the publishing failures themselves.</pre>
-      <div class="fix__cwd"><span class="fix__cwd-k">cwd</span> <code>~/AI eksperimenter/Routine overview</code></div>
-    </div>
-  </div>
-  </div>
-</article><article class="attn attn--red" data-attn data-akey="red:GitHub Actions: scheduled runs did not fire:stale">
-  <div class="attn__bar" aria-hidden="true"></div>
-  <div class="attn__main">
-    <div class="attn__head">
-      <span class="attn__sev">Broken</span>
-      <span class="attn__where">📰 GitHub Actions: scheduled runs did not fire</span>
-      <button type="button" class="dismiss-x" data-dismiss aria-label="Hide this alert" title="Hide — it comes back if the issue is still there next refresh">×</button>
-    </div>
-    <p class="attn__msg">Both brief repos ran 7-13 workflows a day from 08-16 to 08-26, then ZERO on 08-27 — including the every-30min watchdogs. All their workflows are active and Actions is enabled. Not an account-wide outage: a Pages deploy succeeded in this repo at 10:45Z today. So the cron trigger specifically failed for those two repos. An open GitHub billing incident began 2026-08-26 23:37 UTC.</p>
-    <div class="fix">
-    <div class="fix__actions">
-      <button type="button" class="btn btn--copy"
-              data-copy="The scheduled (cron) workflows in abustrup/alexanders-brief and abustrup/thomas-nyheder fired ZERO times on 2026-08-27, including the watchdogs that normally run every ~30 minutes, after 7-13 runs per day from 08-16 through 08-26. Verified: all their workflows report state=active, Actions permissions enabled=true, both repos public and not archived. This is NOT an account-wide Actions outage — a GitHub-managed pages-build-deployment succeeded in abustrup/Routine-overview at 2026-08-27 10:45Z. So schedule-event delivery failed for these two repos specifically. GitHub Status shows an open billing incident from 2026-08-26 23:37 UTC. Check the Actions tab of both repos, re-dispatch today runs manually if the deadline case still justifies it, and confirm tomorrow scheduled runs fire. If cron delivery stays unreliable, consider triggering the daily publish from the Mac instead of relying on the GitHub cron.">
-        <span class="btn__label">Copy fix prompt</span>
-        <span class="btn__done" aria-hidden="true">Copied&nbsp;✓</span>
-      </button>
-      <button type="button" class="btn btn--link" data-toggle="fix-8" aria-expanded="false" aria-controls="fix-8">
-        View prompt
-      </button>
-    </div>
-    <div class="fix__body" id="fix-8" hidden>
-      <pre class="fix__prompt">The scheduled (cron) workflows in abustrup/alexanders-brief and abustrup/thomas-nyheder fired ZERO times on 2026-08-27, including the watchdogs that normally run every ~30 minutes, after 7-13 runs per day from 08-16 through 08-26. Verified: all their workflows report state=active, Actions permissions enabled=true, both repos public and not archived. This is NOT an account-wide Actions outage — a GitHub-managed pages-build-deployment succeeded in abustrup/Routine-overview at 2026-08-27 10:45Z. So schedule-event delivery failed for these two repos specifically. GitHub Status shows an open billing incident from 2026-08-26 23:37 UTC. Check the Actions tab of both repos, re-dispatch today runs manually if the deadline case still justifies it, and confirm tomorrow scheduled runs fire. If cron delivery stays unreliable, consider triggering the daily publish from the Mac instead of relying on the GitHub cron.</pre>
-      <div class="fix__cwd"><span class="fix__cwd-k">cwd</span> <code>~/AI eksperimenter/alexanders-brief-pages</code></div>
-    </div>
-  </div>
-  </div>
-</article><article class="attn attn--red" data-attn data-akey="red:Rollup editions (Ugen/Måneden/Året):stale">
-  <div class="attn__bar" aria-hidden="true"></div>
-  <div class="attn__main">
-    <div class="attn__head">
-      <span class="attn__sev">Broken</span>
-      <span class="attn__where">📰 Rollup editions (Ugen/Måneden/Året)</span>
-      <button type="button" class="dismiss-x" data-dismiss aria-label="Hide this alert" title="Hide — it comes back if the issue is still there next refresh">×</button>
-    </div>
-    <p class="attn__msg">No runner exists: no scheduled task and no workflow produces them. Dead 30/31/57 days, and they died without a dated entry in harness-priorities.md. Decide: revive or retire.</p>
-    <div class="fix">
-    <div class="fix__actions">
-      <button type="button" class="btn btn--copy"
-              data-copy="The three rollup editions of Alexanders Brief — Ugen (weekly), Maaneden (monthly), Aaret (yearly) — have produced nothing for 30, 31 and 57 days. Verified: they exist as routines in &quot;~/AI eksperimenter/Routine overview&quot;/config/projects.json with enabled=true, but there is no scheduled task for them in the scheduler and no workflow for them in abustrup/alexanders-brief (.github/workflows holds only alexanders-brief-daily.yml and watchdog-thomas.yml). They have no runner at all. They also died without a dated evidence entry in ~/AI eksperimenter/harness-priorities.md. Decide whether to revive them with a real runner or retire them properly (remove the config rows, remove the site links, and write the dated entry).">
-        <span class="btn__label">Copy fix prompt</span>
-        <span class="btn__done" aria-hidden="true">Copied&nbsp;✓</span>
-      </button>
-      <button type="button" class="btn btn--link" data-toggle="fix-9" aria-expanded="false" aria-controls="fix-9">
-        View prompt
-      </button>
-    </div>
-    <div class="fix__body" id="fix-9" hidden>
-      <pre class="fix__prompt">The three rollup editions of Alexanders Brief — Ugen (weekly), Maaneden (monthly), Aaret (yearly) — have produced nothing for 30, 31 and 57 days. Verified: they exist as routines in &quot;~/AI eksperimenter/Routine overview&quot;/config/projects.json with enabled=true, but there is no scheduled task for them in the scheduler and no workflow for them in abustrup/alexanders-brief (.github/workflows holds only alexanders-brief-daily.yml and watchdog-thomas.yml). They have no runner at all. They also died without a dated evidence entry in ~/AI eksperimenter/harness-priorities.md. Decide whether to revive them with a real runner or retire them properly (remove the config rows, remove the site links, and write the dated entry).</pre>
-      <div class="fix__cwd"><span class="fix__cwd-k">cwd</span> <code>~/AI eksperimenter/Routine overview</code></div>
     </div>
   </div>
   </div>
@@ -529,11 +425,11 @@
         <span class="btn__label">Copy decision prompt</span>
         <span class="btn__done" aria-hidden="true">Copied&nbsp;✓</span>
       </button>
-      <button type="button" class="btn btn--link" data-toggle="fix-10" aria-expanded="false" aria-controls="fix-10">
+      <button type="button" class="btn btn--link" data-toggle="fix-6" aria-expanded="false" aria-controls="fix-6">
         View prompt
       </button>
     </div>
-    <div class="fix__body" id="fix-10" hidden>
+    <div class="fix__body" id="fix-6" hidden>
       <pre class="fix__prompt">About the scheduled routine &quot;Quote scout&quot; (Reads the collection, finds lines from works it does not hold, and posts a board for him to tick. Proposes only — it may never add a quote.). Working dir: ~/Quote-collection. Decision to make: Created 2026-07-30. EXPIRES 2026-09-27 — by then at least 3 proposed lines must have been kept across at least two boards, or it retires itself. Watch the hit rate in scout-log.md, not the number of proposals. Investigate, decide the best action, and implement it if warranted; otherwise briefly explain why to leave it as-is. Public repo and a public site. The scout may write data/proposals.json, scout-log.md and data/works.json only — never data/quotes.json, which is his to fill by ticking the board. Keep npm test and npm run check green.</pre>
       <div class="fix__cwd"><span class="fix__cwd-k">cwd</span> <code>~/Quote-collection</code></div>
     </div>
@@ -571,7 +467,7 @@
     <div class="proj__now">
       <span class="proj__now-k">Latest</span>
       <span class="proj__now-v">fix: refuse an import the app cannot value instead of rendering a NaN book</span>
-      <span class="proj__now-ago">30d ago</span>
+      <span class="proj__now-ago">31d ago</span>
     </div>
     
     <div class="proj__links"><a class="chip" href="https://abustrup.github.io/personal-stock-dashboard/" target="_blank" rel="noopener">Live dashboard<span class="chip__ext" aria-hidden="true">↗</span></a><a class="chip" href="https://github.com/abustrup/personal-stock-dashboard" target="_blank" rel="noopener">Repo<span class="chip__ext" aria-hidden="true">↗</span></a></div>
@@ -584,8 +480,8 @@
     <p class="proj__goal">Publish a trustworthy, beautifully-edited Danish morning brief every day before 06:40 — sharper and broader than any single newspaper.</p>
     <div class="proj__now">
       <span class="proj__now-k">Latest</span>
-      <span class="proj__now-v">ledger: 2026-08-26</span>
-      <span class="proj__now-ago">1d ago</span>
+      <span class="proj__now-v">brief: 2026-08-27</span>
+      <span class="proj__now-ago">18h ago</span>
     </div>
     
     <div class="proj__links"><a class="chip" href="https://abustrup.github.io/alexanders-brief/" target="_blank" rel="noopener">Live brief<span class="chip__ext" aria-hidden="true">↗</span></a><a class="chip" href="https://github.com/abustrup/alexanders-brief" target="_blank" rel="noopener">Repo<span class="chip__ext" aria-hidden="true">↗</span></a></div>
@@ -598,8 +494,8 @@
     <p class="proj__goal">Publish a daily Danish morning brief for a second reader — a senior trade- and industry-policy figure — before 07:15: Danish throughout, with sport and general Danish news, sourced only from pages the engine can actually read.</p>
     <div class="proj__now">
       <span class="proj__now-k">Latest</span>
-      <span class="proj__now-v">brief: 2026-08-26</span>
-      <span class="proj__now-ago">1d ago</span>
+      <span class="proj__now-v">brief: 2026-08-27</span>
+      <span class="proj__now-ago">18h ago</span>
     </div>
     <p class="proj__note">Not live until abustrup/thomas-nyheder exists on GitHub — run go-live.sh in the Pages clone. Until then each run produces a local edition and fails at push, which is the intended loud signal. Scheduler taskId is still 'dagens-kompas-daily' from before the rename.</p>
     <div class="proj__links"><a class="chip" href="https://abustrup.github.io/thomas-nyheder/" target="_blank" rel="noopener">Live brief<span class="chip__ext" aria-hidden="true">↗</span></a><a class="chip" href="https://github.com/abustrup/thomas-nyheder" target="_blank" rel="noopener">Repo<span class="chip__ext" aria-hidden="true">↗</span></a></div>
@@ -607,13 +503,13 @@
     <header class="proj__head">
       <span class="proj__emoji" aria-hidden="true">🗂️</span>
       <h3 class="proj__name">Routine Overview</h3>
-      <span class="dot dot--yellow" title="Needs attention" aria-hidden="true"></span>
+      <span class="dot dot--green" title="Healthy" aria-hidden="true"></span>
     </header>
     <p class="proj__goal">Hold the whole picture across every routine and interrupt Alexander only when something genuinely needs him.</p>
     <div class="proj__now">
       <span class="proj__now-k">Latest</span>
-      <span class="proj__now-v">Thomas lost 08-21 too; enrolment alone would still render it green</span>
-      <span class="proj__now-ago">6d ago</span>
+      <span class="proj__now-v">overview: 2026-08-27 13:05 — root cause sharpened: unplugged at 20%, idle sleep set to 1 minute, Amphetamine was not running</span>
+      <span class="proj__now-ago">20h ago</span>
     </div>
     
     <div class="proj__links"><a class="chip" href="https://abustrup.github.io/Routine-overview/" target="_blank" rel="noopener">This dashboard<span class="chip__ext" aria-hidden="true">↗</span></a><a class="chip" href="https://github.com/abustrup/Routine-overview" target="_blank" rel="noopener">Repo<span class="chip__ext" aria-hidden="true">↗</span></a></div>
@@ -626,8 +522,8 @@
     <p class="proj__goal">Keep every line worth keeping, with its attribution tracked — and widen it beyond what I happen to read, without anything entering that I did not choose myself.</p>
     <div class="proj__now">
       <span class="proj__now-k">Latest</span>
-      <span class="proj__now-v">scout: no ninth board — the delivery experiment failed, and the recommendation is a change of job</span>
-      <span class="proj__now-ago">4d ago</span>
+      <span class="proj__now-v">scout: the works trial — two interviews instead of a board, run on silence</span>
+      <span class="proj__now-ago">19h ago</span>
     </div>
     
     <div class="proj__links"><a class="chip" href="https://abustrup.github.io/Quote-collection/" target="_blank" rel="noopener">The collection<span class="chip__ext" aria-hidden="true">↗</span></a><a class="chip" href="https://abustrup.github.io/Quote-collection/scout.html" target="_blank" rel="noopener">The board<span class="chip__ext" aria-hidden="true">↗</span></a><a class="chip" href="https://github.com/abustrup/Quote-collection" target="_blank" rel="noopener">Repo<span class="chip__ext" aria-hidden="true">↗</span></a></div>
@@ -705,13 +601,13 @@
     <span class="row__dot"><span class="dot dot--paused" title="Paused" aria-hidden="true"></span></span>
     <span class="row__name">Dashboard self-improve <span class="tag tag--off">paused</span></span>
     <span class="row__cadence">Daily · 02:00</span>
-    <span class="row__ago">30d ago</span>
+    <span class="row__ago">31d ago</span>
     <span class="row__head" title="fix: refuse an import the app cannot value instead of rendering a NaN book">fix: refuse an import the app cannot value instead of rendering a NaN book</span>
   </li><li class="row row--muted">
     <span class="row__dot"><span class="dot dot--paused" title="Paused" aria-hidden="true"></span></span>
     <span class="row__name">Stock maintenance <span class="tag tag--off">paused</span></span>
     <span class="row__cadence">Daily · 13:00</span>
-    <span class="row__ago">30d ago</span>
+    <span class="row__ago">31d ago</span>
     <span class="row__head" title="fix: refuse an import the app cannot value instead of rendering a NaN book">fix: refuse an import the app cannot value instead of rendering a NaN book</span>
   </li><li class="row row--muted">
     <span class="row__dot"><span class="dot dot--paused" title="Paused" aria-hidden="true"></span></span>
@@ -723,28 +619,28 @@
     </div><div class="rgroup">
       <div class="rgroup__head">📰 Alexanders Brief<span class="rgroup__count">6</span></div>
       <ul class="rlist"><li class="row">
-    <span class="row__dot"><span class="dot dot--red" title="Needs attention" aria-hidden="true"></span></span>
+    <span class="row__dot"><span class="dot dot--green" title="Healthy" aria-hidden="true"></span></span>
     <span class="row__name">Daily news brief</span>
     <span class="row__cadence">Daily · 06:02</span>
-    <span class="row__ago">1d ago</span>
-    <span class="row__head" title="brief: 2026-08-26 (08-27 LOST)">brief: 2026-08-26 (08-27 LOST)</span>
+    <span class="row__ago">18h ago</span>
+    <span class="row__head" title="brief: 2026-08-27">brief: 2026-08-27</span>
   </li><li class="row">
     <span class="row__dot"><span class="dot dot--red" title="Needs attention" aria-hidden="true"></span></span>
     <span class="row__name">Rolling weekly (Ugen)</span>
     <span class="row__cadence">Daily · 06:48</span>
-    <span class="row__ago">30d ago</span>
+    <span class="row__ago">31d ago</span>
     <span class="row__head" title="rolling weekly: 2026-07-28">rolling weekly: 2026-07-28</span>
   </li><li class="row">
     <span class="row__dot"><span class="dot dot--red" title="Needs attention" aria-hidden="true"></span></span>
     <span class="row__name">Rolling monthly (Måneden)</span>
     <span class="row__cadence">Mondays · 07:02</span>
-    <span class="row__ago">31d ago</span>
+    <span class="row__ago">32d ago</span>
     <span class="row__head" title="rolling monthly: 2026-07-27">rolling monthly: 2026-07-27</span>
   </li><li class="row">
     <span class="row__dot"><span class="dot dot--yellow" title="Ageing" aria-hidden="true"></span></span>
     <span class="row__name">Rolling yearly (Året)</span>
     <span class="row__cadence">1st of month · 06:57</span>
-    <span class="row__ago">57d ago</span>
+    <span class="row__ago">58d ago</span>
     <span class="row__head" title="rolling yearly: 2026-07-01">rolling yearly: 2026-07-01</span>
   </li><li class="row row--muted">
     <span class="row__dot"><span class="dot dot--paused" title="Paused" aria-hidden="true"></span></span>
@@ -762,16 +658,16 @@
     </div><div class="rgroup">
       <div class="rgroup__head">🗂️ Routine Overview<span class="rgroup__count">2</span></div>
       <ul class="rlist"><li class="row">
-    <span class="row__dot"><span class="dot dot--red" title="Needs attention" aria-hidden="true"></span></span>
+    <span class="row__dot"><span class="dot dot--green" title="Healthy" aria-hidden="true"></span></span>
     <span class="row__name">Routine secretary (this)</span>
     <span class="row__cadence">Daily · 08:17</span>
-    <span class="row__ago">6d ago</span>
-    <span class="row__head" title="Thomas lost 08-21 too; enrolment alone would still render it green">Thomas lost 08-21 too; enrolment alone would still render it green</span>
+    <span class="row__ago">20h ago</span>
+    <span class="row__head" title="overview: 2026-08-27 13:05 — root cause sharpened: unplugged at 20%, idle sleep set to 1 minute, Amphetamine was not running">overview: 2026-08-27 13:05 — root cause sharpened: unplugged at 20%, idle sleep set to 1 minute, Amphetamine was not running</span>
   </li><li class="row row--muted">
     <span class="row__dot"><span class="dot dot--paused" title="Paused" aria-hidden="true"></span></span>
     <span class="row__name">Overview self-improve <span class="tag tag--off">paused</span></span>
     <span class="row__cadence">Every 3h</span>
-    <span class="row__ago">30d ago</span>
+    <span class="row__ago">31d ago</span>
     <span class="row__head" title="improve: git freshness reads the repository, not whichever branch someone left checked out — a clone parked on an abandoned branch froze Dashboard self-improve's reading at that tip and can equally manufacture a false green">improve: git freshness reads the repository, not whichever branch someone left checked out — a clone parked on an abandoned branch froze Dashboard self-improve's reading at that tip and can equally manufacture a false green</span>
   </li></ul>
     </div><div class="rgroup">
@@ -780,8 +676,8 @@
     <span class="row__dot"><span class="dot dot--green" title="Healthy" aria-hidden="true"></span></span>
     <span class="row__name">Quote scout</span>
     <span class="row__cadence">Sundays · 09:05</span>
-    <span class="row__ago">4d ago</span>
-    <span class="row__head" title="scout: no ninth board — the delivery experiment failed, and the recommendation is a change of job">scout: no ninth board — the delivery experiment failed, and the recommendation is a change of job</span>
+    <span class="row__ago">19h ago</span>
+    <span class="row__head" title="scout: the works trial — two interviews instead of a board, run on silence">scout: the works trial — two interviews instead of a board, run on silence</span>
   </li></ul>
     </div><div class="rgroup">
       <div class="rgroup__head">❓ Unassigned<span class="rgroup__count">1</span></div>
@@ -798,7 +694,7 @@
   <footer>
     Health is reconstructed from each routine's real artifacts — git commits, run-logs and published files — not just whether the scheduler fired. Silent by design: you get a push only when something needs you.
     <br>
-    Generated 27 Aug 2026, 12:12 Europe/Copenhagen
+    Generated 28 Aug 2026, 10:14 Europe/Copenhagen
     <span class="foot-sep">·</span>
     <a href="https://github.com/abustrup/Routine-overview" target="_blank" rel="noopener">github.com/abustrup/Routine-overview</a>
   </footer>
