@@ -249,7 +249,7 @@
         <p class="eyebrow">Personal routine secretary</p>
         <h1>Routine Overview</h1>
       </div>
-      <div class="stamp">Updated <b>28 Aug 2026, 10:14 Europe/Copenhagen</b></div>
+      <div class="stamp">Updated <b>29 Aug 2026, 08:26 Europe/Copenhagen</b></div>
     </div>
     <p class="subtitle">The health of every scheduled routine across Alexander Bustrup's projects — so you never have to open them one by one.</p>
   </header>
@@ -272,19 +272,19 @@
   <section aria-labelledby="sec-attn" data-attn-section>
     <div class="sec-head"><h2 id="sec-attn">Needs your attention</h2><span class="rule"></span><button type="button" class="sec-restore" data-restore hidden><span data-restore-count>0</span> hidden · Show</button></div>
     <div class="attn-list" data-attn-list>
-    <article class="attn attn--red" data-attn data-akey="red:GitHub Actions: no scheduled run fired:no-trigger">
+    <article class="attn attn--red" data-attn data-akey="red:Mac starved by sleep (battery 5%, unplugged):host-starved">
   <div class="attn__bar" aria-hidden="true"></div>
   <div class="attn__main">
     <div class="attn__head">
       <span class="attn__sev">Broken</span>
-      <span class="attn__where">📰 GitHub Actions: no scheduled run fired</span>
+      <span class="attn__where">🗂️ Mac starved by sleep (battery 5%, unplugged)</span>
       <button type="button" class="dismiss-x" data-dismiss aria-label="Hide this alert" title="Hide — it comes back if the issue is still there next refresh">×</button>
     </div>
-    <p class="attn__msg">Zero scheduled workflow runs in either brief repo since 2026-08-27 18:20Z (~14h). 13 due triggers today, 0 fired — including both cross-repo watchdogs, so the alarm channel is silent too. Workflows active, Actions enabled, repos public, GitHub status operational.</p>
+    <p class="attn__msg">Left unplugged again and down to 5%. Since ~07:35 CPH the host dark-wake cycles: awake ~45s every ~15min, asleep the rest. All three morning tasks DID fire on time (05:19, 05:51, 08:26) — but both publishers are still running at 3h31m and 2h58m elapsed against a normal ~35-45min, and both deadlines have passed. Third night in a row. Hibernation at this charge kills both runs mid-flight.</p>
     <div class="fix">
     <div class="fix__actions">
       <button type="button" class="btn btn--copy"
-              data-copy="GitHub Actions scheduled runs stopped firing for abustrup/alexanders-brief and abustrup/thomas-nyheder. Verified 2026-08-28 08:30Z: `gh api /repos/&lt;r&gt;/actions/runs?created=&quot;&gt;=2026-08-28&quot;` returns total_count 0 for both; last run of any kind 2026-08-27T18:20:47Z; all workflows state=active; Actions enabled=true, allowed_actions=all; both repos public and not archived; githubstatus.com reports all systems operational with no incidents. 13 scheduled triggers were due today across 4 workflows (brief daily 06:11/06:47/07:13 CPH, Thomas daily 05:11/05:53 CPH, and two 4-poll watchdogs) and none were created. The same blackout happened 2026-08-26 08:06Z to 2026-08-27 15:08Z. Diagnose why cron delivery is being dropped for these two repos, and decide whether the morning path should stop depending on GitHub cron alone.">
+              data-copy="This Mac is starving its own scheduled routines. Verified 2026-08-29 08:33 CPH: battery 5% and discharging on Battery Power; pmset log shows a continuous DarkWake -&gt; &quot;Entering Sleep state due to Maintenance Sleep&quot; cycle from at least 07:35 CPH, awake ~45s per ~15min. Amphetamine DOES hold PreventUserIdleSystemSleep=1, so the assertion is not the problem — the empty battery is. Unlike 2026-08-27 and 08-28 the tasks fired on schedule (daily-news-brief 05:19:05, dagens-kompas-daily 05:51:27, routine-overview-secretary 08:26:04 — three distinct times, not a catch-up batch), but ps shows the two publisher processes still alive at 3h31m and 2h58m elapsed versus a normal 35-45min run. Deadlines 07:15 and 08:00 CPH both passed with no edition on origin. Third consecutive night of host-caused loss or lateness. Decide the durable fix: keep it plugged in overnight, or move the morning path off this host entirely — the cloud fallback is not currently covering it (see the Actions blackout item).">
         <span class="btn__label">Copy fix prompt</span>
         <span class="btn__done" aria-hidden="true">Copied&nbsp;✓</span>
       </button>
@@ -293,24 +293,24 @@
       </button>
     </div>
     <div class="fix__body" id="fix-1" hidden>
-      <pre class="fix__prompt">GitHub Actions scheduled runs stopped firing for abustrup/alexanders-brief and abustrup/thomas-nyheder. Verified 2026-08-28 08:30Z: `gh api /repos/&lt;r&gt;/actions/runs?created=&quot;&gt;=2026-08-28&quot;` returns total_count 0 for both; last run of any kind 2026-08-27T18:20:47Z; all workflows state=active; Actions enabled=true, allowed_actions=all; both repos public and not archived; githubstatus.com reports all systems operational with no incidents. 13 scheduled triggers were due today across 4 workflows (brief daily 06:11/06:47/07:13 CPH, Thomas daily 05:11/05:53 CPH, and two 4-poll watchdogs) and none were created. The same blackout happened 2026-08-26 08:06Z to 2026-08-27 15:08Z. Diagnose why cron delivery is being dropped for these two repos, and decide whether the morning path should stop depending on GitHub cron alone.</pre>
-      <div class="fix__cwd"><span class="fix__cwd-k">cwd</span> <code>~/AI eksperimenter/alexanders-brief-pages</code></div>
+      <pre class="fix__prompt">This Mac is starving its own scheduled routines. Verified 2026-08-29 08:33 CPH: battery 5% and discharging on Battery Power; pmset log shows a continuous DarkWake -&gt; &quot;Entering Sleep state due to Maintenance Sleep&quot; cycle from at least 07:35 CPH, awake ~45s per ~15min. Amphetamine DOES hold PreventUserIdleSystemSleep=1, so the assertion is not the problem — the empty battery is. Unlike 2026-08-27 and 08-28 the tasks fired on schedule (daily-news-brief 05:19:05, dagens-kompas-daily 05:51:27, routine-overview-secretary 08:26:04 — three distinct times, not a catch-up batch), but ps shows the two publisher processes still alive at 3h31m and 2h58m elapsed versus a normal 35-45min run. Deadlines 07:15 and 08:00 CPH both passed with no edition on origin. Third consecutive night of host-caused loss or lateness. Decide the durable fix: keep it plugged in overnight, or move the morning path off this host entirely — the cloud fallback is not currently covering it (see the Actions blackout item).</pre>
+      <div class="fix__cwd"><span class="fix__cwd-k">cwd</span> <code>~/AI eksperimenter/Routine overview</code></div>
     </div>
   </div>
   </div>
-</article><article class="attn attn--red" data-attn data-akey="red:Mac hibernated overnight (battery 1%):host-asleep">
+</article><article class="attn attn--red" data-attn data-akey="red:GitHub Actions: cron blackout returned:no-trigger">
   <div class="attn__bar" aria-hidden="true"></div>
   <div class="attn__main">
     <div class="attn__head">
       <span class="attn__sev">Broken</span>
-      <span class="attn__where">🗂️ Mac hibernated overnight (battery 1%)</span>
+      <span class="attn__where">📰 GitHub Actions: cron blackout returned</span>
       <button type="button" class="dismiss-x" data-dismiss aria-label="Hide this alert" title="Hide — it comes back if the issue is still there next refresh">×</button>
     </div>
-    <p class="attn__msg">Left unplugged and drained to 1%: Low Power Sleep 06:29–09:19 CPH. The 05:07 and 05:53 producers never fired on schedule; all three morning tasks ran as one catch-up batch at 10:14. Second night in a row. No sleep assertion survives an empty battery.</p>
+    <p class="attn__msg">Zero scheduled runs in either brief repo since 2026-08-28 19:30Z (~13h). 9 triggers were due this morning across 4 workflows and none fired, watchdogs included. Cron recovered on 08-28 afternoon (runs 15:08Z-19:30Z succeeded) and failed again overnight — so this is intermittent, not a single outage. Third blackout window since 08-26.</p>
     <div class="fix">
     <div class="fix__actions">
       <button type="button" class="btn btn--copy"
-              data-copy="This Mac hibernated overnight on 2026-08-28 with the battery at 1% (pmset log: &quot;Entering Sleep state due to Low Power Sleep ... Using Batt (Charge:1%)&quot; at 06:29, woke from Hibernate on lid+charger at 09:19). daily-news-brief, dagens-kompas-daily and routine-overview-secretary all carry an identical lastRunAt of 08:14:30Z — one catch-up batch on wake, not three scheduled fires. Amphetamine was running but held no PreventUserIdleSystemSleep assertion, and no assertion survives an empty battery anyway. The same class of failure happened on 2026-08-27 (unplugged at 20%, idle sleep set to 1 minute). Decide the durable fix: keep it plugged in overnight, raise the idle-sleep setting, or move the morning path off this host entirely.">
+              data-copy="GitHub Actions scheduled runs keep dropping for abustrup/alexanders-brief and abustrup/thomas-nyheder. Verified 2026-08-29 06:35Z: /repos/&lt;r&gt;/actions/runs?created=&quot;&gt;=2026-08-29&quot; returns total_count 0 for BOTH repos; last run of any kind 2026-08-28T19:30:11Z. Nine triggers were due this morning and none were created: alexanders-brief-daily 06:11Z (08:11 CPH); thomas-nyheder-daily 05:11Z and 05:53Z; watchdog-thomas 07:28/07:52/08:28 CPH; watchdog-alexander 06:53/07:17/07:53 CPH. All four workflows state=active. Crucially this is INTERMITTENT, not one outage: cron was dead 08-26 08:06Z to 08-27 15:08Z, worked 08-27 15:08Z through 08-28 19:30Z (watchdog runs succeeded at 17:27Z, 17:43Z, 18:50Z, 19:03Z, 19:30Z), then died again overnight. Note also a design flaw independent of the blackout: alexanders-brief-daily crons are 06:11/06:47/07:13 UTC = 08:11/08:47/09:13 CPH, all AFTER the 08:00 CPH deadline the task description still claims, so the cloud path cannot meet that deadline even when Actions works. Diagnose the cron delivery failure and fix the deadline/cron mismatch, or move the morning path to a scheduler that does not drop triggers.">
         <span class="btn__label">Copy fix prompt</span>
         <span class="btn__done" aria-hidden="true">Copied&nbsp;✓</span>
       </button>
@@ -319,8 +319,8 @@
       </button>
     </div>
     <div class="fix__body" id="fix-2" hidden>
-      <pre class="fix__prompt">This Mac hibernated overnight on 2026-08-28 with the battery at 1% (pmset log: &quot;Entering Sleep state due to Low Power Sleep ... Using Batt (Charge:1%)&quot; at 06:29, woke from Hibernate on lid+charger at 09:19). daily-news-brief, dagens-kompas-daily and routine-overview-secretary all carry an identical lastRunAt of 08:14:30Z — one catch-up batch on wake, not three scheduled fires. Amphetamine was running but held no PreventUserIdleSystemSleep assertion, and no assertion survives an empty battery anyway. The same class of failure happened on 2026-08-27 (unplugged at 20%, idle sleep set to 1 minute). Decide the durable fix: keep it plugged in overnight, raise the idle-sleep setting, or move the morning path off this host entirely.</pre>
-      <div class="fix__cwd"><span class="fix__cwd-k">cwd</span> <code>~/AI eksperimenter/Routine overview</code></div>
+      <pre class="fix__prompt">GitHub Actions scheduled runs keep dropping for abustrup/alexanders-brief and abustrup/thomas-nyheder. Verified 2026-08-29 06:35Z: /repos/&lt;r&gt;/actions/runs?created=&quot;&gt;=2026-08-29&quot; returns total_count 0 for BOTH repos; last run of any kind 2026-08-28T19:30:11Z. Nine triggers were due this morning and none were created: alexanders-brief-daily 06:11Z (08:11 CPH); thomas-nyheder-daily 05:11Z and 05:53Z; watchdog-thomas 07:28/07:52/08:28 CPH; watchdog-alexander 06:53/07:17/07:53 CPH. All four workflows state=active. Crucially this is INTERMITTENT, not one outage: cron was dead 08-26 08:06Z to 08-27 15:08Z, worked 08-27 15:08Z through 08-28 19:30Z (watchdog runs succeeded at 17:27Z, 17:43Z, 18:50Z, 19:03Z, 19:30Z), then died again overnight. Note also a design flaw independent of the blackout: alexanders-brief-daily crons are 06:11/06:47/07:13 UTC = 08:11/08:47/09:13 CPH, all AFTER the 08:00 CPH deadline the task description still claims, so the cloud path cannot meet that deadline even when Actions works. Diagnose the cron delivery failure and fix the deadline/cron mismatch, or move the morning path to a scheduler that does not drop triggers.</pre>
+      <div class="fix__cwd"><span class="fix__cwd-k">cwd</span> <code>~/AI eksperimenter/alexanders-brief-pages</code></div>
     </div>
   </div>
   </div>
@@ -332,7 +332,7 @@
       <span class="attn__where">📰 Rolling weekly (Ugen)</span>
       <button type="button" class="dismiss-x" data-dismiss aria-label="Hide this alert" title="Hide — it comes back if the issue is still there next refresh">×</button>
     </div>
-    <p class="attn__msg">Stale — last output 31d ago (expected Daily · 06:48).</p>
+    <p class="attn__msg">Stale — last output 32d ago (expected Daily · 06:48).</p>
     <div class="fix">
     <div class="fix__actions">
       <button type="button" class="btn btn--copy"
@@ -358,7 +358,7 @@
       <span class="attn__where">📰 Rolling monthly (Måneden)</span>
       <button type="button" class="dismiss-x" data-dismiss aria-label="Hide this alert" title="Hide — it comes back if the issue is still there next refresh">×</button>
     </div>
-    <p class="attn__msg">Stale — last output 32d ago (expected Mondays · 07:02).</p>
+    <p class="attn__msg">Stale — last output 33d ago (expected Mondays · 07:02).</p>
     <div class="fix">
     <div class="fix__actions">
       <button type="button" class="btn btn--copy"
@@ -384,7 +384,7 @@
       <span class="attn__where">📰 Rolling yearly (Året)</span>
       <button type="button" class="dismiss-x" data-dismiss aria-label="Hide this alert" title="Hide — it comes back if the issue is still there next refresh">×</button>
     </div>
-    <p class="attn__msg">Ageing — last output 58d ago (expected 1st of month · 06:57).</p>
+    <p class="attn__msg">Ageing — last output 59d ago (expected 1st of month · 06:57).</p>
     <div class="fix">
     <div class="fix__actions">
       <button type="button" class="btn btn--copy"
@@ -467,7 +467,7 @@
     <div class="proj__now">
       <span class="proj__now-k">Latest</span>
       <span class="proj__now-v">fix: refuse an import the app cannot value instead of rendering a NaN book</span>
-      <span class="proj__now-ago">31d ago</span>
+      <span class="proj__now-ago">32d ago</span>
     </div>
     
     <div class="proj__links"><a class="chip" href="https://abustrup.github.io/personal-stock-dashboard/" target="_blank" rel="noopener">Live dashboard<span class="chip__ext" aria-hidden="true">↗</span></a><a class="chip" href="https://github.com/abustrup/personal-stock-dashboard" target="_blank" rel="noopener">Repo<span class="chip__ext" aria-hidden="true">↗</span></a></div>
@@ -480,8 +480,8 @@
     <p class="proj__goal">Publish a trustworthy, beautifully-edited Danish morning brief every day before 06:40 — sharper and broader than any single newspaper.</p>
     <div class="proj__now">
       <span class="proj__now-k">Latest</span>
-      <span class="proj__now-v">brief: 2026-08-27</span>
-      <span class="proj__now-ago">18h ago</span>
+      <span class="proj__now-v">brief: 2026-08-28</span>
+      <span class="proj__now-ago">22h ago</span>
     </div>
     
     <div class="proj__links"><a class="chip" href="https://abustrup.github.io/alexanders-brief/" target="_blank" rel="noopener">Live brief<span class="chip__ext" aria-hidden="true">↗</span></a><a class="chip" href="https://github.com/abustrup/alexanders-brief" target="_blank" rel="noopener">Repo<span class="chip__ext" aria-hidden="true">↗</span></a></div>
@@ -494,8 +494,8 @@
     <p class="proj__goal">Publish a daily Danish morning brief for a second reader — a senior trade- and industry-policy figure — before 07:15: Danish throughout, with sport and general Danish news, sourced only from pages the engine can actually read.</p>
     <div class="proj__now">
       <span class="proj__now-k">Latest</span>
-      <span class="proj__now-v">brief: 2026-08-27</span>
-      <span class="proj__now-ago">18h ago</span>
+      <span class="proj__now-v">brief: 2026-08-28</span>
+      <span class="proj__now-ago">21h ago</span>
     </div>
     <p class="proj__note">Not live until abustrup/thomas-nyheder exists on GitHub — run go-live.sh in the Pages clone. Until then each run produces a local edition and fails at push, which is the intended loud signal. Scheduler taskId is still 'dagens-kompas-daily' from before the rename.</p>
     <div class="proj__links"><a class="chip" href="https://abustrup.github.io/thomas-nyheder/" target="_blank" rel="noopener">Live brief<span class="chip__ext" aria-hidden="true">↗</span></a><a class="chip" href="https://github.com/abustrup/thomas-nyheder" target="_blank" rel="noopener">Repo<span class="chip__ext" aria-hidden="true">↗</span></a></div>
@@ -508,8 +508,8 @@
     <p class="proj__goal">Hold the whole picture across every routine and interrupt Alexander only when something genuinely needs him.</p>
     <div class="proj__now">
       <span class="proj__now-k">Latest</span>
-      <span class="proj__now-v">overview: 2026-08-27 13:05 — root cause sharpened: unplugged at 20%, idle sleep set to 1 minute, Amphetamine was not running</span>
-      <span class="proj__now-ago">20h ago</span>
+      <span class="proj__now-v">overview: 2026-08-28 10:35 — 3🟢 1🟡 2🔴 + 2 fleet reds: GitHub Actions cron delivered 0 of 13 due triggers (~14h, both brief repos, watchdogs included) and the Mac fallback hibernated at 1% battery</span>
+      <span class="proj__now-ago">22h ago</span>
     </div>
     
     <div class="proj__links"><a class="chip" href="https://abustrup.github.io/Routine-overview/" target="_blank" rel="noopener">This dashboard<span class="chip__ext" aria-hidden="true">↗</span></a><a class="chip" href="https://github.com/abustrup/Routine-overview" target="_blank" rel="noopener">Repo<span class="chip__ext" aria-hidden="true">↗</span></a></div>
@@ -523,7 +523,7 @@
     <div class="proj__now">
       <span class="proj__now-k">Latest</span>
       <span class="proj__now-v">scout: the works trial — two interviews instead of a board, run on silence</span>
-      <span class="proj__now-ago">19h ago</span>
+      <span class="proj__now-ago">2d ago</span>
     </div>
     
     <div class="proj__links"><a class="chip" href="https://abustrup.github.io/Quote-collection/" target="_blank" rel="noopener">The collection<span class="chip__ext" aria-hidden="true">↗</span></a><a class="chip" href="https://abustrup.github.io/Quote-collection/scout.html" target="_blank" rel="noopener">The board<span class="chip__ext" aria-hidden="true">↗</span></a><a class="chip" href="https://github.com/abustrup/Quote-collection" target="_blank" rel="noopener">Repo<span class="chip__ext" aria-hidden="true">↗</span></a></div>
@@ -601,13 +601,13 @@
     <span class="row__dot"><span class="dot dot--paused" title="Paused" aria-hidden="true"></span></span>
     <span class="row__name">Dashboard self-improve <span class="tag tag--off">paused</span></span>
     <span class="row__cadence">Daily · 02:00</span>
-    <span class="row__ago">31d ago</span>
+    <span class="row__ago">32d ago</span>
     <span class="row__head" title="fix: refuse an import the app cannot value instead of rendering a NaN book">fix: refuse an import the app cannot value instead of rendering a NaN book</span>
   </li><li class="row row--muted">
     <span class="row__dot"><span class="dot dot--paused" title="Paused" aria-hidden="true"></span></span>
     <span class="row__name">Stock maintenance <span class="tag tag--off">paused</span></span>
     <span class="row__cadence">Daily · 13:00</span>
-    <span class="row__ago">31d ago</span>
+    <span class="row__ago">32d ago</span>
     <span class="row__head" title="fix: refuse an import the app cannot value instead of rendering a NaN book">fix: refuse an import the app cannot value instead of rendering a NaN book</span>
   </li><li class="row row--muted">
     <span class="row__dot"><span class="dot dot--paused" title="Paused" aria-hidden="true"></span></span>
@@ -622,25 +622,25 @@
     <span class="row__dot"><span class="dot dot--green" title="Healthy" aria-hidden="true"></span></span>
     <span class="row__name">Daily news brief</span>
     <span class="row__cadence">Daily · 06:02</span>
-    <span class="row__ago">18h ago</span>
-    <span class="row__head" title="brief: 2026-08-27">brief: 2026-08-27</span>
+    <span class="row__ago">22h ago</span>
+    <span class="row__head" title="brief: 2026-08-28">brief: 2026-08-28</span>
   </li><li class="row">
     <span class="row__dot"><span class="dot dot--red" title="Needs attention" aria-hidden="true"></span></span>
     <span class="row__name">Rolling weekly (Ugen)</span>
     <span class="row__cadence">Daily · 06:48</span>
-    <span class="row__ago">31d ago</span>
+    <span class="row__ago">32d ago</span>
     <span class="row__head" title="rolling weekly: 2026-07-28">rolling weekly: 2026-07-28</span>
   </li><li class="row">
     <span class="row__dot"><span class="dot dot--red" title="Needs attention" aria-hidden="true"></span></span>
     <span class="row__name">Rolling monthly (Måneden)</span>
     <span class="row__cadence">Mondays · 07:02</span>
-    <span class="row__ago">32d ago</span>
+    <span class="row__ago">33d ago</span>
     <span class="row__head" title="rolling monthly: 2026-07-27">rolling monthly: 2026-07-27</span>
   </li><li class="row">
     <span class="row__dot"><span class="dot dot--yellow" title="Ageing" aria-hidden="true"></span></span>
     <span class="row__name">Rolling yearly (Året)</span>
     <span class="row__cadence">1st of month · 06:57</span>
-    <span class="row__ago">58d ago</span>
+    <span class="row__ago">59d ago</span>
     <span class="row__head" title="rolling yearly: 2026-07-01">rolling yearly: 2026-07-01</span>
   </li><li class="row row--muted">
     <span class="row__dot"><span class="dot dot--paused" title="Paused" aria-hidden="true"></span></span>
@@ -661,13 +661,13 @@
     <span class="row__dot"><span class="dot dot--green" title="Healthy" aria-hidden="true"></span></span>
     <span class="row__name">Routine secretary (this)</span>
     <span class="row__cadence">Daily · 08:17</span>
-    <span class="row__ago">20h ago</span>
-    <span class="row__head" title="overview: 2026-08-27 13:05 — root cause sharpened: unplugged at 20%, idle sleep set to 1 minute, Amphetamine was not running">overview: 2026-08-27 13:05 — root cause sharpened: unplugged at 20%, idle sleep set to 1 minute, Amphetamine was not running</span>
+    <span class="row__ago">22h ago</span>
+    <span class="row__head" title="overview: 2026-08-28 10:35 — 3🟢 1🟡 2🔴 + 2 fleet reds: GitHub Actions cron delivered 0 of 13 due triggers (~14h, both brief repos, watchdogs included) and the Mac fallback hibernated at 1% battery">overview: 2026-08-28 10:35 — 3🟢 1🟡 2🔴 + 2 fleet reds: GitHub Actions cron delivered 0 of 13 due triggers (~14h, both brief repos, watchdogs included) and the Mac fallback hibernated at 1% battery</span>
   </li><li class="row row--muted">
     <span class="row__dot"><span class="dot dot--paused" title="Paused" aria-hidden="true"></span></span>
     <span class="row__name">Overview self-improve <span class="tag tag--off">paused</span></span>
     <span class="row__cadence">Every 3h</span>
-    <span class="row__ago">31d ago</span>
+    <span class="row__ago">32d ago</span>
     <span class="row__head" title="improve: git freshness reads the repository, not whichever branch someone left checked out — a clone parked on an abandoned branch froze Dashboard self-improve's reading at that tip and can equally manufacture a false green">improve: git freshness reads the repository, not whichever branch someone left checked out — a clone parked on an abandoned branch froze Dashboard self-improve's reading at that tip and can equally manufacture a false green</span>
   </li></ul>
     </div><div class="rgroup">
@@ -676,7 +676,7 @@
     <span class="row__dot"><span class="dot dot--green" title="Healthy" aria-hidden="true"></span></span>
     <span class="row__name">Quote scout</span>
     <span class="row__cadence">Sundays · 09:05</span>
-    <span class="row__ago">19h ago</span>
+    <span class="row__ago">2d ago</span>
     <span class="row__head" title="scout: the works trial — two interviews instead of a board, run on silence">scout: the works trial — two interviews instead of a board, run on silence</span>
   </li></ul>
     </div><div class="rgroup">
@@ -694,7 +694,7 @@
   <footer>
     Health is reconstructed from each routine's real artifacts — git commits, run-logs and published files — not just whether the scheduler fired. Silent by design: you get a push only when something needs you.
     <br>
-    Generated 28 Aug 2026, 10:14 Europe/Copenhagen
+    Generated 29 Aug 2026, 08:26 Europe/Copenhagen
     <span class="foot-sep">·</span>
     <a href="https://github.com/abustrup/Routine-overview" target="_blank" rel="noopener">github.com/abustrup/Routine-overview</a>
   </footer>
