@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-08-29T06:26:26.696Z",
-  "generatedAtLocal": "29 Aug 2026, 08:26 Europe/Copenhagen",
+  "generatedAt": "2026-08-29T11:02:47.145Z",
+  "generatedAtLocal": "29 Aug 2026, 13:02 Europe/Copenhagen",
   "owner": "Alexander Bustrup",
-  "attentionKey": "red:GitHub Actions: cron blackout returned:no-trigger|red:Mac starved by sleep (battery 5%, unplugged):host-starved|red:Rolling monthly (Måneden):stale|red:Rolling weekly (Ugen):stale|warn:Rolling yearly (Året):ageing",
+  "attentionKey": "red:GitHub Actions: cron blackout returned:no-trigger|red:Rolling monthly (Måneden):stale|red:Rolling weekly (Ugen):stale|red:Thomas' Nyheder stalled at its scaffold (not enrolled):agent-stalled|warn:Mac starved its own routines this morning (now on mains):host-starved|warn:Rolling yearly (Året):ageing",
   "staleAfterMin": 1500,
   "summary": {
     "green": 3,
@@ -14,24 +14,35 @@
   "attention": [
     {
       "severity": "red",
-      "project": "meta",
-      "routine": "Mac starved by sleep (battery 5%, unplugged)",
-      "message": "Left unplugged again, now down to 4%. Since ~07:35 CPH the host dark-wake cycles: awake ~45s every ~15min, asleep the rest. All three morning tasks DID fire on time (05:19, 05:51, 08:26) — but as of 10:35 CPH both publishers are STILL running at 5h17m and 4h45m elapsed against a normal 35-45min, and neither edition exists on origin. Deadlines 07:15 and 08:00 CPH long passed. Third night in a row. Hibernation at this charge kills both runs mid-flight.",
-      "kind": "host-starved",
+      "project": "news-brief",
+      "routine": "Thomas' Nyheder stalled at its scaffold (not enrolled)",
+      "kind": "agent-stalled",
+      "message": "Fired on time at 05:51 and has written NOTHING since minute one: data/2026-08-29/ still holds only a 69-byte empty context.json from 05:51, 7h11m ago, while the process stays alive. This is NOT the power problem — the host has been on mains and awake since ~12:40 and Alexanders Brief finished and published in that same window. Same 69-byte signature the 08-28 run logged as a watch item, and the same shape as the 08-21 loss (agent step runs, writes no draft). Deadline 07:15 CPH long passed; no edition on origin. Invisible to this dashboard: dagens-kompas-daily still has no row in config/projects.json.",
       "fix": {
-        "prompt": "This Mac is starving its own scheduled routines. Verified 2026-08-29 08:33 CPH: battery 5% and discharging on Battery Power; pmset log shows a continuous DarkWake -> \"Entering Sleep state due to Maintenance Sleep\" cycle from at least 07:35 CPH, awake ~45s per ~15min. Amphetamine DOES hold PreventUserIdleSystemSleep=1, so the assertion is not the problem — the empty battery is. Unlike 2026-08-27 and 08-28 the tasks fired on schedule (daily-news-brief 05:19:05, dagens-kompas-daily 05:51:27, routine-overview-secretary 08:26:04 — three distinct times, not a catch-up batch), but ps shows the two publisher processes still alive at 3h31m and 2h58m elapsed versus a normal 35-45min run. Deadlines 07:15 and 08:00 CPH both passed with no edition on origin. Third consecutive night of host-caused loss or lateness. Decide the durable fix: keep it plugged in overnight, or move the morning path off this host entirely — the cloud fallback is not currently covering it (see the Actions blackout item).",
-        "cwd": "~/AI eksperimenter/Routine overview"
+        "prompt": "Thomas' Nyheder is stalling in its agent step rather than failing. Verified 2026-08-29 13:02 CPH: the scheduled task fired 05:51:27, and data/2026-08-29/ in ~/AI eksperimenter/News breif 1/.worktrees/thomas-nyheder holds exactly one file — a 69-byte context.json ({history:[],feedback:[],recommendationHistory:[]}) written 05:51 — with no research artifacts, no draft.json and nothing written in the 7h11m since. The claude process is still alive. Rule out the host: the Mac was starved by dark-wake sleep until ~12:40 but has been charging and awake since, and Alexanders Brief ran in the same conditions and published at 10:44Z. The 08-21 loss had the same shape (preflight passed 43 checks, agent ran ~22min, wrote no draft, ci-gate exited 2). The 08-28 run saw the identical 69-byte context.json at 10:22 and called it too early to judge. Find why the agent step produces nothing, and give it a timeout that fails loudly instead of hanging past the deadline.",
+        "cwd": "~/AI eksperimenter/News breif 1/.worktrees/thomas-nyheder"
       }
     },
     {
       "severity": "red",
       "project": "news-brief",
       "routine": "GitHub Actions: cron blackout returned",
-      "message": "Zero scheduled runs in either brief repo since 2026-08-28 19:30Z (~13h). 9 triggers were due this morning across 4 workflows and none fired, watchdogs included. Cron recovered on 08-28 afternoon (runs 15:08Z-19:30Z succeeded) and failed again overnight — so this is intermittent, not a single outage. Third blackout window since 08-26.",
       "kind": "no-trigger",
+      "message": "Zero scheduled runs in either brief repo since 2026-08-28 19:30Z. 9 triggers were due this morning across 4 workflows and none fired, watchdogs included. Cron recovered on 08-28 afternoon (runs 15:08Z-19:30Z succeeded) and failed again overnight — intermittent, not a single outage. Third blackout window since 08-26. Separately: alexanders-brief-daily's crons are 08:11/08:47/09:13 CPH, all AFTER the 08:00 CPH deadline its task description states, so the cloud path cannot meet that deadline even when Actions works.",
       "fix": {
-        "prompt": "GitHub Actions scheduled runs keep dropping for abustrup/alexanders-brief and abustrup/thomas-nyheder. Verified 2026-08-29 06:35Z: /repos/<r>/actions/runs?created=\">=2026-08-29\" returns total_count 0 for BOTH repos; last run of any kind 2026-08-28T19:30:11Z. Nine triggers were due this morning and none were created: alexanders-brief-daily 06:11Z (08:11 CPH); thomas-nyheder-daily 05:11Z and 05:53Z; watchdog-thomas 07:28/07:52/08:28 CPH; watchdog-alexander 06:53/07:17/07:53 CPH. All four workflows state=active. Crucially this is INTERMITTENT, not one outage: cron was dead 08-26 08:06Z to 08-27 15:08Z, worked 08-27 15:08Z through 08-28 19:30Z (watchdog runs succeeded at 17:27Z, 17:43Z, 18:50Z, 19:03Z, 19:30Z), then died again overnight. Note also a design flaw independent of the blackout: alexanders-brief-daily crons are 06:11/06:47/07:13 UTC = 08:11/08:47/09:13 CPH, all AFTER the 08:00 CPH deadline the task description still claims, so the cloud path cannot meet that deadline even when Actions works. Diagnose the cron delivery failure and fix the deadline/cron mismatch, or move the morning path to a scheduler that does not drop triggers.",
+        "prompt": "GitHub Actions scheduled runs keep dropping for abustrup/alexanders-brief and abustrup/thomas-nyheder. Verified 2026-08-29 06:35Z: created>=2026-08-29 returns total_count 0 for BOTH repos; last run of any kind 2026-08-28T19:30:11Z. Nine triggers were due and none created: alexanders-brief-daily 06:11Z; thomas-nyheder-daily 05:11Z + 05:53Z; watchdog-thomas 07:28/07:52/08:28 CPH; watchdog-alexander 06:53/07:17/07:53 CPH. All four workflows state=active. This is INTERMITTENT, not one outage: dead 08-26 08:06Z to 08-27 15:08Z, working 08-27 15:08Z through 08-28 19:30Z (watchdog runs succeeded 17:27Z, 17:43Z, 18:50Z, 19:03Z, 19:30Z), dead again overnight. Also fix the deadline mismatch: alexanders-brief-daily runs 06:11/06:47/07:13 UTC = 08:11/08:47/09:13 CPH against a stated 08:00 CPH deadline.",
         "cwd": "~/AI eksperimenter/alexanders-brief-pages"
+      }
+    },
+    {
+      "severity": "warn",
+      "project": "meta",
+      "routine": "Mac starved its own routines this morning (now on mains)",
+      "kind": "host-starved",
+      "message": "RESOLVED DURING THIS RUN, recorded because it cost the morning. Unplugged at 5% and dark-wake cycling from ~07:35 to ~12:40 CPH: awake ~45s per ~15min. All three morning tasks fired ON TIME (05:19, 05:51, 08:26) — the scheduler was fine; the host gave the runs ~5% of wall-clock. Alexanders Brief took 7h23m for a 40min job and published 10:44Z = 12:44 CPH, 4h44m past its 08:00 deadline. Late, not lost. Battery now charging. Third consecutive night of host-caused loss or lateness; Amphetamine held its assertion throughout and a flat battery overrode it anyway.",
+      "fix": {
+        "prompt": "Decide whether this Mac may remain the morning path's fallback while it can be left unplugged. Evidence 2026-08-29: battery 5% and discharging, pmset showed a continuous DarkWake -> 'Entering Sleep state due to Maintenance Sleep' cycle from 07:35 to ~12:40 CPH, awake ~45s per ~15min. Amphetamine DID hold PreventUserIdleSystemSleep=1 the whole time, so the assertion is not the gap — the flat battery is. Unlike 08-27 and 08-28 the tasks fired on schedule; execution starved instead. Alexanders Brief ran 7h23m against a normal 35-45min and published 4h44m late. Third consecutive morning lost or late to this host, with the GitHub Actions fallback simultaneously in a cron blackout. Options: keep it plugged in overnight, or move the morning path off this host.",
+        "cwd": "~/AI eksperimenter/Routine overview"
       }
     },
     {
@@ -158,9 +169,9 @@
           "url": "https://github.com/abustrup/alexanders-brief"
         }
       ],
-      "lastPublish": "2026-08-28T08:49:53.000Z",
-      "lastPublishHuman": "22h ago",
-      "lastPublishSubject": "brief: 2026-08-28",
+      "lastPublish": "2026-08-29T10:44:10.000Z",
+      "lastPublishHuman": "19 min ago",
+      "lastPublishSubject": "brief: 2026-08-29",
       "routineCount": 6,
       "routines": [
         "daily-news-brief",
@@ -189,7 +200,7 @@
         }
       ],
       "lastPublish": "2026-08-28T09:38:39.000Z",
-      "lastPublishHuman": "21h ago",
+      "lastPublishHuman": "1d ago",
       "lastPublishSubject": "brief: 2026-08-28",
       "routineCount": 0,
       "routines": []
@@ -211,9 +222,9 @@
           "url": "https://github.com/abustrup/Routine-overview"
         }
       ],
-      "lastPublish": "2026-08-28T08:24:06.000Z",
-      "lastPublishHuman": "22h ago",
-      "lastPublishSubject": "overview: 2026-08-28 10:35 — 3🟢 1🟡 2🔴 + 2 fleet reds: GitHub Actions cron delivered 0 of 13 due triggers (~14h, both brief repos, watchdogs included) and the Mac fallback hibernated at 1% battery",
+      "lastPublish": "2026-08-29T09:08:38.000Z",
+      "lastPublishHuman": "2h ago",
+      "lastPublishSubject": "overview: journal 2026-08-29 — a task that fired is not a task that ran",
       "routineCount": 2,
       "routines": [
         "routine-overview-secretary",
@@ -241,9 +252,9 @@
           "url": "https://github.com/abustrup/Quote-collection"
         }
       ],
-      "lastPublish": "2026-08-27T13:18:24.000Z",
-      "lastPublishHuman": "2d ago",
-      "lastPublishSubject": "scout: the works trial — two interviews instead of a board, run on silence",
+      "lastPublish": "2026-08-29T09:38:43.000Z",
+      "lastPublishHuman": "1h ago",
+      "lastPublishSubject": "scout: no signal on the works trial after two days, and no board",
       "routineCount": 1,
       "routines": [
         "quote-scout"
@@ -262,10 +273,10 @@
       "does": "Refreshes this overview from artifact-truth and flags only what needs attention.",
       "health": "green",
       "private": false,
-      "headline": "overview: 2026-08-28 10:35 — 3🟢 1🟡 2🔴 + 2 fleet reds: GitHub Actions cron delivered 0 of 13 due triggers (~14h, both brief repos, watchdogs included) and the Mac fallback hibernated at 1% battery",
+      "headline": "overview: journal 2026-08-29 — a task that fired is not a task that ran",
       "logName": null,
-      "lastOutputAt": "2026-08-28T08:24:06.000Z",
-      "lastOutputHuman": "22h ago",
+      "lastOutputAt": "2026-08-29T09:08:38.000Z",
+      "lastOutputHuman": "2h ago",
       "issues": [],
       "review": null
     },
@@ -298,10 +309,10 @@
       "does": "Researches, validates and publishes the Danish morning brief before the 06:40 deadline.",
       "health": "green",
       "private": false,
-      "headline": "brief: 2026-08-28",
+      "headline": "published 2026-08-29",
       "logName": null,
-      "lastOutputAt": "2026-08-28T08:49:53.000Z",
-      "lastOutputHuman": "22h ago",
+      "lastOutputAt": "2026-08-29T10:44:10.751Z",
+      "lastOutputHuman": "19 min ago",
       "issues": [],
       "review": null
     },
@@ -568,10 +579,10 @@
       "does": "Reads the collection, finds lines from works it does not hold, and posts a board for him to tick. Proposes only — it may never add a quote.",
       "health": "green",
       "private": false,
-      "headline": "scout: the works trial — two interviews instead of a board, run on silence",
+      "headline": "scout: no signal on the works trial after two days, and no board",
       "logName": null,
-      "lastOutputAt": "2026-08-27T13:18:24.000Z",
-      "lastOutputHuman": "2d ago",
+      "lastOutputAt": "2026-08-29T09:38:43.000Z",
+      "lastOutputHuman": "1h ago",
       "issues": [],
       "review": "Created 2026-07-30. EXPIRES 2026-09-27 — by then at least 3 proposed lines must have been kept across at least two boards, or it retires itself. Watch the hit rate in scout-log.md, not the number of proposals."
     },
