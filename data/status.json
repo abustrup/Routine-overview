@@ -1,47 +1,25 @@
 {
-  "generatedAt": "2026-08-29T11:02:47.145Z",
-  "generatedAtLocal": "29 Aug 2026, 13:02 Europe/Copenhagen",
+  "generatedAt": "2026-08-30T06:18:49.423Z",
+  "generatedAtLocal": "30 Aug 2026, 08:18 Europe/Copenhagen",
   "owner": "Alexander Bustrup",
-  "attentionKey": "red:GitHub Actions: cron blackout returned:no-trigger|red:Rolling monthly (Måneden):stale|red:Rolling weekly (Ugen):stale|red:Thomas' Nyheder stalled at its scaffold (not enrolled):agent-stalled|warn:Mac starved its own routines this morning (now on mains):host-starved|warn:Rolling yearly (Året):ageing",
+  "attentionKey": "red:Cloud trigger (not enrolled):unwatched|red:Rolling monthly (Måneden):stale|red:Rolling weekly (Ugen):stale|warn:Rolling yearly (Året):ageing",
   "staleAfterMin": 1500,
   "summary": {
-    "green": 3,
+    "green": 4,
     "yellow": 1,
-    "red": 2,
+    "red": 3,
     "paused": 16,
-    "total": 22
+    "total": 23
   },
   "attention": [
     {
       "severity": "red",
       "project": "news-brief",
-      "routine": "Thomas' Nyheder stalled at its scaffold (not enrolled)",
-      "kind": "agent-stalled",
-      "message": "Fired on time at 05:51 and has written NOTHING since minute one: data/2026-08-29/ still holds only a 69-byte empty context.json from 05:51, 7h11m ago, while the process stays alive. This is NOT the power problem — the host has been on mains and awake since ~12:40 and Alexanders Brief finished and published in that same window. Same 69-byte signature the 08-28 run logged as a watch item, and the same shape as the 08-21 loss (agent step runs, writes no draft). Deadline 07:15 CPH long passed; no edition on origin. Invisible to this dashboard: dagens-kompas-daily still has no row in config/projects.json.",
+      "routine": "Cloud trigger (not enrolled)",
+      "kind": "unwatched",
+      "message": "Both publications now depend on one unwatched launchd job. com.abustrup.brief-cloud-trigger fired 05:56 today and saved BOTH editions on a morning GitHub's own cron delivered zero scheduled runs (4th blackout window since 08-26). It has no row in config/projects.json, so nothing on this board watches the single component the whole fleet now rests on. If it fails silently, both briefs die and the only backup is the cron that is already broken.",
       "fix": {
-        "prompt": "Thomas' Nyheder is stalling in its agent step rather than failing. Verified 2026-08-29 13:02 CPH: the scheduled task fired 05:51:27, and data/2026-08-29/ in ~/AI eksperimenter/News breif 1/.worktrees/thomas-nyheder holds exactly one file — a 69-byte context.json ({history:[],feedback:[],recommendationHistory:[]}) written 05:51 — with no research artifacts, no draft.json and nothing written in the 7h11m since. The claude process is still alive. Rule out the host: the Mac was starved by dark-wake sleep until ~12:40 but has been charging and awake since, and Alexanders Brief ran in the same conditions and published at 10:44Z. The 08-21 loss had the same shape (preflight passed 43 checks, agent ran ~22min, wrote no draft, ci-gate exited 2). The 08-28 run saw the identical 69-byte context.json at 10:22 and called it too early to judge. Find why the agent step produces nothing, and give it a timeout that fails loudly instead of hanging past the deadline.",
-        "cwd": "~/AI eksperimenter/News breif 1/.worktrees/thomas-nyheder"
-      }
-    },
-    {
-      "severity": "red",
-      "project": "news-brief",
-      "routine": "GitHub Actions: cron blackout returned",
-      "kind": "no-trigger",
-      "message": "Zero scheduled runs in either brief repo since 2026-08-28 19:30Z. 9 triggers were due this morning across 4 workflows and none fired, watchdogs included. Cron recovered on 08-28 afternoon (runs 15:08Z-19:30Z succeeded) and failed again overnight — intermittent, not a single outage. Third blackout window since 08-26. Separately: alexanders-brief-daily's crons are 08:11/08:47/09:13 CPH, all AFTER the 08:00 CPH deadline its task description states, so the cloud path cannot meet that deadline even when Actions works.",
-      "fix": {
-        "prompt": "GitHub Actions scheduled runs keep dropping for abustrup/alexanders-brief and abustrup/thomas-nyheder. Verified 2026-08-29 06:35Z: created>=2026-08-29 returns total_count 0 for BOTH repos; last run of any kind 2026-08-28T19:30:11Z. Nine triggers were due and none created: alexanders-brief-daily 06:11Z; thomas-nyheder-daily 05:11Z + 05:53Z; watchdog-thomas 07:28/07:52/08:28 CPH; watchdog-alexander 06:53/07:17/07:53 CPH. All four workflows state=active. This is INTERMITTENT, not one outage: dead 08-26 08:06Z to 08-27 15:08Z, working 08-27 15:08Z through 08-28 19:30Z (watchdog runs succeeded 17:27Z, 17:43Z, 18:50Z, 19:03Z, 19:30Z), dead again overnight. Also fix the deadline mismatch: alexanders-brief-daily runs 06:11/06:47/07:13 UTC = 08:11/08:47/09:13 CPH against a stated 08:00 CPH deadline.",
-        "cwd": "~/AI eksperimenter/alexanders-brief-pages"
-      }
-    },
-    {
-      "severity": "warn",
-      "project": "meta",
-      "routine": "Mac starved its own routines this morning (now on mains)",
-      "kind": "host-starved",
-      "message": "RESOLVED DURING THIS RUN, recorded because it cost the morning. Unplugged at 5% and dark-wake cycling from ~07:35 to ~12:40 CPH: awake ~45s per ~15min. All three morning tasks fired ON TIME (05:19, 05:51, 08:26) — the scheduler was fine; the host gave the runs ~5% of wall-clock. Alexanders Brief took 7h23m for a 40min job and published 10:44Z = 12:44 CPH, 4h44m past its 08:00 deadline. Late, not lost. Battery now charging. Third consecutive night of host-caused loss or lateness; Amphetamine held its assertion throughout and a flat battery overrode it anyway.",
-      "fix": {
-        "prompt": "Decide whether this Mac may remain the morning path's fallback while it can be left unplugged. Evidence 2026-08-29: battery 5% and discharging, pmset showed a continuous DarkWake -> 'Entering Sleep state due to Maintenance Sleep' cycle from 07:35 to ~12:40 CPH, awake ~45s per ~15min. Amphetamine DID hold PreventUserIdleSystemSleep=1 the whole time, so the assertion is not the gap — the flat battery is. Unlike 08-27 and 08-28 the tasks fired on schedule; execution starved instead. Alexanders Brief ran 7h23m against a normal 35-45min and published 4h44m late. Third consecutive morning lost or late to this host, with the GitHub Actions fallback simultaneously in a cron blackout. Options: keep it plugged in overnight, or move the morning path off this host.",
+        "prompt": "Enrol the cloud trigger in the routine watcher. Add a launchd routine row to ~/AI eksperimenter/Routine overview/config/projects.json for com.abustrup.brief-cloud-trigger (project news-brief, kind launchd, role producer, cadence '05:45 & 08:30', periodHours 24, EXPIRES 2026-11-01 as the script itself states) with freshness {type:'logMtime', path:'/Users/alexanderbustrup/.brief-ci/trigger.log'} and a scan block erroring on 'FAILED'. That log is written by ~/.brief-ci/trigger-cloud.sh on every run and is the only artifact proving the trigger fired. Then run node scripts/collect.mjs && node scripts/render.mjs and confirm the new card appears green. Also add rows for dagens-kompas-daily, harness-review and prompt-library-review, which have been unenrolled for 8 consecutive secretary runs.",
         "cwd": "~/AI eksperimenter/Routine overview"
       }
     },
@@ -49,7 +27,7 @@
       "severity": "red",
       "project": "news-brief",
       "routine": "Rolling weekly (Ugen)",
-      "message": "Stale — last output 32d ago (expected Daily · 06:48).",
+      "message": "Stale — last output 33d ago (expected Daily · 06:48).",
       "kind": "stale",
       "fix": {
         "prompt": "The scheduled routine \"Rolling weekly (Ugen)\" (Refreshes the 7-day rollup edition from the published dailies.) was expected to run Daily · 06:48 but produced no recent output. Working dir: ~/AI eksperimenter/News breif 1. Investigate why it stopped (check its scheduler run and its log), fix the cause, verify a fresh run produces output, and commit. Follow prompts/daily-brief.md and the project's guardrails; never expose any secrets or credentials; publish at most once per date.",
@@ -60,7 +38,7 @@
       "severity": "red",
       "project": "news-brief",
       "routine": "Rolling monthly (Måneden)",
-      "message": "Stale — last output 33d ago (expected Mondays · 07:02).",
+      "message": "Stale — last output 34d ago (expected Mondays · 07:02).",
       "kind": "stale",
       "fix": {
         "prompt": "The scheduled routine \"Rolling monthly (Måneden)\" (Refreshes the 30-day rollup edition.) was expected to run Mondays · 07:02 but produced no recent output. Working dir: ~/AI eksperimenter/News breif 1. Investigate why it stopped (check its scheduler run and its log), fix the cause, verify a fresh run produces output, and commit. Follow prompts/daily-brief.md and the project's guardrails; never expose any secrets or credentials; publish at most once per date.",
@@ -71,7 +49,7 @@
       "severity": "warn",
       "project": "news-brief",
       "routine": "Rolling yearly (Året)",
-      "message": "Ageing — last output 59d ago (expected 1st of month · 06:57).",
+      "message": "Ageing — last output 60d ago (expected 1st of month · 06:57).",
       "kind": "ageing",
       "fix": {
         "prompt": "The scheduled routine \"Rolling yearly (Året)\" (Refreshes the 12-month rollup edition.) was expected to run 1st of month · 06:57 but produced no recent output. Working dir: ~/AI eksperimenter/News breif 1. Investigate why it stopped (check its scheduler run and its log), fix the cause, verify a fresh run produces output, and commit. Follow prompts/daily-brief.md and the project's guardrails; never expose any secrets or credentials; publish at most once per date.",
@@ -143,7 +121,7 @@
         }
       ],
       "lastPublish": "2026-07-28T00:48:18.000Z",
-      "lastPublishHuman": "32d ago",
+      "lastPublishHuman": "33d ago",
       "lastPublishSubject": "fix: refuse an import the app cannot value instead of rendering a NaN book",
       "routineCount": 3,
       "routines": [
@@ -169,9 +147,9 @@
           "url": "https://github.com/abustrup/alexanders-brief"
         }
       ],
-      "lastPublish": "2026-08-29T10:44:10.000Z",
-      "lastPublishHuman": "19 min ago",
-      "lastPublishSubject": "brief: 2026-08-29",
+      "lastPublish": "2026-08-30T04:38:26.000Z",
+      "lastPublishHuman": "2h ago",
+      "lastPublishSubject": "ledger: 2026-08-30",
       "routineCount": 6,
       "routines": [
         "daily-news-brief",
@@ -199,9 +177,9 @@
           "url": "https://github.com/abustrup/thomas-nyheder"
         }
       ],
-      "lastPublish": "2026-08-28T09:38:39.000Z",
-      "lastPublishHuman": "1d ago",
-      "lastPublishSubject": "brief: 2026-08-28",
+      "lastPublish": "2026-08-29T11:10:44.000Z",
+      "lastPublishHuman": "19h ago",
+      "lastPublishSubject": "brief: 2026-08-29",
       "routineCount": 0,
       "routines": []
     },
@@ -222,9 +200,9 @@
           "url": "https://github.com/abustrup/Routine-overview"
         }
       ],
-      "lastPublish": "2026-08-29T09:08:38.000Z",
-      "lastPublishHuman": "2h ago",
-      "lastPublishSubject": "overview: journal 2026-08-29 — a task that fired is not a task that ran",
+      "lastPublish": "2026-08-29T11:03:46.000Z",
+      "lastPublishHuman": "19h ago",
+      "lastPublishSubject": "overview: 2026-08-29 13:05 — brief saved late (12:44, he plugged in); Thomas is a SECOND failure, stalled at its 69-byte scaffold for 7h",
       "routineCount": 2,
       "routines": [
         "routine-overview-secretary",
@@ -253,11 +231,36 @@
         }
       ],
       "lastPublish": "2026-08-29T09:38:43.000Z",
-      "lastPublishHuman": "1h ago",
+      "lastPublishHuman": "21h ago",
       "lastPublishSubject": "scout: no signal on the works trial after two days, and no board",
       "routineCount": 1,
       "routines": [
         "quote-scout"
+      ]
+    },
+    {
+      "id": "sendefladen",
+      "name": "Sendefladen",
+      "emoji": "📺",
+      "goal": "Be the thing he opens when he wants to relax — a finite, composed programme of video, podcasts and essays from sources he chose, that fits the time he actually has and then ends.",
+      "note": null,
+      "health": "green",
+      "links": [
+        {
+          "label": "The page",
+          "url": "http://localhost:8787"
+        },
+        {
+          "label": "Repo (local)",
+          "url": "~/sendefladen"
+        }
+      ],
+      "lastPublish": "2026-08-29T22:52:29.000Z",
+      "lastPublishHuman": "7h ago",
+      "lastPublishSubject": "updated",
+      "routineCount": 1,
+      "routines": [
+        "sendefladen-refresh"
       ]
     }
   ],
@@ -273,10 +276,10 @@
       "does": "Refreshes this overview from artifact-truth and flags only what needs attention.",
       "health": "green",
       "private": false,
-      "headline": "overview: journal 2026-08-29 — a task that fired is not a task that ran",
+      "headline": "overview: 2026-08-29 13:05 — brief saved late (12:44, he plugged in); Thomas is a SECOND failure, stalled at its 69-byte scaffold for 7h",
       "logName": null,
-      "lastOutputAt": "2026-08-29T09:08:38.000Z",
-      "lastOutputHuman": "2h ago",
+      "lastOutputAt": "2026-08-29T11:03:46.000Z",
+      "lastOutputHuman": "19h ago",
       "issues": [],
       "review": null
     },
@@ -294,7 +297,7 @@
       "headline": "improve: git freshness reads the repository, not whichever branch someone left checked out — a clone parked on an abandoned branch froze Dashboard self-improve's reading at that tip and can equally manufacture a false green",
       "logName": null,
       "lastOutputAt": "2026-07-28T10:05:21.000Z",
-      "lastOutputHuman": "32d ago",
+      "lastOutputHuman": "33d ago",
       "issues": [],
       "review": null
     },
@@ -309,10 +312,10 @@
       "does": "Researches, validates and publishes the Danish morning brief before the 06:40 deadline.",
       "health": "green",
       "private": false,
-      "headline": "published 2026-08-29",
+      "headline": "published 2026-08-30",
       "logName": null,
-      "lastOutputAt": "2026-08-29T10:44:10.751Z",
-      "lastOutputHuman": "19 min ago",
+      "lastOutputAt": "2026-08-30T06:13:24.099Z",
+      "lastOutputHuman": "5 min ago",
       "issues": [],
       "review": null
     },
@@ -330,7 +333,7 @@
       "headline": "rolling weekly: 2026-07-28",
       "logName": null,
       "lastOutputAt": "2026-07-28T04:53:31.000Z",
-      "lastOutputHuman": "32d ago",
+      "lastOutputHuman": "33d ago",
       "issues": [],
       "review": null
     },
@@ -348,7 +351,7 @@
       "headline": "rolling monthly: 2026-07-27",
       "logName": null,
       "lastOutputAt": "2026-07-27T05:06:17.000Z",
-      "lastOutputHuman": "33d ago",
+      "lastOutputHuman": "34d ago",
       "issues": [],
       "review": null
     },
@@ -366,7 +369,7 @@
       "headline": "rolling yearly: 2026-07-01",
       "logName": null,
       "lastOutputAt": "2026-07-01T08:56:52.000Z",
-      "lastOutputHuman": "59d ago",
+      "lastOutputHuman": "60d ago",
       "issues": [],
       "review": null
     },
@@ -420,7 +423,7 @@
       "headline": "fix: refuse an import the app cannot value instead of rendering a NaN book",
       "logName": null,
       "lastOutputAt": "2026-07-28T00:48:18.000Z",
-      "lastOutputHuman": "32d ago",
+      "lastOutputHuman": "33d ago",
       "issues": [],
       "review": null
     },
@@ -438,7 +441,7 @@
       "headline": "fix: refuse an import the app cannot value instead of rendering a NaN book",
       "logName": null,
       "lastOutputAt": "2026-07-28T00:48:18.000Z",
-      "lastOutputHuman": "32d ago",
+      "lastOutputHuman": "33d ago",
       "issues": [],
       "review": "Retired 2026-07-03 — was the redundant second stock maintainer (13:00); 'Dashboard self-improve' (02:00) is now the single canonical guardrailed pass. Disabled in scheduler; config synced to match."
     },
@@ -582,7 +585,7 @@
       "headline": "scout: no signal on the works trial after two days, and no board",
       "logName": null,
       "lastOutputAt": "2026-08-29T09:38:43.000Z",
-      "lastOutputHuman": "1h ago",
+      "lastOutputHuman": "21h ago",
       "issues": [],
       "review": "Created 2026-07-30. EXPIRES 2026-09-27 — by then at least 3 proposed lines must have been kept across at least two boards, or it retires itself. Watch the hit rate in scout-log.md, not the number of proposals."
     },
@@ -673,6 +676,24 @@
       "logName": "improve.log",
       "lastOutputAt": null,
       "lastOutputHuman": "—",
+      "issues": [],
+      "review": null
+    },
+    {
+      "id": "sendefladen-refresh",
+      "name": "Sendefladen refresh (launchd)",
+      "project": "sendefladen",
+      "cadence": "06:40 & 16:30",
+      "kind": "launchd",
+      "role": "producer",
+      "enabled": true,
+      "does": null,
+      "health": "green",
+      "private": true,
+      "headline": "ran — no errors detected",
+      "logName": "refresh.log",
+      "lastOutputAt": "2026-08-30T04:41:32.121Z",
+      "lastOutputHuman": "2h ago",
       "issues": [],
       "review": null
     }

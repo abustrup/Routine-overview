@@ -5,7 +5,8 @@
   "private": {
     "_doc": "This is a PUBLIC repo. Any freshness/scan source resolving under these roots is strategy-bearing and local-only; the collector must NOT copy its raw commit subjects or log lines into status.json/index.html — only a sanitized health phrase. Specifics go to the private push notification, never the public page.",
     "roots": [
-      "{HOME}/holdet-tdf-bot"
+      "{HOME}/holdet-tdf-bot",
+      "{HOME}/sendefladen"
     ]
   },
   "repos": {
@@ -15,7 +16,8 @@
     "holdetBot": "{HOME}/holdet-tdf-bot",
     "overview": "{HOME}/AI eksperimenter/Routine overview",
     "quotes": "{HOME}/Quote-collection",
-    "thomasPages": "{HOME}/AI eksperimenter/thomas-nyheder-pages"
+    "thomasPages": "{HOME}/AI eksperimenter/thomas-nyheder-pages",
+    "sendefladen": "{HOME}/sendefladen"
   },
   "projects": [
     {
@@ -137,6 +139,25 @@
       "healthFromRepo": "quotes",
       "fixCwd": "{HOME}/Quote-collection",
       "constraints": "Public repo and a public site. The scout may write data/proposals.json, scout-log.md and data/works.json only — never data/quotes.json, which is his to fill by ticking the board. Keep npm test and npm run check green."
+    },
+    {
+      "id": "sendefladen",
+      "name": "Sendefladen",
+      "emoji": "📺",
+      "goal": "Be the thing he opens when he wants to relax — a finite, composed programme of video, podcasts and essays from sources he chose, that fits the time he actually has and then ends.",
+      "links": [
+        {
+          "label": "The page",
+          "url": "http://localhost:8787"
+        },
+        {
+          "label": "Repo (local)",
+          "url": "local:sendefladen"
+        }
+      ],
+      "healthFromRepo": "sendefladen",
+      "fixCwd": "{HOME}/sendefladen",
+      "constraints": "Local-only and private: it holds his media diet, so nothing from it goes to a public repo or page without him saying so. Keep npm run check (8) and npm run check:browser (11) green — the browser one is the real check, since it is the only thing that proves media still plays. Never widen what the refresh job may touch beyond ~/sendefladen and public feed URLs."
     }
   ],
   "routines": [
@@ -549,11 +570,41 @@
           "skipping auto-merge"
         ]
       }
+    },
+    {
+      "id": "sendefladen-refresh",
+      "project": "sendefladen",
+      "name": "Sendefladen refresh (launchd)",
+      "cadence": "06:40 & 16:30",
+      "periodHours": 24,
+      "kind": "launchd",
+      "role": "producer",
+      "enabled": true,
+      "does": "Pulls 220 public feeds and rebuilds the programme. EXPIRES 2027-02-28 — if he has not opened the page in a month by then, delete the job rather than let it run unread. Granted, forever and unattended: outbound HTTPS GETs to the feed URLs in config/sources.json, and writes only inside ~/sendefladen. No credentials, no model calls, no writes anywhere else.",
+      "freshness": {
+        "type": "logMtime",
+        "path": "{repo:sendefladen}/data/refresh.log"
+      },
+      "scan": {
+        "path": "{repo:sendefladen}/data/refresh.log",
+        "error": [
+          "Error:",
+          "Traceback",
+          "Cannot read",
+          "is not defined",
+          "exit=1"
+        ],
+        "warn": [
+          "blocked after"
+        ],
+        "note": [],
+        "ignore": []
+      }
     }
   ],
   "thresholds": {
     "_doc": "Staleness multipliers on periodHours. green < warnAt; yellow warnAt..staleAt; red > staleAt.",
     "warnAt": 1.75,
-    "staleAt": 3.0
+    "staleAt": 3
   }
 }
