@@ -1,25 +1,47 @@
 {
-  "generatedAt": "2026-08-30T06:18:49.423Z",
-  "generatedAtLocal": "30 Aug 2026, 08:18 Europe/Copenhagen",
+  "generatedAt": "2026-09-01T16:07:50.988Z",
+  "generatedAtLocal": "1 Sept 2026, 18:07 Europe/Copenhagen",
   "owner": "Alexander Bustrup",
-  "attentionKey": "red:Cloud trigger (not enrolled):unwatched|red:Rolling monthly (Måneden):stale|red:Rolling weekly (Ugen):stale|warn:Rolling yearly (Året):ageing",
+  "attentionKey": "red:Cloud trigger (not enrolled):unwatched|red:Rolling monthly (Måneden):stale|red:Rolling weekly (Ugen):stale|red:Sendefladen refresh (launchd):false-green|warn:Rolling yearly (Året):ageing|warn:Routine secretary (this):ageing|warn:Routine secretary (this):self-failure",
   "staleAfterMin": 1500,
   "summary": {
-    "green": 4,
-    "yellow": 1,
-    "red": 3,
+    "green": 3,
+    "yellow": 2,
+    "red": 2,
     "paused": 16,
     "total": 23
   },
   "attention": [
     {
       "severity": "red",
+      "project": "sendefladen",
+      "routine": "Sendefladen refresh (launchd)",
+      "message": "FALSE GREEN, live right now — the 17:04 refresh FAILED (0/244 feeds answered, exit=2, it correctly refused to overwrite the deck) and this board shows the card green. Its scan.error patterns list exit=1, but the job's real failure path emits exit=2 / '!! REFRESH FAILED' / 'REFUSING TO WRITE'. Verified: 0 of the 5 configured patterns appear anywhere in refresh.log; all 3 real signatures do. Freshness is logMtime, so writing a failure log satisfies it. The failure itself was harmless (no network — the Mac was asleep) and its guard worked; the detector is what is broken.",
+      "kind": "false-green",
+      "fix": {
+        "prompt": "In ~/AI eksperimenter/Routine overview, config/projects.json, routine id 'sendefladen-refresh': its scan.error array lists \"exit=1\" but the refresh job fails with exit=2. Add \"exit=2\", \"REFRESH FAILED\" and \"REFUSING TO WRITE\" to scan.error, then run node scripts/collect.mjs && node scripts/render.mjs and confirm the Sendefladen refresh card turns red against the current data/refresh.log. Then check every other routine in this config the same way: compare each scan.error list against the failure strings its job actually emits, since exit=1 was assumed rather than verified here. Commit and push.",
+        "cwd": "~/AI eksperimenter/Routine overview"
+      }
+    },
+    {
+      "severity": "red",
       "project": "news-brief",
       "routine": "Cloud trigger (not enrolled)",
+      "message": "Still unwatched after 3 flags, and today proved again it is the only path that meets the deadline. com.abustrup.brief-cloud-trigger dispatched at 05:45:00 and both editions published 06:25 and 06:45 CPH. GitHub's own cron DID deliver today (the 08-26 to 08-30 blackout is over) but not until 11:21 CPH — over 3h past the 08:00 deadline. So the cloud cron is a backup for existence, not for timeliness, and nothing on this board watches the launchd job that actually delivers. ~/.brief-ci/trigger.log is a ready-made logMtime artifact.",
       "kind": "unwatched",
-      "message": "Both publications now depend on one unwatched launchd job. com.abustrup.brief-cloud-trigger fired 05:56 today and saved BOTH editions on a morning GitHub's own cron delivered zero scheduled runs (4th blackout window since 08-26). It has no row in config/projects.json, so nothing on this board watches the single component the whole fleet now rests on. If it fails silently, both briefs die and the only backup is the cron that is already broken.",
       "fix": {
-        "prompt": "Enrol the cloud trigger in the routine watcher. Add a launchd routine row to ~/AI eksperimenter/Routine overview/config/projects.json for com.abustrup.brief-cloud-trigger (project news-brief, kind launchd, role producer, cadence '05:45 & 08:30', periodHours 24, EXPIRES 2026-11-01 as the script itself states) with freshness {type:'logMtime', path:'/Users/alexanderbustrup/.brief-ci/trigger.log'} and a scan block erroring on 'FAILED'. That log is written by ~/.brief-ci/trigger-cloud.sh on every run and is the only artifact proving the trigger fired. Then run node scripts/collect.mjs && node scripts/render.mjs and confirm the new card appears green. Also add rows for dagens-kompas-daily, harness-review and prompt-library-review, which have been unenrolled for 8 consecutive secretary runs.",
+        "prompt": "In ~/AI eksperimenter/Routine overview, config/projects.json: add a routine row for the launchd job com.abustrup.brief-cloud-trigger — id 'brief-cloud-trigger', project 'news-brief', kind 'launchd', role 'producer', enabled true, cadence '05:45 & 08:30', periodHours 24, freshness {type:'logMtime', path:'{HOME}/.brief-ci/trigger.log'}, and a scan block whose error patterns are the strings that log ACTUALLY emits on failure (read ~/.brief-ci/trigger.log and the trigger script first — do not assume exit=1). Also add rows for dagens-kompas-daily, harness-review and prompt-library-review, which have been unenrolled for 9 consecutive runs. Then node scripts/collect.mjs && node scripts/render.mjs, verify the new cards render, commit and push.",
+        "cwd": "~/AI eksperimenter/Routine overview"
+      }
+    },
+    {
+      "severity": "warn",
+      "project": "meta",
+      "routine": "Routine secretary (this)",
+      "message": "This watcher failed the way it exists to catch. The 2026-08-31 run generated status.json and index.html at 06:30:16Z and then never committed, pushed or journalled — so the public page served 08-30 data for two days while a fresher build sat uncommitted on disk. It fired, it produced, and it published nothing. Cause not recoverable from here (no run log survives); the pattern to watch is the publish step, not the fire.",
+      "kind": "self-failure",
+      "fix": {
+        "prompt": "In ~/AI eksperimenter/Routine overview: the 2026-08-31 secretary run wrote data/status.json (generatedAt 2026-08-31T06:30:16Z) and index.html but never ran the commit/push step, and appended nothing to data/history.ndjson — the dashboard served two-day-old data with no alarm. Its own freshness rule is {type:'gitAny', repo:'overview'}, which measures the COMMIT, so it did eventually self-flag as ageing, but only 2 days later and only as a yellow. Make the publish step verifiable: have the run assert after pushing that HEAD's committed data/status.json generatedAt matches the one it just produced, and fail loudly if not. Consider journalling BEFORE publishing so a crash between the two is visible. Edit routines/secretary-hourly.md and the scheduled task at ~/.claude/scheduled-tasks/routine-overview-secretary/SKILL.md.",
         "cwd": "~/AI eksperimenter/Routine overview"
       }
     },
@@ -27,7 +49,7 @@
       "severity": "red",
       "project": "news-brief",
       "routine": "Rolling weekly (Ugen)",
-      "message": "Stale — last output 33d ago (expected Daily · 06:48).",
+      "message": "Stale — last output 35d ago (expected Daily · 06:48).",
       "kind": "stale",
       "fix": {
         "prompt": "The scheduled routine \"Rolling weekly (Ugen)\" (Refreshes the 7-day rollup edition from the published dailies.) was expected to run Daily · 06:48 but produced no recent output. Working dir: ~/AI eksperimenter/News breif 1. Investigate why it stopped (check its scheduler run and its log), fix the cause, verify a fresh run produces output, and commit. Follow prompts/daily-brief.md and the project's guardrails; never expose any secrets or credentials; publish at most once per date.",
@@ -38,7 +60,7 @@
       "severity": "red",
       "project": "news-brief",
       "routine": "Rolling monthly (Måneden)",
-      "message": "Stale — last output 34d ago (expected Mondays · 07:02).",
+      "message": "Stale — last output 36d ago (expected Mondays · 07:02).",
       "kind": "stale",
       "fix": {
         "prompt": "The scheduled routine \"Rolling monthly (Måneden)\" (Refreshes the 30-day rollup edition.) was expected to run Mondays · 07:02 but produced no recent output. Working dir: ~/AI eksperimenter/News breif 1. Investigate why it stopped (check its scheduler run and its log), fix the cause, verify a fresh run produces output, and commit. Follow prompts/daily-brief.md and the project's guardrails; never expose any secrets or credentials; publish at most once per date.",
@@ -47,9 +69,20 @@
     },
     {
       "severity": "warn",
+      "project": "meta",
+      "routine": "Routine secretary (this)",
+      "message": "Ageing — last output 2d ago (expected Daily · 08:17).",
+      "kind": "ageing",
+      "fix": {
+        "prompt": "The scheduled routine \"Routine secretary (this)\" (Refreshes this overview from artifact-truth and flags only what needs attention.) was expected to run Daily · 08:17 but produced no recent output. Working dir: ~/AI eksperimenter/Routine overview. Investigate why it stopped (check its scheduler run and its log), fix the cause, verify a fresh run produces output, and commit. Keep it public-safe: health/status only, no secrets or strategy internals. Verify with node scripts/collect.mjs && node scripts/render.mjs before pushing.",
+        "cwd": "~/AI eksperimenter/Routine overview"
+      }
+    },
+    {
+      "severity": "warn",
       "project": "news-brief",
       "routine": "Rolling yearly (Året)",
-      "message": "Ageing — last output 60d ago (expected 1st of month · 06:57).",
+      "message": "Ageing — last output 62d ago (expected 1st of month · 06:57).",
       "kind": "ageing",
       "fix": {
         "prompt": "The scheduled routine \"Rolling yearly (Året)\" (Refreshes the 12-month rollup edition.) was expected to run 1st of month · 06:57 but produced no recent output. Working dir: ~/AI eksperimenter/News breif 1. Investigate why it stopped (check its scheduler run and its log), fix the cause, verify a fresh run produces output, and commit. Follow prompts/daily-brief.md and the project's guardrails; never expose any secrets or credentials; publish at most once per date.",
@@ -121,7 +154,7 @@
         }
       ],
       "lastPublish": "2026-07-28T00:48:18.000Z",
-      "lastPublishHuman": "33d ago",
+      "lastPublishHuman": "36d ago",
       "lastPublishSubject": "fix: refuse an import the app cannot value instead of rendering a NaN book",
       "routineCount": 3,
       "routines": [
@@ -147,9 +180,9 @@
           "url": "https://github.com/abustrup/alexanders-brief"
         }
       ],
-      "lastPublish": "2026-08-30T04:38:26.000Z",
-      "lastPublishHuman": "2h ago",
-      "lastPublishSubject": "ledger: 2026-08-30",
+      "lastPublish": "2026-09-01T04:26:30.000Z",
+      "lastPublishHuman": "12h ago",
+      "lastPublishSubject": "ledger: 2026-09-01",
       "routineCount": 6,
       "routines": [
         "daily-news-brief",
@@ -177,9 +210,9 @@
           "url": "https://github.com/abustrup/thomas-nyheder"
         }
       ],
-      "lastPublish": "2026-08-29T11:10:44.000Z",
-      "lastPublishHuman": "19h ago",
-      "lastPublishSubject": "brief: 2026-08-29",
+      "lastPublish": "2026-08-30T04:41:20.000Z",
+      "lastPublishHuman": "2d ago",
+      "lastPublishSubject": "brief: 2026-08-30",
       "routineCount": 0,
       "routines": []
     },
@@ -189,7 +222,7 @@
       "emoji": "🗂️",
       "goal": "Hold the whole picture across every routine and interrupt Alexander only when something genuinely needs him.",
       "note": null,
-      "health": "green",
+      "health": "yellow",
       "links": [
         {
           "label": "This dashboard",
@@ -200,9 +233,9 @@
           "url": "https://github.com/abustrup/Routine-overview"
         }
       ],
-      "lastPublish": "2026-08-29T11:03:46.000Z",
-      "lastPublishHuman": "19h ago",
-      "lastPublishSubject": "overview: 2026-08-29 13:05 — brief saved late (12:44, he plugged in); Thomas is a SECOND failure, stalled at its 69-byte scaffold for 7h",
+      "lastPublish": "2026-08-30T06:29:16.000Z",
+      "lastPublishHuman": "2d ago",
+      "lastPublishSubject": "overview: journal 2026-08-30 — clean morning, sendefladen crash loop fixed, cloud trigger unwatched",
       "routineCount": 2,
       "routines": [
         "routine-overview-secretary",
@@ -230,9 +263,9 @@
           "url": "https://github.com/abustrup/Quote-collection"
         }
       ],
-      "lastPublish": "2026-08-29T09:38:43.000Z",
-      "lastPublishHuman": "21h ago",
-      "lastPublishSubject": "scout: no signal on the works trial after two days, and no board",
+      "lastPublish": "2026-08-30T07:07:09.000Z",
+      "lastPublishHuman": "2d ago",
+      "lastPublishSubject": "scout: a second quiet run, and the collection itself has been still since 08-19",
       "routineCount": 1,
       "routines": [
         "quote-scout"
@@ -255,8 +288,8 @@
           "url": "~/sendefladen"
         }
       ],
-      "lastPublish": "2026-08-29T22:52:29.000Z",
-      "lastPublishHuman": "7h ago",
+      "lastPublish": "2026-08-31T18:59:44.000Z",
+      "lastPublishHuman": "21h ago",
       "lastPublishSubject": "updated",
       "routineCount": 1,
       "routines": [
@@ -274,12 +307,12 @@
       "role": "maintainer",
       "enabled": true,
       "does": "Refreshes this overview from artifact-truth and flags only what needs attention.",
-      "health": "green",
+      "health": "yellow",
       "private": false,
-      "headline": "overview: 2026-08-29 13:05 — brief saved late (12:44, he plugged in); Thomas is a SECOND failure, stalled at its 69-byte scaffold for 7h",
+      "headline": "overview: journal 2026-08-30 — clean morning, sendefladen crash loop fixed, cloud trigger unwatched",
       "logName": null,
-      "lastOutputAt": "2026-08-29T11:03:46.000Z",
-      "lastOutputHuman": "19h ago",
+      "lastOutputAt": "2026-08-30T06:29:16.000Z",
+      "lastOutputHuman": "2d ago",
       "issues": [],
       "review": null
     },
@@ -297,7 +330,7 @@
       "headline": "improve: git freshness reads the repository, not whichever branch someone left checked out — a clone parked on an abandoned branch froze Dashboard self-improve's reading at that tip and can equally manufacture a false green",
       "logName": null,
       "lastOutputAt": "2026-07-28T10:05:21.000Z",
-      "lastOutputHuman": "33d ago",
+      "lastOutputHuman": "35d ago",
       "issues": [],
       "review": null
     },
@@ -312,10 +345,10 @@
       "does": "Researches, validates and publishes the Danish morning brief before the 06:40 deadline.",
       "health": "green",
       "private": false,
-      "headline": "published 2026-08-30",
+      "headline": "published 2026-09-01",
       "logName": null,
-      "lastOutputAt": "2026-08-30T06:13:24.099Z",
-      "lastOutputHuman": "5 min ago",
+      "lastOutputAt": "2026-09-01T16:07:25.356Z",
+      "lastOutputHuman": "just now",
       "issues": [],
       "review": null
     },
@@ -333,7 +366,7 @@
       "headline": "rolling weekly: 2026-07-28",
       "logName": null,
       "lastOutputAt": "2026-07-28T04:53:31.000Z",
-      "lastOutputHuman": "33d ago",
+      "lastOutputHuman": "35d ago",
       "issues": [],
       "review": null
     },
@@ -351,7 +384,7 @@
       "headline": "rolling monthly: 2026-07-27",
       "logName": null,
       "lastOutputAt": "2026-07-27T05:06:17.000Z",
-      "lastOutputHuman": "34d ago",
+      "lastOutputHuman": "36d ago",
       "issues": [],
       "review": null
     },
@@ -369,7 +402,7 @@
       "headline": "rolling yearly: 2026-07-01",
       "logName": null,
       "lastOutputAt": "2026-07-01T08:56:52.000Z",
-      "lastOutputHuman": "60d ago",
+      "lastOutputHuman": "62d ago",
       "issues": [],
       "review": null
     },
@@ -423,7 +456,7 @@
       "headline": "fix: refuse an import the app cannot value instead of rendering a NaN book",
       "logName": null,
       "lastOutputAt": "2026-07-28T00:48:18.000Z",
-      "lastOutputHuman": "33d ago",
+      "lastOutputHuman": "36d ago",
       "issues": [],
       "review": null
     },
@@ -441,7 +474,7 @@
       "headline": "fix: refuse an import the app cannot value instead of rendering a NaN book",
       "logName": null,
       "lastOutputAt": "2026-07-28T00:48:18.000Z",
-      "lastOutputHuman": "33d ago",
+      "lastOutputHuman": "36d ago",
       "issues": [],
       "review": "Retired 2026-07-03 — was the redundant second stock maintainer (13:00); 'Dashboard self-improve' (02:00) is now the single canonical guardrailed pass. Disabled in scheduler; config synced to match."
     },
@@ -582,10 +615,10 @@
       "does": "Reads the collection, finds lines from works it does not hold, and posts a board for him to tick. Proposes only — it may never add a quote.",
       "health": "green",
       "private": false,
-      "headline": "scout: no signal on the works trial after two days, and no board",
+      "headline": "scout: a second quiet run, and the collection itself has been still since 08-19",
       "logName": null,
-      "lastOutputAt": "2026-08-29T09:38:43.000Z",
-      "lastOutputHuman": "21h ago",
+      "lastOutputAt": "2026-08-30T07:07:09.000Z",
+      "lastOutputHuman": "2d ago",
       "issues": [],
       "review": "Created 2026-07-30. EXPIRES 2026-09-27 — by then at least 3 proposed lines must have been kept across at least two boards, or it retires itself. Watch the hit rate in scout-log.md, not the number of proposals."
     },
@@ -692,8 +725,8 @@
       "private": true,
       "headline": "ran — no errors detected",
       "logName": "refresh.log",
-      "lastOutputAt": "2026-08-30T04:41:32.121Z",
-      "lastOutputHuman": "2h ago",
+      "lastOutputAt": "2026-09-01T15:04:08.484Z",
+      "lastOutputHuman": "1h ago",
       "issues": [],
       "review": null
     }
